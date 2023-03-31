@@ -16,7 +16,6 @@ namespace WFC
         public String id_up, id_right,id_down ,id_left;
         //Adjacency arrays
         //public int[][] adjacency = new int[4][];
-
         //public List<int>[] arrayofValues=new List<int>[4];
         
         public List<int> up;
