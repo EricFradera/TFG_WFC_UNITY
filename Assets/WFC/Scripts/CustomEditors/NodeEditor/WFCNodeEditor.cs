@@ -1,9 +1,15 @@
+using System;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using WFC;
 
 public class WFCNodeEditor : EditorWindow
 {
+    private WFCNodeEditorView wfcNodeEditorView;
+    private InspectorView inspectorView;
+
+
     [SerializeField] private VisualTreeAsset m_VisualTreeAsset = default;
 
     [MenuItem("WFC/WFCNodeEditor")]
@@ -25,5 +31,18 @@ public class WFCNodeEditor : EditorWindow
         var styleSheet =
             AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/WFC/Scripts/CustomEditors/NodeEditor/WFCNodeEditor.uss");
         root.styleSheets.Add(styleSheet);
+
+        wfcNodeEditorView = root.Q<WFCNodeEditorView>();
+        inspectorView = root.Q<InspectorView>();
+        OnSelectionChange();
+    }
+
+    private void OnSelectionChange()
+    {
+        WFCConfig config = Selection.activeObject as WFCConfig;
+        if (config)
+        {
+            wfcNodeEditorView.PopulateView(config);
+        }
     }
 }
