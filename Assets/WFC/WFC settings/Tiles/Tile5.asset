@@ -13,12 +13,17 @@ MonoBehaviour:
   m_Name: Tile5
   m_EditorClassIdentifier: 
   tileId: 5
-  texture2D: {fileID: 0}
+  adjacencyCodes:
+  - W
+  - W
+  - XBXW
+  - YWYB
+  position: {x: 0, y: 0}
   id_up: W
   id_right: W
   id_down: XBXW
   id_left: YWYB
-  up: 03000000
-  right: 01000000030000000400000007000000090000000b000000
-  down: 06000000
-  left: 00000000040000000a0000000e0000000f000000
+  up: 
+  right: 
+  down: 
+  left: 

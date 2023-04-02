@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7619165577752889774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e890ea296fd8fc84392022df9300b300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileId: 44
+  position: {x: 299.36, y: 242.544}
+  id_up: 
+  id_right: 
+  id_down: 
+  id_left: 
+  up: 
+  right: 
+  down: 
+  left: 
+--- !u!114 &-602459101636642054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e890ea296fd8fc84392022df9300b300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileId: 44
+  position: {x: 0, y: 0}
+  id_up: 
+  id_right: 
+  id_down: 
+  id_left: 
+  up: 
+  right: 
+  down: 
+  left: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14,4 +58,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   configurationName: 
   configurationID: 0
-  wfc2DTilesList: []
+  wfc2DTilesList:
+  - {fileID: -7619165577752889774}
+  - {fileID: -602459101636642054}

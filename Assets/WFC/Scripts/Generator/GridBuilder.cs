@@ -16,21 +16,22 @@ namespace WFC
         private debro_test test;
         private ITopoArray<int> result;
         public List<WFC2DTile> adjacencyData;
+        private WFCConfig wfcConfig;
 
-
-        public void Genarate()
+        public void Genarate(WFCConfig wfcConfig)
         {
             destroyOldIteration();
-            test = new debro_test(adjacencyData);
+            this.wfcConfig = wfcConfig;
+            test = new debro_test(wfcConfig.wfcTilesList);
             result = test.runWFC(size);
-            
+
             for (int i = 0; i < size; i++)
             {
                 for (int j = 0; j < size; j++)
                 {
                     gameObjectArray[i, j] = Instantiate(circuitComponents[(result.Get(i, j))], new Vector3(i, 0, j),
                         transform.rotation);
-                   // Debug.Log(result.Get(i,j));
+                    // Debug.Log(result.Get(i,j));
                     gameObjectArray[i, j].transform.parent = gameObject.transform;
                 }
             }
@@ -45,6 +46,7 @@ namespace WFC
                     DestroyImmediate(tile);
                 }
             }
+
             gameObjectArray = new GameObject[size, size];
         }
     }

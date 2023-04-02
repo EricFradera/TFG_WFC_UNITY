@@ -6,34 +6,55 @@ using UnityEngine;
 namespace WFC
 {
     [CreateAssetMenu(menuName = "WFC components/WFC2DTile", order = 1, fileName = "WFC2dTile"), Serializable]
-    public class WFC2DTile : ScriptableObject
+    public class WFC2DTile : WFCTile
     {
         // Tile id
-        public int tileId;
-        public Vector2 position;
+        //public int tileId;
+        //public Vector2 position;
 
         //Texture itself
-        public Texture2D texture2D;
+        //public Texture2D texture2D;
 
         //Adjacency codes
         public String id_up, id_right, id_down, id_left;
+
+
+        public WFC2DTile()
+        {
+            this.adjacencyCodes = new string[4];
+            this.adjacencyPairs = new List<int>[4];
+        }
+
         //Adjacency arrays
         //public int[][] adjacency = new int[4][];
         //public List<int>[] arrayofValues=new List<int>[4];
+        private enum IndexDirection
+        {
+            UP,
+            RIGHT,
+            DOWN,
+            LEFT
+        }
 
         public List<int> up;
         public List<int> right;
         public List<int> down;
         public List<int> left;
 
-        public WFC2DTile(int tileID, Texture2D texture, int adjUp, int adjRight, int adjDown, int adjLeft)
+        public int GetInverse(int indexDirection)
         {
-            this.tileId = tileID;
-            this.texture2D = texture;
-        }
-
-        public WFC2DTile()
-        {
+            switch ((IndexDirection)indexDirection)
+            {
+                case IndexDirection.UP:
+                    return (int)IndexDirection.DOWN;
+                case IndexDirection.RIGHT:
+                    return (int)IndexDirection.LEFT;
+                case IndexDirection.DOWN:
+                    return (int)IndexDirection.UP;
+                case IndexDirection.LEFT:
+                    return (int)IndexDirection.RIGHT;
+                default: return -1;
+            }
         }
     }
 }

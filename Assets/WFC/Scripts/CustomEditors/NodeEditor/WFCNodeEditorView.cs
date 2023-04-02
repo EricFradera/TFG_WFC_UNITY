@@ -34,7 +34,7 @@ public class WFCNodeEditorView : GraphView
         graphViewChanged -= OnGraphViewChanged;
         DeleteElements(graphElements);
         graphViewChanged += OnGraphViewChanged;
-        config.wfc2DTilesList.ForEach(n => CreateNodeView(n));
+        config.wfcTilesList.ForEach(n => CreateNodeView(n));
     }
 
     public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
@@ -70,11 +70,11 @@ public class WFCNodeEditorView : GraphView
 
     private void CreateNode()
     {
-        WFC2DTile node = config.CreateNodeTile();
+        WFCTile node = config.CreateNodeTile();
         CreateNodeView(node);
     }
 
-    void CreateNodeView(WFC2DTile tile)
+    void CreateNodeView(WFCTile tile)
     {
         NodeComponent nodeComponent = new NodeComponent(tile);
         AddElement(nodeComponent);

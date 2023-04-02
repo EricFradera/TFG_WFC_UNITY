@@ -18,9 +18,9 @@ public class NodeComponent : Node
         "up", "right", "down", "left"
     };
 
-    public NodeComponent(WFC2DTile tile)
+    public NodeComponent(WFCTile tile)
     {
-        this.tile = tile;
+        this.tile = (WFC2DTile)tile;
         this.title = tile.tileId.ToString();
         //this,viewDataKey=node.guid;
         style.left = tile.position.x;

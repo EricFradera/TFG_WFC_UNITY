@@ -13,15 +13,16 @@ namespace WFC
     {
         public String configurationName;
         public int configurationID;
-        public List<WFC2DTile> wfc2DTilesList = new List<WFC2DTile>();
+        //Eventually should be changed for a List<WFCTile>
+        public List<WFC2DTile> wfcTilesList = new List<WFC2DTile>();
 
         // WFC2DTile should be an abstraction so its more flexible, such as pattern or tile
-        public WFC2DTile CreateNodeTile()
+        public WFCTile CreateNodeTile()
         {
             WFC2DTile nodeTile = ScriptableObject.CreateInstance<WFC2DTile>();
             nodeTile.tileId = 44;
             //GUID.Generate.ToString --> generate unique ID
-            wfc2DTilesList.Add(nodeTile);
+            wfcTilesList.Add(nodeTile);
             AssetDatabase.AddObjectToAsset(nodeTile, this);
             AssetDatabase.SaveAssets();
 
@@ -30,7 +31,7 @@ namespace WFC
 
         public void DeleteNodeTile(WFC2DTile tile)
         {
-            wfc2DTilesList.Remove(tile);
+            wfcTilesList.Remove(tile);
             AssetDatabase.RemoveObjectFromAsset(tile);
             AssetDatabase.SaveAssets();
         }
