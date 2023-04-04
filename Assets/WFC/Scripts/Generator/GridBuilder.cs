@@ -31,7 +31,6 @@ namespace WFC
                 {
                     gameObjectArray[i, j] = Instantiate(circuitComponents[(result.Get(i, j))], new Vector3(i, 0, j),
                         transform.rotation);
-                    // Debug.Log(result.Get(i,j));
                     gameObjectArray[i, j].transform.parent = gameObject.transform;
                 }
             }
@@ -46,7 +45,6 @@ namespace WFC
                     DestroyImmediate(tile);
                 }
             }
-
             gameObjectArray = new GameObject[size, size];
         }
     }

@@ -100,36 +100,6 @@ namespace WFC
                     for (int j = 0; j < tileData[i].adjacencyPairs[dir].Count; j++)
                         model.AddAdjacency(tileList[i], tileList[tileData[i].adjacencyPairs[dir][j]], direction[dir]);
                 }
-                
-                /*
-                
-                //UP
-                for (int j = 0; j < tileData[i].adjacencyPairs[0].Count; j++)
-                {
-                    model.AddAdjacency(tileList[i], tileList[tileData[i].adjacencyPairs[0][j]], Direction.YPlus);
-                    //model.AddAdjacency(tileList[i], tileList[tileData[i].up[j]], Direction.YPlus);
-                }
-
-                //RIGHT
-                for (int j = 0; j < tileData[i].adjacencyPairs[1].Count; j++)
-                {
-                    model.AddAdjacency(tileList[i], tileList[tileData[i].adjacencyPairs[1][j]], Direction.XPlus);
-                    //model.AddAdjacency(tileList[i], tileList[tileData[i].right[j]], Direction.XPlus);
-                }
-
-                //DOWN
-                for (int j = 0; j < tileData[i].adjacencyPairs[2].Count; j++)
-                {
-                    model.AddAdjacency(tileList[i], tileList[tileData[i].adjacencyPairs[2][j]], Direction.YMinus);
-                    //model.AddAdjacency(tileList[i], tileList[tileData[i].down[j]], Direction.YMinus);
-                }
-
-                //LEFT
-                for (int j = 0; j < tileData[i].adjacencyPairs[3].Count; j++)
-                {
-                    model.AddAdjacency(tileList[i], tileList[tileData[i].adjacencyPairs[3][j]], Direction.XMinus);
-                    //model.AddAdjacency(tileList[i], tileList[tileData[i].left[j]], Direction.XMinus);
-                }*/
             }
 
             return model;
