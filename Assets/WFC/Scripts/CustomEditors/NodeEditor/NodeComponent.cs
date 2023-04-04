@@ -34,7 +34,7 @@ public class NodeComponent : Node
 
     private void CreateInputPort(String portName)
     {
-        //Here I need to chack based on what type of tile it is. For now We are working in a 2D space so no checking
+        //Here I need to check based on what type of tile it is. For now We are working in a 2D space so no checking
         input = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Multi, typeof(bool));
         input.portName = portName;
         inputContainer.Add(input);

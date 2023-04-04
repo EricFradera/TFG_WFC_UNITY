@@ -12,7 +12,9 @@ namespace WFC
     public class WFCConfig : ScriptableObject
     {
         public String configurationName;
+
         public int configurationID;
+
         //Eventually should be changed for a List<WFCTile>
         public List<WFCTile> wfcTilesList = new List<WFCTile>();
 
@@ -29,19 +31,26 @@ namespace WFC
             return nodeTile;
         }
 
-        public void DeleteNodeTile(WFC2DTile tile)
+        public void DeleteNodeTile(WFCTile tile)
         {
             wfcTilesList.Remove(tile);
             AssetDatabase.RemoveObjectFromAsset(tile);
             AssetDatabase.SaveAssets();
         }
 
-        public void AddChild(WFC2DTile parent, WFC2DTile child)
+        public void AddChild(WFCTile parent, WFCTile child, int dir)
         {
+            parent.adjacencyPairs[dir].Add(child);
         }
 
-        public void RemoveChild(WFC2DTile parent, WFC2DTile child)
+        public void RemoveChild(WFC2DTile parent, WFC2DTile child, int dir)
         {
+            //parent.adjacencyPairs[dir].Remove(child.tileId);
         }
+
+        /*public List<int> GetChildren(WFCTile parent, int dir)
+        {
+            return parent.adjacencyPairs[dir];
+        }*/
     }
 }

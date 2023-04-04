@@ -11,7 +11,7 @@ namespace WFC
         public WFC2DTile()
         {
             this.adjacencyCodes = new String[4];
-            this.adjacencyPairs = new List<int>[4];
+            this.adjacencyPairs = new List<WFCTile>[4];
         }
 
         private enum IndexDirection

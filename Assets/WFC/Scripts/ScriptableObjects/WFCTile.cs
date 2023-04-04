@@ -13,7 +13,7 @@ public abstract class WFCTile : ScriptableObject
     //Each tile has its own adjacency codes (ej: up,right,down,left)
     public String[] adjacencyCodes;
 
-    public List<int>[] adjacencyPairs;
+    public List<WFCTile>[] adjacencyPairs;
 
     // Node data
     public Vector2 position;

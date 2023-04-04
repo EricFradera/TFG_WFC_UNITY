@@ -98,7 +98,7 @@ namespace WFC
                 for (int dir = 0; dir < tileData[i].adjacencyPairs.Length; dir++)
                 {
                     for (int j = 0; j < tileData[i].adjacencyPairs[dir].Count; j++)
-                        model.AddAdjacency(tileList[i], tileList[tileData[i].adjacencyPairs[dir][j]], direction[dir]);
+                        model.AddAdjacency(tileList[i],tileList[tileData[i].adjacencyPairs[dir][j].tileId] , direction[dir]);
                 }
             }
 

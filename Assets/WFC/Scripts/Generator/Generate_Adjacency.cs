@@ -27,7 +27,7 @@ public class Generate_Adjacency
                 for (int i = 0; i < tileOrigin.adjacencyCodes.Length; i++)
                 {
                     if (tileOrigin.adjacencyCodes[i] == tileDest.adjacencyCodes[tileDest.GetInverse(i)])
-                        tileOrigin.adjacencyPairs[i].Add(tileDest.tileId);
+                        tileOrigin.adjacencyPairs[i].Add(tileDest);
                 }
             }
         }
@@ -39,7 +39,7 @@ public class Generate_Adjacency
         {
             for (int i = 0; i < tile.adjacencyPairs.Length; i++)
             {
-                if (tile.adjacencyPairs[i] is null) tile.adjacencyPairs[i] = new List<int>();
+                if (tile.adjacencyPairs[i] is null) tile.adjacencyPairs[i] = new List<WFCTile>();
                 else tile.adjacencyPairs[i].Clear();
             }
         }
