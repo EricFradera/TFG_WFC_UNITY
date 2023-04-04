@@ -21,8 +21,7 @@ public class NodeComponent : Node
     public NodeComponent(WFCTile tile)
     {
         this.tile = (WFC2DTile)tile;
-        this.title = tile.tileId.ToString();
-        this.viewDataKey = tile.tileId.ToString();
+        this.viewDataKey = tile.tileId;
         input = new Port[4];
         output = new Port[4];
         //this,viewDataKey=node.guid;

@@ -59,7 +59,7 @@ public class WFCNodeEditorView : GraphView
 
     NodeComponent FindNodeComponent(WFCTile tile)
     {
-        return GetNodeByGuid(tile.tileId.ToString()) as NodeComponent;
+        return GetNodeByGuid(tile.tileId) as NodeComponent;
     }
 
     public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
