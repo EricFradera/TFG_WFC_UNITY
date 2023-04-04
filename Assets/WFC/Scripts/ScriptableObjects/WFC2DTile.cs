@@ -16,12 +16,12 @@ namespace WFC
         //public Texture2D texture2D;
 
         //Adjacency codes
-        public String id_up, id_right, id_down, id_left;
+        //public String id_up, id_right, id_down, id_left;
 
 
         public WFC2DTile()
         {
-            this.adjacencyCodes = new string[4];
+            this.adjacencyCodes = new String[4];
             this.adjacencyPairs = new List<int>[4];
         }
 
@@ -36,11 +36,11 @@ namespace WFC
             LEFT
         }
 
-        public List<int> up;
-        public List<int> right;
-        public List<int> down;
-        public List<int> left;
-
+        //public List<int> up;
+        //public List<int> right;
+        //public List<int> down;
+        //public List<int> left;
+        
         public int GetInverse(int indexDirection)
         {
             switch ((IndexDirection)indexDirection)

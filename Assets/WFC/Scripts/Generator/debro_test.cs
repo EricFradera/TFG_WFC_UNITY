@@ -17,11 +17,20 @@ namespace WFC
         private Generate_Adjacency _adjacencyGen;
         private List<WFC2DTile> tileData;
 
+        private Direction[] direction =
+        {
+            Direction.YPlus,
+            Direction.XPlus,
+            Direction.YMinus,
+            Direction.XMinus
+        };
+
         public debro_test(List<WFC2DTile> tileData)
         {
             this.tileData = tileData;
             _adjacencyGen = new Generate_Adjacency(this.tileData);
         }
+
         public ITopoArray<int> runWFC(int size)
         {
             // Define some sample data
@@ -50,7 +59,7 @@ namespace WFC
             var status = propagator.Run();
             if (status != DeBroglie.Resolution.Decided) throw new Exception("Undecided");
             var output = propagator.ToValueArray<int>();
-            
+
 // Display the results
             return output;
         }
@@ -60,14 +69,13 @@ namespace WFC
             var model = new AdjacentModel(DirectionSet.Cartesian2d);
             var tile1 = new Tile(0);
             var tile2 = new Tile(1);
-            model.SetFrequency(tile1,1);
-            model.SetFrequency(tile2,1);
-            model.AddAdjacency(tile1,tile2,1,0,0);
-            model.AddAdjacency(tile1,tile2,0,1,0);
-            model.AddAdjacency(tile2,tile1,1,0,0);
-            model.AddAdjacency(tile2,tile1,0,1,0);
+            model.SetFrequency(tile1, 1);
+            model.SetFrequency(tile2, 1);
+            model.AddAdjacency(tile1, tile2, 1, 0, 0);
+            model.AddAdjacency(tile1, tile2, 0, 1, 0);
+            model.AddAdjacency(tile2, tile1, 1, 0, 0);
+            model.AddAdjacency(tile2, tile1, 0, 1, 0);
             return model;
-            
         }
 
         private AdjacentModel generateMountain()
@@ -81,25 +89,49 @@ namespace WFC
                 //establish  the new frequency
                 //add to the list of tiles
                 var newTile = new Tile(tile.tileId);
-                model.SetFrequency(newTile,1);
+                model.SetFrequency(newTile, 1);
                 tileList.Add(newTile);
-                
             }
+
             for (int i = 0; i < tileData.Count; i++)
             {
+                for (int dir = 0; dir < tileData[i].adjacencyPairs.Length; dir++)
+                {
+                    for (int j = 0; j < tileData[i].adjacencyPairs[dir].Count; j++)
+                        model.AddAdjacency(tileList[i], tileList[tileData[i].adjacencyPairs[dir][j]], direction[dir]);
+                }
+                
+                /*
+                
                 //UP
-                for (int j = 0; j < tileData[i].up.Count; j++)
-                    model.AddAdjacency(tileList[i],tileList[tileData[i].up[j]],Direction.YPlus);
+                for (int j = 0; j < tileData[i].adjacencyPairs[0].Count; j++)
+                {
+                    model.AddAdjacency(tileList[i], tileList[tileData[i].adjacencyPairs[0][j]], Direction.YPlus);
+                    //model.AddAdjacency(tileList[i], tileList[tileData[i].up[j]], Direction.YPlus);
+                }
+
                 //RIGHT
-                for (int j = 0; j < tileData[i].right.Count; j++)
-                    model.AddAdjacency(tileList[i],tileList[tileData[i].right[j]],Direction.XPlus);
+                for (int j = 0; j < tileData[i].adjacencyPairs[1].Count; j++)
+                {
+                    model.AddAdjacency(tileList[i], tileList[tileData[i].adjacencyPairs[1][j]], Direction.XPlus);
+                    //model.AddAdjacency(tileList[i], tileList[tileData[i].right[j]], Direction.XPlus);
+                }
+
                 //DOWN
-                for (int j = 0; j < tileData[i].down.Count; j++)
-                    model.AddAdjacency(tileList[i],tileList[tileData[i].down[j]],Direction.YMinus);
+                for (int j = 0; j < tileData[i].adjacencyPairs[2].Count; j++)
+                {
+                    model.AddAdjacency(tileList[i], tileList[tileData[i].adjacencyPairs[2][j]], Direction.YMinus);
+                    //model.AddAdjacency(tileList[i], tileList[tileData[i].down[j]], Direction.YMinus);
+                }
+
                 //LEFT
-                for (int j = 0; j < tileData[i].left.Count; j++)
-                    model.AddAdjacency(tileList[i],tileList[tileData[i].left[j]],Direction.XMinus);
+                for (int j = 0; j < tileData[i].adjacencyPairs[3].Count; j++)
+                {
+                    model.AddAdjacency(tileList[i], tileList[tileData[i].adjacencyPairs[3][j]], Direction.XMinus);
+                    //model.AddAdjacency(tileList[i], tileList[tileData[i].left[j]], Direction.XMinus);
+                }*/
             }
+
             return model;
         }
     }

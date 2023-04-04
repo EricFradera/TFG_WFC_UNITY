@@ -19,11 +19,7 @@ MonoBehaviour:
   - B
   - BLDNG
   position: {x: 0, y: 0}
-  id_up: BB
-  id_right: YWYB
-  id_down: B
-  id_left: BLDNG
-  up: 
-  right: 
-  down: 
-  left: 
+  up: 090000000b000000
+  right: 0000000005000000080000000c0000000f000000
+  down: 02000000
+  left: 0c0000000d000000
