@@ -15,7 +15,7 @@ namespace WFC
     {
         // Start is called before the first frame update
         private Generate_Adjacency _adjacencyGen;
-        private List<WFC2DTile> tileData;
+        private List<WFCTile> tileData;
 
         private Direction[] direction =
         {
@@ -25,7 +25,7 @@ namespace WFC
             Direction.XMinus
         };
 
-        public debro_test(List<WFC2DTile> tileData)
+        public debro_test(List<WFCTile> tileData)
         {
             this.tileData = tileData;
             _adjacencyGen = new Generate_Adjacency(this.tileData);

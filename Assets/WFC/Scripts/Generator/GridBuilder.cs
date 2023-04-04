@@ -15,7 +15,6 @@ namespace WFC
         [SerializeField] private List<GameObject> circuitComponents;
         private debro_test test;
         private ITopoArray<int> result;
-        public List<WFC2DTile> adjacencyData;
         private WFCConfig wfcConfig;
 
         public void Genarate(WFCConfig wfcConfig)

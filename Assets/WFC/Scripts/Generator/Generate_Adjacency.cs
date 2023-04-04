@@ -10,9 +10,9 @@ using Debug = UnityEngine.Debug;
 [ExecuteInEditMode]
 public class Generate_Adjacency
 {
-    private List<WFC2DTile> _adjacencyGen;
+    private List<WFCTile> _adjacencyGen;
 
-    public Generate_Adjacency(List<WFC2DTile> adjacencyGen)
+    public Generate_Adjacency(List<WFCTile> adjacencyGen)
     {
         this._adjacencyGen = adjacencyGen;
     }

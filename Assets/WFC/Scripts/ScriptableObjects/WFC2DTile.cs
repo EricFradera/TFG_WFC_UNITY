@@ -22,7 +22,7 @@ namespace WFC
             LEFT
         }
 
-        public int GetInverse(int indexDirection)
+        public override int GetInverse(int indexDirection)
         {
             switch ((IndexDirection)indexDirection)
             {
