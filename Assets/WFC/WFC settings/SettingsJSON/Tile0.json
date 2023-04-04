@@ -1,1 +1,11 @@
-{"tileId":0,"id_up":"W","id_right":"YWYB","id_down":"B","id_left":"YWYB","up":[3],"right":[0,5,8,12,15],"down":[2],"left":[0,4,10,14,15]}
+{
+  "tileId": 0,
+  "id_up": "W",
+  "id_right": "YWYB",
+  "id_down": "B",
+  "id_left": "YWYB",
+  "up": [3],
+  "right": [0, 5, 8, 12, 15],
+  "down": [2],
+  "left": [0, 4, 10, 14, 15]
+}

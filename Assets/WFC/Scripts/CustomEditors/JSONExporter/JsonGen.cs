@@ -22,4 +22,11 @@ public class JsonGen
             path.Substring(path.LastIndexOf("Assets", StringComparison.Ordinal)) + "/Tile" + tile.tileId + ".asset");
         AssetDatabase.SaveAssets();
     }
+
+    public void GenerateJsonFromConfig(WFCConfig config, String path)
+    {
+        string adjacencyConstrains = JsonUtility.ToJson(config);
+        System.IO.File.WriteAllText(
+            path + "/Tile" + config.configurationName + ".json", adjacencyConstrains);
+    }
 }

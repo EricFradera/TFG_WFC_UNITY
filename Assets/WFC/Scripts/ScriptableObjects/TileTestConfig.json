@@ -1,0 +1,22 @@
+{
+  "configurationName": "TestConfig",
+  "configurationID": 1,
+  "wfcTilesList": [
+    { "instanceID": 26690 },
+    { "instanceID": 26744 },
+    { "instanceID": 26670 },
+    { "instanceID": 26658 },
+    { "instanceID": 26704 },
+    { "instanceID": 26740 },
+    { "instanceID": 26722 },
+    { "instanceID": 26664 },
+    { "instanceID": 26650 },
+    { "instanceID": 26646 },
+    { "instanceID": 26688 },
+    { "instanceID": 26648 },
+    { "instanceID": 26660 },
+    { "instanceID": 26654 },
+    { "instanceID": 26734 },
+    { "instanceID": 26674 }
+  ]
+}

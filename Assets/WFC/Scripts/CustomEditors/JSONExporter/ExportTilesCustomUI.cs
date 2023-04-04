@@ -28,8 +28,28 @@ namespace WFCEditor
         enum GUIOPTIONS
         {
             TileToJson,
-            JsonToTile
+            JsonToTile,
+            ConfigToJSON
         }
+
+        private String[][] menuText = new string[][]
+        {
+            new String[]
+            {
+                "Select Scriptable object of type Tile", "Select where the file will be saved", "Select path",
+                "Specify target location", "WFC2DTile to JSON"
+            },
+            new String[]
+            {
+                "Select JSON file to convert into a tile", "Select where the file will be saved", "Select path",
+                "Specify target location", "JSON to WFC2DTile"
+            },
+            new String[]
+            {
+                "Config object of type Tile", "Select where the file will be saved", "Select path",
+                "Specify target location", "WFCTile to JSON"
+            },
+        };
 
         void OnGUI()
         {
@@ -46,64 +66,37 @@ namespace WFCEditor
             GUILayout.Label("Choose operation");
             _enumVar = (GUIOPTIONS)EditorGUILayout.EnumPopup(_enumVar);
             GUILayout.Space(20);
-            if (_enumVar == GUIOPTIONS.TileToJson)
-            {
-                GUILayout.Label("Select Scriptable object of type Tile", EditorStyles.label);
-                source = EditorGUILayout.ObjectField(source, typeof(WFC2DTile), true);
-                processState = "";
-                GUILayout.Space(10);
-                GUILayout.Label("Select where the file will be saved");
-                GUILayout.TextArea(path);
-                if (GUILayout.Button("Select path"))
-                {
-                    path = EditorUtility.OpenFolderPanel("Specify target location", "Assets/", "a");
-                }
-
-                GUILayout.Space(20);
-                try
-                {
-                    if (GUILayout.Button("WFC2DTile to JSON")) _generator.GenerateJsonFromTile((WFC2DTile)source, path);
-                    processState = "SUCCESS";
-                }
-                catch 
-                {
-                    if (source.IsUnityNull()) Debug.Log("Tile field is empty");
-                    processState = "ERROR";
-                    s.normal.textColor = Color.red;
-                }
-            }
-            else
-            {
-                GUILayout.Label("Select JSON file to convert into a tile", EditorStyles.label);
-                textAsset = EditorGUILayout.ObjectField(textAsset, typeof(TextAsset), true);
-                processState = "";
-                GUILayout.Space(10);
-                GUILayout.Label("Select where the file will be saved");
-                GUILayout.TextArea(path);
-                if (GUILayout.Button("Select path"))
-                {
-                    path = EditorUtility.OpenFolderPanel("Specify target location", "Assets/", "a");
-                    processState = "";
-                }
-
-                GUILayout.Space(20);
-                try
-                {
-                    if (GUILayout.Button("JSON to WFC2DTile"))
-                        _generator.GenerateTileFromJson((TextAsset)textAsset, path);
-                    processState = "SUCCESS";
-                }
-                catch 
-                {
-                    if (textAsset.IsUnityNull()) Debug.Log("Text field is empty");
-                    processState = "ERROR";
-                    s.normal.textColor = Color.red;
-                }
-            }
-            
-            EditorGUILayout.LabelField(processState,s);
+            contructUI(s);
+            EditorGUILayout.LabelField(processState, s);
             //this.Repaint();
-            
+        }
+
+        private void contructUI(GUIStyle s)
+        {
+            GUILayout.Label(menuText[(int)_enumVar][0], EditorStyles.label);
+            source = EditorGUILayout.ObjectField(source, typeof(WFC2DTile), true);
+            processState = "";
+            GUILayout.Space(10);
+            GUILayout.Label(menuText[(int)_enumVar][1]);
+            GUILayout.TextArea(path);
+            if (GUILayout.Button(menuText[(int)_enumVar][2]))
+            {
+                path = EditorUtility.OpenFolderPanel(menuText[(int)_enumVar][3], "Assets/", "a");
+            }
+
+            GUILayout.Space(20);
+            try
+            {
+                if (GUILayout.Button(menuText[(int)_enumVar][4]))
+                    _generator.GenerateJsonFromTile((WFC2DTile)source, path);
+                processState = "SUCCESS";
+            }
+            catch
+            {
+                if (source.IsUnityNull()) Debug.Log("Tile field is empty");
+                processState = "ERROR";
+                s.normal.textColor = Color.red;
+            }
         }
     }
 }
