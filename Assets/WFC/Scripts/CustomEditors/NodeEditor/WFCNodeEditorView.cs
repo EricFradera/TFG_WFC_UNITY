@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -34,7 +35,31 @@ public class WFCNodeEditorView : GraphView
         graphViewChanged -= OnGraphViewChanged;
         DeleteElements(graphElements);
         graphViewChanged += OnGraphViewChanged;
-        config.wfcTilesList.ForEach(n => CreateNodeView(n));
+        config.wfcTilesList.ForEach(CreateNodeView);
+
+        config.wfcTilesList.ForEach(tile =>
+        {
+            var child = config.GetChildren(tile, 0);
+            child.ForEach(c =>
+            {
+                try
+                {
+                    NodeComponent parentComponent = FindNodeComponent(tile);
+                    NodeComponent childComponent = FindNodeComponent(c);
+                    Edge edge = parentComponent.output[0].ConnectTo(childComponent.input[0]);
+                    AddElement(edge);
+                }
+                catch (Exception e)
+                {
+                    Debug.Log("not found :(((");
+                }
+            });
+        });
+    }
+
+    NodeComponent FindNodeComponent(WFCTile tile)
+    {
+        return GetNodeByGuid(tile.tileId.ToString()) as NodeComponent;
     }
 
     public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
@@ -47,7 +72,26 @@ public class WFCNodeEditorView : GraphView
     {
         graphviewchange.elementsToRemove?.ForEach(el =>
         {
-            if (el is NodeComponent nodeComponent) config.DeleteNodeTile(nodeComponent.tile);
+            switch (el)
+            {
+                case NodeComponent nodeComponent:
+                    config.DeleteNodeTile(nodeComponent.tile);
+                    break;
+                case Edge edge:
+                {
+                    if (edge.input.node is NodeComponent inputNode && edge.output.node is NodeComponent outputNode)
+                        config.RemoveChild(outputNode.tile, inputNode.tile, dirHelper(edge.output.portName),
+                            dirHelper(edge.input.portName));
+                    break;
+                }
+            }
+        });
+
+        graphviewchange.edgesToCreate?.ForEach(edge =>
+        {
+            if (edge.input.node is NodeComponent inputNode && edge.output.node is NodeComponent outputNode)
+                config.AddChild(outputNode.tile, inputNode.tile, dirHelper(edge.output.portName),
+                    dirHelper(edge.input.portName));
         });
 
         return graphviewchange;
@@ -78,5 +122,17 @@ public class WFCNodeEditorView : GraphView
     {
         NodeComponent nodeComponent = new NodeComponent(tile);
         AddElement(nodeComponent);
+    }
+
+    private int dirHelper(string name)
+    {
+        switch (name)
+        {
+            case "up": return 0;
+            case "right": return 1;
+            case "down": return 2;
+            case "left": return 3;
+            default: return -1;
+        }
     }
 }

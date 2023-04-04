@@ -31,7 +31,7 @@ namespace WFC
             _adjacencyGen = new Generate_Adjacency(this.tileData);
         }
 
-        public ITopoArray<int> runWFC(int size)
+        public ITopoArray<string> runWFC(int size)
         {
             // Define some sample data
             ITopoArray<int> sample = TopoArray.Create(new[]
@@ -55,11 +55,14 @@ namespace WFC
 // Set the output dimensions
             var topology = new GridTopology(size, size, periodic: false);
 // Acturally run the algorithm
+            
+
             var propagator = new TilePropagator(model, topology);
+            
             var status = propagator.Run();
             if (status != DeBroglie.Resolution.Decided) throw new Exception("Undecided");
-            var output = propagator.ToValueArray<int>();
-
+            var output = propagator.ToValueArray<string>();
+            
 // Display the results
             return output;
         }
@@ -82,15 +85,17 @@ namespace WFC
         {
             _adjacencyGen.match_Tiles();
             var model = new AdjacentModel(DirectionSet.Cartesian2d);
-            List<Tile> tileList = new List<Tile>();
+            Dictionary<WFCTile, Tile> tileMap = new Dictionary<WFCTile, Tile>();
+            //List<Tile> tileList = new List<Tile>();
             foreach (var tile in tileData)
             {
                 //create new tile
                 //establish  the new frequency
                 //add to the list of tiles
-                var newTile = new Tile(tile.tileId);
-                model.SetFrequency(newTile, 1);
-                tileList.Add(newTile);
+                tileMap.Add(tile, new Tile(tile.tileId));
+                //var newTile = new Tile(tile.tileId);
+                model.SetFrequency(tileMap[tile], 1);
+                //tileList.Add(tileMap[tile]);
             }
 
             for (int i = 0; i < tileData.Count; i++)
@@ -98,10 +103,12 @@ namespace WFC
                 for (int dir = 0; dir < tileData[i].adjacencyPairs.Length; dir++)
                 {
                     for (int j = 0; j < tileData[i].adjacencyPairs[dir].Count; j++)
-                        model.AddAdjacency(tileList[i],tileList[tileData[i].adjacencyPairs[dir][j].tileId] , direction[dir]);
+                    {
+                        model.AddAdjacency(tileMap[tileData[i]], tileMap[tileData[i].adjacencyPairs[dir][j]],
+                            direction[dir]);
+                    }
                 }
             }
-
             return model;
         }
     }

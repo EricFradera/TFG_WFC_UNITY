@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEditor;
+using UnityEditor.Rendering;
 
 namespace WFC
 {
@@ -21,13 +22,12 @@ namespace WFC
         // WFC2DTile should be an abstraction so its more flexible, such as pattern or tile
         public WFCTile CreateNodeTile()
         {
-            WFC2DTile nodeTile = ScriptableObject.CreateInstance<WFC2DTile>();
-            nodeTile.tileId = 44;
-            //GUID.Generate.ToString --> generate unique ID
+            WFC2DTile nodeTile = CreateInstance<WFC2DTile>();
+            nodeTile.InitDataStructures();
+            //nodeTile.tileId = GUID.Generate().ToString();
             wfcTilesList.Add(nodeTile);
             AssetDatabase.AddObjectToAsset(nodeTile, this);
             AssetDatabase.SaveAssets();
-
             return nodeTile;
         }
 
@@ -38,19 +38,30 @@ namespace WFC
             AssetDatabase.SaveAssets();
         }
 
-        public void AddChild(WFCTile parent, WFCTile child, int dir)
+        public void AddChild(WFC2DTile parent, WFC2DTile child, int dirParent, int dirChild)
         {
-            parent.adjacencyPairs[dir].Add(child);
+            if (parent is null) Debug.Log("PARENT IS NULL");
+            if (child is null) Debug.Log("CHILD IS NULL");
+            if (parent.adjacencyPairs[dirParent] is null) Debug.Log("STORAGE NOT INITIALISED");
+            parent.adjacencyPairs[dirParent].Add(child);
+            //parent.test.Add(child.tileId);
+            //child.adjacencyPairs[dirChild].Add(parent);
+            //child.test.Add(parent.tileId);
+            //printList(parent, dirParent);
         }
 
-        public void RemoveChild(WFC2DTile parent, WFC2DTile child, int dir)
+        public void RemoveChild(WFC2DTile parent, WFC2DTile child, int dirParent, int dirChild)
         {
-            //parent.adjacencyPairs[dir].Remove(child.tileId);
+            parent.adjacencyPairs[dirParent].Remove(child);
+            //parent.test.Remove(child.tileId);
+            //child.adjacencyPairs[dirChild].Remove(parent);
+            //child.test.Remove(parent.tileId);
+            //printList(parent, dirParent);
         }
 
-        /*public List<int> GetChildren(WFCTile parent, int dir)
+        public List<WFCTile> GetChildren(WFCTile parent, int dir)
         {
-            return parent.adjacencyPairs[dir];
-        }*/
+            return parent.adjacencyPairs[dir] ?? new List<WFCTile>();
+        }
     }
 }

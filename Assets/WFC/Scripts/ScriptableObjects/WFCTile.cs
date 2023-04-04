@@ -8,7 +8,7 @@ public abstract class WFCTile : ScriptableObject
 {
     private string tilename;
 
-    public int tileId;
+    public string tileId;
 
     //Each tile has its own adjacency codes (ej: up,right,down,left)
     public String[] adjacencyCodes;

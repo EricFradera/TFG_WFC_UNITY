@@ -8,10 +8,18 @@ namespace WFC
     [CreateAssetMenu(menuName = "WFC components/WFC2DTile", order = 1, fileName = "WFC2dTile"), Serializable]
     public class WFC2DTile : WFCTile
     {
+        public List<string> test;
         public WFC2DTile()
         {
             this.adjacencyCodes = new String[4];
             this.adjacencyPairs = new List<WFCTile>[4];
+            test = new List<string>();
+        }
+
+        public void InitDataStructures()
+        {
+            this.adjacencyCodes = new String[4];
+            for (int i = 0; i < 4; i++) this.adjacencyPairs[i] = new List<WFCTile>();
         }
 
         private enum IndexDirection
