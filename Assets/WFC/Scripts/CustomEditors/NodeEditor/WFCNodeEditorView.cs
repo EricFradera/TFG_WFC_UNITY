@@ -14,6 +14,7 @@ public class WFCNodeEditorView : GraphView
     {
     }
 
+    public Action<NodeComponent> onNodeSelected;
     private WFCConfig config;
 
     public WFCNodeEditorView()
@@ -144,19 +145,20 @@ public class WFCNodeEditorView : GraphView
 
     void CreateNodeView(WFCTile tile)
     {
-        NodeComponent nodeComponent = new NodeComponent(tile);
+        var nodeComponent = new NodeComponent(tile);
+        nodeComponent.OnNodeSelection = onNodeSelected;
         AddElement(nodeComponent);
     }
 
-    private int dirHelper(string name)
+    private int dirHelper(string dirName)
     {
-        switch (name)
+        return dirName switch
         {
-            case "up": return 0;
-            case "right": return 1;
-            case "down": return 2;
-            case "left": return 3;
-            default: return -1;
-        }
+            "up" => 0,
+            "right" => 1,
+            "down" => 2,
+            "left" => 3,
+            _ => -1
+        };
     }
 }

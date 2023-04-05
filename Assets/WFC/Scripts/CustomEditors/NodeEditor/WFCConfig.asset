@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8347341124885216392
+--- !u!114 &-6383267689366553399
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13,58 +13,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileName: WFC tile
-  tileId: ee7daf5afdd393749b0cfe179c94ff05
+  tileId: 78731a0f2d1c12b4dbd81af697d18566
   adjacencyCodes:
   - 
   - 
   - 
   - 
   nodeData:
-    position: {x: 0, y: 0}
-  test: []
---- !u!114 &-5057810933130071111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e890ea296fd8fc84392022df9300b300, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tileName: WFC tile
-  tileId: 99511fb763701f24b8ec9840ecf1776e
-  adjacencyCodes:
-  - 
-  - 
-  - 
-  - 
-  nodeData:
-    position: {x: 0, y: 0}
-  test: []
---- !u!114 &-677955567856216877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e890ea296fd8fc84392022df9300b300, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tileName: WFC tile
-  tileId: a03c2177bc6dff441a09b7cd9426f7e6
-  adjacencyCodes:
-  - 
-  - 
-  - 
-  - 
-  nodeData:
-    position: {x: 29, y: 286.592}
+    position: {x: 101.20001, y: 81.951996}
   test: []
 --- !u!114 &11400000
 MonoBehaviour:
@@ -81,11 +37,9 @@ MonoBehaviour:
   configurationName: 
   configurationID: 0
   wfcTilesList:
-  - {fileID: -5057810933130071111}
-  - {fileID: 8657203005852352449}
-  - {fileID: -677955567856216877}
-  - {fileID: -8347341124885216392}
---- !u!114 &8657203005852352449
+  - {fileID: -6383267689366553399}
+  - {fileID: 443864974357711775}
+--- !u!114 &443864974357711775
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,12 +52,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileName: WFC tile
-  tileId: e4854393dcded964290d6e28f1171ef4
+  tileId: 85c24ed1605811f4a80d719c2c46d19d
   adjacencyCodes:
   - 
   - 
   - 
   - 
   nodeData:
-    position: {x: 610.36, y: 127.520004}
+    position: {x: 0, y: 0}
   test: []

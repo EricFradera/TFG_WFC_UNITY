@@ -34,9 +34,11 @@ public class WFCNodeEditor : EditorWindow
 
         wfcNodeEditorView = root.Q<WFCNodeEditorView>();
         inspectorView = root.Q<InspectorView>();
+        wfcNodeEditorView.onNodeSelected = OnNodeSelection;
         OnSelectionChange();
     }
 
+     
     private void OnSelectionChange()
     {
         WFCConfig config = Selection.activeObject as WFCConfig;
@@ -44,5 +46,10 @@ public class WFCNodeEditor : EditorWindow
         {
             wfcNodeEditorView.PopulateView(config);
         }
+    }
+
+    void OnNodeSelection(NodeComponent component)
+    {
+        inspectorView.UpdateSelection(component);
     }
 }
