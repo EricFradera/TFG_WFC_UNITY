@@ -9,6 +9,7 @@ namespace WFC
     public class WFC2DTile : WFCTile
     {
         public List<string> test;
+
         public WFC2DTile()
         {
             this.adjacencyCodes = new String[4];

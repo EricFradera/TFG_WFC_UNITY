@@ -20,13 +20,14 @@ public class NodeComponent : Node
 
     public NodeComponent(WFCTile tile)
     {
+        Debug.Log("Gets rebuild");
         this.tile = (WFC2DTile)tile;
         this.viewDataKey = tile.tileId;
         input = new Port[4];
         output = new Port[4];
         //this,viewDataKey=node.guid;
-        style.left = tile.position.x;
-        style.top = tile.position.y;
+        style.left = tile.nodeData.position.x;
+        style.top = tile.nodeData.position.y;
         for (int i = 0; i < 4; i++)
         {
             CreateInputPort(i);
@@ -48,12 +49,12 @@ public class NodeComponent : Node
         output[dir].portName = portNames[dir];
         outputContainer.Add(output[dir]);
     }
-
-
+    
     public override void SetPosition(Rect newPos)
     {
         base.SetPosition(newPos);
-        tile.position.x = newPos.xMin;
-        tile.position.y = newPos.yMin;
+        tile.nodeData.position.x = newPos.xMin;
+        tile.nodeData.position.y = newPos.yMin;
     }
+    
 }

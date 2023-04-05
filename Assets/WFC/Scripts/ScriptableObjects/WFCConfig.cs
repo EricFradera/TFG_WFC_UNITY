@@ -23,8 +23,9 @@ namespace WFC
         public WFCTile CreateNodeTile()
         {
             WFC2DTile nodeTile = CreateInstance<WFC2DTile>();
+            nodeTile.tileName = "WFC tile";
             nodeTile.InitDataStructures();
-            //nodeTile.tileId = GUID.Generate().ToString();
+            nodeTile.tileId = GUID.Generate().ToString();
             wfcTilesList.Add(nodeTile);
             AssetDatabase.AddObjectToAsset(nodeTile, this);
             AssetDatabase.SaveAssets();
@@ -42,10 +43,16 @@ namespace WFC
         {
             if (parent is null) Debug.Log("PARENT IS NULL");
             if (child is null) Debug.Log("CHILD IS NULL");
-            if (parent.adjacencyPairs[dirParent] is null) Debug.Log("STORAGE NOT INITIALISED");
-            parent.adjacencyPairs[dirParent].Add(child);
+            if (parent != null && parent.adjacencyPairs[dirParent] is null) Debug.Log("STORAGE NOT INITIALISED");
+            if (parent != null && child != null)
+            {
+                parent.adjacencyPairs[dirParent].Add(child);
+                parent.nodeData.outputConnections[dirParent].Add(child);
+                child.nodeData.inputConnections[dirChild].Add(parent);
+            }
+
             //parent.test.Add(child.tileId);
-            //child.adjacencyPairs[dirChild].Add(parent);
+            if (child != null) child.adjacencyPairs[dirChild].Add(parent);
             //child.test.Add(parent.tileId);
             //printList(parent, dirParent);
         }
@@ -54,7 +61,9 @@ namespace WFC
         {
             parent.adjacencyPairs[dirParent].Remove(child);
             //parent.test.Remove(child.tileId);
-            //child.adjacencyPairs[dirChild].Remove(parent);
+            child.adjacencyPairs[dirChild].Remove(parent);
+            parent.nodeData.outputConnections[dirParent].Remove(child);
+            child.nodeData.inputConnections[dirChild].Remove(parent);
             //child.test.Remove(parent.tileId);
             //printList(parent, dirParent);
         }

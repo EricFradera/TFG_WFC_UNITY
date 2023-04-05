@@ -6,7 +6,7 @@ using UnityEngine;
 
 public abstract class WFCTile : ScriptableObject
 {
-    private string tilename;
+    public string tileName;
 
     public string tileId;
 
@@ -16,7 +16,8 @@ public abstract class WFCTile : ScriptableObject
     public List<WFCTile>[] adjacencyPairs;
 
     // Node data
-    public Vector2 position;
+    public nodeData nodeData;
+    
 
     //always have to be an inverse function for tile matching
     public abstract int GetInverse(int indexDirection);

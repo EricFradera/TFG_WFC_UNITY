@@ -39,28 +39,52 @@ public class WFCNodeEditorView : GraphView
 
         config.wfcTilesList.ForEach(tile =>
         {
-            var child = config.GetChildren(tile, 0);
-            child.ForEach(c =>
+            for (int i = 0; i < 4; i++)
             {
-                try
+                var child = tile.nodeData.outputConnections[i];
+                child.ForEach(c =>
                 {
-                    NodeComponent parentComponent = FindNodeComponent(tile);
-                    NodeComponent childComponent = FindNodeComponent(c);
-                    Edge edge = parentComponent.output[0].ConnectTo(childComponent.input[0]);
-                    AddElement(edge);
-                }
-                catch (Exception e)
-                {
-                    Debug.Log("not found :(((");
-                }
-            });
+                    try
+                    {
+                        NodeComponent parentComponent = FindNodeComponent(tile);
+                        if (child.Contains(c))
+                        {
+                            foreach (var index in getNodeInput(c, tile))
+                            {
+                                NodeComponent childComponent = FindNodeComponent(c);
+                                Edge edge = parentComponent.output[i].ConnectTo(childComponent.input[index]);
+                                AddElement(edge);
+                            }
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.Log("not found :(((");
+                    }
+                });
+            }
         });
     }
 
-    NodeComponent FindNodeComponent(WFCTile tile)
+    private NodeComponent FindNodeComponent(WFCTile tile)
     {
         return GetNodeByGuid(tile.tileId) as NodeComponent;
     }
+
+    private List<int> getNodeInput(WFCTile origin, WFCTile dest)
+    {
+        List<int> components = new List<int>();
+        for (int i = 0; i < 4; i++)
+        {
+            if (origin.nodeData.inputConnections[i].Contains(dest))
+            {
+                components.Add(i);
+            }
+        }
+
+        return components;
+    }
+
 
     public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
     {
