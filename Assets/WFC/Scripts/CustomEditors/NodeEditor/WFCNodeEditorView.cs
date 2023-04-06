@@ -115,7 +115,7 @@ public class WFCNodeEditorView : GraphView
         graphviewchange.edgesToCreate?.ForEach(edge =>
         {
             if (edge.input.node is NodeComponent inputNode && edge.output.node is NodeComponent outputNode)
-                config.AddChild(outputNode.tile, inputNode.tile, dirHelper(edge.output.portName),
+                config.AddChild(  outputNode.tile, inputNode.tile, dirHelper(edge.output.portName),
                     dirHelper(edge.input.portName));
         });
 
@@ -145,9 +145,13 @@ public class WFCNodeEditorView : GraphView
 
     void CreateNodeView(WFCTile tile)
     {
-        var nodeComponent = new NodeComponent(tile);
-        nodeComponent.OnNodeSelection = onNodeSelected;
-        AddElement(nodeComponent);
+        if (tile is WFC2DTile)
+        {
+            var nodeComponent = new Node2dComponent(tile as WFC2DTile);
+            nodeComponent.OnNodeSelection = onNodeSelected;
+            AddElement(nodeComponent);
+        }
+        
     }
 
     private int dirHelper(string dirName)

@@ -15,8 +15,9 @@ MonoBehaviour:
   configurationName: 
   configurationID: 0
   wfcTilesList:
-  - {fileID: 7511620372493354960}
---- !u!114 &7511620372493354960
+  - {fileID: 1241895763963646359}
+  - {fileID: 5414213859617367269}
+--- !u!114 &1241895763963646359
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -29,7 +30,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileName: WFC tile
-  tileId: 4446e4d07ebeadc47bfe457fcb71e494
+  tileId: ca46ba14a38985d459280cce6c680d25
+  adjacencyCodes:
+  - 
+  - 
+  - 
+  - 
+  nodeData:
+    position: {x: 128.23999, y: 151.776}
+  test: []
+  tileTexture: {fileID: 0}
+  testName: 
+--- !u!114 &5414213859617367269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e890ea296fd8fc84392022df9300b300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileName: WFC tile
+  tileId: 334793a93c723de4590b1a1db7028487
   adjacencyCodes:
   - 
   - 

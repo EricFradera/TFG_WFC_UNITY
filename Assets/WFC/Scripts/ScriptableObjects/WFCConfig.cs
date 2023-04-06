@@ -36,7 +36,7 @@ namespace WFC
             AssetDatabase.SaveAssets();
         }
 
-        public void AddChild(WFC2DTile parent, WFC2DTile child, int dirParent, int dirChild)
+        public void AddChild(WFCTile parent, WFCTile child, int dirParent, int dirChild)
         {
             if (parent is null) Debug.Log("PARENT IS NULL");
             if (child is null) Debug.Log("CHILD IS NULL");
@@ -54,7 +54,7 @@ namespace WFC
             //printList(parent, dirParent);
         }
 
-        public void RemoveChild(WFC2DTile parent, WFC2DTile child, int dirParent, int dirChild)
+        public void RemoveChild(WFCTile parent, WFCTile child, int dirParent, int dirChild)
         {
             parent.adjacencyPairs[dirParent].Remove(child);
             //parent.test.Remove(child.tileId);
