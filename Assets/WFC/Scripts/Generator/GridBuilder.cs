@@ -18,11 +18,11 @@ namespace WFC
         private WFCConfig wfcConfig;
         private Dictionary<string, GameObject> gameObjectsDictionary;
 
-        public void Genarate(WFCConfig wfcConfig)
+        public void Generate(WFCConfig wfcConfig)
         {
-            destroyOldIteration();
-            genDict();
+            DestroyOldIteration();
             this.wfcConfig = wfcConfig;
+            GenDict();
             test = new debro_test(wfcConfig.wfcTilesList);
             result = test.runWFC(size);
 
@@ -37,7 +37,7 @@ namespace WFC
             }
         }
 
-        private void destroyOldIteration()
+        private void DestroyOldIteration()
         {
             if (gameObjectArray != null)
             {
@@ -50,13 +50,11 @@ namespace WFC
             gameObjectArray = new GameObject[size, size];
         }
 
-        private void genDict()
+        private void GenDict()
         {
             gameObjectsDictionary = new Dictionary<string, GameObject>();
             for (int k = 0; k < wfcConfig.wfcTilesList.Count; k++)
-            {
                 gameObjectsDictionary.Add(wfcConfig.wfcTilesList[k].tileId, circuitComponents[k]);
-            }
         }
 
         private GameObject getObj(int i, int j)

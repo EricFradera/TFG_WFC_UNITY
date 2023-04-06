@@ -18,7 +18,7 @@ namespace WFCEditor
             source = EditorGUILayout.ObjectField(source, typeof(WFCConfig), true);
             GridBuilder gridBuilder = (GridBuilder)target;
             gridBuilder.size = EditorGUILayout.IntField("size", gridBuilder.size);
-            if (GUILayout.Button("Reset Values")) gridBuilder.Genarate((WFCConfig)source);
+            if (GUILayout.Button("Reset Values")) gridBuilder.Generate((WFCConfig)source);
         }
     }
 }
