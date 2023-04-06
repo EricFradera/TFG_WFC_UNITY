@@ -127,7 +127,7 @@ public class WFCNodeEditorView : GraphView
         //base.BuildContextualMenu(evt);
         {
             //This will makes sense once we change how the Tile object works. It needs an abstraction
-            evt.menu.AppendAction("Create WFC2DTyle", (a) => CreateNode());
+            evt.menu.AppendAction("Create WFC2DTile", (a) => CreateNode());
             /*var types = TypeCache.GetTypesDerivedFrom<WFC2DTile>();
             foreach (var type in types)
             {

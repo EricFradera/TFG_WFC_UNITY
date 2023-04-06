@@ -8,7 +8,7 @@ using WFC;
 
 namespace WFCEditor
 {
-    [CustomEditor(typeof(WFC2DTile))]
+    //[CustomEditor(typeof(WFC2DTile))]
     public class Wfc2DTileEditor : Editor
     {
         public override VisualElement CreateInspectorGUI()

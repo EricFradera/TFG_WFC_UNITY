@@ -9,6 +9,8 @@ namespace WFC
     public class WFC2DTile : WFCTile
     {
         public List<string> test;
+        public Texture2D tileTexture;
+        [TextArea] public string testName;
 
         public WFC2DTile()
         {

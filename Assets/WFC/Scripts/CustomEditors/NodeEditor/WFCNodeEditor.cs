@@ -1,5 +1,6 @@
 using System;
 using UnityEditor;
+using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityEngine.UIElements;
 using WFC;
@@ -17,6 +18,18 @@ public class WFCNodeEditor : EditorWindow
     {
         WFCNodeEditor wnd = GetWindow<WFCNodeEditor>();
         wnd.titleContent = new GUIContent("WFCNodeEditor");
+    }
+
+    [OnOpenAsset]
+    public static bool OnOpenAsset(int instanceId, int line)
+    {
+        if (Selection.activeObject is WFCConfig)
+        {
+            OpenWindow();
+            return true;
+        }
+
+        return false;
     }
 
     public void CreateGUI()

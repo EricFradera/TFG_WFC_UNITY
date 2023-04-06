@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+[Serializable]
 public abstract class WFCTile : ScriptableObject
 {
     public string tileName;
@@ -17,7 +17,7 @@ public abstract class WFCTile : ScriptableObject
 
     // Node data
     public nodeData nodeData;
-    
+
 
     //always have to be an inverse function for tile matching
     public abstract int GetInverse(int indexDirection);

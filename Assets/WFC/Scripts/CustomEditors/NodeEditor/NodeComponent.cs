@@ -1,8 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEditor.Experimental.GraphView;
+using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.UIElements;
+using UnityEngine.VFX;
 using WFC;
 
 
@@ -26,7 +32,6 @@ public class NodeComponent : Node
         this.title = tile.tileName;
         input = new Port[4];
         output = new Port[4];
-        //this,viewDataKey=node.guid;
         style.left = tile.nodeData.position.x;
         style.top = tile.nodeData.position.y;
         for (int i = 0; i < 4; i++)
@@ -34,6 +39,11 @@ public class NodeComponent : Node
             CreateInputPort(i);
             CreateOutputPort(i);
         }
+
+        ImageView();
+        Label titleLabel = this.Q<Label>("title-label");
+        titleLabel.bindingPath = "tileName";
+        titleLabel.Bind(new SerializedObject(tile));
     }
 
     private void CreateInputPort(int dir)
@@ -56,6 +66,29 @@ public class NodeComponent : Node
         base.SetPosition(newPos);
         tile.nodeData.position.x = newPos.xMin;
         tile.nodeData.position.y = newPos.yMin;
+    }
+
+// to update the image https://docs.unity3d.com/Manual/UIE-bind-custom-control.html
+    private void ImageView()
+    {
+        tile.tileTexture ??= Texture2D.whiteTexture;
+        var container = new VisualElement
+        {
+            name = " Parent Container",
+            pickingMode = PickingMode.Position,
+            style = { overflow = Overflow.Visible },
+        };
+        var previewImage = new Image
+        {
+            name = "Preview",
+            pickingMode = PickingMode.Ignore,
+            image = tile.tileTexture
+        };
+
+        container.style.height = new StyleLength(120);
+        previewImage.StretchToParentSize();
+        container.contentContainer.Add(previewImage);
+        Add(container);
     }
 
     public override void OnSelected()
