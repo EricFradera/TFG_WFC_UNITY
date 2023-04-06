@@ -13,10 +13,7 @@ namespace WFC
     public class WFCConfig : ScriptableObject
     {
         public String configurationName;
-
         public int configurationID;
-
-        //Eventually should be changed for a List<WFCTile>
         public List<WFCTile> wfcTilesList = new List<WFCTile>();
 
         // WFC2DTile should be an abstraction so its more flexible, such as pattern or tile
