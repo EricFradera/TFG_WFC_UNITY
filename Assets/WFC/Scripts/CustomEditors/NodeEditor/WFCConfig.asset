@@ -14,9 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   configurationName: 
   configurationID: 0
-  wfcTilesList:
-  - {fileID: 1241895763963646359}
-  - {fileID: 5414213859617367269}
+  wfcTilesList: []
 --- !u!114 &1241895763963646359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,7 +59,7 @@ MonoBehaviour:
   - 
   - 
   nodeData:
-    position: {x: 0, y: 0}
+    position: {x: 497.92, y: 151.20001}
   test: []
   tileTexture: {fileID: 0}
   testName: 

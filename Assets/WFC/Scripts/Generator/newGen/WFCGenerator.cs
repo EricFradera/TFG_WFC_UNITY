@@ -8,6 +8,9 @@ public class WFCGenerator : MonoBehaviour
     //Maybe it's useless.
     public GeneratorModes mode;
     private WFCConfig config;
+    public float m_gridSize;
+    public int m_gridExtent;
+    public Color lineColor;
 
 
     public enum GeneratorModes

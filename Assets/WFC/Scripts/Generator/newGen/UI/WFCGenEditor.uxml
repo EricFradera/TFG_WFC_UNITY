@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <ui:Label tabindex="-1" text="WFC generator" display-tooltip-when-elided="true" style="-unity-text-align: upper-center; font-size: 16px; margin-bottom: 10px;" />
+    <ui:FloatField label="m_gridSize" value="1" binding-path="m_gridSize" name="m_gridSize" />
+    <ui:IntegerField label="m_gridExtent" value="42" name="m_gridExtent" binding-path="m_gridExtent" />
+    <uie:ColorField label="lineColor" value="RGBA(0.000, 1.000, 1.000, 1.000)" name="lineColor" binding-path="lineColor" />
+</ui:UXML>
