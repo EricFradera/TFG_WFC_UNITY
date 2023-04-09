@@ -806,7 +806,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mode: 0
-  m_gridSize: 0.86
+  m_gridSize: 0.95
   m_gridExtent: 10
   lineColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &578801485
