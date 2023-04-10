@@ -712,6 +712,72 @@ Transform:
   m_Father: {fileID: 113442976}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &320206710
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 320206712}
+  - component: {fileID: 320206711}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &320206711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320206710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce8fd86fbfa2c2f44a516905ec319cdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  WFCConfigFile: {fileID: 11400000, guid: c816e63f55c53e94d89b11fc27efb551, type: 2}
+  m_gridSize: 1
+  m_gridExtent: 10
+  lineColor: {r: 1, g: 1, b: 1, a: 1}
+  wfcTilesList:
+  - {fileID: 11400000, guid: 26960e0e7c69b54408d1312e7e5a2890, type: 2}
+  - {fileID: 11400000, guid: d57a0bf7ad58339498efcc400dbfd12d, type: 2}
+  - {fileID: 11400000, guid: 6306d0502cc399e4f8bf54b4aaea7f0b, type: 2}
+  - {fileID: 11400000, guid: e866393e9a5c58041b481190d78cad64, type: 2}
+  - {fileID: 11400000, guid: 3c7323bfa4846aa4da1bdd1c4d5306c1, type: 2}
+  - {fileID: 11400000, guid: 180e81d3106221448911fd69f1eb5045, type: 2}
+  - {fileID: 11400000, guid: f9aec1dde29b7b743970711ecdd68f58, type: 2}
+  - {fileID: 11400000, guid: cb9dca867df715446ba3c78bc86ee87a, type: 2}
+  - {fileID: 11400000, guid: 4c1e1ad9ce94d2241bd953e9225e7742, type: 2}
+  - {fileID: 11400000, guid: 3c6b4acb09643f84da6b37b28eeba72f, type: 2}
+  - {fileID: 11400000, guid: b32b298cd25945a4b9cc415d21283d72, type: 2}
+  - {fileID: 11400000, guid: 031ae8843c3b94b4c95d9ce63051f49b, type: 2}
+  - {fileID: 11400000, guid: f54210de90c73de4dba6c2878544089c, type: 2}
+  - {fileID: 11400000, guid: 9555e13b0bc117242a873f501ac66627, type: 2}
+  - {fileID: 11400000, guid: c14b545eda96a874eaafb558aa0dfb3e, type: 2}
+  - {fileID: 11400000, guid: 269e71b4a1ae53746bd613877c6e5435, type: 2}
+--- !u!4 &320206712
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320206710}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.85, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &462817916
 GameObject:
   m_ObjectHideFlags: 0
@@ -775,54 +841,6 @@ Transform:
   - {fileID: 697280685}
   m_Father: {fileID: 113442976}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &578801483
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 578801485}
-  - component: {fileID: 578801484}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &578801484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 578801483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce8fd86fbfa2c2f44a516905ec319cdc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mode: 0
-  m_gridSize: 0.95
-  m_gridExtent: 10
-  lineColor: {r: 1, g: 1, b: 1, a: 1}
---- !u!4 &578801485
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 578801483}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &617735454
 GameObject:
@@ -2574,9 +2592,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mode: 0
+  WFCConfigFile: {fileID: 0}
   m_gridSize: 0
   m_gridExtent: 0
   lineColor: {r: 0, g: 0, b: 0, a: 0}
+  wfcTilesList: []
 --- !u!4 &1485613743
 Transform:
   m_ObjectHideFlags: 0

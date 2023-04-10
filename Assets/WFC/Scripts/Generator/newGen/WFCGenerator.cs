@@ -7,10 +7,11 @@ public class WFCGenerator : MonoBehaviour
 {
     //Maybe it's useless.
     public GeneratorModes mode;
-    private WFCConfig config;
-    public float m_gridSize;
-    public int m_gridExtent;
-    public Color lineColor;
+    public WFCConfig WFCConfigFile;
+    public float m_gridSize = 1f;
+    public float m_gridExtent = 10f;
+    public Color lineColor = Color.white;
+    public List<WFCTile> wfcTilesList;
 
 
     public enum GeneratorModes
@@ -25,6 +26,10 @@ public class WFCGenerator : MonoBehaviour
     {
         ClearPreviousIteration();
     }
+
+    public void populateList() => wfcTilesList = WFCConfigFile.wfcTilesList;
+    public void clearList() => wfcTilesList = null;
+
 
     private void ClearPreviousIteration()
     {

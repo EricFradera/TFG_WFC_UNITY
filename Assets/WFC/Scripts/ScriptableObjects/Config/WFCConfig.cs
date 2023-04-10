@@ -9,7 +9,7 @@ using UnityEditor.Rendering;
 
 namespace WFC
 {
-    [Serializable]
+    [System.Serializable]
     public abstract class WFCConfig : ScriptableObject
     {
         public String configurationName;
@@ -33,6 +33,7 @@ namespace WFC
             child.adjacencyPairs[dirChild].Add(parent);
             child.nodeData.inputConnections[dirChild].Add(parent);
         }
+
         public void RemoveChild(WFCTile parent, WFCTile child, int dirParent, int dirChild)
         {
             parent.adjacencyPairs[dirParent].Remove(child);
@@ -40,6 +41,7 @@ namespace WFC
             parent.nodeData.outputConnections[dirParent].Remove(child);
             child.nodeData.inputConnections[dirChild].Remove(parent);
         }
+
         public List<WFCTile> GetChildren(WFCTile parent, int dir)
         {
             return parent.adjacencyPairs[dir] ?? new List<WFCTile>();
