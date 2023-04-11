@@ -45,7 +45,7 @@ public class WFCGenerator : MonoBehaviour
             {
                 float xCoord = (i - half) * m_gridSize + (m_gridSize / 2);
                 float zCoord = (j - half) * m_gridSize + (m_gridSize / 2);
-                gameObjectArray[i, j] = Instantiate(WFCConfigFile.wfcTilesList[0].tileVisuals,
+                gameObjectArray[i, j] = Instantiate(res.Get(i, j).tileVisuals,
                     new Vector3(xCoord, 0, zCoord),
                     transform.rotation);
                 gameObjectArray[i, j].transform.localScale = new Vector3(m_gridSize, 1, m_gridSize);
