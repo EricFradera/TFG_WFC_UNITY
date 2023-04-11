@@ -15,6 +15,7 @@ public class WFCGenerator : MonoBehaviour
     public Color lineColor = Color.white;
     public List<WFCTile> wfcTilesList;
     private GameObject[,] gameObjectArray;
+    private WFCProc generator;
 
 
     public enum GeneratorModes
@@ -27,12 +28,17 @@ public class WFCGenerator : MonoBehaviour
 
     public void Generate()
     {
-        //ClearPreviousIteration();
         var lineCount = Mathf.RoundToInt((m_gridExtent * 2) / m_gridSize);
         if (lineCount % 2 == 0) lineCount++;
         lineCount--;
         int half = lineCount / 2;
         ClearPreviousIteration(lineCount);
+
+        //Generation
+        generator ??= new WFCProc(WFCConfigFile.wfcTilesList);
+        var res = generator.runWFC(lineCount);
+
+
         for (int i = 0; i < lineCount; i++)
         {
             for (int j = 0; j < lineCount; j++)
@@ -42,7 +48,7 @@ public class WFCGenerator : MonoBehaviour
                 gameObjectArray[i, j] = Instantiate(WFCConfigFile.wfcTilesList[0].tileVisuals,
                     new Vector3(xCoord, 0, zCoord),
                     transform.rotation);
-                gameObjectArray[i, j].transform.localScale = new Vector3(m_gridSize,1, m_gridSize);
+                gameObjectArray[i, j].transform.localScale = new Vector3(m_gridSize, 1, m_gridSize);
                 gameObjectArray[i, j].transform.parent = gameObject.transform;
             }
         }
