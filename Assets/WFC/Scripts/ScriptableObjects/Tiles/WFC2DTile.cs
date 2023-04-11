@@ -10,7 +10,7 @@ namespace WFC
     {
         public List<string> test;
         public Texture2D tileTexture;
-        [TextArea] public string testName;
+        public string testName;
 
         public WFC2DTile()
         {

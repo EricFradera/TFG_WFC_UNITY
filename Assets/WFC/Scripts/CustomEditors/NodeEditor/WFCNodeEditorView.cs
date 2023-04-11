@@ -40,29 +40,13 @@ public class WFCNodeEditorView : GraphView
 
         config.wfcTilesList.ForEach(tile =>
         {
-            for (int i = 0; i < 4; i++)
+            var parentComponent = FindNodeComponent(tile);
+            foreach (var relation in tile.nodeData.relationShips)
             {
-                var child = tile.nodeData.outputConnections[i];
-                child.ForEach(c =>
-                {
-                    try
-                    {
-                        NodeComponent parentComponent = FindNodeComponent(tile);
-                        if (child.Contains(c))
-                        {
-                            foreach (var index in getNodeInput(c, tile))
-                            {
-                                NodeComponent childComponent = FindNodeComponent(c);
-                                Edge edge = parentComponent.output[i].ConnectTo(childComponent.input[index]);
-                                AddElement(edge);
-                            }
-                        }
-                    }
-                    catch (Exception e)
-                    {
-                        Debug.Log("not found :(((");
-                    }
-                });
+                var childComponent = FindNodeComponent(relation.inputTile);
+                Edge edge = parentComponent.output[relation.indexOutput]
+                    .ConnectTo(childComponent.input[relation.indexInput]);
+                AddElement(edge);
             }
         });
     }
@@ -72,25 +56,9 @@ public class WFCNodeEditorView : GraphView
         return GetNodeByGuid(tile.tileId) as NodeComponent;
     }
 
-    private List<int> getNodeInput(WFCTile origin, WFCTile dest)
-    {
-        List<int> components = new List<int>();
-        for (int i = 0; i < 4; i++)
-        {
-            if (origin.nodeData.inputConnections[i].Contains(dest))
-            {
-                components.Add(i);
-            }
-        }
-
-        return components;
-    }
-
-
     public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
     {
-        return ports.ToList()
-            .Where(endPort => endPort.direction != startPort.direction && endPort.node != startPort.node).ToList();
+        return ports.ToList();
     }
 
     private GraphViewChange OnGraphViewChanged(GraphViewChange graphviewchange)
@@ -115,7 +83,7 @@ public class WFCNodeEditorView : GraphView
         graphviewchange.edgesToCreate?.ForEach(edge =>
         {
             if (edge.input.node is NodeComponent inputNode && edge.output.node is NodeComponent outputNode)
-                config.AddChild(  outputNode.tile, inputNode.tile, dirHelper(edge.output.portName),
+                config.AddChild(outputNode.tile, inputNode.tile, dirHelper(edge.output.portName),
                     dirHelper(edge.input.portName));
         });
 
@@ -151,7 +119,6 @@ public class WFCNodeEditorView : GraphView
             nodeComponent.OnNodeSelection = onNodeSelected;
             AddElement(nodeComponent);
         }
-        
     }
 
     private int dirHelper(string dirName)

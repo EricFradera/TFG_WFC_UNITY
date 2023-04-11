@@ -2,7 +2,7 @@
     <ui:Label tabindex="-1" text="WFC generator" display-tooltip-when-elided="true" style="-unity-text-align: upper-center; font-size: 16px; margin-bottom: 10px;" />
     <ui:FloatField label="m_gridSize" value="1" binding-path="m_gridSize" name="m_gridSize" />
     <ui:FloatField label="Grid Extent" value="42.2" name="m_gridExtent" binding-path="m_gridExtent" />
-    <uie:ObjectField label="WFCConfigFile" name="WFCConfigFile" binding-path="WFCConfigFile" view-data-key="WFCConfigFile" />
+    <uie:ObjectField label="WFCConfigFile" name="WFCConfigFile" binding-path="WFCConfigFile" view-data-key="WFCConfigFile" type="WFC.WFCConfig, Assembly-CSharp" />
     <uie:ColorField label="lineColor" value="#FFFFFFFF" name="lineColor" binding-path="lineColor" />
     <ui:ListView focusable="true" binding-path="wfcTilesList" name="wfcTilesList" fixed-item-height="200" header-title="WFC tiles" show-border="true" view-data-key="wfcTilesList" show-add-remove-footer="false" show-foldout-header="true" horizontal-scrolling="false" reorderable="false" show-bound-collection-size="true" tabindex="0" style="flex-grow: 1;" />
     <ui:VisualElement style="flex-grow: initial; background-color: rgba(0, 0, 0, 0); padding-top: 10px; padding-bottom: 2%;">

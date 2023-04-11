@@ -10,7 +10,7 @@ using WFC;
 #if true
 
 
-[CustomEditor(typeof(WFCGenerator))]
+[CustomEditor(typeof(WFCGenerator)),Serializable]
 public class WFCGenEditor : Editor
 {
     public VisualTreeAsset m_InspectorXML;
@@ -24,6 +24,7 @@ public class WFCGenEditor : Editor
     public WFCGenerator current;
 
     public List<WFCTile> wfcTilesList;
+    public ListView listView;
 
     public override VisualElement CreateInspectorGUI()
     {
@@ -36,7 +37,7 @@ public class WFCGenEditor : Editor
         var extentFloatField = root.Q<FloatField>("m_gridExtent");
         var lineColorField = root.Q<ColorField>("lineColor");
         var wfcConfigFileField = root.Q<ObjectField>("WFCConfigFile");
-        var listView = root.Q<ListView>("wfcTilesList");
+        listView = root.Q<ListView>("wfcTilesList");
 
 
         //Binding components
@@ -58,7 +59,9 @@ public class WFCGenEditor : Editor
             {
                 current.populateList();
                 wfcTilesList = configFile.wfcTilesList;
-                
+                listView.itemsSource = wfcTilesList;
+                //listView.makeItem = () => new Label();
+                //listView.bindItem = (e, i) => (e as Label).text = "This is it "+wfcTilesList[i].tileId;
             }
             else
             {
@@ -70,9 +73,9 @@ public class WFCGenEditor : Editor
         return root;
     }
 
-    private void genListView()
+    private void genListView(ListView listView)
     {
-       
+        listView.makeItem = () => { return new Label("hi"); };
     }
 
 

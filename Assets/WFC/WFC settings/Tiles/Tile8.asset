@@ -12,18 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e890ea296fd8fc84392022df9300b300, type: 3}
   m_Name: Tile8
   m_EditorClassIdentifier: 
+  tileName: name
   tileId: 8
   adjacencyCodes:
   - XWXB
   - B
   - B
   - YWYB
-  position: {x: 0, y: 0}
-  id_up: XWXB
-  id_right: B
-  id_down: B
-  id_left: YWYB
-  up: 
-  right: 
-  down: 
-  left: 
+  nodeData:
+    position: {x: 0, y: 0}
+  test: []
+  tileTexture: {fileID: 0}
+  testName: 

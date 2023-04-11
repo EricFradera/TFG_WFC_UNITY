@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using WFC;
 
+#if false
 namespace WFCEditor
 {
     //[CustomEditor(typeof(WFC2DTile))]
@@ -24,3 +25,4 @@ namespace WFCEditor
         }
     }
 }
+#endif

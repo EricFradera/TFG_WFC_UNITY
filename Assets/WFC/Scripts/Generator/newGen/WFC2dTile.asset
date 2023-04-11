@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e890ea296fd8fc84392022df9300b300, type: 3}
-  m_Name: Tile2
+  m_Name: WFC2dTile
   m_EditorClassIdentifier: 
-  tileName: name
-  tileId: 2
+  tileName: 1
+  tileId: 1
   adjacencyCodes:
-  - B
-  - B
-  - B
-  - B
+  - 
+  - 
+  - 
+  - 
   nodeData:
     position: {x: 0, y: 0}
   test: []

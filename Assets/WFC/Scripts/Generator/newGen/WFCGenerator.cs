@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using WFC;
 
+[Serializable]
 public class WFCGenerator : MonoBehaviour
 {
     //Maybe it's useless.

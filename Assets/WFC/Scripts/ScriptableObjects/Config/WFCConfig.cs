@@ -29,17 +29,15 @@ namespace WFC
         {
             if (parent == null || child == null) return;
             parent.adjacencyPairs[dirParent].Add(child);
-            parent.nodeData.outputConnections[dirParent].Add(child);
+            parent.nodeData.relationShips.Add(new nodeRelation(dirChild, child, dirChild));
             child.adjacencyPairs[dirChild].Add(parent);
-            child.nodeData.inputConnections[dirChild].Add(parent);
         }
 
         public void RemoveChild(WFCTile parent, WFCTile child, int dirParent, int dirChild)
         {
             parent.adjacencyPairs[dirParent].Remove(child);
             child.adjacencyPairs[dirChild].Remove(parent);
-            parent.nodeData.outputConnections[dirParent].Remove(child);
-            child.nodeData.inputConnections[dirChild].Remove(parent);
+            parent.nodeData.relationShips.Remove(new nodeRelation(dirChild, child, dirChild));
         }
 
         public List<WFCTile> GetChildren(WFCTile parent, int dir)
