@@ -21,6 +21,8 @@ MonoBehaviour:
   - BLDNG
   nodeData:
     position: {x: 0, y: 0}
+  tileVisuals: {fileID: 4152284645904326232, guid: f9ce8e88f8401894ca44aed9722a038d,
+    type: 3}
   test: []
   tileTexture: {fileID: 0}
   testName: 

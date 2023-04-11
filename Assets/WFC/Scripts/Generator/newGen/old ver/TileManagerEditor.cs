@@ -14,16 +14,9 @@ public class TileManagerEditor : PropertyDrawer
     public override VisualElement CreatePropertyGUI(SerializedProperty property)
     {
         var root = new VisualElement();
-        root.Add(new Label("Element x"));
-        WFCTile tile = property.objectReferenceValue as object as WFCTile;
-        Debug.Log(tile.tileId);
-        var textName = new TextElement();
-        textName.BindProperty(property.FindPropertyRelative("tileName"));
-        textName.RegisterValueChangedCallback(evt => { tile.tileId = textName.text; });
-
-        root.Add(textName);
-
-
+        //WFCTile tile = property.objectReferenceValue as object as WFCTile;
+        //Debug.Log(tile.tileId);
+        
         return root;
     }
 }

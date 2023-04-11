@@ -10,7 +10,7 @@ using WFC;
 #if true
 
 
-[CustomEditor(typeof(WFCGenerator)),Serializable]
+[CustomEditor(typeof(WFCGenerator)), Serializable]
 public class WFCGenEditor : Editor
 {
     public VisualTreeAsset m_InspectorXML;
@@ -24,7 +24,8 @@ public class WFCGenEditor : Editor
     public WFCGenerator current;
 
     public List<WFCTile> wfcTilesList;
-    public ListView listView;
+    [SerializeField] private VisualTreeAsset itemEditor;
+    public ListView listViewComponent;
 
     public override VisualElement CreateInspectorGUI()
     {
@@ -37,21 +38,23 @@ public class WFCGenEditor : Editor
         var extentFloatField = root.Q<FloatField>("m_gridExtent");
         var lineColorField = root.Q<ColorField>("lineColor");
         var wfcConfigFileField = root.Q<ObjectField>("WFCConfigFile");
-        listView = root.Q<ListView>("wfcTilesList");
-
+        listViewComponent = root.Q<ListView>("wfcTilesList");
+        var generateButton = root.Q<Button>("generateButton");
+        var clearButton = root.Q<Button>("clearButton");
 
         //Binding components
         sizeFloatField.BindProperty(serializedObject.FindProperty("m_gridSize"));
         extentFloatField.BindProperty(serializedObject.FindProperty("m_gridExtent"));
         lineColorField.BindProperty(serializedObject.FindProperty("lineColor"));
         wfcConfigFileField.BindProperty(serializedObject.FindProperty("WFCConfigFile"));
-        listView.BindProperty(serializedObject.FindProperty("wfcTilesList"));
+        listViewComponent.BindProperty(serializedObject.FindProperty("wfcTilesList"));
 
 
         //modify variable values
         sizeFloatField.RegisterValueChangedCallback(evt => { gridSize = sizeFloatField.value; });
         extentFloatField.RegisterValueChangedCallback(evt => { gridExtent = extentFloatField.value; });
         lineColorField.RegisterValueChangedCallback(evt => { lineColor = lineColorField.value; });
+        //Generate ListView
         wfcConfigFileField.RegisterValueChangedCallback(evt =>
         {
             configFile = wfcConfigFileField.value as WFCConfig;
@@ -59,9 +62,7 @@ public class WFCGenEditor : Editor
             {
                 current.populateList();
                 wfcTilesList = configFile.wfcTilesList;
-                listView.itemsSource = wfcTilesList;
-                //listView.makeItem = () => new Label();
-                //listView.bindItem = (e, i) => (e as Label).text = "This is it "+wfcTilesList[i].tileId;
+                listViewComponent.makeItem = itemEditor.CloneTree;
             }
             else
             {
@@ -69,9 +70,13 @@ public class WFCGenEditor : Editor
                 wfcTilesList = null;
             }
         });
+        //Buttons
+        generateButton.RegisterCallback<MouseUpEvent>((evt) => current.Generate());
+        clearButton.RegisterCallback<MouseUpEvent>((evt) => current.ClearPreviousIteration());
 
         return root;
     }
+
 
     private void genListView(ListView listView)
     {
@@ -81,6 +86,7 @@ public class WFCGenEditor : Editor
 
     private void OnSceneGUI()
     {
+        listViewComponent.makeItem = itemEditor.CloneTree;
         Handles.color = lineColor;
         var lineCount = Mathf.RoundToInt((gridExtent * 2) / gridSize);
         if (lineCount % 2 == 0) lineCount++;

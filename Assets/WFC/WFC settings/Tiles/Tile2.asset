@@ -21,6 +21,8 @@ MonoBehaviour:
   - B
   nodeData:
     position: {x: 0, y: 0}
+  tileVisuals: {fileID: 4152284645904326232, guid: eee416bacfb8fde41aa3b5677610339f,
+    type: 3}
   test: []
   tileTexture: {fileID: 0}
   testName: 

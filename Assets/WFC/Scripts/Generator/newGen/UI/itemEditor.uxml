@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px; -unity-text-outline-width: 0; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px;">
+        <uie:ObjectField label="ConfigTile" name="ConfigTile" />
+        <ui:TextField picking-mode="Ignore" label="Tile name:" value="filler text" binding-path="tileName" name="TileName" />
+        <SplitView fixed-pane-initial-dimension="260" name="SplitView" style="flex-basis: auto; flex-grow: 0.7;">
+            <ui:TextField picking-mode="Ignore" label="Text Field" value="filler text" style="flex-grow: 0;" />
+            <ui:Button text="Generate UID" display-tooltip-when-elided="true" />
+        </SplitView>
+        <ui:Slider picking-mode="Ignore" label="Frequency" value="42" high-value="100" name="Frequency" binding-path="frequency" />
+        <uie:ObjectField label="Prefab" binding-path="prefab" name="Prefab" />
+    </ui:VisualElement>
+</ui:UXML>

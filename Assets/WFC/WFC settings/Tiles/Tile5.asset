@@ -21,6 +21,8 @@ MonoBehaviour:
   - YWYB
   nodeData:
     position: {x: 0, y: 0}
+  tileVisuals: {fileID: 4152284645904326232, guid: 17e3390edbecc1f49876530b77ddaa95,
+    type: 3}
   test: []
   tileTexture: {fileID: 0}
   testName: 

@@ -24,16 +24,18 @@ public class WFCGenerator : MonoBehaviour
         WFCGRAPHMODE
     }
 
-    private void Generate()
+    public void Generate()
     {
         ClearPreviousIteration();
+        Debug.Log("we generate!!!");
     }
 
     public void populateList() => wfcTilesList = WFCConfigFile.wfcTilesList;
     public void clearList() => wfcTilesList = null;
 
 
-    private void ClearPreviousIteration()
+    public void ClearPreviousIteration()
     {
+        Debug.Log("we clear!!!");
     }
 }

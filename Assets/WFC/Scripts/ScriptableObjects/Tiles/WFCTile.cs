@@ -18,6 +18,8 @@ public abstract class WFCTile : ScriptableObject
     // Node data
     public nodeData nodeData;
 
+    //Asset data
+    public GameObject tileVisuals;
 
     //always have to be an inverse function for tile matching
     public abstract int GetInverse(int indexDirection);
