@@ -72,7 +72,7 @@ public class WFCGenEditor : Editor
         });
         //Buttons
         generateButton.RegisterCallback<MouseUpEvent>((evt) => current.Generate());
-        clearButton.RegisterCallback<MouseUpEvent>((evt) => current.ClearPreviousIteration());
+        //clearButton.RegisterCallback<MouseUpEvent>((evt) => current.ClearPreviousIteration());
 
         return root;
     }
