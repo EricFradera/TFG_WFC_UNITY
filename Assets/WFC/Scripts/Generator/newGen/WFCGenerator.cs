@@ -16,6 +16,7 @@ public class WFCGenerator : MonoBehaviour
     public List<WFCTile> wfcTilesList;
     private GameObject[,] gameObjectArray;
     private WFCProc generator;
+    public Vector2 vecSize;
 
 
     public enum GeneratorModes

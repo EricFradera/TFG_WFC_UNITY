@@ -15,7 +15,8 @@ namespace WFC
         public String configurationName;
         public int configurationID;
         public List<WFCTile> wfcTilesList = new List<WFCTile>();
-
+//maybe create here the node???
+    
         public abstract WFCTile CreateNodeTile();
 
         public void DeleteNodeTile(WFCTile tile)

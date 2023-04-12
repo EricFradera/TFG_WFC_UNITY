@@ -19,7 +19,7 @@ public abstract class NodeComponent : Node
     public Port[] input;
     public Port[] output;
     public Action<NodeComponent> OnNodeSelection;
-    public String[] portNames;
+    protected String[] portNames;
     
     protected void CreateInputPort(int dir)
     {

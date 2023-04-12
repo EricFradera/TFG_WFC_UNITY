@@ -19,6 +19,7 @@ public class WFCGenEditor : Editor
     //Input variables
     private float gridSize;
     private float gridExtent;
+    private Vector2 sizeVec;
     private Color lineColor;
     public WFCConfig configFile;
     public WFCGenerator current;
@@ -33,6 +34,8 @@ public class WFCGenEditor : Editor
         root = new VisualElement();
         if (m_InspectorXML is null) throw new Exception("XML file for the Inspector missing");
         m_InspectorXML.CloneTree(root);
+
+
         //Input components
         var sizeFloatField = root.Q<FloatField>("m_gridSize");
         var extentFloatField = root.Q<FloatField>("m_gridExtent");
@@ -41,6 +44,8 @@ public class WFCGenEditor : Editor
         listViewComponent = root.Q<ListView>("wfcTilesList");
         var generateButton = root.Q<Button>("generateButton");
         var clearButton = root.Q<Button>("clearButton");
+        var vectorInput = root.Q<Vector2Field>("vecSize");
+
 
         //Binding components
         sizeFloatField.BindProperty(serializedObject.FindProperty("m_gridSize"));
@@ -48,12 +53,15 @@ public class WFCGenEditor : Editor
         lineColorField.BindProperty(serializedObject.FindProperty("lineColor"));
         wfcConfigFileField.BindProperty(serializedObject.FindProperty("WFCConfigFile"));
         listViewComponent.BindProperty(serializedObject.FindProperty("wfcTilesList"));
+        vectorInput.BindProperty(serializedObject.FindProperty("vecSize"));
 
 
         //modify variable values
         sizeFloatField.RegisterValueChangedCallback(evt => { gridSize = sizeFloatField.value; });
         extentFloatField.RegisterValueChangedCallback(evt => { gridExtent = extentFloatField.value; });
         lineColorField.RegisterValueChangedCallback(evt => { lineColor = lineColorField.value; });
+        vectorInput.RegisterValueChangedCallback(evt => { sizeVec = vectorInput.value; });
+
         //Generate ListView
         wfcConfigFileField.RegisterValueChangedCallback(evt =>
         {
@@ -77,17 +85,15 @@ public class WFCGenEditor : Editor
         return root;
     }
 
-
-    private void genListView(ListView listView)
-    {
-        listView.makeItem = () => { return new Label("hi"); };
-    }
-
-
     private void OnSceneGUI()
     {
         listViewComponent.makeItem = itemEditor.CloneTree;
         Handles.color = lineColor;
+        GenGrid2D();
+    }
+
+    private void GenGrid2D()
+    {
         var lineCount = Mathf.RoundToInt((gridExtent * 2) / gridSize);
         if (lineCount % 2 == 0) lineCount++;
         var halfLineCount = lineCount / 2;
