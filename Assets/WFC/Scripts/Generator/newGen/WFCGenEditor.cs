@@ -28,6 +28,10 @@ public class WFCGenEditor : Editor
     [SerializeField] private VisualTreeAsset itemEditor;
     public ListView listViewComponent;
 
+    //3d visualization
+    private GameObject cube;
+    private Material gridMat;
+
     public override VisualElement CreateInspectorGUI()
     {
         current = target as WFCGenerator;
@@ -82,18 +86,32 @@ public class WFCGenEditor : Editor
         generateButton.RegisterCallback<MouseUpEvent>((evt) => current.Generate());
         //clearButton.RegisterCallback<MouseUpEvent>((evt) => current.ClearPreviousIteration());
 
+        cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        cube.transform.position = new Vector3(0, 0, 0);
+        if (current != null) cube.transform.parent = current.transform;
+        gridMat = new Material(Shader.Find("Shader Graphs/gridShader"));
+        if (cube.TryGetComponent<Renderer>(out var renderer)) renderer.material = gridMat;
+
+
         return root;
+    }
+
+    public void OnDisable()
+    {
+        DestroyImmediate(gridMat);
+        DestroyImmediate(cube);
     }
 
     private void OnSceneGUI()
     {
         listViewComponent.makeItem = itemEditor.CloneTree;
-        Handles.color = lineColor;
+        //GenGrid3D();
         GenGrid2D();
     }
 
     private void GenGrid2D()
     {
+        Handles.color = lineColor;
         var lineCount = Mathf.RoundToInt((gridExtent * 2) / gridSize);
         if (lineCount % 2 == 0) lineCount++;
         var halfLineCount = lineCount / 2;
@@ -110,6 +128,17 @@ public class WFCGenEditor : Editor
             p1 = new Vector3(zCoord1, 0f, xCoord);
             Handles.DrawAAPolyLine(p0, p1);
         }
+    }
+
+    private void GenGrid3D()
+    {
+        var size = Mathf.RoundToInt((gridExtent * 2) / gridSize);
+        if (size % 2 == 0) size++;
+        var finalSize = size  * gridSize-gridSize;
+        var matSize = 1/gridSize;
+        cube.transform.localScale = new Vector3(finalSize, finalSize, finalSize);
+        gridMat.SetColor("_lineColor", lineColor);
+        gridMat.SetFloat("_gridSize", matSize);
     }
 }
 #endif
