@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class nodeRelation
 {
-    public nodeRelation(int indexOutput, WFCTile inputTile, int indexInput)
+    public nodeRelation(int indexOutput, Object inputTile, int indexInput)
     {
         this.indexOutput = indexOutput;
         this.inputTile = inputTile;
@@ -12,6 +12,6 @@ public class nodeRelation
     }
 
     public readonly int indexOutput;
-    public readonly WFCTile inputTile;
+    public readonly Object inputTile;
     public readonly int indexInput;
 }

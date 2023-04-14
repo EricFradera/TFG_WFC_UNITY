@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEditor.Rendering;
 
 namespace WFC
@@ -14,10 +15,24 @@ namespace WFC
     {
         public String configurationName;
         public int configurationID;
+
         public List<WFCTile> wfcTilesList = new List<WFCTile>();
-//maybe create here the node???
-    
+
+        //maybe create here the node???
+        public List<Node> nodeHelpers;
+
         public abstract WFCTile CreateNodeTile();
+
+        public Node createNodeHelper()
+        {
+            // Helper node have to be created here
+            return new Node();
+        }
+
+        public void deleteNodeHelper(Node nodeToDelete)
+        {
+            //Helper node is created here
+        }
 
         public void DeleteNodeTile(WFCTile tile)
         {

@@ -32,8 +32,9 @@ public class WFCGenerator : MonoBehaviour
         var lineCount = Mathf.RoundToInt((m_gridExtent * 2) / m_gridSize);
         if (lineCount % 2 == 0) lineCount++;
         lineCount--;
-        int half = lineCount / 2;
-        ClearPreviousIteration(lineCount);
+        var half = lineCount / 2;
+        ClearPreviousIteration();
+        gameObjectArray = new GameObject[lineCount, lineCount];
 
         //Generation
         generator ??= new WFCProc(WFCConfigFile.wfcTilesList);
@@ -59,16 +60,21 @@ public class WFCGenerator : MonoBehaviour
     public void clearList() => wfcTilesList = null;
 
 
-    public void ClearPreviousIteration(int size)
+    public void ClearPreviousIteration()
     {
-        if (gameObjectArray != null)
+        if (gameObjectArray == null)
+        {
+            for (int i = transform.childCount - 1; i >= 0; i--)
+            {
+                DestroyImmediate(transform.GetChild(i).gameObject);
+            }
+        }
+        else
         {
             foreach (var tile in gameObjectArray)
             {
                 DestroyImmediate(tile);
             }
         }
-
-        gameObjectArray = new GameObject[size, size];
     }
 }

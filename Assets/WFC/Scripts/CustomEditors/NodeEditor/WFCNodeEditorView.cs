@@ -43,7 +43,7 @@ public class WFCNodeEditorView : GraphView
             var parentComponent = FindNodeComponent(tile);
             foreach (var relation in tile.nodeData.relationShips)
             {
-                var childComponent = FindNodeComponent(relation.inputTile);
+                var childComponent = FindNodeComponent((WFCTile)relation.inputTile);
                 Edge edge = parentComponent.output[relation.indexOutput]
                     .ConnectTo(childComponent.input[relation.indexInput]);
                 AddElement(edge);

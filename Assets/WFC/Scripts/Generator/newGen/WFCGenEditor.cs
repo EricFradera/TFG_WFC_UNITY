@@ -84,16 +84,24 @@ public class WFCGenEditor : Editor
         });
         //Buttons
         generateButton.RegisterCallback<MouseUpEvent>((evt) => current.Generate());
-        //clearButton.RegisterCallback<MouseUpEvent>((evt) => current.ClearPreviousIteration());
+        clearButton.RegisterCallback<MouseUpEvent>((evt) => current.ClearPreviousIteration());
 
+        if (false) //this should create the cube only when its needed
+        {
+            create3DGizmo();
+        }
+
+
+        return root;
+    }
+
+    private void create3DGizmo()
+    {
         cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
         cube.transform.position = new Vector3(0, 0, 0);
         if (current != null) cube.transform.parent = current.transform;
         gridMat = new Material(Shader.Find("Shader Graphs/gridShader"));
         if (cube.TryGetComponent<Renderer>(out var renderer)) renderer.material = gridMat;
-
-
-        return root;
     }
 
     public void OnDisable()
@@ -134,8 +142,8 @@ public class WFCGenEditor : Editor
     {
         var size = Mathf.RoundToInt((gridExtent * 2) / gridSize);
         if (size % 2 == 0) size++;
-        var finalSize = size  * gridSize-gridSize;
-        var matSize = 1/gridSize;
+        var finalSize = size * gridSize - gridSize;
+        var matSize = 1 / gridSize;
         cube.transform.localScale = new Vector3(finalSize, finalSize, finalSize);
         gridMat.SetColor("_lineColor", lineColor);
         gridMat.SetFloat("_gridSize", matSize);
