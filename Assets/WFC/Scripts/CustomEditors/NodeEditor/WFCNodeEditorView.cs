@@ -71,6 +71,9 @@ public class WFCNodeEditorView : GraphView
                 case Node2dComponent nodeComponent:
                     config.DeleteNodeTile(nodeComponent.tile);
                     break;
+                case ColorNode colorNode:
+                    config.DeleteNodeHelper(colorNode.codeData);
+                    break;
                 case Edge edge:
                 {
                     if (edge.input.node is Node2dComponent inputNode && edge.output.node is Node2dComponent outputNode)
@@ -113,17 +116,22 @@ public class WFCNodeEditorView : GraphView
 
     void CreateNodeView(Object obj)
     {
-        if (obj is WFC2DTile wfc2DTile)
+        switch (obj)
         {
-            var nodeComponent = new Node2dComponent(wfc2DTile);
-            nodeComponent.OnNodeSelection = onNodeSelected;
-            AddElement(nodeComponent);
-        }
-        else if (obj is InputCodeData inputCodeData)
-        {
-            var helperNode = new ColorNode(inputCodeData);
-            helperNode.OnNodeSelection = onNodeSelected;
-            AddElement(helperNode);
+            case WFC2DTile wfc2DTile:
+            {
+                var nodeComponent = new Node2dComponent(wfc2DTile);
+                nodeComponent.OnNodeSelection = onNodeSelected;
+                AddElement(nodeComponent);
+                break;
+            }
+            case InputCodeData inputCodeData:
+            {
+                var helperNode = new ColorNode(inputCodeData);
+                helperNode.OnNodeSelection = onNodeSelected;
+                AddElement(helperNode);
+                break;
+            }
         }
     }
 

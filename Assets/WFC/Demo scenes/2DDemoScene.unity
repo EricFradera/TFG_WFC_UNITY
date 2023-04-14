@@ -3060,7 +3060,7 @@ MonoBehaviour:
   mode: 0
   WFCConfigFile: {fileID: 11400000, guid: 7f9afbead62f5324084417b18ff5fd9e, type: 2}
   m_gridSize: 1
-  m_gridExtent: 7.24
+  m_gridExtent: 5
   lineColor: {r: 1, g: 1, b: 1, a: 1}
   wfcTilesList:
   - {fileID: 11400000, guid: 26960e0e7c69b54408d1312e7e5a2890, type: 2}

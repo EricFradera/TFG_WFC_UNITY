@@ -38,9 +38,13 @@ public class WFCGenerator : MonoBehaviour
 
         //Generation
         generator ??= new WFCProc(WFCConfigFile.wfcTilesList);
+
+        gen2D(lineCount, half);
+    }
+
+    private void gen2D(int lineCount, int half)
+    {
         var res = generator.runWFC(lineCount);
-
-
         for (int i = 0; i < lineCount; i++)
         {
             for (int j = 0; j < lineCount; j++)
@@ -56,9 +60,31 @@ public class WFCGenerator : MonoBehaviour
         }
     }
 
+    private void gen3D(int lineCount, int half)
+    {
+        var res = generator.runWFC(lineCount);
+        for (int k = 0; k < lineCount; k++)
+        {
+            for (int i = 0; i < lineCount; i++)
+            {
+                for (int j = 0; j < lineCount; j++)
+                {
+                    float xCoord = (i - half) * m_gridSize + (m_gridSize / 2);
+                    float zCoord = (j - half) * m_gridSize + (m_gridSize / 2);
+                    float yCoord = (k - half) * m_gridSize + (m_gridSize / 2);
+                    gameObjectArray[i, j] = Instantiate(res.Get(i, j).tileVisuals,
+                        new Vector3(xCoord, yCoord, zCoord),
+                        transform.rotation);
+                    gameObjectArray[i, j].transform.localScale = new Vector3(m_gridSize, m_gridSize, m_gridSize);
+                    gameObjectArray[i, j].transform.parent = gameObject.transform;
+                }
+            }
+        }
+    }
+
     public void populateList() => wfcTilesList = WFCConfigFile.wfcTilesList;
     public void clearList() => wfcTilesList = null;
-    
+
     public void ClearPreviousIteration()
     {
         if (gameObjectArray == null)
