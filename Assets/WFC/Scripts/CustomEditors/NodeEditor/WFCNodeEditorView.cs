@@ -53,7 +53,7 @@ public class WFCNodeEditorView : GraphView
 
     private NodeComponent FindNodeComponent(WFCTile tile)
     {
-        return GetNodeByGuid(tile.tileId) as NodeComponent;
+        return GetNodeByGuid(tile.tileId) as Node2dComponent;
     }
 
     public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
@@ -67,12 +67,12 @@ public class WFCNodeEditorView : GraphView
         {
             switch (el)
             {
-                case NodeComponent nodeComponent:
+                case Node2dComponent nodeComponent:
                     config.DeleteNodeTile(nodeComponent.tile);
                     break;
                 case Edge edge:
                 {
-                    if (edge.input.node is NodeComponent inputNode && edge.output.node is NodeComponent outputNode)
+                    if (edge.input.node is Node2dComponent inputNode && edge.output.node is Node2dComponent outputNode)
                         config.RemoveChild(outputNode.tile, inputNode.tile, dirHelper(edge.output.portName),
                             dirHelper(edge.input.portName));
                     break;
@@ -82,7 +82,7 @@ public class WFCNodeEditorView : GraphView
 
         graphviewchange.edgesToCreate?.ForEach(edge =>
         {
-            if (edge.input.node is NodeComponent inputNode && edge.output.node is NodeComponent outputNode)
+            if (edge.input.node is Node2dComponent inputNode && edge.output.node is Node2dComponent outputNode)
                 config.AddChild(outputNode.tile, inputNode.tile, dirHelper(edge.output.portName),
                     dirHelper(edge.input.portName));
         });
@@ -113,9 +113,9 @@ public class WFCNodeEditorView : GraphView
 
     void CreateNodeView(WFCTile tile)
     {
-        if (tile is WFC2DTile)
+        if (tile is WFC2DTile wfc2DTile)
         {
-            var nodeComponent = new Node2dComponent(tile as WFC2DTile);
+            var nodeComponent = new Node2dComponent(wfc2DTile);
             nodeComponent.OnNodeSelection = onNodeSelected;
             AddElement(nodeComponent);
         }

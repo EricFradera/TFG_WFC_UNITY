@@ -15,12 +15,11 @@ using WFC;
 public abstract class NodeComponent : Node
 {
     //This has to be changed for an abstraction of the type WFC2DTile
-    public WFCTile tile;
     public Port[] input;
     public Port[] output;
     public Action<NodeComponent> OnNodeSelection;
     protected String[] portNames;
-    
+
     protected void CreateInputPort(int dir)
     {
         input[dir] = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Multi, typeof(bool));
@@ -38,10 +37,11 @@ public abstract class NodeComponent : Node
     public override void SetPosition(Rect newPos)
     {
         base.SetPosition(newPos);
-        tile.nodeData.position.x = newPos.xMin;
-        tile.nodeData.position.y = newPos.yMin;
+        setNodePos(newPos.xMin, newPos.yMin);
     }
-    
+
+    protected abstract void setNodePos(float x, float y);
+
     public override void OnSelected()
     {
         base.OnSelected();

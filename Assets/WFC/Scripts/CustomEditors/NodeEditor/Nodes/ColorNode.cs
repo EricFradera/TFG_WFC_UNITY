@@ -5,11 +5,16 @@ using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public class ColorNode : Node
+public class ColorNode : NodeComponent
 {
     public Color color;
     public Port InputPort;
     public Action<ColorNode> OnNodeSelection;
+    public ColorNodeData data;
+
+    public ColorNode()
+    {
+    }
 
     protected void CreateInputPort()
     {
@@ -21,6 +26,8 @@ public class ColorNode : Node
     {
         base.SetPosition(newPos);
     }
+
+    protected override void setNodePos(float x, float y) => data.nodeData.position = new Vector2(x, y);
 
     public override void OnSelected()
     {

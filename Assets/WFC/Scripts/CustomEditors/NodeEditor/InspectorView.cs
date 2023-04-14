@@ -19,7 +19,11 @@ public class InspectorView : VisualElement
     {
         Clear();
         UnityEngine.Object.DestroyImmediate(editor);
-        editor = Editor.CreateEditor(component.tile);
+        if (component is Node2dComponent comp)
+        {
+            editor = Editor.CreateEditor(comp.tile);
+        }
+
         IMGUIContainer container = new IMGUIContainer(() => { editor.OnInspectorGUI(); });
         Add(container);
     }

@@ -58,8 +58,7 @@ public class WFCGenerator : MonoBehaviour
 
     public void populateList() => wfcTilesList = WFCConfigFile.wfcTilesList;
     public void clearList() => wfcTilesList = null;
-
-
+    
     public void ClearPreviousIteration()
     {
         if (gameObjectArray == null)

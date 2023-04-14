@@ -9,6 +9,8 @@ using WFC;
 
 public class Node2dComponent : NodeComponent
 {
+    public WFCTile tile;
+
     public Node2dComponent(WFC2DTile tile)
     {
         this.tile = tile;
@@ -55,4 +57,6 @@ public class Node2dComponent : NodeComponent
         container.contentContainer.Add(previewImage);
         Add(container);
     }
+
+    protected override void setNodePos(float x, float y) => this.tile.nodeData.position = new Vector2(x, y);
 }
