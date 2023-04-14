@@ -19,19 +19,27 @@ namespace WFC
         public List<WFCTile> wfcTilesList = new List<WFCTile>();
 
         //maybe create here the node???
-        public List<Node> nodeHelpers;
+        public List<InputCodeData> nodeHelpers;
 
         public abstract WFCTile CreateNodeTile();
 
-        public Node createNodeHelper()
+        public InputCodeData CreateNodeHelper(Type type)
         {
-            // Helper node have to be created here
-            return new Node();
+            InputCodeData codeData;
+            if (type == typeof(ColorCodeData)) codeData = ScriptableObject.CreateInstance<ColorCodeData>();
+            else codeData = ScriptableObject.CreateInstance<InputCodeData>();
+            codeData.Init();
+            nodeHelpers.Add(codeData);
+            AssetDatabase.AddObjectToAsset(codeData, this);
+            AssetDatabase.SaveAssets();
+            return codeData;
         }
 
-        public void deleteNodeHelper(Node nodeToDelete)
+        public void DeleteNodeHelper(InputCodeData data)
         {
-            //Helper node is created here
+            nodeHelpers.Remove(data);
+            AssetDatabase.RemoveObjectFromAsset(data);
+            AssetDatabase.SaveAssets();
         }
 
         public void DeleteNodeTile(WFCTile tile)

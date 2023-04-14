@@ -7,27 +7,29 @@ using UnityEngine;
 
 public class ColorNode : NodeComponent
 {
-    public Color color;
-    public Port InputPort;
-    public Action<ColorNode> OnNodeSelection;
-    public ColorNodeData data;
+    public ColorCodeData codeData;
 
-    public ColorNode()
+    public ColorNode(InputCodeData codeData)
     {
+        this.codeData = (ColorCodeData)codeData;
+        this.viewDataKey = codeData.uid;
+        this.title = "Color code node";
+        portNames = new[] { "code" };
+        input = new Port[1];
+        style.left = codeData.nodeData.position.x;
+        style.top = codeData.nodeData.position.y;
+        CreateInputPort();
+        //Here we add the rest of stuff
     }
 
-    protected void CreateInputPort()
+    private void CreateInputPort()
     {
-        InputPort = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Multi, typeof(bool));
-        InputPort.portName = "Color";
+        input[0] = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Multi, typeof(bool));
+        input[0].portName = "Color";
+        inputContainer.Add(input[0]);
     }
 
-    public override void SetPosition(Rect newPos)
-    {
-        base.SetPosition(newPos);
-    }
-
-    protected override void setNodePos(float x, float y) => data.nodeData.position = new Vector2(x, y);
+    protected override void setNodePos(float x, float y) => codeData.nodeData.position = new Vector2(x, y);
 
     public override void OnSelected()
     {

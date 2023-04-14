@@ -7,6 +7,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using System.Linq;
 using WFC;
+using Object = UnityEngine.Object;
 
 public class WFCNodeEditorView : GraphView
 {
@@ -96,6 +97,7 @@ public class WFCNodeEditorView : GraphView
         {
             //This will makes sense once we change how the Tile object works. It needs an abstraction
             evt.menu.AppendAction("Create WFC2DTile", (a) => CreateNode());
+            evt.menu.AppendAction("Create ColorNode", (a) => CreateNodeHelper(typeof(ColorCodeData)));
             /*var types = TypeCache.GetTypesDerivedFrom<WFC2DTile>();
             foreach (var type in types)
             {
@@ -105,19 +107,23 @@ public class WFCNodeEditorView : GraphView
         }
     }
 
-    private void CreateNode()
-    {
-        WFCTile node = config.CreateNodeTile();
-        CreateNodeView(node);
-    }
+    private void CreateNode() => CreateNodeView(config.CreateNodeTile());
+    private void CreateNodeHelper(Type type) => CreateNodeView(config.CreateNodeHelper(type));
 
-    void CreateNodeView(WFCTile tile)
+
+    void CreateNodeView(Object obj)
     {
-        if (tile is WFC2DTile wfc2DTile)
+        if (obj is WFC2DTile wfc2DTile)
         {
             var nodeComponent = new Node2dComponent(wfc2DTile);
             nodeComponent.OnNodeSelection = onNodeSelected;
             AddElement(nodeComponent);
+        }
+        else if (obj is InputCodeData inputCodeData)
+        {
+            var helperNode = new ColorNode(inputCodeData);
+            helperNode.OnNodeSelection = onNodeSelected;
+            AddElement(helperNode);
         }
     }
 
