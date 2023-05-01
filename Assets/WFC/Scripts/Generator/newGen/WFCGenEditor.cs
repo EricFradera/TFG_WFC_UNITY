@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -69,15 +70,28 @@ public class WFCGenEditor : Editor
         //Generate ListView
         wfcConfigFileField.RegisterValueChangedCallback(evt =>
         {
-            configFile = wfcConfigFileField.value as WFCConfig;
-            if (configFile is not null)
+            if (wfcConfigFileField.value is not null)
             {
+                switch (wfcConfigFileField.value)
+                {
+                    case WFC2DConfig wfc2DConfig:
+                        Destroy3DGizmo();
+                        configFile = wfc2DConfig;
+                        break;
+                    case WF3DConfig wfc3DConfig:
+                        Destroy3DGizmo();
+                        configFile = wfc3DConfig;
+                        create3DGizmo();
+                        break;
+                }
+
                 current.populateList();
                 wfcTilesList = configFile.wfcTilesList;
                 listViewComponent.makeItem = itemEditor.CloneTree;
             }
             else
             {
+                Destroy3DGizmo();
                 current.clearList();
                 wfcTilesList = null;
             }
@@ -85,12 +99,6 @@ public class WFCGenEditor : Editor
         //Buttons
         generateButton.RegisterCallback<MouseUpEvent>((evt) => current.Generate());
         clearButton.RegisterCallback<MouseUpEvent>((evt) => current.ClearPreviousIteration());
-
-        if (false) //this should create the cube only when its needed
-        {
-            create3DGizmo();
-        }
-
 
         return root;
     }
@@ -106,6 +114,11 @@ public class WFCGenEditor : Editor
 
     public void OnDisable()
     {
+        Destroy3DGizmo();
+    }
+
+    private void Destroy3DGizmo()
+    {
         DestroyImmediate(gridMat);
         DestroyImmediate(cube);
     }
@@ -113,8 +126,9 @@ public class WFCGenEditor : Editor
     private void OnSceneGUI()
     {
         listViewComponent.makeItem = itemEditor.CloneTree;
-        //GenGrid3D();
-        GenGrid2D();
+        if (configFile is null) return;
+        if (configFile.GetType() == typeof(WFC2DConfig)) GenGrid2D();
+        else if (configFile.GetType() == typeof(WF3DConfig)) GenGrid3D();
     }
 
     private void GenGrid2D()

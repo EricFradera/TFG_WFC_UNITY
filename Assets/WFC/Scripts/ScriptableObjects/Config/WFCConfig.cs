@@ -17,8 +17,7 @@ namespace WFC
         public int configurationID;
 
         public List<WFCTile> wfcTilesList = new List<WFCTile>();
-
-        //maybe create here the node???
+        
         public List<InputCodeData> nodeHelpers;
 
         public abstract WFCTile CreateNodeTile();

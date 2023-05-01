@@ -14,7 +14,6 @@ using WFC;
 
 public abstract class NodeComponent : Node
 {
-    //This has to be changed for an abstraction of the type WFC2DTile
     public Port[] input;
     public Port[] output;
     public Action<NodeComponent> OnNodeSelection;

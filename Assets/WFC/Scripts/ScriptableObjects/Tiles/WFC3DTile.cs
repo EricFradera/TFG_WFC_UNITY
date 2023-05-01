@@ -5,18 +5,43 @@ using UnityEngine;
 
 namespace WFC
 {
-    [CreateAssetMenu(menuName = "WFC components/WFC3DTile",order = 2, fileName = "WFC3dTile"),Serializable]
-    public class WFC3DTile : ScriptableObject
+    [CreateAssetMenu(menuName = "WFC components/WFC3DTile", order = 2, fileName = "WFC3dTile"), Serializable]
+    public class WFC3DTile : WFCTile
     {
-        public int tileId;
-        //3d asset
-        //This has to become a jagged array or dictionary
-        public String id_up, id_right, id_down, id_left, id_zUp, id_zDown;
-        public List<int> up;
-        public List<int> right;
-        public List<int> down;
-        public List<int> left;
-        public List<int> zup;
-        public List<int> zDown;
+        public WFC3DTile()
+        {
+            this.adjacencyCodes = new String[6];
+            this.adjacencyPairs = new List<WFCTile>[6];
+        }
+
+        public void InitDataStructures()
+        {
+            this.adjacencyCodes = new String[6];
+            for (int i = 0; i < 6; i++) this.adjacencyPairs[i] = new List<WFCTile>();
+        }
+
+        private enum IndexDirection
+        {
+            UP,
+            RIGHT,
+            DOWN,
+            LEFT,
+            ZUP,
+            ZDOWN
+        }
+
+        public override int GetInverse(int indexDirection)
+        {
+            return (IndexDirection)indexDirection switch
+            {
+                IndexDirection.UP => (int)IndexDirection.DOWN,
+                IndexDirection.RIGHT => (int)IndexDirection.LEFT,
+                IndexDirection.DOWN => (int)IndexDirection.UP,
+                IndexDirection.LEFT => (int)IndexDirection.RIGHT,
+                IndexDirection.ZUP => (int)IndexDirection.ZDOWN,
+                IndexDirection.ZDOWN => (int)IndexDirection.ZUP,
+                _ => -1
+            };
+        }
     }
 }
