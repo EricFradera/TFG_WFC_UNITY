@@ -6,6 +6,8 @@ public class ColorCodeData : InputCodeData
 {
     public Color color;
 
+   
+
     public override void Init()
     {
         GenerateUid();

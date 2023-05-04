@@ -11,6 +11,7 @@ public class ColorNode : NodeComponent
 
     public ColorNode(InputCodeData codeData)
     {
+        
         this.codeData = (ColorCodeData)codeData;
         this.viewDataKey = codeData.uid;
         this.title = "Color code node";
@@ -19,7 +20,7 @@ public class ColorNode : NodeComponent
         style.left = codeData.nodeData.position.x;
         style.top = codeData.nodeData.position.y;
         CreateInputPort();
-        //Here we add the rest of stuff
+        //Here we add the rest of stuf
     }
 
     private void CreateInputPort()

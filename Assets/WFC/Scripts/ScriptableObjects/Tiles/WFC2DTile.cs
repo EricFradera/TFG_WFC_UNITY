@@ -14,14 +14,14 @@ namespace WFC
 
         public WFC2DTile()
         {
-            this.adjacencyCodes = new String[4];
+            this.adjacencyCodes = new InputCodeData[4];
             this.adjacencyPairs = new List<WFCTile>[4];
             test = new List<string>();
         }
 
         public void InitDataStructures()
         {
-            this.adjacencyCodes = new String[4];
+            this.adjacencyCodes = new InputCodeData[4];
             for (int i = 0; i < 4; i++) this.adjacencyPairs[i] = new List<WFCTile>();
         }
 

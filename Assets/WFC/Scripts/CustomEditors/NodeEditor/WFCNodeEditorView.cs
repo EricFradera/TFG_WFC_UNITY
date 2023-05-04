@@ -38,23 +38,52 @@ public class WFCNodeEditorView : GraphView
         DeleteElements(graphElements);
         graphViewChanged += OnGraphViewChanged;
         config.wfcTilesList.ForEach(CreateNodeView);
+        config.nodeHelpers.ForEach(CreateNodeView);
 
         config.wfcTilesList.ForEach(tile =>
         {
             var parentComponent = FindNodeComponent(tile);
             foreach (var relation in tile.nodeData.relationShips)
             {
-                var childComponent = FindNodeComponent((WFCTile)relation.inputTile);
-                Edge edge = parentComponent.output[relation.indexOutput]
-                    .ConnectTo(childComponent.input[relation.indexInput]);
-                AddElement(edge);
+                switch (relation.inputTile)
+                {
+                    case WFC2DTile relationInputTile:
+                        var childTileComponent = FindNodeComponent(relationInputTile);
+                        Edge edgeTile = parentComponent.output[relation.indexOutput]
+                            .ConnectTo(childTileComponent.input[relation.indexInput]);
+                        AddElement(edgeTile);
+                        break;
+                    case InputCodeData relationInputTile:
+                        var childHelperComponent = FindHelperNode(relationInputTile);
+                        Edge edgeHelper = parentComponent.output[relation.indexOutput]
+                            .ConnectTo(childHelperComponent.input[0]);
+                        AddElement(edgeHelper);
+                        break;
+                }
             }
         });
+
+        /*config.nodeHelpers.ForEach(helper =>
+        {
+            var parentComponent = FindHelperNode(helper);
+
+            foreach (var relation in helper.nodeData.relationShips)
+            {
+                var childComponent = FindNodeComponent((WFCTile)relation.inputTile);
+                Edge edge = childComponent.output[relation.indexOutput].ConnectTo(parentComponent.output[0]);
+                AddElement(edge);
+            }
+        });*/
     }
 
     private NodeComponent FindNodeComponent(WFCTile tile)
     {
         return GetNodeByGuid(tile.tileId) as Node2dComponent;
+    }
+
+    private ColorNode FindHelperNode(InputCodeData codeData)
+    {
+        return GetNodeByGuid(codeData.uid) as ColorNode;
     }
 
     public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
@@ -86,9 +115,16 @@ public class WFCNodeEditorView : GraphView
 
         graphviewchange.edgesToCreate?.ForEach(edge =>
         {
-            if (edge.input.node is Node2dComponent inputNode && edge.output.node is Node2dComponent outputNode)
-                config.AddChild(outputNode.tile, inputNode.tile, dirHelper(edge.output.portName),
-                    dirHelper(edge.input.portName));
+            switch (edge.input.node)
+            {
+                case Node2dComponent inputNode when edge.output.node is Node2dComponent outputNode:
+                    config.AddChild(outputNode.tile, inputNode.tile, dirHelper(edge.output.portName),
+                        dirHelper(edge.input.portName));
+                    break;
+                case ColorNode inputNode when edge.output.node is Node2dComponent outputNode:
+                    config.AddHelper(inputNode.codeData, outputNode.tile, dirHelper(edge.output.portName));
+                    break;
+            }
         });
 
         return graphviewchange;
@@ -114,7 +150,7 @@ public class WFCNodeEditorView : GraphView
     private void CreateNodeHelper(Type type) => CreateNodeView(config.CreateNodeHelper(type));
 
 
-    void CreateNodeView(Object obj)
+    private void CreateNodeView(Object obj)
     {
         switch (obj)
         {
@@ -130,6 +166,20 @@ public class WFCNodeEditorView : GraphView
                 var helperNode = new ColorNode(inputCodeData);
                 helperNode.OnNodeSelection = onNodeSelected;
                 AddElement(helperNode);
+                break;
+            }
+        }
+    }
+
+    private void CreateHelperNodeView(Object obj)
+    {
+        switch (obj)
+        {
+            case ColorCodeData helperColorCodeData:
+            {
+                var nodeHelper = new ColorNode(helperColorCodeData);
+                nodeHelper.OnNodeSelection = onNodeSelected;
+                AddElement(nodeHelper);
                 break;
             }
         }

@@ -17,7 +17,7 @@ namespace WFC
         public int configurationID;
 
         public List<WFCTile> wfcTilesList = new List<WFCTile>();
-        
+
         public List<InputCodeData> nodeHelpers;
 
         public abstract WFCTile CreateNodeTile();
@@ -36,6 +36,7 @@ namespace WFC
 
         public void DeleteNodeHelper(InputCodeData data)
         {
+            data.nodeData.deleteRelFromHelper();
             nodeHelpers.Remove(data);
             AssetDatabase.RemoveObjectFromAsset(data);
             AssetDatabase.SaveAssets();
@@ -54,6 +55,14 @@ namespace WFC
             parent.adjacencyPairs[dirParent].Add(child);
             parent.nodeData.relationShips.Add(new nodeRelation(dirChild, child, dirChild));
             child.adjacencyPairs[dirChild].Add(parent);
+        }
+
+        public void AddHelper(InputCodeData data, WFCTile tile, int dir)
+        {
+            if (data == null || tile == null) return;
+            tile.nodeData.relationShips.Add(new nodeRelation(dir, data));
+            data.nodeData.relationShips.Add(new nodeRelation(dir, tile));
+            tile.adjacencyCodes[dir] = data;
         }
 
         public void RemoveChild(WFCTile parent, WFCTile child, int dirParent, int dirChild)

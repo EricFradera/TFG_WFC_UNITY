@@ -6,7 +6,7 @@ using WFC;
 
 namespace WFCEditor
 {
-    [CustomEditor(typeof(GridBuilder))]
+    [CustomEditor(typeof(testscript))]
     public class generatorCustomEditor : Editor
     {
         public Object source;
@@ -16,9 +16,8 @@ namespace WFCEditor
             serializedObject.Update();
             GUILayout.Label("Select Scriptable object of type Tile", EditorStyles.label);
             source = EditorGUILayout.ObjectField(source, typeof(WFCConfig), true);
-            GridBuilder gridBuilder = (GridBuilder)target;
-            gridBuilder.size = EditorGUILayout.IntField("size", gridBuilder.size);
-            if (GUILayout.Button("Reset Values")) gridBuilder.Generate((WFCConfig)source);
+            testscript testscript = (testscript)target;
+            if (GUILayout.Button("Reset Values")) testscript.testRel(source);
         }
     }
 }
