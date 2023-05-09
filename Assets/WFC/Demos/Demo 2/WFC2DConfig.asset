@@ -1,0 +1,423 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8855234794284771441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e890ea296fd8fc84392022df9300b300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileName: 2
+  tileId: 7169a641e15782b458e36e6c1f23c39b
+  adjacencyCodes:
+  - {fileID: -2303782108414116851}
+  - {fileID: 1707577396058455273}
+  - {fileID: -2303782108414116851}
+  - {fileID: -2303782108414116851}
+  nodeData:
+    position: {x: 724.80005, y: 31.200012}
+  tileVisuals: {fileID: 0}
+  test: []
+  tileTexture: {fileID: 2800000, guid: 2f8eb80c213496a4a8a940cec309e926, type: 3}
+  testName: 
+--- !u!114 &-8247250032657101247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e890ea296fd8fc84392022df9300b300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileName: 10
+  tileId: 3d1b72715d4f1ae45a032eb95ccb8604
+  adjacencyCodes:
+  - {fileID: -2303782108414116851}
+  - {fileID: 1707577396058455273}
+  - {fileID: -2303782108414116851}
+  - {fileID: -5304730126301978502}
+  nodeData:
+    position: {x: 757.19995, y: 968.80005}
+  tileVisuals: {fileID: 0}
+  test: []
+  tileTexture: {fileID: 2800000, guid: ab4084d19cc0803409aefd317f39feba, type: 3}
+  testName: 
+--- !u!114 &-7814001656141332460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e890ea296fd8fc84392022df9300b300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileName: 1
+  tileId: 61f31a5292d039b49ae6a0db98e2b1c8
+  adjacencyCodes:
+  - {fileID: 8665960331526034643}
+  - {fileID: -2303782108414116851}
+  - {fileID: -2303782108414116851}
+  - {fileID: -2303782108414116851}
+  nodeData:
+    position: {x: 510.40002, y: 165.6}
+  tileVisuals: {fileID: 0}
+  test: []
+  tileTexture: {fileID: 2800000, guid: fba539ffa24819947a25112f68398f03, type: 3}
+  testName: 
+--- !u!114 &-7146843293550939403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e890ea296fd8fc84392022df9300b300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileName: 12
+  tileId: 212156f3e2f67a04d8dea7ebf7290be7
+  adjacencyCodes:
+  - {fileID: 3771875107254485320}
+  - {fileID: 3771875107254485320}
+  - {fileID: 2364347374721894324}
+  - {fileID: -5304730126301978502}
+  nodeData:
+    position: {x: 0, y: 333.60004}
+  tileVisuals: {fileID: 0}
+  test: []
+  tileTexture: {fileID: 2800000, guid: 97fbeef54ec85be419dcfbe6b78723a7, type: 3}
+  testName: 
+--- !u!114 &-5685319741850243720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e890ea296fd8fc84392022df9300b300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileName: 0
+  tileId: 8bfb8ee010daa4546bc06519727d522b
+  adjacencyCodes:
+  - {fileID: 5338269695434581984}
+  - {fileID: 5338269695434581984}
+  - {fileID: 5338269695434581984}
+  - {fileID: 5338269695434581984}
+  nodeData:
+    position: {x: -701.2, y: 0}
+  tileVisuals: {fileID: 0}
+  test: []
+  tileTexture: {fileID: 2800000, guid: 3300934f6b715e44aabb08f745f931df, type: 3}
+  testName: 
+--- !u!114 &-5304730126301978502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 435c0fdac9c8b8f4581b588fcbf0a10b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uid: da932171228428e438c1dbadb52b33ab
+  code: Horizontal left
+  nodeData:
+    position: {x: 302.39996, y: 491}
+--- !u!114 &-3861202239478117238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e890ea296fd8fc84392022df9300b300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileName: 8
+  tileId: 5242925b370f1c845b166546b7aa6ff3
+  adjacencyCodes:
+  - {fileID: -2303782108414116851}
+  - {fileID: -2303782108414116851}
+  - {fileID: -2303782108414116851}
+  - {fileID: -5304730126301978502}
+  nodeData:
+    position: {x: 510.44, y: 435}
+  tileVisuals: {fileID: 0}
+  test: []
+  tileTexture: {fileID: 2800000, guid: 5cb9202c168b7e8499d5ed16d6b01a87, type: 3}
+  testName: 
+--- !u!114 &-2303782108414116851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 435c0fdac9c8b8f4581b588fcbf0a10b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uid: fd7b343166bbd4844819ae7f388443ac
+  code: Marron
+  nodeData:
+    position: {x: 942.80005, y: 548.19995}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 805eb54aa0aeab74ba01c24c94a80203, type: 3}
+  m_Name: WFC2DConfig
+  m_EditorClassIdentifier: 
+  configurationName: 
+  configurationID: 0
+  wfcTilesList:
+  - {fileID: -3861202239478117238}
+  - {fileID: 5364299845919503371}
+  - {fileID: -8855234794284771441}
+  - {fileID: -7814001656141332460}
+  - {fileID: 4488330678873230166}
+  - {fileID: -8247250032657101247}
+  - {fileID: 4563442674894773976}
+  - {fileID: -7146843293550939403}
+  - {fileID: 3353430942017973346}
+  - {fileID: 4811393266965314350}
+  - {fileID: -5685319741850243720}
+  nodeHelpers:
+  - {fileID: 5338269695434581984}
+  - {fileID: 3771875107254485320}
+  - {fileID: -2303782108414116851}
+  - {fileID: 1707577396058455273}
+  - {fileID: -5304730126301978502}
+  - {fileID: 8665960331526034643}
+  - {fileID: 2364347374721894324}
+--- !u!114 &1707577396058455273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 435c0fdac9c8b8f4581b588fcbf0a10b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uid: 4649a21f2a728cc44b54caf87cdda6ce
+  code: Horizontal right
+  nodeData:
+    position: {x: 302.00006, y: 396}
+--- !u!114 &2364347374721894324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 435c0fdac9c8b8f4581b588fcbf0a10b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uid: 210e8df95bb744344af3fbaf34cb253a
+  code: Vertical down
+  nodeData:
+    position: {x: 324.79993, y: 192}
+--- !u!114 &3353430942017973346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e890ea296fd8fc84392022df9300b300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileName: 9
+  tileId: 2528857cb5c4a7c40a42b366b1e984f3
+  adjacencyCodes:
+  - {fileID: 8665960331526034643}
+  - {fileID: 3771875107254485320}
+  - {fileID: 3771875107254485320}
+  - {fileID: -5304730126301978502}
+  nodeData:
+    position: {x: -169.59998, y: 334}
+  tileVisuals: {fileID: 0}
+  test: []
+  tileTexture: {fileID: 2800000, guid: f7de0db62e1e0274fbf25e4d8195f1c8, type: 3}
+  testName: 
+--- !u!114 &3771875107254485320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 435c0fdac9c8b8f4581b588fcbf0a10b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uid: f9a7c794483a88b46b9d9162abca465e
+  code: Marron
+  nodeData:
+    position: {x: 193.20001, y: 0}
+--- !u!114 &4488330678873230166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e890ea296fd8fc84392022df9300b300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileName: 5
+  tileId: f366460d908c0b94bb7054b9bddf4d0f
+  adjacencyCodes:
+  - {fileID: 8665960331526034643}
+  - {fileID: -2303782108414116851}
+  - {fileID: 2364347374721894324}
+  - {fileID: -2303782108414116851}
+  nodeData:
+    position: {x: 458.8, y: 968.87994}
+  tileVisuals: {fileID: 0}
+  test: []
+  tileTexture: {fileID: 2800000, guid: 0da81d76e4e954844a5fdea015c4bdca, type: 3}
+  testName: 
+--- !u!114 &4563442674894773976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e890ea296fd8fc84392022df9300b300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileName: 6
+  tileId: 8032b432e0c29da45804a9743a859a06
+  adjacencyCodes:
+  - {fileID: 3771875107254485320}
+  - {fileID: 1707577396058455273}
+  - {fileID: 2364347374721894324}
+  - {fileID: 3771875107254485320}
+  nodeData:
+    position: {x: 0, y: 0}
+  tileVisuals: {fileID: 0}
+  test: []
+  tileTexture: {fileID: 2800000, guid: bec8bace9d38201449070876fed3a4e1, type: 3}
+  testName: 
+--- !u!114 &4811393266965314350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e890ea296fd8fc84392022df9300b300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileName: 3
+  tileId: cd0ed256e0255cb4f9ea8531d2e9ad57
+  adjacencyCodes:
+  - {fileID: 8665960331526034643}
+  - {fileID: 1707577396058455273}
+  - {fileID: 3771875107254485320}
+  - {fileID: 3771875107254485320}
+  nodeData:
+    position: {x: -170, y: 0}
+  tileVisuals: {fileID: 0}
+  test: []
+  tileTexture: {fileID: 2800000, guid: d0f108b9e6773cb47bb92ca04fb219e4, type: 3}
+  testName: 
+--- !u!114 &5338269695434581984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 435c0fdac9c8b8f4581b588fcbf0a10b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uid: 0d3f1ca03b238424cb56f5411b1c6646
+  code: Marron
+  nodeData:
+    position: {x: -456.26245, y: -132.25}
+--- !u!114 &5364299845919503371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e890ea296fd8fc84392022df9300b300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileName: 4
+  tileId: 31aa82b6b042e224d8c70ff2dae3cfaf
+  adjacencyCodes:
+  - {fileID: -2303782108414116851}
+  - {fileID: -2303782108414116851}
+  - {fileID: 2364347374721894324}
+  - {fileID: -2303782108414116851}
+  nodeData:
+    position: {x: 943.19995, y: 31.200012}
+  tileVisuals: {fileID: 0}
+  test: []
+  tileTexture: {fileID: 2800000, guid: b3d063942c470884392a9c878712a2e2, type: 3}
+  testName: 
+--- !u!114 &8665960331526034643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 435c0fdac9c8b8f4581b588fcbf0a10b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uid: edfa8ce8f8f8bbf4a89da2782b93a63d
+  code: Vertical up
+  nodeData:
+    position: {x: 324.80005, y: 38.399994}

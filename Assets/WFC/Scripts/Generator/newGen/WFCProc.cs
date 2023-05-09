@@ -26,7 +26,7 @@ public class WFCProc
         if (listOfTiles is null) throw new Exception("List of tiles is Empty");
         var model = run2DModel();
         var topology = new GridTopology(size, size, periodic: false);
-        var propagator = new TilePropagator(model, topology);
+        var propagator = new TilePropagator(model, topology,true);
         var status = propagator.Run();
         if (status != Resolution.Decided) throw new Exception("The WFC resulted as undecided");
         var output = propagator.ToValueArray<WFCTile>();

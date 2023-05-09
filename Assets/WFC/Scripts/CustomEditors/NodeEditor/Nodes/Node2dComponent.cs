@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 using WFC;
+using Vector2 = System.Numerics.Vector2;
 
 public class Node2dComponent : NodeComponent
 {
-    public WFCTile tile;
+    public WFC2DTile tile;
 
     public Node2dComponent(WFC2DTile tile)
     {
@@ -19,8 +21,8 @@ public class Node2dComponent : NodeComponent
         portNames = new[] { "up", "right", "down", "left" };
         input = new Port[4];
         output = new Port[4];
-        style.left = tile.nodeData.position.x;
-        style.top = tile.nodeData.position.y;
+        style.left = tile.nodeData.position.X;
+        style.top = tile.nodeData.position.Y;
         for (int i = 0; i < 4; i++)
         {
             CreateInputPort(i);
@@ -36,9 +38,7 @@ public class Node2dComponent : NodeComponent
     // to update the image https://docs.unity3d.com/Manual/UIE-bind-custom-control.html
     private void ImageView()
     {
-        WFC2DTile textureSource = (WFC2DTile)this.tile;
-
-        textureSource.tileTexture ??= Texture2D.whiteTexture;
+        tile.tileTexture ??= Texture2D.whiteTexture;
         var container = new VisualElement
         {
             name = " Parent Container",
@@ -47,16 +47,18 @@ public class Node2dComponent : NodeComponent
         };
         var previewImage = new Image
         {
-            name = "Preview",
+            name = "tileTexture",
             pickingMode = PickingMode.Ignore,
-            image = textureSource.tileTexture
+            image = tile.tileTexture
         };
+
 
         container.style.height = new StyleLength(120);
         previewImage.StretchToParentSize();
         container.contentContainer.Add(previewImage);
         Add(container);
     }
+
 
     protected override void setNodePos(float x, float y) => this.tile.nodeData.position = new Vector2(x, y);
 }

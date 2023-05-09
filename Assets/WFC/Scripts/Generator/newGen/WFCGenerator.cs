@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using WFC;
 
@@ -8,7 +9,6 @@ using WFC;
 public class WFCGenerator : MonoBehaviour
 {
     //Maybe it's useless.
-    public GeneratorModes mode;
     public WFCConfig WFCConfigFile;
     public float m_gridSize = 1f;
     public float m_gridExtent = 10f;
@@ -17,15 +17,9 @@ public class WFCGenerator : MonoBehaviour
     private GameObject[,] gameObjectArray;
     private WFCProc generator;
     public Vector2 vecSize;
+    private bool tileMode = false;
+    private Dictionary<string, Material> materials = new Dictionary<string, Material>();
 
-
-    public enum GeneratorModes
-    {
-        WFC2DMODE,
-        WFC3DMODE,
-        WFCHEXMODE,
-        WFCGRAPHMODE
-    }
 
     public void Generate()
     {
@@ -51,13 +45,36 @@ public class WFCGenerator : MonoBehaviour
             {
                 float xCoord = (i - half) * m_gridSize + (m_gridSize / 2);
                 float zCoord = (j - half) * m_gridSize + (m_gridSize / 2);
-                gameObjectArray[i, j] = Instantiate(res.Get(i, j).tileVisuals,
-                    new Vector3(xCoord, 0, zCoord),
-                    transform.rotation);
+                if (true)
+                {
+                    gameObjectArray[i, j] = Instantiate(res.Get(i, j).tileVisuals,
+                        new Vector3(xCoord, 0, zCoord),
+                        transform.rotation);
+                }
+                else
+                {
+                    var primitive = GameObject.CreatePrimitive(PrimitiveType.Quad);
+                    primitive.transform.position = new Vector3(xCoord, 0, zCoord);
+                    primitive.transform.Rotate(new Vector3(90f, 0, 0));
+                    primitive.GetComponent<MeshRenderer>().material = genMat((WFC2DTile)res.Get(i, j));
+                    gameObjectArray[i, j] = primitive;
+                }
+
                 gameObjectArray[i, j].transform.localScale = new Vector3(m_gridSize, 1, m_gridSize);
                 gameObjectArray[i, j].transform.parent = gameObject.transform;
             }
         }
+    }
+
+    private Material genMat(WFC2DTile tile)
+    {
+        if (materials.ContainsKey(tile.tileId)) return materials[tile.tileId];
+        var mat = new Material(Shader.Find("Universal Render Pipeline/Unlit"))
+        {
+            mainTexture = tile.tileTexture
+        };
+        materials.Add(tile.tileId, mat);
+        return mat;
     }
 
     private void gen3D(int lineCount, int half)
@@ -82,11 +99,16 @@ public class WFCGenerator : MonoBehaviour
         }
     }
 
+    private void genWithTexture()
+    {
+    }
+
     public void populateList() => wfcTilesList = WFCConfigFile.wfcTilesList;
     public void clearList() => wfcTilesList = null;
 
     public void ClearPreviousIteration()
     {
+        materials.Clear();
         if (gameObjectArray == null)
         {
             for (int i = transform.childCount - 1; i >= 0; i--)

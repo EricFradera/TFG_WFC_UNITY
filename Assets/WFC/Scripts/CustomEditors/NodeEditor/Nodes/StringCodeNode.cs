@@ -1,26 +1,35 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEditor.Experimental.GraphView;
+using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.UIElements;
+using Vector2 = System.Numerics.Vector2;
 
-public class ColorNode : NodeComponent
+public class StringCodeNode : NodeComponent
 {
-    public ColorCodeData codeData;
+    public StringCodeData codeData;
 
-    public ColorNode(InputCodeData codeData)
+    public StringCodeNode(InputCodeData codeData)
     {
-        
-        this.codeData = (ColorCodeData)codeData;
+        this.codeData = (StringCodeData)codeData;
         this.viewDataKey = codeData.uid;
-        this.title = "Color code node";
+        this.title = "String code node";
         portNames = new[] { "code" };
         input = new Port[1];
-        style.left = codeData.nodeData.position.x;
-        style.top = codeData.nodeData.position.y;
+        style.left = codeData.nodeData.position.X;
+        style.top = codeData.nodeData.position.Y;
         CreateInputPort();
+        
+        
         //Here we add the rest of stuf
+        Label titleLabel = this.Q<Label>("title-label");
+        titleLabel.bindingPath = "code";
+        titleLabel.Bind(new SerializedObject(codeData));
     }
 
     private void CreateInputPort()

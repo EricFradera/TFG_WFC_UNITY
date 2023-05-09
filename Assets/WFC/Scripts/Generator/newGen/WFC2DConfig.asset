@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1175168812611483891
+--- !u!114 &-4900645816816739504
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileName: WFC2D tile
-  tileId: 59337cb1fd861c040b94881eefecbc48
+  tileId: 55bdff086cb9fbc49889327e04c25234
   adjacencyCodes:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   nodeData:
-    position: {x: 0, y: 0}
+    position: {x: 194, y: 85.00001}
   tileVisuals: {fileID: 0}
   test: []
-  tileTexture: {fileID: 0}
+  tileTexture: {fileID: 2800000, guid: 61099606654b0294db69c776c40e16b0, type: 3}
   testName: 
 --- !u!114 &11400000
 MonoBehaviour:
@@ -40,5 +40,5 @@ MonoBehaviour:
   configurationName: 
   configurationID: 0
   wfcTilesList:
-  - {fileID: -1175168812611483891}
+  - {fileID: -4900645816816739504}
   nodeHelpers: []

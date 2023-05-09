@@ -23,13 +23,10 @@ public class WFCNodeEditor : EditorWindow
     [OnOpenAsset]
     public static bool OnOpenAsset(int instanceId, int line)
     {
-        if (Selection.activeObject is WFCConfig)
-        {
-            OpenWindow();
-            return true;
-        }
+        if (Selection.activeObject is not WFCConfig) return false;
+        OpenWindow();
+        return true;
 
-        return false;
     }
 
     public void CreateGUI()

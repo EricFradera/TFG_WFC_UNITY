@@ -26,7 +26,7 @@ public class Generate_Adjacency
             {
                 for (int i = 0; i < tileOrigin.adjacencyCodes.Length; i++)
                 {
-                    if (tileOrigin.adjacencyCodes[i] == tileDest.adjacencyCodes[tileDest.GetInverse(i)])
+                    if (tileOrigin.adjacencyCodes[i].code == tileDest.adjacencyCodes[tileDest.GetInverse(i)].code)
                         tileOrigin.adjacencyPairs[i].Add(tileDest);
                 }
             }

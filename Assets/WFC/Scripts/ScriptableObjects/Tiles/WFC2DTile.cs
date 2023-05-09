@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace WFC
@@ -9,6 +10,7 @@ namespace WFC
     public class WFC2DTile : WFCTile
     {
         public List<string> test;
+        [JsonIgnore]
         public Texture2D tileTexture;
         public string testName;
 

@@ -29,7 +29,8 @@ namespace WFCEditor
         {
             TileToJson,
             JsonToTile,
-            ConfigToJSON
+            ConfigToJson,
+            JsonToConfig
         }
 
         private String[][] menuText = new string[][]
@@ -49,6 +50,11 @@ namespace WFCEditor
                 "Config object of type Tile", "Select where the file will be saved", "Select path",
                 "Specify target location", "WFCTile to JSON"
             },
+            new String[]
+            {
+                "Select JSON file to convert into a config", "Select where the file will be saved", "Select path",
+                "Specify target location", "JSON to Config"
+            }
         };
 
         void OnGUI()
@@ -74,7 +80,22 @@ namespace WFCEditor
         private void contructUI(GUIStyle s)
         {
             GUILayout.Label(menuText[(int)_enumVar][0], EditorStyles.label);
-            source = EditorGUILayout.ObjectField(source, typeof(WFC2DTile), true);
+            switch (_enumVar)
+            {
+                case GUIOPTIONS.JsonToTile:
+                    source = EditorGUILayout.ObjectField(source, typeof(TextAsset), true);
+                    break;
+                case GUIOPTIONS.TileToJson:
+                    source = EditorGUILayout.ObjectField(source, typeof(WFCTile), true);
+                    break;
+                case GUIOPTIONS.ConfigToJson:
+                    source = EditorGUILayout.ObjectField(source, typeof(WFCConfig), true);
+                    break;
+                case GUIOPTIONS.JsonToConfig:
+                    source = EditorGUILayout.ObjectField(source, typeof(TextAsset), true);
+                    break;
+            }
+
             processState = "";
             GUILayout.Space(10);
             GUILayout.Label(menuText[(int)_enumVar][1]);
@@ -88,8 +109,27 @@ namespace WFCEditor
             try
             {
                 if (GUILayout.Button(menuText[(int)_enumVar][4]))
-                    _generator.GenerateJsonFromTile((WFC2DTile)source, path);
-                processState = "SUCCESS";
+                {
+                    switch (_enumVar)
+                    {
+                        case GUIOPTIONS.JsonToTile:
+                            _generator.GenerateTileFromJson(((TextAsset)source).text, path);
+                            break;
+                        case GUIOPTIONS.TileToJson:
+                            _generator.GenerateFromObject(source, path, ((WFCTile)source).tileName);
+                            break;
+                        case GUIOPTIONS.ConfigToJson:
+                            _generator.GenerateFromObject(source, path, ((WFCConfig)source).configurationName);
+                            break;
+                        case GUIOPTIONS.JsonToConfig:
+                            _generator.GenerateConfigFromJson(((TextAsset)source).text, path);
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+                /*_generator.GenerateJsonFromTile((WFC2DTile)source, path);
+            processState = "SUCCESS";*/
             }
             catch
             {

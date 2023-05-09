@@ -1,46 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8683494254784018906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 435c0fdac9c8b8f4581b588fcbf0a10b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uid: 76ffb6ac23335bc47bf01456270d7f54
-  nodeData:
-    position: {x: 350, y: 132.352}
-  color: {r: 0.8301887, g: 0.6531862, b: 0.6531862, a: 0}
---- !u!114 &-7694556391505411570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e890ea296fd8fc84392022df9300b300, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tileName: WFC2D tile
-  tileId: 3f30861fbe1fae242b5261c37af4e780
-  adjacencyCodes:
-  - {fileID: 6582190124575454954}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  nodeData:
-    position: {x: 331.72, y: 183}
-  tileVisuals: {fileID: 0}
-  test: []
-  tileTexture: {fileID: 0}
-  testName: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,43 +15,9 @@ MonoBehaviour:
   configurationName: 
   configurationID: 0
   wfcTilesList:
-  - {fileID: 6994956182110990433}
-  nodeHelpers:
-  - {fileID: -8683494254784018906}
-  - {fileID: 7442656547950233828}
---- !u!114 &1167881290743987581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 435c0fdac9c8b8f4581b588fcbf0a10b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uid: 6c70edf29f6368d4a9162d0432995812
-  nodeData:
-    position: {x: 236.32, y: 87.77601}
-  color: {r: 0, g: 0, b: 0, a: 0}
---- !u!114 &6582190124575454954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 435c0fdac9c8b8f4581b588fcbf0a10b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uid: ef177332d807eea4ba5c29882a8d6ab6
-  nodeData:
-    position: {x: 573.48, y: 143.99998}
-  color: {r: 0, g: 0, b: 0, a: 0}
---- !u!114 &6994956182110990433
+  - {fileID: 6508803653007359572}
+  nodeHelpers: []
+--- !u!114 &6508803653007359572
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,48 +30,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileName: WFC2D tile
-  tileId: ae16774f3e7fd2940ac2dbb8aa644023
-  adjacencyCodes:
-  - {fileID: -8683494254784018906}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 7442656547950233828}
-  nodeData:
-    position: {x: 0, y: 0}
-  tileVisuals: {fileID: 0}
-  test: []
-  tileTexture: {fileID: 0}
-  testName: 
---- !u!114 &7442656547950233828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 435c0fdac9c8b8f4581b588fcbf0a10b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uid: c8a4ddfacb6311b4dbd5438e0ac136bd
-  nodeData:
-    position: {x: 370, y: 410.192}
-  color: {r: 0.24592467, g: 0.754717, b: 0.22356708, a: 0}
---- !u!114 &8163852320580009882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e890ea296fd8fc84392022df9300b300, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tileName: WFC2D tile
-  tileId: efee5205c762c114794fa76c0ec1aa41
+  tileId: b2256ce2389beea4baaaaf8cb20bae6f
   adjacencyCodes:
   - {fileID: 0}
   - {fileID: 0}

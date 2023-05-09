@@ -37,8 +37,8 @@ public class WFCNodeEditorView : GraphView
         graphViewChanged -= OnGraphViewChanged;
         DeleteElements(graphElements);
         graphViewChanged += OnGraphViewChanged;
-        config.wfcTilesList.ForEach(CreateNodeView);
-        config.nodeHelpers.ForEach(CreateNodeView);
+        this.config.wfcTilesList.ForEach(CreateNodeView);
+        this.config.nodeHelpers.ForEach(CreateNodeView);
 
         config.wfcTilesList.ForEach(tile =>
         {
@@ -55,25 +55,13 @@ public class WFCNodeEditorView : GraphView
                         break;
                     case InputCodeData relationInputTile:
                         var childHelperComponent = FindHelperNode(relationInputTile);
-                        Edge edgeHelper = parentComponent.output[relation.indexOutput]
+                        Edge edgeHelper = parentComponent.output[relation.indexOutput] //problems with edges
                             .ConnectTo(childHelperComponent.input[0]);
                         AddElement(edgeHelper);
                         break;
                 }
             }
         });
-
-        /*config.nodeHelpers.ForEach(helper =>
-        {
-            var parentComponent = FindHelperNode(helper);
-
-            foreach (var relation in helper.nodeData.relationShips)
-            {
-                var childComponent = FindNodeComponent((WFCTile)relation.inputTile);
-                Edge edge = childComponent.output[relation.indexOutput].ConnectTo(parentComponent.output[0]);
-                AddElement(edge);
-            }
-        });*/
     }
 
     private NodeComponent FindNodeComponent(WFCTile tile)
@@ -81,12 +69,13 @@ public class WFCNodeEditorView : GraphView
         return GetNodeByGuid(tile.tileId) as Node2dComponent;
     }
 
-    private ColorNode FindHelperNode(InputCodeData codeData)
+    private NodeComponent FindHelperNode(InputCodeData codeData)
     {
-        return GetNodeByGuid(codeData.uid) as ColorNode;
+        return GetNodeByGuid(codeData.uid) as StringCodeNode;
     }
 
-    public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
+    public override List<Port>
+        GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter) // Here we have to indicate which ports are allowed.
     {
         return ports.ToList();
     }
@@ -100,15 +89,38 @@ public class WFCNodeEditorView : GraphView
                 case Node2dComponent nodeComponent:
                     config.DeleteNodeTile(nodeComponent.tile);
                     break;
-                case ColorNode colorNode:
+                case StringCodeNode colorNode:
                     config.DeleteNodeHelper(colorNode.codeData);
                     break;
                 case Edge edge:
                 {
-                    if (edge.input.node is Node2dComponent inputNode && edge.output.node is Node2dComponent outputNode)
+                    
+                    switch (edge.input.node)
+                    {
+                        case Node2dComponent inputNode2dComponent:
+                            if (edge.output.node is Node2dComponent outputNode)
+                                config.RemoveChild(outputNode.tile, inputNode2dComponent.tile,
+                                    dirHelper(edge.output.portName),
+                                    dirHelper(edge.input.portName));
+                            break;
+                        case StringCodeNode inputStringCode:
+                            if (edge.output.node is Node2dComponent output2DNode)
+                            {
+                                config.removeHelper(inputStringCode.codeData, output2DNode.tile,
+                                    dirHelper(edge.output.portName));
+                            }
+
+                            break;
+                    }
+
+                    break;
+
+                    /*OLD VER
+                     if (edge.input.node is Node2dComponent inputNode && edge.output.node is Node2dComponent outputNode)
                         config.RemoveChild(outputNode.tile, inputNode.tile, dirHelper(edge.output.portName),
                             dirHelper(edge.input.portName));
-                    break;
+                    if (edge.input.node is StringCodeNode inputNode && edge.output.node is Node2dComponent outputNode)
+                        break;*/
                 }
             }
         });
@@ -121,7 +133,7 @@ public class WFCNodeEditorView : GraphView
                     config.AddChild(outputNode.tile, inputNode.tile, dirHelper(edge.output.portName),
                         dirHelper(edge.input.portName));
                     break;
-                case ColorNode inputNode when edge.output.node is Node2dComponent outputNode:
+                case StringCodeNode inputNode when edge.output.node is Node2dComponent outputNode:
                     config.AddHelper(inputNode.codeData, outputNode.tile, dirHelper(edge.output.portName));
                     break;
             }
@@ -136,7 +148,7 @@ public class WFCNodeEditorView : GraphView
         {
             //This will makes sense once we change how the Tile object works. It needs an abstraction
             evt.menu.AppendAction("Create WFC2DTile", (a) => CreateNode());
-            evt.menu.AppendAction("Create ColorNode", (a) => CreateNodeHelper(typeof(ColorCodeData)));
+            evt.menu.AppendAction("Create Code Node", (a) => CreateNodeHelper(typeof(StringCodeData)));
             /*var types = TypeCache.GetTypesDerivedFrom<WFC2DTile>();
             foreach (var type in types)
             {
@@ -163,23 +175,9 @@ public class WFCNodeEditorView : GraphView
             }
             case InputCodeData inputCodeData:
             {
-                var helperNode = new ColorNode(inputCodeData);
+                var helperNode = new StringCodeNode(inputCodeData);
                 helperNode.OnNodeSelection = onNodeSelected;
                 AddElement(helperNode);
-                break;
-            }
-        }
-    }
-
-    private void CreateHelperNodeView(Object obj)
-    {
-        switch (obj)
-        {
-            case ColorCodeData helperColorCodeData:
-            {
-                var nodeHelper = new ColorNode(helperColorCodeData);
-                nodeHelper.OnNodeSelection = onNodeSelected;
-                AddElement(nodeHelper);
                 break;
             }
         }

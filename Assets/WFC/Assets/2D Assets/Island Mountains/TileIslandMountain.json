@@ -1,0 +1,548 @@
+{
+  "configurationName": "IslandMountain",
+  "configurationID": 0,
+  "wfcTilesList": [
+    {
+      "test": [],
+      "testName": "",
+      "tileName": "11",
+      "tileId": "9cc42b4b6da8fb9459a5d5c56f5dab01",
+      "adjacencyCodes": [
+        {
+          "uid": "1076edc7bdce0304592415b81a627496",
+          "code": "BrownBlueY",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        },
+        {
+          "uid": "eb63a019f58f5b34a97375ed81e46f8d",
+          "code": "BlueBrownX",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        },
+        {
+          "uid": "0b0d064d4adf14e46b48f5b25df921c7",
+          "code": "Brown",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        },
+        {
+          "uid": "0b0d064d4adf14e46b48f5b25df921c7",
+          "code": "Brown",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        }
+      ],
+      "adjacencyPairs": [null, null, null, null],
+      "nodeData": { "position": { "X": 0.0, "Y": 0.0 }, "relationShips": [] },
+      "name": "",
+      "hideFlags": 0
+    },
+    {
+      "test": [],
+      "testName": "",
+      "tileName": "09",
+      "tileId": "2770901dd51f2e5408baaf294ddb3edc",
+      "adjacencyCodes": [
+        {
+          "uid": "d759d3b107ee56c4fac4410494d5e7d3",
+          "code": "BlueBrownY",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        },
+        {
+          "uid": "0b0d064d4adf14e46b48f5b25df921c7",
+          "code": "Brown",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        },
+        {
+          "uid": "0b0d064d4adf14e46b48f5b25df921c7",
+          "code": "Brown",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        },
+        {
+          "uid": "eb63a019f58f5b34a97375ed81e46f8d",
+          "code": "BlueBrownX",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        }
+      ],
+      "adjacencyPairs": [null, null, null, null],
+      "nodeData": { "position": { "X": 0.0, "Y": 0.0 }, "relationShips": [] },
+      "name": "",
+      "hideFlags": 0
+    },
+    {
+      "test": [],
+      "testName": "",
+      "tileName": "07",
+      "tileId": "3cdec2083c746cd4fb0b526da8d1a1be",
+      "adjacencyCodes": [
+        {
+          "uid": "1076edc7bdce0304592415b81a627496",
+          "code": "BrownBlueY",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        },
+        {
+          "uid": "799c875441e63364bbf0afdd3f944ef9",
+          "code": "Blue",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        },
+        {
+          "uid": "1076edc7bdce0304592415b81a627496",
+          "code": "BrownBlueY",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        },
+        {
+          "uid": "5ba832bc382f3a94d980ebe44c02ec05",
+          "code": "Brown",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        }
+      ],
+      "adjacencyPairs": [null, null, null, null],
+      "nodeData": { "position": { "X": 0.0, "Y": 0.0 }, "relationShips": [] },
+      "name": "",
+      "hideFlags": 0
+    },
+    {
+      "test": [],
+      "testName": "",
+      "tileName": "06",
+      "tileId": "f8ccb0f9a4d478d46aeb78b8992f84ce",
+      "adjacencyCodes": [
+        {
+          "uid": "588590d7bb386894aa99bdfa9786173a",
+          "code": "Blue",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        },
+        {
+          "uid": "588590d7bb386894aa99bdfa9786173a",
+          "code": "Blue",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        },
+        {
+          "uid": "1076edc7bdce0304592415b81a627496",
+          "code": "BrownBlueY",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        },
+        {
+          "uid": "eb63a019f58f5b34a97375ed81e46f8d",
+          "code": "BlueBrownX",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        }
+      ],
+      "adjacencyPairs": [null, null, null, null],
+      "nodeData": { "position": { "X": 0.0, "Y": 0.0 }, "relationShips": [] },
+      "name": "",
+      "hideFlags": 0
+    },
+    {
+      "test": [],
+      "testName": "",
+      "tileName": "05",
+      "tileId": "e53479b7f60734e4bb3445a3a26ab832",
+      "adjacencyCodes": [
+        {
+          "uid": "588590d7bb386894aa99bdfa9786173a",
+          "code": "Blue",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        },
+        {
+          "uid": "eb63a019f58f5b34a97375ed81e46f8d",
+          "code": "BlueBrownX",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        },
+        {
+          "uid": "d759d3b107ee56c4fac4410494d5e7d3",
+          "code": "BlueBrownY",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        },
+        {
+          "uid": "588590d7bb386894aa99bdfa9786173a",
+          "code": "Blue",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        }
+      ],
+      "adjacencyPairs": [null, null, null, null],
+      "nodeData": { "position": { "X": 0.0, "Y": 0.0 }, "relationShips": [] },
+      "name": "",
+      "hideFlags": 0
+    },
+    {
+      "test": [],
+      "testName": "",
+      "tileName": "04",
+      "tileId": "957629363f2406f44bb4d9c80bf4faab",
+      "adjacencyCodes": [
+        {
+          "uid": "bc7a15de914814440ae6d4596dc8fbab",
+          "code": "Blue",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        },
+        {
+          "uid": "bc7a15de914814440ae6d4596dc8fbab",
+          "code": "Blue",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        },
+        {
+          "uid": "bc7a15de914814440ae6d4596dc8fbab",
+          "code": "Blue",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        },
+        {
+          "uid": "bc7a15de914814440ae6d4596dc8fbab",
+          "code": "Blue",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        }
+      ],
+      "adjacencyPairs": [null, null, null, null],
+      "nodeData": { "position": { "X": 0.0, "Y": 0.0 }, "relationShips": [] },
+      "name": "",
+      "hideFlags": 0
+    },
+    {
+      "test": [],
+      "testName": "",
+      "tileName": "03",
+      "tileId": "1d4bcbefe3e51ca41a501301f2504798",
+      "adjacencyCodes": [
+        {
+          "uid": "d27e6265afac0354c87049ae22ede2e5",
+          "code": "Brown",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        },
+        {
+          "uid": "d27e6265afac0354c87049ae22ede2e5",
+          "code": "Brown",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        },
+        {
+          "uid": "d27e6265afac0354c87049ae22ede2e5",
+          "code": "Brown",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        },
+        {
+          "uid": "d27e6265afac0354c87049ae22ede2e5",
+          "code": "Brown",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        }
+      ],
+      "adjacencyPairs": [null, null, null, null],
+      "nodeData": { "position": { "X": 0.0, "Y": 0.0 }, "relationShips": [] },
+      "name": "",
+      "hideFlags": 0
+    },
+    {
+      "test": [],
+      "testName": "",
+      "tileName": "02",
+      "tileId": "5c018547b94130447b4b818758e3fd4a",
+      "adjacencyCodes": [
+        {
+          "uid": "d759d3b107ee56c4fac4410494d5e7d3",
+          "code": "BlueBrownY",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        },
+        {
+          "uid": "5ba832bc382f3a94d980ebe44c02ec05",
+          "code": "Brown",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        },
+        {
+          "uid": "d759d3b107ee56c4fac4410494d5e7d3",
+          "code": "BlueBrownY",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        },
+        {
+          "uid": "799c875441e63364bbf0afdd3f944ef9",
+          "code": "Blue",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        }
+      ],
+      "adjacencyPairs": [null, null, null, null],
+      "nodeData": { "position": { "X": 0.0, "Y": 0.0 }, "relationShips": [] },
+      "name": "",
+      "hideFlags": 0
+    },
+    {
+      "test": [],
+      "testName": "",
+      "tileName": "01",
+      "tileId": "9fe3e8ad013cc8c488094894a59607a5",
+      "adjacencyCodes": [
+        {
+          "uid": "588590d7bb386894aa99bdfa9786173a",
+          "code": "Blue",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        },
+        {
+          "uid": "eb63a019f58f5b34a97375ed81e46f8d",
+          "code": "BlueBrownX",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        },
+        {
+          "uid": "3b9eaddeedd12934586179ee390d52cb",
+          "code": "Brown",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        },
+        {
+          "uid": "eb63a019f58f5b34a97375ed81e46f8d",
+          "code": "BlueBrownX",
+          "nodeData": {
+            "position": { "X": 0.0, "Y": 0.0 },
+            "relationShips": []
+          },
+          "name": "",
+          "hideFlags": 0
+        }
+      ],
+      "adjacencyPairs": [null, null, null, null],
+      "nodeData": { "position": { "X": 0.0, "Y": 0.0 }, "relationShips": [] },
+      "name": "",
+      "hideFlags": 0
+    }
+  ],
+  "nodeHelpers": [
+    {
+      "uid": "bc7a15de914814440ae6d4596dc8fbab",
+      "code": "Blue",
+      "nodeData": { "position": { "X": 0.0, "Y": 0.0 }, "relationShips": [] },
+      "name": "",
+      "hideFlags": 0
+    },
+    {
+      "uid": "d27e6265afac0354c87049ae22ede2e5",
+      "code": "Brown",
+      "nodeData": { "position": { "X": 0.0, "Y": 0.0 }, "relationShips": [] },
+      "name": "",
+      "hideFlags": 0
+    },
+    {
+      "uid": "799c875441e63364bbf0afdd3f944ef9",
+      "code": "Blue",
+      "nodeData": { "position": { "X": 0.0, "Y": 0.0 }, "relationShips": [] },
+      "name": "",
+      "hideFlags": 0
+    },
+    {
+      "uid": "5ba832bc382f3a94d980ebe44c02ec05",
+      "code": "Brown",
+      "nodeData": { "position": { "X": 0.0, "Y": 0.0 }, "relationShips": [] },
+      "name": "",
+      "hideFlags": 0
+    },
+    {
+      "uid": "d759d3b107ee56c4fac4410494d5e7d3",
+      "code": "BlueBrownY",
+      "nodeData": { "position": { "X": 0.0, "Y": 0.0 }, "relationShips": [] },
+      "name": "",
+      "hideFlags": 0
+    },
+    {
+      "uid": "1076edc7bdce0304592415b81a627496",
+      "code": "BrownBlueY",
+      "nodeData": { "position": { "X": 0.0, "Y": 0.0 }, "relationShips": [] },
+      "name": "",
+      "hideFlags": 0
+    },
+    {
+      "uid": "0b0d064d4adf14e46b48f5b25df921c7",
+      "code": "Brown",
+      "nodeData": { "position": { "X": 0.0, "Y": 0.0 }, "relationShips": [] },
+      "name": "",
+      "hideFlags": 0
+    },
+    {
+      "uid": "eb63a019f58f5b34a97375ed81e46f8d",
+      "code": "BlueBrownX",
+      "nodeData": { "position": { "X": 0.0, "Y": 0.0 }, "relationShips": [] },
+      "name": "",
+      "hideFlags": 0
+    },
+    {
+      "uid": "588590d7bb386894aa99bdfa9786173a",
+      "code": "Blue",
+      "nodeData": { "position": { "X": 0.0, "Y": 0.0 }, "relationShips": [] },
+      "name": "",
+      "hideFlags": 0
+    },
+    {
+      "uid": "3b9eaddeedd12934586179ee390d52cb",
+      "code": "Brown",
+      "nodeData": { "position": { "X": 0.0, "Y": 0.0 }, "relationShips": [] },
+      "name": "",
+      "hideFlags": 0
+    }
+  ],
+  "name": "WFC2DConfig",
+  "hideFlags": 0
+}

@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json;
+using UnityEditor;
 using UnityEngine;
 
-[System.Serializable]
+[Serializable]
 public abstract class WFCTile : ScriptableObject
 {
     public string tileName;
@@ -19,8 +21,15 @@ public abstract class WFCTile : ScriptableObject
     public nodeData nodeData;
 
     //Asset data
-    public GameObject tileVisuals;
+    [JsonIgnore] public GameObject tileVisuals;
 
     //always have to be an inverse function for tile matching
     public abstract int GetInverse(int indexDirection);
+
+    public void saveData()
+    {
+        EditorUtility.SetDirty(this);
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+    }
 }

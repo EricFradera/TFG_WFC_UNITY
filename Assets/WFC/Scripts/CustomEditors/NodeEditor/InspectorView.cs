@@ -22,7 +22,7 @@ public class InspectorView : VisualElement
         editor = component switch
         {
             Node2dComponent node2dComponent => Editor.CreateEditor(node2dComponent.tile),
-            ColorNode colorNode => Editor.CreateEditor(colorNode.codeData),
+            StringCodeNode stringCodeNode => Editor.CreateEditor(stringCodeNode.codeData),
             _ => editor
         };
         IMGUIContainer container = new IMGUIContainer(() => { editor.OnInspectorGUI(); });
