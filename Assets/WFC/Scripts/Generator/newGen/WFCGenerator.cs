@@ -31,7 +31,7 @@ public class WFCGenerator : MonoBehaviour
         gameObjectArray = new GameObject[lineCount, lineCount];
 
         //Generation
-        generator ??= new WFCProc(WFCConfigFile.wfcTilesList);
+        generator ??= new WFCProc(WFCConfigFile.wfcTilesList, WFCConfigFile.useRotations);
 
         gen2D(lineCount, half);
     }
@@ -45,7 +45,7 @@ public class WFCGenerator : MonoBehaviour
             {
                 float xCoord = (i - half) * m_gridSize + (m_gridSize / 2);
                 float zCoord = (j - half) * m_gridSize + (m_gridSize / 2);
-                if (true)
+                if (false)
                 {
                     gameObjectArray[i, j] = Instantiate(res.Get(i, j).tileVisuals,
                         new Vector3(xCoord, 0, zCoord),

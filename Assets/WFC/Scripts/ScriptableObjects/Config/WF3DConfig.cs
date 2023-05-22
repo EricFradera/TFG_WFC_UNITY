@@ -11,7 +11,7 @@ public class WF3DConfig : WFCConfig
     public override WFCTile CreateNodeTile()
     {
         WFC3DTile nodeTile = CreateInstance<WFC3DTile>();
-        nodeTile.tileName = "WFC2D tile";
+        nodeTile.tileName = "WFC3D tile";
         nodeTile.InitDataStructures();
         nodeTile.tileId = GUID.Generate().ToString();
         wfcTilesList.Add(nodeTile);

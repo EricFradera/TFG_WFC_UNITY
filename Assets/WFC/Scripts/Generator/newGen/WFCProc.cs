@@ -6,6 +6,7 @@ using DeBroglie.Models;
 using DeBroglie.Topo;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using WFC;
 using Resolution = DeBroglie.Resolution;
 
 [ExecuteInEditMode]
@@ -14,11 +15,13 @@ public class WFCProc
     private Generate_Adjacency adjacency;
     private List<WFCTile> listOfTiles;
     private Direction[] direction = { Direction.YPlus, Direction.XPlus, Direction.YMinus, Direction.XMinus };
+    private bool useRotation;
 
-    public WFCProc(List<WFCTile> listOfTiles)
+    public WFCProc(List<WFCTile> listOfTiles, bool useRotation)
     {
         this.listOfTiles = listOfTiles;
         adjacency = new Generate_Adjacency(this.listOfTiles);
+        this.useRotation = useRotation;
     }
 
     public ITopoArray<WFCTile> runWFC(int size)
@@ -26,7 +29,7 @@ public class WFCProc
         if (listOfTiles is null) throw new Exception("List of tiles is Empty");
         var model = run2DModel();
         var topology = new GridTopology(size, size, periodic: false);
-        var propagator = new TilePropagator(model, topology,true);
+        var propagator = new TilePropagator(model, topology, true);
         var status = propagator.Run();
         if (status != Resolution.Decided) throw new Exception("The WFC resulted as undecided");
         var output = propagator.ToValueArray<WFCTile>();
@@ -57,6 +60,37 @@ public class WFCProc
         }
 
         return model;
+    }
+
+    private Dictionary<WFCTile, Tile> genDictionary()
+    {
+        Dictionary<WFCTile, Tile> tileMap = new Dictionary<WFCTile, Tile>();
+        if (!useRotation)
+        {
+        }
+
+
+        return tileMap;
+    }
+
+    private List<WFCTile> GenerateRotation(WFCTile tile)
+    {
+        List<WFCTile> newList = new List<WFCTile>();
+        newList.Add(tile);
+        List<bool> listOfRotations = tile.GetListOfRotations();
+        
+        WFCTile newTile;
+        for (int i = 0; i < listOfRotations.Count; i++)
+        {
+            if (listOfTiles[i])
+            {
+                
+                newTile=tile.fillData( ScriptableObject.CreateInstance<WFC2DTile>(),i);
+            }
+        }
+
+
+        return newList;
     }
 
 

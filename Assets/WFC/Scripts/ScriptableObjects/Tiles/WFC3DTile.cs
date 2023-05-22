@@ -43,5 +43,19 @@ namespace WFC
                 _ => -1
             };
         }
+
+        public override List<bool> GetListOfRotations()
+        {
+            //TODO fill with rotations
+            var listOfRotations = new List<bool>()
+            {
+            };
+            return listOfRotations;
+        }
+
+        public override WFCTile fillData(WFCTile data, int rot)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

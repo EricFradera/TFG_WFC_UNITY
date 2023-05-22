@@ -32,4 +32,9 @@ public abstract class WFCTile : ScriptableObject
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
     }
+
+    public abstract List<bool> GetListOfRotations();
+    
+    public abstract WFCTile fillData(WFCTile data,int rot);
+
 }
