@@ -62,7 +62,7 @@ namespace WFC
         {
             if (parent == null || child == null) return;
             parent.adjacencyPairs[dirParent].Add(child);
-            parent.nodeData.relationShips.Add(new nodeRelation(dirChild, child, dirChild));
+            parent.nodeData.relationShips.Add(new nodeRelation(dirParent, child, dirChild));
             child.adjacencyPairs[dirChild].Add(parent);
             EditorUtility.SetDirty(this);
             parent.saveData();
@@ -96,7 +96,7 @@ namespace WFC
             AssetDatabase.Refresh();
         }
 
-        public void removeHelper(StringCodeData codeData, WFC2DTile tile, int dirParent)
+        public void removeHelper(StringCodeData codeData, WFCTile tile, int dirParent)
         {
             tile.adjacencyCodes[dirParent] = null;
             tile.nodeData.removeRel(dirParent, codeData, 0);

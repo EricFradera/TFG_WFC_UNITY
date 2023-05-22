@@ -5,10 +5,9 @@ using UnityEditor;
 using UnityEngine;
 using WFC;
 
-[Serializable]
+[Serializable, ExecuteInEditMode]
 public class WFCGenerator : MonoBehaviour
 {
-    //Maybe it's useless.
     public WFCConfig WFCConfigFile;
     public float m_gridSize = 1f;
     public float m_gridExtent = 10f;
@@ -31,7 +30,7 @@ public class WFCGenerator : MonoBehaviour
         gameObjectArray = new GameObject[lineCount, lineCount];
 
         //Generation
-        generator ??= new WFCProc(WFCConfigFile.wfcTilesList, WFCConfigFile.useRotations);
+        generator = new WFCProc(WFCConfigFile.wfcTilesList, WFCConfigFile.useRotations);
 
         gen2D(lineCount, half);
     }
@@ -109,6 +108,7 @@ public class WFCGenerator : MonoBehaviour
     public void ClearPreviousIteration()
     {
         materials.Clear();
+
         if (gameObjectArray == null)
         {
             for (int i = transform.childCount - 1; i >= 0; i--)

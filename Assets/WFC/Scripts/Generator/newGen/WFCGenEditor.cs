@@ -78,7 +78,7 @@ public class WFCGenEditor : Editor
                         Destroy3DGizmo();
                         configFile = wfc2DConfig;
                         break;
-                    case WF3DConfig wfc3DConfig:
+                    case WFC3DConfig wfc3DConfig:
                         Destroy3DGizmo();
                         configFile = wfc3DConfig;
                         create3DGizmo();
@@ -87,6 +87,7 @@ public class WFCGenEditor : Editor
 
                 current.populateList();
                 wfcTilesList = configFile.wfcTilesList;
+
                 listViewComponent.makeItem = itemEditor.CloneTree;
             }
             else
@@ -128,7 +129,7 @@ public class WFCGenEditor : Editor
         listViewComponent.makeItem = itemEditor.CloneTree;
         if (configFile is null) return;
         if (configFile.GetType() == typeof(WFC2DConfig)) GenGrid2D();
-        else if (configFile.GetType() == typeof(WF3DConfig)) GenGrid3D();
+        else if (configFile.GetType() == typeof(WFC3DConfig)) GenGrid3D();
     }
 
     private void GenGrid2D()

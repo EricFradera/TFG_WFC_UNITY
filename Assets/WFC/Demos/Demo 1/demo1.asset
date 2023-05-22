@@ -20,11 +20,14 @@ MonoBehaviour:
   - {fileID: -3761230925269937439}
   - {fileID: 5866148116305063784}
   nodeData:
-    position: {x: 460.00006, y: 772.00006}
+    relationShips: []
   tileVisuals: {fileID: 0}
   test: []
   tileTexture: {fileID: 2800000, guid: de1012996cb30404da98c3c8793080f4, type: 3}
   testName: 
+  oneRotation: 0
+  twoRotations: 0
+  threeRotations: 0
 --- !u!114 &-7471033704261120048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40,7 +43,7 @@ MonoBehaviour:
   uid: f6c2109ac3eb3114ab7fafb1acf3ebf6
   code: White
   nodeData:
-    position: {x: 80, y: -493.88803}
+    relationShips: []
 --- !u!114 &-6998508336302165897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,7 +59,7 @@ MonoBehaviour:
   uid: 0be2f0d2d09391b499774a49ea9ea2ea
   code: XBW
   nodeData:
-    position: {x: -25.600042, y: 534.29}
+    relationShips: []
 --- !u!114 &-5803368004994239667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,11 +80,14 @@ MonoBehaviour:
   - {fileID: 262298570138304668}
   - {fileID: 8853633176595766898}
   nodeData:
-    position: {x: 460.00003, y: 375.4}
+    relationShips: []
   tileVisuals: {fileID: 0}
   test: []
   tileTexture: {fileID: 2800000, guid: de28995d14159e34d90defd85006d6e5, type: 3}
   testName: 
+  oneRotation: 0
+  twoRotations: 0
+  threeRotations: 0
 --- !u!114 &-4392822829124244340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,7 +103,7 @@ MonoBehaviour:
   uid: e54da56a434780e47b8fcf5b5256fc31
   code: Black
   nodeData:
-    position: {x: 81.60004, y: -225.08801}
+    relationShips: []
 --- !u!114 &-3989437567265472990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,11 +124,14 @@ MonoBehaviour:
   - {fileID: -6998508336302165897}
   - {fileID: 5866148116305063784}
   nodeData:
-    position: {x: 460.24, y: 59}
+    relationShips: []
   tileVisuals: {fileID: 0}
   test: []
   tileTexture: {fileID: 2800000, guid: 685099c61a993e146b84b46ea15ab300, type: 3}
   testName: 
+  oneRotation: 0
+  twoRotations: 0
+  threeRotations: 0
 --- !u!114 &-3761230925269937439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,7 +147,7 @@ MonoBehaviour:
   uid: e7fe83bc7274d5c469fd973121981ce9
   code: Black
   nodeData:
-    position: {x: 1072, y: 772}
+    relationShips: []
 --- !u!114 &-1959116592470186669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,11 +168,14 @@ MonoBehaviour:
   - {fileID: 1808409914863501258}
   - {fileID: 4940602647483697339}
   nodeData:
-    position: {x: 824.79974, y: 1103.9998}
+    relationShips: []
   tileVisuals: {fileID: 0}
   test: []
   tileTexture: {fileID: 2800000, guid: 276ce2a69eab57141837bf2a9e66044c, type: 3}
   testName: 
+  oneRotation: 0
+  twoRotations: 0
+  threeRotations: 0
 --- !u!114 &-1605391997117650302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,11 +196,14 @@ MonoBehaviour:
   - {fileID: -6998508336302165897}
   - {fileID: -3761230925269937439}
   nodeData:
-    position: {x: 459.9999, y: 1104.0658}
+    relationShips: []
   tileVisuals: {fileID: 0}
   test: []
   tileTexture: {fileID: 2800000, guid: 982c2ff65bf6f3c44acdc154f5a71a9d, type: 3}
   testName: 
+  oneRotation: 0
+  twoRotations: 0
+  threeRotations: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,9 +214,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 805eb54aa0aeab74ba01c24c94a80203, type: 3}
-  m_Name: WFC2DConfig
+  m_Name: demo1
   m_EditorClassIdentifier: 
-  configurationName: 
+  configurationName: demo1
   configurationID: 1
   wfcTilesList:
   - {fileID: -1959116592470186669}
@@ -224,6 +239,7 @@ MonoBehaviour:
   - {fileID: 8853633176595766898}
   - {fileID: 1808409914863501258}
   - {fileID: -6998508336302165897}
+  useRotations: 0
 --- !u!114 &59501871704703646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,11 +260,14 @@ MonoBehaviour:
   - {fileID: 262298570138304668}
   - {fileID: 262298570138304668}
   nodeData:
-    position: {x: 646.39984, y: 375.19998}
+    relationShips: []
   tileVisuals: {fileID: 0}
   test: []
   tileTexture: {fileID: 2800000, guid: 3304f8068ba71dd46b2bd83a477dcbe4, type: 3}
   testName: 
+  oneRotation: 0
+  twoRotations: 0
+  threeRotations: 0
 --- !u!114 &262298570138304668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,7 +283,7 @@ MonoBehaviour:
   uid: 9e9d1e9e55fcb6645855879768a5e746
   code: White
   nodeData:
-    position: {x: 936.79974, y: 58.399967}
+    relationShips: []
 --- !u!114 &1808409914863501258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,7 +299,7 @@ MonoBehaviour:
   uid: 6439e2bc093fad2439ebf93a36073849
   code: XWB
   nodeData:
-    position: {x: -25.600042, y: 436.425}
+    relationShips: []
 --- !u!114 &4629570153365600317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,11 +320,14 @@ MonoBehaviour:
   - {fileID: -7471033704261120048}
   - {fileID: -7471033704261120048}
   nodeData:
-    position: {x: -76, y: -493.88803}
+    relationShips: []
   tileVisuals: {fileID: 0}
   test: []
   tileTexture: {fileID: 2800000, guid: 416665fe8367e4741b79c43329ab741c, type: 3}
   testName: 
+  oneRotation: 0
+  twoRotations: 0
+  threeRotations: 0
 --- !u!114 &4940602647483697339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,7 +343,7 @@ MonoBehaviour:
   uid: b2119c8a2db63db419acfb9ec4653fff
   code: White
   nodeData:
-    position: {x: 1072, y: 868.80005}
+    relationShips: []
 --- !u!114 &5866148116305063784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,7 +359,7 @@ MonoBehaviour:
   uid: 0681483604736a84ab470ef61287e83a
   code: YWB
   nodeData:
-    position: {x: -25.600027, y: 223.95}
+    relationShips: []
 --- !u!114 &7894635730810708782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,11 +380,14 @@ MonoBehaviour:
   - {fileID: -4392822829124244340}
   - {fileID: -4392822829124244340}
   nodeData:
-    position: {x: -76, y: -225.08801}
+    relationShips: []
   tileVisuals: {fileID: 0}
   test: []
   tileTexture: {fileID: 2800000, guid: 03045719d7e87cb41b45ff32d750b77e, type: 3}
   testName: 
+  oneRotation: 0
+  twoRotations: 0
+  threeRotations: 0
 --- !u!114 &7993975020417802043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,11 +408,14 @@ MonoBehaviour:
   - {fileID: 4940602647483697339}
   - {fileID: 8853633176595766898}
   nodeData:
-    position: {x: 646.40015, y: 1103.9998}
+    relationShips: []
   tileVisuals: {fileID: 0}
   test: []
   tileTexture: {fileID: 2800000, guid: f33ae9b1702f1dc4bb4a563a2e13fd49, type: 3}
   testName: 
+  oneRotation: 0
+  twoRotations: 0
+  threeRotations: 0
 --- !u!114 &8210932075002522813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,11 +436,14 @@ MonoBehaviour:
   - {fileID: 1808409914863501258}
   - {fileID: 262298570138304668}
   nodeData:
-    position: {x: 824.8, y: 375.19998}
+    relationShips: []
   tileVisuals: {fileID: 0}
   test: []
   tileTexture: {fileID: 2800000, guid: c0d5eb21d95c71d4caee99dc4a90605a, type: 3}
   testName: 
+  oneRotation: 0
+  twoRotations: 0
+  threeRotations: 0
 --- !u!114 &8853633176595766898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,4 +459,4 @@ MonoBehaviour:
   uid: 9eead17db403a7448a0fcb26b60b3501
   code: YBW
   nodeData:
-    position: {x: -25.600042, y: 336.8}
+    relationShips: []

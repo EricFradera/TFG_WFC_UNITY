@@ -17,6 +17,7 @@ public class WFCNodeEditorView : GraphView
 
     public Action<NodeComponent> onNodeSelected;
     private WFCConfig config;
+    private EditorManager manager;
 
     public WFCNodeEditorView()
     {
@@ -34,6 +35,7 @@ public class WFCNodeEditorView : GraphView
     public void PopulateView(WFCConfig config)
     {
         this.config = config;
+        createEditorManager();
         graphViewChanged -= OnGraphViewChanged;
         DeleteElements(graphElements);
         graphViewChanged += OnGraphViewChanged;
@@ -47,7 +49,7 @@ public class WFCNodeEditorView : GraphView
             {
                 switch (relation.inputTile)
                 {
-                    case WFC2DTile relationInputTile:
+                    case WFCTile relationInputTile:
                         var childTileComponent = FindNodeComponent(relationInputTile);
                         Edge edgeTile = parentComponent.output[relation.indexOutput]
                             .ConnectTo(childTileComponent.input[relation.indexInput]);
@@ -55,7 +57,7 @@ public class WFCNodeEditorView : GraphView
                         break;
                     case InputCodeData relationInputTile:
                         var childHelperComponent = FindHelperNode(relationInputTile);
-                        Edge edgeHelper = parentComponent.output[relation.indexOutput] //problems with edges
+                        Edge edgeHelper = parentComponent.output[relation.indexOutput]
                             .ConnectTo(childHelperComponent.input[0]);
                         AddElement(edgeHelper);
                         break;
@@ -64,9 +66,22 @@ public class WFCNodeEditorView : GraphView
         });
     }
 
+    private void createEditorManager()
+    {
+        switch (config)
+        {
+            case WFC2DConfig config2D:
+                manager = new Editor2DManager(config2D);
+                break;
+            case WFC3DConfig config3D:
+                manager = new Editor3DManager(config3D);
+                break;
+        }
+    }
+
     private NodeComponent FindNodeComponent(WFCTile tile)
     {
-        return GetNodeByGuid(tile.tileId) as Node2dComponent;
+        return GetNodeByGuid(tile.tileId) as NodeComponent;
     }
 
     private NodeComponent FindHelperNode(InputCodeData codeData)
@@ -82,80 +97,17 @@ public class WFCNodeEditorView : GraphView
 
     private GraphViewChange OnGraphViewChanged(GraphViewChange graphviewchange)
     {
-        graphviewchange.elementsToRemove?.ForEach(el =>
-        {
-            switch (el)
-            {
-                case Node2dComponent nodeComponent:
-                    config.DeleteNodeTile(nodeComponent.tile);
-                    break;
-                case StringCodeNode colorNode:
-                    config.DeleteNodeHelper(colorNode.codeData);
-                    break;
-                case Edge edge:
-                {
-                    
-                    switch (edge.input.node)
-                    {
-                        case Node2dComponent inputNode2dComponent:
-                            if (edge.output.node is Node2dComponent outputNode)
-                                config.RemoveChild(outputNode.tile, inputNode2dComponent.tile,
-                                    dirHelper(edge.output.portName),
-                                    dirHelper(edge.input.portName));
-                            break;
-                        case StringCodeNode inputStringCode:
-                            if (edge.output.node is Node2dComponent output2DNode)
-                            {
-                                config.removeHelper(inputStringCode.codeData, output2DNode.tile,
-                                    dirHelper(edge.output.portName));
-                            }
+        graphviewchange.elementsToRemove?.ForEach(el => { manager.ElementsToRemove(el); });
 
-                            break;
-                    }
-
-                    break;
-
-                    /*OLD VER
-                     if (edge.input.node is Node2dComponent inputNode && edge.output.node is Node2dComponent outputNode)
-                        config.RemoveChild(outputNode.tile, inputNode.tile, dirHelper(edge.output.portName),
-                            dirHelper(edge.input.portName));
-                    if (edge.input.node is StringCodeNode inputNode && edge.output.node is Node2dComponent outputNode)
-                        break;*/
-                }
-            }
-        });
-
-        graphviewchange.edgesToCreate?.ForEach(edge =>
-        {
-            switch (edge.input.node)
-            {
-                case Node2dComponent inputNode when edge.output.node is Node2dComponent outputNode:
-                    config.AddChild(outputNode.tile, inputNode.tile, dirHelper(edge.output.portName),
-                        dirHelper(edge.input.portName));
-                    break;
-                case StringCodeNode inputNode when edge.output.node is Node2dComponent outputNode:
-                    config.AddHelper(inputNode.codeData, outputNode.tile, dirHelper(edge.output.portName));
-                    break;
-            }
-        });
+        graphviewchange.edgesToCreate?.ForEach(edge => { manager.EdgesToCreate(edge); });
 
         return graphviewchange;
     }
 
     public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
     {
-        //base.BuildContextualMenu(evt);
-        {
-            //This will makes sense once we change how the Tile object works. It needs an abstraction
-            evt.menu.AppendAction("Create WFC2DTile", (a) => CreateNode());
-            evt.menu.AppendAction("Create Code Node", (a) => CreateNodeHelper(typeof(StringCodeData)));
-            /*var types = TypeCache.GetTypesDerivedFrom<WFC2DTile>();
-            foreach (var type in types)
-            {
-                evt.menu.AppendAction($"[{type.BaseType.Name}]{type.Name}", (a) => CreateNode(type));
-                Debug.Log("Do we reach here????");
-            }*/
-        }
+        evt.menu.AppendAction("Create node", (a) => CreateNode());
+        evt.menu.AppendAction("Create code Node", (a) => CreateNodeHelper(typeof(StringCodeData)));
     }
 
     private void CreateNode() => CreateNodeView(config.CreateNodeTile());
@@ -164,34 +116,13 @@ public class WFCNodeEditorView : GraphView
 
     private void CreateNodeView(Object obj)
     {
-        switch (obj)
+        var nodeComponent = manager.createNodeView(obj);
+        if (nodeComponent is null)
         {
-            case WFC2DTile wfc2DTile:
-            {
-                var nodeComponent = new Node2dComponent(wfc2DTile);
-                nodeComponent.OnNodeSelection = onNodeSelected;
-                AddElement(nodeComponent);
-                break;
-            }
-            case InputCodeData inputCodeData:
-            {
-                var helperNode = new StringCodeNode(inputCodeData);
-                helperNode.OnNodeSelection = onNodeSelected;
-                AddElement(helperNode);
-                break;
-            }
+            throw new Exception("The node creation resulted in a null node");
         }
-    }
 
-    private int dirHelper(string dirName)
-    {
-        return dirName switch
-        {
-            "up" => 0,
-            "right" => 1,
-            "down" => 2,
-            "left" => 3,
-            _ => -1
-        };
+        nodeComponent.OnNodeSelection = onNodeSelected;
+        AddElement(nodeComponent);
     }
 }

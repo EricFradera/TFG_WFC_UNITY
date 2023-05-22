@@ -6,7 +6,7 @@ using UnityEngine;
 using WFC;
 
 [CreateAssetMenu(menuName = "WFC components/WFCConfig/WFC3DConfig", order = 3, fileName = "WFC3DConfig"), Serializable]
-public class WF3DConfig : WFCConfig
+public class WFC3DConfig : WFCConfig
 {
     public override WFCTile CreateNodeTile()
     {

@@ -34,6 +34,7 @@ public class WFCProc
         if (status != Resolution.Decided) throw new Exception("The WFC resulted as undecided");
         var output = propagator.ToValueArray<WFCTile>();
         return output;
+       
     }
 
     private AdjacentModel run2DModel()

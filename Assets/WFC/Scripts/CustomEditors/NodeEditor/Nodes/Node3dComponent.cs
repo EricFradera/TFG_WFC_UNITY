@@ -1,27 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using Newtonsoft.Json;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 using WFC;
-using Vector2 = System.Numerics.Vector2;
 
-public class Node2dComponent : NodeTileComponent
+public class Node3dComponent : NodeTileComponent
 {
-    public Node2dComponent(WFC2DTile tile)
+    [JsonIgnore] public Texture2D previewTexture2D;
+
+    public Node3dComponent(WFC3DTile tile)
     {
         this.tile = tile;
         this.viewDataKey = tile.tileId;
         this.title = tile.tileName;
-        portNames = new[] { "up", "right", "down", "left" };
-        input = new Port[4];
-        output = new Port[4];
+        portNames = new[] { "y+", "y-", "x+", "x-", "z+", "z-" };
+        input = new Port[6];
+        output = new Port[6];
         style.left = tile.nodeData.position.X;
         style.top = tile.nodeData.position.Y;
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 6; i++)
         {
             CreateInputPort(i);
             CreateOutputPort(i);
@@ -36,8 +37,8 @@ public class Node2dComponent : NodeTileComponent
     // to update the image https://docs.unity3d.com/Manual/UIE-bind-custom-control.html
     private void ImageView()
     {
-        WFC2DTile imageTile = (WFC2DTile)this.tile;
-        imageTile.tileTexture ??= Texture2D.whiteTexture;
+        WFC3DTile imageTile = (WFC3DTile)this.tile;
+        imageTile.previewTexture2D ??= Texture2D.whiteTexture;
         var container = new VisualElement
         {
             name = " Parent Container",
@@ -48,7 +49,7 @@ public class Node2dComponent : NodeTileComponent
         {
             name = "tileTexture",
             pickingMode = PickingMode.Ignore,
-            image = imageTile.tileTexture
+            image = imageTile.previewTexture2D
         };
 
 

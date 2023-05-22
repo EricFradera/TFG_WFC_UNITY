@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace WFC
@@ -8,6 +9,8 @@ namespace WFC
     [CreateAssetMenu(menuName = "WFC components/WFC3DTile", order = 2, fileName = "WFC3dTile"), Serializable]
     public class WFC3DTile : WFCTile
     {
+        [JsonIgnore] public Texture2D previewTexture2D;
+
         public WFC3DTile()
         {
             this.adjacencyCodes = new InputCodeData[6];

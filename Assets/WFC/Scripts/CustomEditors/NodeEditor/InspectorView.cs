@@ -22,6 +22,7 @@ public class InspectorView : VisualElement
         editor = component switch
         {
             Node2dComponent node2dComponent => Editor.CreateEditor(node2dComponent.tile),
+            Node3dComponent node3dComponent => Editor.CreateEditor(node3dComponent.tile),
             StringCodeNode stringCodeNode => Editor.CreateEditor(stringCodeNode.codeData),
             _ => editor
         };

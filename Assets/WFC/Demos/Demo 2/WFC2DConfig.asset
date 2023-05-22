@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 805eb54aa0aeab74ba01c24c94a80203, type: 3}
   m_Name: WFC2DConfig
   m_EditorClassIdentifier: 
-  configurationName: 
+  configurationName: demo2
   configurationID: 0
   wfcTilesList:
   - {fileID: 6559909672447148908}
