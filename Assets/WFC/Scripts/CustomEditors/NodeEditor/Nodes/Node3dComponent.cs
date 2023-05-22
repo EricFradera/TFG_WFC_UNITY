@@ -12,26 +12,16 @@ public class Node3dComponent : NodeTileComponent
 {
     [JsonIgnore] public Texture2D previewTexture2D;
 
-    public Node3dComponent(WFC3DTile tile)
+    public Node3dComponent(WFC3DTile tile) : base(tile)
     {
-        this.tile = tile;
-        this.viewDataKey = tile.tileId;
-        this.title = tile.tileName;
+        
         portNames = new[] { "y+", "y-", "x+", "x-", "z+", "z-" };
-        input = new Port[6];
-        output = new Port[6];
-        style.left = tile.nodeData.position.X;
-        style.top = tile.nodeData.position.Y;
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < base.tile.dim; i++)
         {
             CreateInputPort(i);
             CreateOutputPort(i);
         }
-
         ImageView();
-        Label titleLabel = this.Q<Label>("title-label");
-        titleLabel.bindingPath = "tileName";
-        titleLabel.Bind(new SerializedObject(tile));
     }
 
     // to update the image https://docs.unity3d.com/Manual/UIE-bind-custom-control.html

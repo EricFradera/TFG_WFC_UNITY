@@ -70,12 +70,19 @@ public class WFCNodeEditorView : GraphView
     {
         switch (config)
         {
+            case WFC1DConfig config1D:
+                manager = new Editor1DManager(config1D);
+                break;
             case WFC2DConfig config2D:
                 manager = new Editor2DManager(config2D);
                 break;
             case WFC3DConfig config3D:
                 manager = new Editor3DManager(config3D);
                 break;
+            case WFCHexConfig configHex:
+                manager = new EditorHexManager(configHex);
+                break;
+            
         }
     }
 

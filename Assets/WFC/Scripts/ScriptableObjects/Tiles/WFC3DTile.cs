@@ -13,14 +13,9 @@ namespace WFC
 
         public WFC3DTile()
         {
-            this.adjacencyCodes = new InputCodeData[6];
-            this.adjacencyPairs = new List<WFCTile>[6];
-        }
-
-        public void InitDataStructures()
-        {
-            this.adjacencyCodes = new InputCodeData[6];
-            for (int i = 0; i < 6; i++) this.adjacencyPairs[i] = new List<WFCTile>();
+            dim = 6;
+            this.adjacencyCodes = new InputCodeData[dim];
+            this.adjacencyPairs = new List<WFCTile>[dim];
         }
 
         private enum IndexDirection

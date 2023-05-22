@@ -12,6 +12,9 @@ public abstract class WFCTile : ScriptableObject
 
     public string tileId;
 
+    //Sides
+    public int dim;
+
     //Each tile has its own adjacency codes (ej: up,right,down,left)
     public InputCodeData[] adjacencyCodes;
 
@@ -33,8 +36,13 @@ public abstract class WFCTile : ScriptableObject
         AssetDatabase.Refresh();
     }
 
-    public abstract List<bool> GetListOfRotations();
-    
-    public abstract WFCTile fillData(WFCTile data,int rot);
+    public void InitDataStructures()
+    {
+        this.adjacencyCodes = new InputCodeData[dim];
+        for (int i = 0; i < dim; i++) this.adjacencyPairs[i] = new List<WFCTile>();
+    }
 
+    public abstract List<bool> GetListOfRotations();
+
+    public abstract WFCTile fillData(WFCTile data, int rot);
 }

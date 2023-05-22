@@ -1,26 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 using WFC;
-using Vector2 = System.Numerics.Vector2;
 
-public class Node2dComponent : NodeTileComponent
+public class NodeHEXComponent : NodeTileComponent
 {
-    public Node2dComponent(WFC2DTile tile) : base(tile)
+    public NodeHEXComponent(WFCHEXTile tile) : base(tile)
     {
-        portNames = new[] { "up", "right", "down", "left" };
+        portNames = new[] { "up", "upRight", "downRight", "down", "downLeft", "upLeft" };
         for (int i = 0; i < tile.dim; i++)
         {
             CreateInputPort(i);
             CreateOutputPort(i);
         }
-
-        ImageView();
+        //ImageView();
     }
 
     // to update the image https://docs.unity3d.com/Manual/UIE-bind-custom-control.html

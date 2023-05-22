@@ -5,13 +5,13 @@ using UnityEditor;
 using UnityEngine;
 using WFC;
 
-[CreateAssetMenu(menuName = "WFC components/WFCConfig/WFC2DConfig", order = 2, fileName = "WFC2DConfig"), Serializable]
-public class WFC2DConfig : WFCConfig
+[CreateAssetMenu(menuName = "WFC components/WFCConfig/WFCHEXConfig", order = 4, fileName = "WFCHEXConfig"),
+ Serializable]
+public class WFCHexConfig : WFCConfig
 {
-    
     public override WFCTile CreateNodeTile()
     {
-        WFC2DTile nodeTile = CreateInstance<WFC2DTile>();
+        WFCHEXTile nodeTile = CreateInstance<WFCHEXTile>();
         nodeTile.tileName = "WFC2D tile";
         nodeTile.InitDataStructures();
         nodeTile.tileId = GUID.Generate().ToString();
@@ -20,6 +20,4 @@ public class WFC2DConfig : WFCConfig
         AssetDatabase.SaveAssets();
         return nodeTile;
     }
-
-    
 }

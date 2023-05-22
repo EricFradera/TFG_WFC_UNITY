@@ -25,16 +25,10 @@ namespace WFC
 
         public WFC2DTile()
         {
-            this.adjacencyCodes = new InputCodeData[4];
-            this.adjacencyPairs = new List<WFCTile>[4];
+            dim = 4;
+            this.adjacencyCodes = new InputCodeData[dim];
+            this.adjacencyPairs = new List<WFCTile>[dim];
             test = new List<string>();
-        }
-
-
-        public void InitDataStructures()
-        {
-            this.adjacencyCodes = new InputCodeData[4];
-            for (int i = 0; i < 4; i++) this.adjacencyPairs[i] = new List<WFCTile>();
         }
 
         private enum IndexDirection
@@ -74,7 +68,7 @@ namespace WFC
         {
             data.tileName = this.tileName + (90 * rot);
             data.tileId = this.tileId + (90 * rot);
-            //
+
             InputCodeData[] tempCodes = this.adjacencyCodes;
             tempCodes = new[]
                 { this.adjacencyCodes[4], this.adjacencyCodes[1], this.adjacencyCodes[2], this.adjacencyCodes[3] };

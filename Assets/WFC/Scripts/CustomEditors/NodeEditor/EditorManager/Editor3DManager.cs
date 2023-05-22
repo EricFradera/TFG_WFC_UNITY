@@ -14,9 +14,9 @@ public class Editor3DManager : EditorManager
     {
         switch (obj)
         {
-            case WFC3DTile wfc2DTile:
+            case WFC3DTile wfc3DTile:
             {
-                var nodeComponent = new Node3dComponent(wfc2DTile);
+                var nodeComponent = new Node3dComponent(wfc3DTile);
                 return nodeComponent;
             }
             case InputCodeData inputCodeData:

@@ -2,17 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EditorHexManager : MonoBehaviour
+public class EditorHexManager : EditorManager
 {
-    // Start is called before the first frame update
-    void Start()
+    public EditorHexManager(WFCHexConfig config)
     {
-        
+        this.config = config;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override NodeComponent createNodeView(object obj)
     {
-        
+        switch (obj)
+        {
+            case WFCHEXTile wfcHexTile:
+            {
+                var nodeComponent = new NodeHEXComponent(wfcHexTile);
+                return nodeComponent;
+            }
+            case InputCodeData inputCodeData:
+            {
+                var helperNode = new StringCodeNode(inputCodeData);
+                return helperNode;
+            }
+            default: return null;
+        }
+    }
+
+    protected override int dirHelper(string dirName)
+    {
+        return dirName switch
+        {
+            "up" => 0,
+            "upRight" => 1,
+            "downRight" => 2,
+            "down" => 3,
+            "downLeft" => 4,
+            "upLeft" =>5,
+            _ => -1
+        };
     }
 }
+

@@ -63,16 +63,7 @@ public class WFCProc
         return model;
     }
 
-    private Dictionary<WFCTile, Tile> genDictionary()
-    {
-        Dictionary<WFCTile, Tile> tileMap = new Dictionary<WFCTile, Tile>();
-        if (!useRotation)
-        {
-        }
-
-
-        return tileMap;
-    }
+    
 
     private List<WFCTile> GenerateRotation(WFCTile tile)
     {
