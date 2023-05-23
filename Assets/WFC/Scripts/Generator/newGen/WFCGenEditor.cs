@@ -29,9 +29,29 @@ public class WFCGenEditor : Editor
     [SerializeField] private VisualTreeAsset itemEditor;
     public ListView listViewComponent;
 
-    //3d visualization
-    private GameObject cube;
-    private Material gridMat;
+    //Gizmos
+    private List<IGizmos> gizmoList;
+    private GizmoGenerator indexGizmo;
+
+
+    public WFCGenEditor()
+    {
+        gizmoList = new List<IGizmos>()
+        {
+            new Gizmo1d(),
+            new Gizmo2d(),
+            new Gizmo3d(),
+            new GizmoHEX()
+        };
+    }
+
+    private enum GizmoGenerator
+    {
+        GIZMO1D,
+        GIZMO2D,
+        GIZMO3D,
+        GIZMOHEX,
+    }
 
     public override VisualElement CreateInspectorGUI()
     {
@@ -74,25 +94,31 @@ public class WFCGenEditor : Editor
             {
                 switch (wfcConfigFileField.value)
                 {
+                    case WFC1DConfig wfc1DConfig:
+                        indexGizmo = GizmoGenerator.GIZMO1D;
+                        configFile = wfc1DConfig;
+                        break;
                     case WFC2DConfig wfc2DConfig:
-                        Destroy3DGizmo();
+                        indexGizmo = GizmoGenerator.GIZMO2D;
                         configFile = wfc2DConfig;
                         break;
                     case WFC3DConfig wfc3DConfig:
-                        Destroy3DGizmo();
+                        indexGizmo = GizmoGenerator.GIZMO3D;
                         configFile = wfc3DConfig;
-                        create3DGizmo();
+                        break;
+                    case WFCHexConfig wfcHexConfig:
+                        indexGizmo = GizmoGenerator.GIZMOHEX;
+                        configFile = wfcHexConfig;
                         break;
                 }
-
+                
                 current.populateList();
                 wfcTilesList = configFile.wfcTilesList;
-
                 listViewComponent.makeItem = itemEditor.CloneTree;
             }
             else
             {
-                Destroy3DGizmo();
+                configFile = null;
                 current.clearList();
                 wfcTilesList = null;
             }
@@ -104,64 +130,18 @@ public class WFCGenEditor : Editor
         return root;
     }
 
-    private void create3DGizmo()
-    {
-        cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        cube.transform.position = new Vector3(0, 0, 0);
-        if (current != null) cube.transform.parent = current.transform;
-        gridMat = new Material(Shader.Find("Shader Graphs/gridShader"));
-        if (cube.TryGetComponent<Renderer>(out var renderer)) renderer.material = gridMat;
-    }
-
     public void OnDisable()
     {
-        Destroy3DGizmo();
-    }
-
-    private void Destroy3DGizmo()
-    {
-        DestroyImmediate(gridMat);
-        DestroyImmediate(cube);
+        if (configFile is null) return;
+        gizmoList[(int)indexGizmo].destroyGizmo();
     }
 
     private void OnSceneGUI()
     {
         listViewComponent.makeItem = itemEditor.CloneTree;
         if (configFile is null) return;
-        if (configFile.GetType() == typeof(WFC2DConfig)) GenGrid2D();
-        else if (configFile.GetType() == typeof(WFC3DConfig)) GenGrid3D();
-    }
-
-    private void GenGrid2D()
-    {
-        Handles.color = lineColor;
-        var lineCount = Mathf.RoundToInt((gridExtent * 2) / gridSize);
-        if (lineCount % 2 == 0) lineCount++;
-        var halfLineCount = lineCount / 2;
-        for (var i = 0; i < lineCount; i++)
-        {
-            int intOffset = i - halfLineCount;
-            float xCoord = intOffset * gridSize;
-            float zCoord0 = halfLineCount * gridSize;
-            float zCoord1 = -halfLineCount * gridSize;
-            Vector3 p0 = new Vector3(xCoord, 0f, zCoord0);
-            Vector3 p1 = new Vector3(xCoord, 0f, zCoord1);
-            Handles.DrawAAPolyLine(p0, p1);
-            p0 = new Vector3(zCoord0, 0f, xCoord);
-            p1 = new Vector3(zCoord1, 0f, xCoord);
-            Handles.DrawAAPolyLine(p0, p1);
-        }
-    }
-
-    private void GenGrid3D()
-    {
-        var size = Mathf.RoundToInt((gridExtent * 2) / gridSize);
-        if (size % 2 == 0) size++;
-        var finalSize = size * gridSize - gridSize;
-        var matSize = 1 / gridSize;
-        cube.transform.localScale = new Vector3(finalSize, finalSize, finalSize);
-        gridMat.SetColor("_lineColor", lineColor);
-        gridMat.SetFloat("_gridSize", matSize);
+        gizmoList[(int)indexGizmo].enableGizmo(current.transform);
+        gizmoList[(int)indexGizmo].generateGizmo(lineColor, gridSize, gridExtent);
     }
 }
 #endif
