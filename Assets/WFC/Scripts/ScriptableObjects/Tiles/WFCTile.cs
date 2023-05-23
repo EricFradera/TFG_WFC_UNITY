@@ -18,6 +18,23 @@ public abstract class WFCTile : ScriptableObject
     //Each tile has its own adjacency codes (ej: up,right,down,left)
     public InputCodeData[] adjacencyCodes;
 
+    public void genRotation()
+    {
+        List<bool> rotations = GetListOfRotations();
+        for (int i = 1; i <= rotations.Count; i++)
+        {
+            if (rotations[i-1])
+            {
+                InputCodeData[] tempList = new InputCodeData[adjacencyCodes.Length];
+                for (int j = 0; j < adjacencyCodes.Length; j++)
+                {
+                    tempList[j] =
+                        adjacencyCodes[(i + j) >= adjacencyCodes.Length ? (i + j) - adjacencyCodes.Length : (i + j)];
+                }
+            }
+        }
+    }
+
     public List<WFCTile>[] adjacencyPairs;
 
     // Node data
