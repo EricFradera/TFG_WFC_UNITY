@@ -9,25 +9,8 @@ using WFC;
  Serializable]
 public class WFCHexConfig : WFCConfig
 {
-    public override WFCTile CreateNodeTile()
+    public override WFCManager createWFCManager()
     {
-        WFCHEXTile nodeTile = CreateInstance<WFCHEXTile>();
-        nodeTile.tileName = "WFC2D tile";
-        nodeTile.InitDataStructures();
-        nodeTile.tileId = GUID.Generate().ToString();
-        wfcTilesList.Add(nodeTile);
-        AssetDatabase.AddObjectToAsset(nodeTile, this);
-        AssetDatabase.SaveAssets();
-        return nodeTile;
-    }
-
-    public override EditorManager getEditorManager()
-    {
-        return new EditorHexManager(this);
-    }
-
-    public override IWFCSpawner GetWfcSpawner()
-    {
-        throw new NotImplementedException();
+        return new WFCHEXManager(this);
     }
 }

@@ -7,17 +7,17 @@ using Object = System.Object;
 
 public abstract class EditorManager
 {
-    protected WFCConfig config;
+    protected WFCManager wfcConfigManager;
 
     public void ElementsToRemove(GraphElement el)
     {
         switch (el)
         {
             case NodeTileComponent nodeComponent:
-                config.DeleteNodeTile(nodeComponent.tile);
+                wfcConfigManager.DeleteNodeTile(nodeComponent.tile);
                 break;
             case StringCodeNode colorNode:
-                config.DeleteNodeHelper(colorNode.codeData);
+                wfcConfigManager.DeleteNodeHelper(colorNode.codeData);
                 break;
             case Edge edge:
             {
@@ -25,14 +25,14 @@ public abstract class EditorManager
                 {
                     case NodeTileComponent inputNodeComponent:
                         if (edge.output.node is NodeTileComponent outputNode)
-                            config.RemoveChild(outputNode.tile, inputNodeComponent.tile,
+                            wfcConfigManager.RemoveChild(outputNode.tile, inputNodeComponent.tile,
                                 dirHelper(edge.output.portName),
                                 dirHelper(edge.input.portName));
                         break;
                     case StringCodeNode inputStringCode:
                         if (edge.output.node is NodeTileComponent output2DNode)
                         {
-                            config.removeHelper(inputStringCode.codeData, output2DNode.tile,
+                            wfcConfigManager.removeHelper(inputStringCode.codeData, output2DNode.tile,
                                 dirHelper(edge.output.portName));
                         }
 
@@ -49,11 +49,11 @@ public abstract class EditorManager
         switch (edge.input.node)
         {
             case NodeTileComponent inputNode when edge.output.node is NodeTileComponent outputNode:
-                config.AddChild(outputNode.tile, inputNode.tile, dirHelper(edge.output.portName),
+                wfcConfigManager.AddChild(outputNode.tile, inputNode.tile, dirHelper(edge.output.portName),
                     dirHelper(edge.input.portName));
                 break;
             case StringCodeNode inputNode when edge.output.node is NodeTileComponent outputNode:
-                config.AddHelper(inputNode.codeData, outputNode.tile, dirHelper(edge.output.portName));
+                wfcConfigManager.AddHelper(inputNode.codeData, outputNode.tile, dirHelper(edge.output.portName));
                 break;
         }
     }

@@ -31,16 +31,14 @@ public class WFCGenerator : MonoBehaviour
 
         //Generation
         generator = new WFCProc(WFCConfigFile.wfcTilesList, WFCConfigFile.useRotations);
-        
+
         gen2D(lineCount, half);
-        
-        
     }
 
     private void gen2D(int lineCount, int half)
     {
         var res = generator.runWFC(lineCount);
-        var spawner = WFCConfigFile.GetWfcSpawner();
+        //var spawner = WFCConfigFile.GetWfcSpawner();
         for (int i = 0; i < lineCount; i++)
         {
             for (int j = 0; j < lineCount; j++)
@@ -100,7 +98,7 @@ public class WFCGenerator : MonoBehaviour
             }
         }
     }
-    
+
     public void populateList() => wfcTilesList = WFCConfigFile.wfcTilesList;
     public void clearList() => wfcTilesList = null;
 

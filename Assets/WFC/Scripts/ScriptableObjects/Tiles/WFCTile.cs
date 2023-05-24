@@ -41,8 +41,7 @@ public abstract class WFCTile : ScriptableObject
 
     // Node data
     public nodeData nodeData;
-
-
+    
     //Asset data
     [JsonIgnore] public GameObject tileVisuals;
 

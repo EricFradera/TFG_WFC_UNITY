@@ -5,9 +5,9 @@ using WFC;
 
 public class Editor3DManager : EditorManager
 {
-    public Editor3DManager(WFC3DConfig config)
+    public Editor3DManager(WFCManager wfcManager)
     {
-        this.config = config;
+        this.wfcConfigManager = wfcManager;
     }
 
     public override NodeComponent createNodeView(object obj)

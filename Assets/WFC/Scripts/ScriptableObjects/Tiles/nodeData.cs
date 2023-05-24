@@ -9,10 +9,16 @@ using Object = System.Object;
 using Vector2 = System.Numerics.Vector2;
 
 [Serializable]
-public class nodeData
+public class nodeData: ScriptableObject
 {
     public Vector2 position;
     public List<nodeRelation> relationShips = new List<nodeRelation>();
+
+
+    public void addNewRel()
+    {
+        
+    }
 
     public void deleteRelFromHelper()
     {
@@ -34,5 +40,14 @@ public class nodeData
         }
     }
 
-    
+
+    public void addNewRel(int dir, InputCodeData data)
+    {
+        var newRel = ScriptableObject.CreateInstance<nodeRelation>();
+    }
+
+    public void addNewRel(int dir, WFCTile tile)
+    {
+        throw new NotImplementedException();
+    }
 }

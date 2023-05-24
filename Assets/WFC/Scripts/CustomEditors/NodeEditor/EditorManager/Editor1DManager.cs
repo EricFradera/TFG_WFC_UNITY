@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Editor1DManager : EditorManager
 {
-    
-    public Editor1DManager(WFC1DConfig config)
+    public Editor1DManager(WFCManager wfcManager)
     {
-        this.config = config;
+        this.wfcConfigManager = wfcManager;
     }
+
     public override NodeComponent createNodeView(object obj)
     {
         switch (obj)

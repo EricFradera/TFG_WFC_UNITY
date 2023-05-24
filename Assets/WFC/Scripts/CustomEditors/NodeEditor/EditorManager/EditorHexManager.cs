@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class EditorHexManager : EditorManager
 {
-    public EditorHexManager(WFCHexConfig config)
+    public EditorHexManager(WFCManager wfcManager)
     {
-        this.config = config;
+        this.wfcConfigManager = wfcManager;
     }
 
     public override NodeComponent createNodeView(object obj)
@@ -36,9 +36,8 @@ public class EditorHexManager : EditorManager
             "downRight" => 2,
             "down" => 3,
             "downLeft" => 4,
-            "upLeft" =>5,
+            "upLeft" => 5,
             _ => -1
         };
     }
 }
-

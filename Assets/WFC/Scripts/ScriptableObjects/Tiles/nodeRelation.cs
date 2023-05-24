@@ -2,10 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEngine;
 using Object = UnityEngine.Object;
 
 [Serializable]
-public class nodeRelation
+public class nodeRelation: ScriptableObject
 {
     public nodeRelation(int indexOutput, WFCTile inputTile, int indexInput)
     {

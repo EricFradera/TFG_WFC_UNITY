@@ -16,8 +16,8 @@ public class WFCNodeEditorView : GraphView
     }
 
     public Action<NodeComponent> onNodeSelected;
-    private WFCConfig config;
     private EditorManager manager;
+    private WFCManager wfcConfigManager;
 
     public WFCNodeEditorView()
     {
@@ -34,13 +34,13 @@ public class WFCNodeEditorView : GraphView
 
     public void PopulateView(WFCConfig config)
     {
-        this.config = config;
-        createEditorManager();
+        wfcConfigManager = config.createWFCManager();
+        manager = wfcConfigManager.getEditorManager();
         graphViewChanged -= OnGraphViewChanged;
         DeleteElements(graphElements);
         graphViewChanged += OnGraphViewChanged;
-        this.config.wfcTilesList.ForEach(CreateNodeView);
-        this.config.nodeHelpers.ForEach(CreateNodeView);
+        wfcConfigManager.GetWfcTilesList().ForEach(CreateNodeView);
+        wfcConfigManager.getNodeHelpersList().ForEach(CreateNodeView);
 
         config.wfcTilesList.ForEach(tile =>
         {
@@ -66,10 +66,6 @@ public class WFCNodeEditorView : GraphView
         });
     }
 
-    private void createEditorManager()
-    {
-        manager = config.getEditorManager();
-    }
 
     private NodeComponent FindNodeComponent(WFCTile tile)
     {
@@ -102,8 +98,8 @@ public class WFCNodeEditorView : GraphView
         evt.menu.AppendAction("Create code Node", (a) => CreateNodeHelper(typeof(StringCodeData)));
     }
 
-    private void CreateNode() => CreateNodeView(config.CreateNodeTile());
-    private void CreateNodeHelper(Type type) => CreateNodeView(config.CreateNodeHelper(type));
+    private void CreateNode() => CreateNodeView(wfcConfigManager.CreateNodeTile());
+    private void CreateNodeHelper(Type type) => CreateNodeView(wfcConfigManager.CreateNodeHelper(type));
 
 
     private void CreateNodeView(Object obj)

@@ -5,9 +5,9 @@ using WFC;
 
 public class Editor2DManager : EditorManager
 {
-    public Editor2DManager(WFC2DConfig config)
+    public Editor2DManager(WFCManager wfcManager)
     {
-        this.config = config;
+        this.wfcConfigManager = wfcManager;
     }
 
 
