@@ -82,11 +82,6 @@ namespace WFC
             List<WFCTile> rotationTiles = new List<WFCTile>();
             
             
-            
-            
-            
-            
-            
             return rotationTiles;
         }
 

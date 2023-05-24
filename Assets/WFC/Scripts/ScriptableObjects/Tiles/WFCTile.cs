@@ -50,6 +50,7 @@ public abstract class WFCTile : ScriptableObject
 
     public void saveData()
     {
+        nodeData.saveData();
         EditorUtility.SetDirty(this);
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
@@ -57,17 +58,16 @@ public abstract class WFCTile : ScriptableObject
 
     public void InitDataStructures()
     {
-        this.adjacencyCodes = new InputCodeData[dim];
+        adjacencyCodes = new InputCodeData[dim];
         for (int i = 0; i < dim; i++) this.adjacencyPairs[i] = new List<WFCTile>();
     }
-
+    
 
     public int Getdim()
     {
         return dim;
     }
-
-
+    
     public abstract List<WFCTile> generateTilesFromRotations();
 
     public abstract List<bool> GetListOfRotations();

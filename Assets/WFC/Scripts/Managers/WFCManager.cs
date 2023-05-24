@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEditor;
 using UnityEngine;
 using WFC;
+using Vector2 = System.Numerics.Vector2;
 
 public abstract class WFCManager
 {
@@ -18,6 +20,15 @@ public abstract class WFCManager
     public abstract WFCTile CreateNodeTile();
     public abstract EditorManager getEditorManager();
     public abstract IWFCSpawner GetWfcSpawner();
+
+    protected void createNodeData(WFCTile nodeTile)
+    {
+        nodeTile.nodeData = ScriptableObject.CreateInstance<nodeData>();
+        AssetDatabase.AddObjectToAsset(nodeTile.nodeData, wfcConfig);
+        EditorUtility.SetDirty(wfcConfig);
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+    }
 
 
     public InputCodeData CreateNodeHelper(Type type)
@@ -57,7 +68,7 @@ public abstract class WFCManager
     {
         if (parent == null || child == null) return;
         parent.adjacencyPairs[dirParent].Add(child);
-        parent.nodeData.relationShips.Add(new nodeRelation(dirParent, child, dirChild));
+        parent.nodeData.addNewRel(dirParent, child, dirChild);
         child.adjacencyPairs[dirChild].Add(parent);
         EditorUtility.SetDirty(wfcConfig);
         parent.saveData();
@@ -69,10 +80,8 @@ public abstract class WFCManager
     public void AddHelper(InputCodeData data, WFCTile tile, int dir)
     {
         if (data == null || tile == null) return;
-        tile.nodeData.relationShips.Add(new nodeRelation(dir, data));
-        tile.nodeData.addNewRel(dir,data);
-        tile.nodeData.addNewRel(dir,tile);
-        data.nodeData.relationShips.Add(new nodeRelation(dir, tile));
+        tile.nodeData.addNewRel(dir, data);
+        //data.nodeData.addNewRel(dir, tile);
         tile.adjacencyCodes[dir] = data;
         EditorUtility.SetDirty(wfcConfig);
         tile.saveData();

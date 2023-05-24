@@ -47,7 +47,8 @@ public class WFCNodeEditorView : GraphView
             var parentComponent = FindNodeComponent(tile);
             foreach (var relation in tile.nodeData.relationShips)
             {
-                switch (relation.inputTile)
+                
+                switch (relation.getInput())
                 {
                     case WFCTile relationInputTile:
                         var childTileComponent = FindNodeComponent(relationInputTile);

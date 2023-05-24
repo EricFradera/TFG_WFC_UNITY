@@ -24,8 +24,6 @@ public class StringCodeNode : NodeComponent
         style.left = codeData.nodeData.position.X;
         style.top = codeData.nodeData.position.Y;
         CreateInputPort();
-        
-        
         //Here we add the rest of stuf
         Label titleLabel = this.Q<Label>("title-label");
         titleLabel.bindingPath = "code";

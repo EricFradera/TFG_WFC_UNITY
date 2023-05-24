@@ -6,10 +6,10 @@ using WFC;
 
 public class WFC2DManager : WFCManager
 {
-    
     public WFC2DManager(WFCConfig config) : base(config)
     {
     }
+
     public override WFCTile CreateNodeTile()
     {
         WFC2DTile nodeTile = ScriptableObject.CreateInstance<WFC2DTile>();
@@ -18,6 +18,7 @@ public class WFC2DManager : WFCManager
         nodeTile.tileId = GUID.Generate().ToString();
         wfcConfig.wfcTilesList.Add(nodeTile);
         AssetDatabase.AddObjectToAsset(nodeTile, wfcConfig);
+        createNodeData(nodeTile);
         AssetDatabase.SaveAssets();
         return nodeTile;
     }
@@ -31,6 +32,4 @@ public class WFC2DManager : WFCManager
     {
         throw new System.NotImplementedException();
     }
-
-    
 }
