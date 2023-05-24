@@ -20,4 +20,14 @@ public class WFCHexConfig : WFCConfig
         AssetDatabase.SaveAssets();
         return nodeTile;
     }
+
+    public override EditorManager getEditorManager()
+    {
+        return new EditorHexManager(this);
+    }
+
+    public override IWFCSpawner GetWfcSpawner()
+    {
+        throw new NotImplementedException();
+    }
 }

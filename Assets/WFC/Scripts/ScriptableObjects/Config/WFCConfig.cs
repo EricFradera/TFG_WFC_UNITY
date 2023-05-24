@@ -23,6 +23,8 @@ namespace WFC
         public bool useRotations;
 
         public abstract WFCTile CreateNodeTile();
+        public abstract EditorManager getEditorManager();
+        public abstract IWFCSpawner GetWfcSpawner();
 
 
         public InputCodeData CreateNodeHelper(Type type)

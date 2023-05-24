@@ -23,6 +23,8 @@ public abstract class WFCTile : ScriptableObject
         List<bool> rotations = GetListOfRotations();
         for (int i = 1; i <= rotations.Count; i++)
         {
+            //foreach
+            //degree val = i
             if (rotations[i - 1])
             {
                 InputCodeData[] tempList = new InputCodeData[adjacencyCodes.Length];

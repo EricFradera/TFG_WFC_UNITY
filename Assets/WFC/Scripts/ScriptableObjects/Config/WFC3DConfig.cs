@@ -19,4 +19,14 @@ public class WFC3DConfig : WFCConfig
         AssetDatabase.SaveAssets();
         return nodeTile;
     }
+
+    public override EditorManager getEditorManager()
+    {
+        return new Editor3DManager(this);
+    }
+
+    public override IWFCSpawner GetWfcSpawner()
+    {
+        throw new NotImplementedException();
+    }
 }

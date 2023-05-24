@@ -21,5 +21,13 @@ public class WFC2DConfig : WFCConfig
         return nodeTile;
     }
 
-    
+    public override EditorManager getEditorManager()
+    {
+        return new Editor2DManager(this);
+    }
+
+    public override IWFCSpawner GetWfcSpawner()
+    {
+        return new WFCSpawner2D();
+    }
 }

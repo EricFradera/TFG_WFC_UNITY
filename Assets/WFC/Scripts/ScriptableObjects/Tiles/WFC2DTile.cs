@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Newtonsoft.Json;
 using Unity.Collections;
 using Unity.VisualScripting;
@@ -26,7 +27,6 @@ namespace WFC
 
         public enum rotation
         {
-            NoRotation,
             Degrees90,
             Degrees180,
             Degrees270
@@ -65,16 +65,28 @@ namespace WFC
 
         public override List<bool> GetListOfRotations()
         {
+            var tempList = rotationList.DistinctBy(item => item.degrees);
             var listOfRotations = new List<bool>()
             {
-                //oneRotation, twoRotations, threeRotations
+                false,false,false
             };
+            foreach (var item in tempList)
+            {
+                listOfRotations[(int)item.degrees] = true;
+            }
             return listOfRotations;
         }
 
         public override List<WFCTile> generateTilesFromRotations()
         {
             List<WFCTile> rotationTiles = new List<WFCTile>();
+            
+            
+            
+            
+            
+            
+            
             return rotationTiles;
         }
 
