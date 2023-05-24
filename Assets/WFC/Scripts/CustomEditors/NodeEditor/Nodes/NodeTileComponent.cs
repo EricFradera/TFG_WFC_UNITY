@@ -16,8 +16,8 @@ public class NodeTileComponent : NodeComponent
         this.tile = tile;
         this.viewDataKey = tile.tileId;
         this.title = tile.tileName;
-        input = new Port[tile.dim];
-        output = new Port[tile.dim];
+        input = new Port[tile.Getdim()];
+        output = new Port[tile.Getdim()];
         style.left = tile.nodeData.position.X;
         style.top = tile.nodeData.position.Y;
         Label titleLabel = this.Q<Label>("title-label");

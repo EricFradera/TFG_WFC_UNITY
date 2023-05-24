@@ -14,7 +14,7 @@ public class Node2dComponent : NodeTileComponent
     public Node2dComponent(WFC2DTile tile) : base(tile)
     {
         portNames = new[] { "up", "right", "down", "left" };
-        for (int i = 0; i < tile.dim; i++)
+        for (int i = 0; i < tile.Getdim(); i++)
         {
             CreateInputPort(i);
             CreateOutputPort(i);

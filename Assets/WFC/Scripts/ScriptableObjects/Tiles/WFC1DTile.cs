@@ -33,6 +33,11 @@ public class WFC1DTile : WFCTile
         };
     }
 
+    public override List<WFCTile> generateTilesFromRotations()
+    {
+        throw new NotImplementedException();
+    }
+
     public override List<bool> GetListOfRotations()
     {
         return new List<bool>()

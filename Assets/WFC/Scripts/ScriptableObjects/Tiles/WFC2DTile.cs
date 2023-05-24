@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using Unity.Collections;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -12,23 +13,30 @@ namespace WFC
     [CreateAssetMenu(menuName = "WFC components/WFC2DTile", order = 1, fileName = "WFC2dTile"), Serializable]
     public class WFC2DTile : WFCTile
     {
-        public List<string> test;
         [JsonIgnore] public Texture2D tileTexture;
-        public string testName;
 
-        [Header(("Rotations"))] [Rename("90 degrees rotation")]
-        public bool oneRotation;
+        [Serializable]
+        public struct rotationValues
+        {
+            public string RotationName;
+            public rotation degrees;
+        }
 
-        [Rename("180 degrees rotation")] public bool twoRotations;
-        [Rename("270 degrees rotation")] public bool threeRotations;
+        [Header(("Rotations"))] public rotationValues[] rotationList;
 
+        public enum rotation
+        {
+            NoRotation,
+            Degrees90,
+            Degrees180,
+            Degrees270
+        };
 
         public WFC2DTile()
         {
             dim = 4;
             this.adjacencyCodes = new InputCodeData[dim];
             this.adjacencyPairs = new List<WFCTile>[dim];
-            test = new List<string>();
         }
 
         private enum IndexDirection
@@ -59,9 +67,15 @@ namespace WFC
         {
             var listOfRotations = new List<bool>()
             {
-                oneRotation, twoRotations, threeRotations
+                //oneRotation, twoRotations, threeRotations
             };
             return listOfRotations;
+        }
+
+        public override List<WFCTile> generateTilesFromRotations()
+        {
+            List<WFCTile> rotationTiles = new List<WFCTile>();
+            return rotationTiles;
         }
 
         public override WFCTile fillData(WFCTile data, int rot)

@@ -35,6 +35,11 @@ public class WFCHEXTile : WFCTile
         };
     }
 
+    public override List<WFCTile> generateTilesFromRotations()
+    {
+        throw new System.NotImplementedException();
+    }
+
     public override List<bool> GetListOfRotations()
     {
         throw new System.NotImplementedException();

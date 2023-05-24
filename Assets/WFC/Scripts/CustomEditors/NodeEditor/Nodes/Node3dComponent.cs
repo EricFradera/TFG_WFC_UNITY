@@ -16,7 +16,7 @@ public class Node3dComponent : NodeTileComponent
     {
         
         portNames = new[] { "y+", "y-", "x+", "x-", "z+", "z-" };
-        for (int i = 0; i < base.tile.dim; i++)
+        for (int i = 0; i <tile.Getdim(); i++)
         {
             CreateInputPort(i);
             CreateOutputPort(i);

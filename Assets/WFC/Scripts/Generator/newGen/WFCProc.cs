@@ -34,11 +34,11 @@ public class WFCProc
         if (status != Resolution.Decided) throw new Exception("The WFC resulted as undecided");
         var output = propagator.ToValueArray<WFCTile>();
         return output;
-       
     }
 
     private AdjacentModel run2DModel()
     {
+        addRotations();
         adjacency.match_Tiles();
         var model = new AdjacentModel(DirectionSet.Cartesian2d);
         Dictionary<WFCTile, Tile> tileMap = new Dictionary<WFCTile, Tile>();
@@ -63,21 +63,29 @@ public class WFCProc
         return model;
     }
 
-    
+    private void addRotations()
+    {
+        var rotationTiles = new List<WFCTile>();
+        foreach (var tile in listOfTiles)
+        {
+            rotationTiles = tile.generateTilesFromRotations();
+        }
+        if (rotationTiles.Count != 0) listOfTiles.AddRange(rotationTiles);
+    }
 
+//Non working version
     private List<WFCTile> GenerateRotation(WFCTile tile)
     {
         List<WFCTile> newList = new List<WFCTile>();
         newList.Add(tile);
         List<bool> listOfRotations = tile.GetListOfRotations();
-        
+
         WFCTile newTile;
         for (int i = 0; i < listOfRotations.Count; i++)
         {
             if (listOfTiles[i])
             {
-                
-                newTile=tile.fillData( ScriptableObject.CreateInstance<WFC2DTile>(),i);
+                newTile = tile.fillData(ScriptableObject.CreateInstance<WFC2DTile>(), i);
             }
         }
 

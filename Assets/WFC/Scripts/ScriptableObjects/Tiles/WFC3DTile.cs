@@ -10,6 +10,25 @@ namespace WFC
     public class WFC3DTile : WFCTile
     {
         [JsonIgnore] public Texture2D previewTexture2D;
+        
+        [Serializable]
+        public struct rotationValues
+        {
+            public string RotationName;
+            public rotation x;
+            public rotation y;
+            public rotation z;
+        }
+
+        [Header(("Rotations"))] public rotationValues[] rotationList;
+
+        public enum rotation
+        {
+            NoRotation,
+            Degrees90,
+            Degrees180,
+            Degrees270
+        };
 
         public WFC3DTile()
         {
@@ -40,6 +59,11 @@ namespace WFC
                 IndexDirection.ZDOWN => (int)IndexDirection.ZUP,
                 _ => -1
             };
+        }
+
+        public override List<WFCTile> generateTilesFromRotations()
+        {
+            throw new NotImplementedException();
         }
 
         public override List<bool> GetListOfRotations()

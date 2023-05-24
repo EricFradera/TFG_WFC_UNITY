@@ -13,7 +13,7 @@ public abstract class WFCTile : ScriptableObject
     public string tileId;
 
     //Sides
-    public int dim;
+    protected int dim;
 
     //Each tile has its own adjacency codes (ej: up,right,down,left)
     public InputCodeData[] adjacencyCodes;
@@ -23,7 +23,7 @@ public abstract class WFCTile : ScriptableObject
         List<bool> rotations = GetListOfRotations();
         for (int i = 1; i <= rotations.Count; i++)
         {
-            if (rotations[i-1])
+            if (rotations[i - 1])
             {
                 InputCodeData[] tempList = new InputCodeData[adjacencyCodes.Length];
                 for (int j = 0; j < adjacencyCodes.Length; j++)
@@ -39,6 +39,7 @@ public abstract class WFCTile : ScriptableObject
 
     // Node data
     public nodeData nodeData;
+
 
     //Asset data
     [JsonIgnore] public GameObject tileVisuals;
@@ -58,6 +59,15 @@ public abstract class WFCTile : ScriptableObject
         this.adjacencyCodes = new InputCodeData[dim];
         for (int i = 0; i < dim; i++) this.adjacencyPairs[i] = new List<WFCTile>();
     }
+
+
+    public int Getdim()
+    {
+        return dim;
+    }
+
+
+    public abstract List<WFCTile> generateTilesFromRotations();
 
     public abstract List<bool> GetListOfRotations();
 
