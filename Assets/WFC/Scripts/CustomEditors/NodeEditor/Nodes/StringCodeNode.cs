@@ -21,8 +21,8 @@ public class StringCodeNode : NodeComponent
         this.title = "String code node";
         portNames = new[] { "code" };
         input = new Port[1];
-        style.left = codeData.nodeData.position.X;
-        style.top = codeData.nodeData.position.Y;
+        style.left = codeData.nodeData.x;
+        style.top = codeData.nodeData.y;
         CreateInputPort();
         //Here we add the rest of stuf
         Label titleLabel = this.Q<Label>("title-label");
@@ -37,7 +37,11 @@ public class StringCodeNode : NodeComponent
         inputContainer.Add(input[0]);
     }
 
-    protected override void setNodePos(float x, float y) => codeData.nodeData.position = new Vector2(x, y);
+    protected override void setNodePos(float x, float y)
+    {
+        codeData.nodeData.x = x;
+        codeData.nodeData.y = y;
+    }
 
     public override void OnSelected()
     {

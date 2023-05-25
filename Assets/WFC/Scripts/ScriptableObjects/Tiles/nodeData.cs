@@ -11,7 +11,8 @@ using Vector2 = System.Numerics.Vector2;
 [Serializable]
 public class nodeData : ScriptableObject
 {
-    public Vector2 position;
+    public float x;
+    public float y;
     public int num;
     public List<nodeRelation> relationShips = new List<nodeRelation>();
 
@@ -97,5 +98,13 @@ public class nodeData : ScriptableObject
         EditorUtility.SetDirty(this);
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
+    }
+
+    public Rect getPosition()
+    {
+        var pos = new Rect();
+        pos.xMin = x;
+        pos.yMin = y;
+        return pos;
     }
 }

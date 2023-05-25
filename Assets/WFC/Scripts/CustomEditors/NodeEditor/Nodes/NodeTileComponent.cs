@@ -18,12 +18,16 @@ public class NodeTileComponent : NodeComponent
         this.title = tile.tileName;
         input = new Port[tile.Getdim()];
         output = new Port[tile.Getdim()];
-        style.left = tile.nodeData.position.X;
-        style.top = tile.nodeData.position.Y;
+        style.left = tile.nodeData.x;
+        style.top = tile.nodeData.y;
         Label titleLabel = this.Q<Label>("title-label");
         titleLabel.bindingPath = "tileName";
         titleLabel.Bind(new SerializedObject(tile));
     }
 
-    protected override void setNodePos(float x, float y) => this.tile.nodeData.position = new Vector2(x, y);
+    protected override void setNodePos(float x, float y)
+    {
+        tile.nodeData.x = x;
+        tile.nodeData.y = y;
+    }
 }

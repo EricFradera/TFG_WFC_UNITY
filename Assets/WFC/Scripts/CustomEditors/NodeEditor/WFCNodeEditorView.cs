@@ -41,23 +41,26 @@ public class WFCNodeEditorView : GraphView
         graphViewChanged += OnGraphViewChanged;
         wfcConfigManager.GetWfcTilesList().ForEach(CreateNodeView);
         wfcConfigManager.getNodeHelpersList().ForEach(CreateNodeView);
+        var pos = new Rect();
 
         config.wfcTilesList.ForEach(tile =>
         {
             var parentComponent = FindNodeComponent(tile);
+            parentComponent.SetPosition(tile.nodeData.getPosition());
             foreach (var relation in tile.nodeData.relationShips)
             {
-                
                 switch (relation.getInput())
                 {
                     case WFCTile relationInputTile:
                         var childTileComponent = FindNodeComponent(relationInputTile);
+                        childTileComponent.SetPosition(relationInputTile.nodeData.getPosition());
                         Edge edgeTile = parentComponent.output[relation.indexOutput]
                             .ConnectTo(childTileComponent.input[relation.indexInput]);
                         AddElement(edgeTile);
                         break;
-                    case InputCodeData relationInputTile:
-                        var childHelperComponent = FindHelperNode(relationInputTile);
+                    case InputCodeData relationInputHelper:
+                        var childHelperComponent = FindHelperNode(relationInputHelper);
+                        childHelperComponent.SetPosition(relationInputHelper.nodeData.getPosition());
                         Edge edgeHelper = parentComponent.output[relation.indexOutput]
                             .ConnectTo(childHelperComponent.input[0]);
                         AddElement(edgeHelper);
