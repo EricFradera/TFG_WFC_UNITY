@@ -6,11 +6,11 @@ using UnityEngine;
 [Serializable]
 public class StringCodeData : InputCodeData
 {
-    
-    public override void Init()
+    public override nodeData Init()
     {
         code="String code";
         GenerateUid();
-        nodeData = new nodeData();
+        nodeData = ScriptableObject.CreateInstance<nodeData>();
+        return nodeData;
     }
 }

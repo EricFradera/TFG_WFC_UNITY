@@ -46,13 +46,20 @@ public class nodeData : ScriptableObject
         }
     }
 
-    public void deleteRelFromHelper()
+    public void deleteAllRelFromHelper()
     {
         foreach (var relation in relationShips)
         {
             var tile = relation.inputTile as WFCTile;
             if (tile != null) tile.adjacencyCodes[relation.indexOutput] = null;
         }
+    }
+
+    public void deleteAllRelFromTile()
+    {
+        relationShips.Clear();
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
     }
 
     public void removeRel(int dirParent, object child, int dirChild)

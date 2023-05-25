@@ -23,6 +23,7 @@ public abstract class WFCManager
 
     protected void createNodeData(WFCTile nodeTile)
     {
+        //WFCTile needs a manager
         nodeTile.nodeData = ScriptableObject.CreateInstance<nodeData>();
         AssetDatabase.AddObjectToAsset(nodeTile.nodeData, wfcConfig);
         EditorUtility.SetDirty(wfcConfig);
@@ -36,7 +37,7 @@ public abstract class WFCManager
         InputCodeData codeData;
         if (type == typeof(StringCodeData)) codeData = ScriptableObject.CreateInstance<StringCodeData>();
         else codeData = ScriptableObject.CreateInstance<InputCodeData>();
-        codeData.Init();
+        AssetDatabase.AddObjectToAsset(codeData.Init(), wfcConfig);
         wfcConfig.nodeHelpers.Add(codeData);
         AssetDatabase.AddObjectToAsset(codeData, wfcConfig);
         EditorUtility.SetDirty(wfcConfig);
@@ -47,7 +48,8 @@ public abstract class WFCManager
 
     public void DeleteNodeHelper(InputCodeData data)
     {
-        data.nodeData.deleteRelFromHelper();
+        data.nodeData.deleteAllRelFromHelper();
+        data.deleteNodeData();
         wfcConfig.nodeHelpers.Remove(data);
         EditorUtility.SetDirty(wfcConfig);
         AssetDatabase.RemoveObjectFromAsset(data);
@@ -58,6 +60,7 @@ public abstract class WFCManager
     public void DeleteNodeTile(WFCTile tile)
     {
         wfcConfig.wfcTilesList.Remove(tile);
+        tile.deleteNodeData();
         AssetDatabase.RemoveObjectFromAsset(tile);
         EditorUtility.SetDirty(wfcConfig);
         AssetDatabase.SaveAssets();
@@ -81,7 +84,7 @@ public abstract class WFCManager
     {
         if (data == null || tile == null) return;
         tile.nodeData.addNewRel(dir, data);
-        //data.nodeData.addNewRel(dir, tile);
+        data.nodeData.addNewRel(dir, tile, 0);
         tile.adjacencyCodes[dir] = data;
         EditorUtility.SetDirty(wfcConfig);
         tile.saveData();

@@ -61,6 +61,13 @@ public abstract class WFCTile : ScriptableObject
         adjacencyCodes = new InputCodeData[dim];
         for (int i = 0; i < dim; i++) this.adjacencyPairs[i] = new List<WFCTile>();
     }
+
+    public void deleteNodeData()
+    {
+        nodeData.deleteAllRelFromTile();
+        AssetDatabase.RemoveObjectFromAsset(nodeData);
+        
+    }
     
 
     public int Getdim()
