@@ -1,9 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DeBroglie;
 using DeBroglie.Models;
+using DeBroglie.Rot;
 using DeBroglie.Topo;
+using Unity.VisualScripting;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using WFC;
@@ -14,14 +18,16 @@ public class WFCProc
 {
     private Generate_Adjacency adjacency;
     private List<WFCTile> listOfTiles;
+    private WFCManager configManager;
     private Direction[] direction = { Direction.YPlus, Direction.XPlus, Direction.YMinus, Direction.XMinus };
     private bool useRotation;
 
-    public WFCProc(List<WFCTile> listOfTiles, bool useRotation)
+    public WFCProc(List<WFCTile> listOfTiles, WFCManager manager)
     {
         this.listOfTiles = listOfTiles;
         adjacency = new Generate_Adjacency(this.listOfTiles);
-        this.useRotation = useRotation;
+        this.configManager = manager;
+        this.useRotation = manager.getUseRotations();
     }
 
     public ITopoArray<WFCTile> runWFC(int size)
@@ -38,14 +44,20 @@ public class WFCProc
 
     private AdjacentModel run2DModel()
     {
-        addRotations();
+        AddRotations();
+        var builder = new TileRotationBuilder(4, true, TileRotationTreatment.Generated);
         adjacency.match_Tiles();
         var model = new AdjacentModel(DirectionSet.Cartesian2d);
         Dictionary<WFCTile, Tile> tileMap = new Dictionary<WFCTile, Tile>();
-        foreach (var tile in listOfTiles)
+        foreach (WFC2DTile tile in listOfTiles)
         {
             tileMap.Add(tile, new Tile(tile));
             model.SetFrequency(tileMap[tile], 1);
+
+            foreach (var rot in tile.rotationList)
+            {
+                builder.Add(tileMap[tile], new Rotation(((int)rot.degrees + 1) * 90), tileMap[tile]);
+            }
         }
 
         for (int i = 0; i < listOfTiles.Count; i++)
@@ -59,17 +71,23 @@ public class WFCProc
                 }
             }
         }
+        
+
+        //ITopoArray<WFCTile> test = new TopoArray2D<WFCTile>();
+
 
         return model;
     }
 
-    private void addRotations()
+
+    private void AddRotations()
     {
         var rotationTiles = new List<WFCTile>();
         foreach (var tile in listOfTiles)
         {
             rotationTiles = tile.generateTilesFromRotations();
         }
+
         if (rotationTiles.Count != 0) listOfTiles.AddRange(rotationTiles);
     }
 

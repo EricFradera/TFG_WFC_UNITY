@@ -114,7 +114,7 @@ public class WFCGenEditor : Editor
                 
                 current.populateList();
                 wfcTilesList = configFile.wfcTilesList;
-                listViewComponent.makeItem = itemEditor.CloneTree;
+                
             }
             else
             {
@@ -138,7 +138,32 @@ public class WFCGenEditor : Editor
 
     private void OnSceneGUI()
     {
-        listViewComponent.makeItem = itemEditor.CloneTree;
+        //listViewComponent.makeItem = itemEditor.CloneTree;
+        Func<VisualElement> makeItem = () =>
+        {
+            var tileItem = new VisualElement();
+            tileItem.Add(new TextField());
+            tileItem.Add(new Label());
+            return tileItem;
+        };
+        Action<VisualElement, int> bindItem = (e, i) =>
+        {
+            ((TextField)e.ElementAt(0)).value = wfcTilesList[i].tileName;
+            ((TextField)e.ElementAt(0)).RegisterValueChangedCallback(evt =>
+            {
+                wfcTilesList[i].tileName = ((TextField)e.ElementAt(0)).text;
+            });
+            //sizeFloatField.RegisterValueChangedCallback(evt => { gridSize = sizeFloatField.value; });
+            ((Label)e.ElementAt(1)).text = wfcTilesList[i].tileId;
+        };
+        listViewComponent.makeItem = makeItem;
+        listViewComponent.bindItem = bindItem;
+        listViewComponent.itemsSource = wfcTilesList;
+        listViewComponent.selectionType = SelectionType.Multiple;
+        listViewComponent.style.flexGrow = 1;
+        listViewComponent.style.minHeight = 20;
+        
+        
         if (configFile is null) return;
         gizmoList[(int)indexGizmo].enableGizmo(current.transform);
         gizmoList[(int)indexGizmo].generateGizmo(lineColor, gridSize, gridExtent);

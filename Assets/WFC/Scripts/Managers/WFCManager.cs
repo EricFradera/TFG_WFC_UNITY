@@ -31,6 +31,11 @@ public abstract class WFCManager
         AssetDatabase.Refresh();
     }
 
+    public bool getUseRotations()
+    {
+        return wfcConfig.useRotations;
+    }
+
 
     public InputCodeData CreateNodeHelper(Type type)
     {
@@ -92,11 +97,18 @@ public abstract class WFCManager
         AssetDatabase.Refresh();
     }
 
-
+    //here
     public void RemoveChild(WFCTile parent, WFCTile child, int dirParent, int dirChild)
     {
-        parent.adjacencyPairs[dirParent].Remove(child);
-        child.adjacencyPairs[dirChild].Remove(parent);
+        try
+        {
+            parent.adjacencyPairs[dirParent].Remove(child);
+            child.adjacencyPairs[dirChild].Remove(parent);
+        }
+        catch (Exception e)
+        {
+            Debug.Log("here");
+        }
         parent.nodeData.removeRel(dirParent, child, dirChild);
         EditorUtility.SetDirty(wfcConfig);
         parent.saveData();

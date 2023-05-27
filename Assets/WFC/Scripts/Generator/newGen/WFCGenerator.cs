@@ -9,6 +9,7 @@ using WFC;
 public class WFCGenerator : MonoBehaviour
 {
     public WFCConfig WFCConfigFile;
+    
     public float m_gridSize = 1f;
     public float m_gridExtent = 10f;
     public Color lineColor = Color.white;
@@ -30,7 +31,7 @@ public class WFCGenerator : MonoBehaviour
         gameObjectArray = new GameObject[lineCount, lineCount];
 
         //Generation
-        generator = new WFCProc(WFCConfigFile.wfcTilesList, WFCConfigFile.useRotations);
+        generator = new WFCProc(WFCConfigFile.wfcTilesList,WFCConfigFile.createWFCManager());
 
         gen2D(lineCount, half);
     }
@@ -38,7 +39,7 @@ public class WFCGenerator : MonoBehaviour
     private void gen2D(int lineCount, int half)
     {
         var res = generator.runWFC(lineCount);
-        //var spawner = WFCConfigFile.GetWfcSpawner();
+        
         for (int i = 0; i < lineCount; i++)
         {
             for (int j = 0; j < lineCount; j++)

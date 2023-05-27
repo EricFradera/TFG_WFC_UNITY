@@ -51,7 +51,7 @@ public class nodeData : ScriptableObject
     {
         foreach (var relation in relationShips)
         {
-            var tile = relation.inputTile as WFCTile;
+            var tile = relation.inputTile;
             if (tile != null) tile.adjacencyCodes[relation.indexOutput] = null;
         }
     }

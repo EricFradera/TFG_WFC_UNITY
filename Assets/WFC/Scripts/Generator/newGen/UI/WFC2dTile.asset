@@ -9,11 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 805eb54aa0aeab74ba01c24c94a80203, type: 3}
-  m_Name: WFC2DConfig
+  m_Script: {fileID: 11500000, guid: 567a3e9a68d78bf47bae2b477c460f9a, type: 3}
+  m_Name: WFC2dTile
   m_EditorClassIdentifier: 
-  configurationName: 
-  configurationID: 0
-  wfcTilesList: []
-  nodeHelpers: []
-  useRotations: 0
+  tileName: 
+  tileId: 
+  adjacencyCodes:
+  - {fileID: 0}
+  - {fileID: 0}
+  nodeData: {fileID: 0}
+  tileVisuals: {fileID: 0}
+  flip: 0
