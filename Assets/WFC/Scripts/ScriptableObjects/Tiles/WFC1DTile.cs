@@ -7,7 +7,6 @@ using UnityEngine;
 public class WFC1DTile : WFCTile
 {
     [Rename("Flip tile")] public bool flip;
-    
 
 
     public WFC1DTile()
@@ -33,20 +32,13 @@ public class WFC1DTile : WFCTile
         };
     }
 
-    public override List<WFCTile> generateTilesFromRotations()
+
+    public override List<WFCTile> getRotationTiles()
     {
         throw new NotImplementedException();
     }
 
-    public override List<bool> GetListOfRotations()
-    {
-        return new List<bool>()
-        {
-            flip
-        };
-    }
-
-    public override WFCTile fillData(WFCTile data, int rot)
+    protected override WFCTile copyForRotation(int rot)
     {
         throw new NotImplementedException();
     }

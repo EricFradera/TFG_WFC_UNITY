@@ -26,11 +26,24 @@ public class Generate_Adjacency
             {
                 for (int i = 0; i < tileOrigin.adjacencyCodes.Length; i++)
                 {
-                    if (tileOrigin.adjacencyCodes[i].code == tileDest.adjacencyCodes[tileDest.GetInverse(i)].code)
+                    if (match(tileOrigin, tileDest, i))
                         tileOrigin.adjacencyPairs[i].Add(tileDest);
                 }
             }
         }
+        
+    }
+
+    private bool match(WFCTile tileOrigin, WFCTile tileDest, int i)
+    {
+        if (tileOrigin.adjacencyCodes[i].code is not null &&
+            tileDest.adjacencyCodes[tileDest.GetInverse(i)].code is not null)
+        {
+            if (tileOrigin.adjacencyCodes[i].code == tileDest.adjacencyCodes[tileDest.GetInverse(i)].code)
+                return true;
+        }
+
+        return false;
     }
 
     private void cleanUp()

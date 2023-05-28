@@ -138,7 +138,7 @@ public class WFCGenEditor : Editor
 
     private void OnSceneGUI()
     {
-        //listViewComponent.makeItem = itemEditor.CloneTree;
+        //TODO
         Func<VisualElement> makeItem = () =>
         {
             var tileItem = new VisualElement();
@@ -153,7 +153,6 @@ public class WFCGenEditor : Editor
             {
                 wfcTilesList[i].tileName = ((TextField)e.ElementAt(0)).text;
             });
-            //sizeFloatField.RegisterValueChangedCallback(evt => { gridSize = sizeFloatField.value; });
             ((Label)e.ElementAt(1)).text = wfcTilesList[i].tileId;
         };
         listViewComponent.makeItem = makeItem;

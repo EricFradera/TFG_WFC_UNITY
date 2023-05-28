@@ -9,6 +9,7 @@ public abstract class InputCodeData : ScriptableObject
 {
     public string uid;
     public string code;
+    public bool isSymmetrical;
     public nodeData nodeData;
 
     public abstract nodeData Init();

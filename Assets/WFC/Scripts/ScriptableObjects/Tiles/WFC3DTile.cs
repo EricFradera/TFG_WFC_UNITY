@@ -11,7 +11,7 @@ namespace WFC
     {
         [JsonIgnore] public Texture2D previewTexture2D;
         
-        [Serializable]
+        /*[Serializable]
         public struct rotationValues
         {
             public string RotationName;
@@ -28,7 +28,7 @@ namespace WFC
             Degrees90,
             Degrees180,
             Degrees270
-        };
+        };*/
 
         public WFC3DTile()
         {
@@ -61,23 +61,17 @@ namespace WFC
             };
         }
 
-        public override List<WFCTile> generateTilesFromRotations()
+        public override List<WFCTile> getRotationTiles()
         {
             throw new NotImplementedException();
         }
 
-        public override List<bool> GetListOfRotations()
-        {
-            //TODO fill with rotations
-            var listOfRotations = new List<bool>()
-            {
-            };
-            return listOfRotations;
-        }
-
-        public override WFCTile fillData(WFCTile data, int rot)
+        protected override WFCTile copyForRotation(int rot)
         {
             throw new NotImplementedException();
         }
+
+
+       
     }
 }

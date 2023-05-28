@@ -9,7 +9,7 @@ using WFC;
 public class WFCGenerator : MonoBehaviour
 {
     public WFCConfig WFCConfigFile;
-    
+
     public float m_gridSize = 1f;
     public float m_gridExtent = 10f;
     public Color lineColor = Color.white;
@@ -17,7 +17,6 @@ public class WFCGenerator : MonoBehaviour
     private GameObject[,] gameObjectArray;
     private WFCProc generator;
     public Vector2 vecSize;
-    private bool tileMode = false;
     private Dictionary<string, Material> materials = new Dictionary<string, Material>();
 
 
@@ -31,7 +30,7 @@ public class WFCGenerator : MonoBehaviour
         gameObjectArray = new GameObject[lineCount, lineCount];
 
         //Generation
-        generator = new WFCProc(WFCConfigFile.wfcTilesList,WFCConfigFile.createWFCManager());
+        generator = new WFCProc(WFCConfigFile.wfcTilesList, WFCConfigFile.createWFCManager());
 
         gen2D(lineCount, half);
     }
@@ -39,7 +38,7 @@ public class WFCGenerator : MonoBehaviour
     private void gen2D(int lineCount, int half)
     {
         var res = generator.runWFC(lineCount);
-        
+
         for (int i = 0; i < lineCount; i++)
         {
             for (int j = 0; j < lineCount; j++)

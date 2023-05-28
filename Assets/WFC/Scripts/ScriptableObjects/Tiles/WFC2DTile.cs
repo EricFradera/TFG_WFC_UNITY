@@ -19,7 +19,6 @@ namespace WFC
         [Serializable]
         public struct rotationValues
         {
-            public string RotationName;
             public rotation degrees;
         }
 
@@ -63,39 +62,44 @@ namespace WFC
             }
         }
 
-        public override List<bool> GetListOfRotations()
+
+        public override List<WFCTile> getRotationTiles()
         {
-            var tempList = rotationList.DistinctBy(item => item.degrees);
-            var listOfRotations = new List<bool>()
+            List<WFCTile> res = new List<WFCTile>();
+            if (rotationList.Length == 0) return res;
+            foreach (var rotation in rotationList)
             {
-                false,false,false
-            };
-            foreach (var item in tempList)
-            {
-                listOfRotations[(int)item.degrees] = true;
+                res.Add(copyForRotation((int)rotation.degrees + 1));
             }
-            return listOfRotations;
+            return res;
         }
 
-        public override List<WFCTile> generateTilesFromRotations()
+        protected override WFCTile copyForRotation(int rot)
         {
-            List<WFCTile> rotationTiles = new List<WFCTile>();
-            
-            
-            return rotationTiles;
+            var tempTile = CreateInstance<WFC2DTile>();
+            tempTile.tileName = tileName + "_" + (90 * rot);
+            tempTile.tileId = tileId + "_" + (90 * rot);
+            tempTile.adjacencyCodes = rotationHelper(rot);
+            tempTile.adjacencyPairs = new List<WFCTile>[dim];
+            tempTile.nodeData = nodeData;
+            tempTile.tileVisuals = tileVisuals;
+            tempTile.tileTexture = tileTexture;
+            tempTile.rotationModule = rot;
+            return tempTile;
         }
 
-        public override WFCTile fillData(WFCTile data, int rot)
+        private InputCodeData[] rotationHelper(int rotation)
         {
-            data.tileName = this.tileName + (90 * rot);
-            data.tileId = this.tileId + (90 * rot);
+            var listLenght = adjacencyCodes.Length;
+            rotation = rotation % listLenght;
 
-            InputCodeData[] tempCodes = this.adjacencyCodes;
-            tempCodes = new[]
-                { this.adjacencyCodes[4], this.adjacencyCodes[1], this.adjacencyCodes[2], this.adjacencyCodes[3] };
+            InputCodeData[] tempArray = new InputCodeData[listLenght];
+            for (int i = 0; i < listLenght; i++)
+            {
+                tempArray[(i + rotation) % listLenght] = adjacencyCodes[i];
+            }
 
-
-            return data;
+            return tempArray;
         }
     }
 }

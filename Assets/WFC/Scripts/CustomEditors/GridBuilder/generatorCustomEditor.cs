@@ -17,7 +17,7 @@ namespace WFCEditor
             GUILayout.Label("Select Scriptable object of type Tile", EditorStyles.label);
             source = EditorGUILayout.ObjectField(source, typeof(WFCConfig), true);
             testscript testscript = (testscript)target;
-            if (GUILayout.Button("Reset Values")) testscript.testRel(source);
+            //if (GUILayout.Button("Reset Values")) testscript.testRel(source);
         }
     }
 }

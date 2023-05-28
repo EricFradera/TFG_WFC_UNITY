@@ -41,8 +41,6 @@ public class WFCNodeEditorView : GraphView
         graphViewChanged += OnGraphViewChanged;
         wfcConfigManager.GetWfcTilesList().ForEach(CreateNodeView);
         wfcConfigManager.getNodeHelpersList().ForEach(CreateNodeView);
-        var pos = new Rect();
-
         config.wfcTilesList.ForEach(tile =>
         {
             var parentComponent = FindNodeComponent(tile);

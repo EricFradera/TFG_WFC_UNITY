@@ -35,17 +35,13 @@ public class WFCHEXTile : WFCTile
         };
     }
 
-    public override List<WFCTile> generateTilesFromRotations()
+
+    public override List<WFCTile> getRotationTiles()
     {
         throw new System.NotImplementedException();
     }
 
-    public override List<bool> GetListOfRotations()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override WFCTile fillData(WFCTile data, int rot)
+    protected override WFCTile copyForRotation( int rot)
     {
         throw new System.NotImplementedException();
     }

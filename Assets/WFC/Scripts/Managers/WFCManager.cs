@@ -107,7 +107,7 @@ public abstract class WFCManager
         }
         catch (Exception e)
         {
-            Debug.Log("here");
+            Debug.Log(e);
         }
         parent.nodeData.removeRel(dirParent, child, dirChild);
         EditorUtility.SetDirty(wfcConfig);

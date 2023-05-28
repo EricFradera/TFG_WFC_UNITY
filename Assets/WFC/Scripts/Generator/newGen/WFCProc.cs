@@ -39,13 +39,13 @@ public class WFCProc
         var status = propagator.Run();
         if (status != Resolution.Decided) throw new Exception("The WFC resulted as undecided");
         var output = propagator.ToValueArray<WFCTile>();
+        Debug.Log("good");
         return output;
     }
 
     private AdjacentModel run2DModel()
     {
-        AddRotations();
-        var builder = new TileRotationBuilder(4, true, TileRotationTreatment.Generated);
+        //AddRotations();
         adjacency.match_Tiles();
         var model = new AdjacentModel(DirectionSet.Cartesian2d);
         Dictionary<WFCTile, Tile> tileMap = new Dictionary<WFCTile, Tile>();
@@ -53,11 +53,6 @@ public class WFCProc
         {
             tileMap.Add(tile, new Tile(tile));
             model.SetFrequency(tileMap[tile], 1);
-
-            foreach (var rot in tile.rotationList)
-            {
-                builder.Add(tileMap[tile], new Rotation(((int)rot.degrees + 1) * 90), tileMap[tile]);
-            }
         }
 
         for (int i = 0; i < listOfTiles.Count; i++)
@@ -71,10 +66,6 @@ public class WFCProc
                 }
             }
         }
-        
-
-        //ITopoArray<WFCTile> test = new TopoArray2D<WFCTile>();
-
 
         return model;
     }
@@ -82,35 +73,13 @@ public class WFCProc
 
     private void AddRotations()
     {
-        var rotationTiles = new List<WFCTile>();
+        List<WFCTile> newRotations = new List<WFCTile>();
         foreach (var tile in listOfTiles)
         {
-            rotationTiles = tile.generateTilesFromRotations();
+            newRotations.AddRange(tile.getRotationTiles());
         }
-
-        if (rotationTiles.Count != 0) listOfTiles.AddRange(rotationTiles);
+        listOfTiles.AddRange(newRotations);
     }
-
-//Non working version
-    private List<WFCTile> GenerateRotation(WFCTile tile)
-    {
-        List<WFCTile> newList = new List<WFCTile>();
-        newList.Add(tile);
-        List<bool> listOfRotations = tile.GetListOfRotations();
-
-        WFCTile newTile;
-        for (int i = 0; i < listOfRotations.Count; i++)
-        {
-            if (listOfTiles[i])
-            {
-                newTile = tile.fillData(ScriptableObject.CreateInstance<WFC2DTile>(), i);
-            }
-        }
-
-
-        return newList;
-    }
-
 
     //Setters
     public void SetList(List<WFCTile> newList) => this.listOfTiles = newList;
