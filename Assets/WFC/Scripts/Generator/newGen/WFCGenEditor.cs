@@ -139,7 +139,7 @@ public class WFCGenEditor : Editor
     private void OnSceneGUI()
     {
         //TODO
-        if (configFile is not null)
+        if (false)
         {
             Func<VisualElement> makeItem = () =>
             {
