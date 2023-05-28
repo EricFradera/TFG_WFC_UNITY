@@ -74,6 +74,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uid: a426c120600e1bd40a203fb9334c73f0
   code: Blue
+  isSymmetrical: 0
   nodeData: {fileID: -8602778001561621045}
 --- !u!114 &-7712867402459740297
 MonoBehaviour:
@@ -125,6 +126,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: WFC2D tile
   tileId: 00e48333f4e36ed43935f5f8d9b8cb6f
+  frequency: 1
+  rotationModule: 4
   adjacencyCodes:
   - {fileID: 5115784391524818941}
   - {fileID: -4461817416433547020}
@@ -148,6 +151,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: WFC2D tile
   tileId: f9ddea92fe3a29d4894db1bee13018cb
+  frequency: 1
+  rotationModule: 4
   adjacencyCodes:
   - {fileID: -8537565255469427290}
   - {fileID: -8537565255469427290}
@@ -235,6 +240,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: WFC2D tile
   tileId: a3a2e3b99afb1804d88499cdd2337fdb
+  frequency: 1
+  rotationModule: 4
   adjacencyCodes:
   - {fileID: -8537565255469427290}
   - {fileID: -8537565255469427290}
@@ -258,6 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uid: 0d7ef9d762411b1479804c162ebc7ee4
   code: Brown
+  isSymmetrical: 0
   nodeData: {fileID: -4850465123239057540}
 --- !u!114 &-2868767962817378112
 MonoBehaviour:
@@ -305,6 +313,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: WFC2D tile
   tileId: 6fc99e6f782debc4b983dcc2488f2315
+  frequency: 1
+  rotationModule: 4
   adjacencyCodes:
   - {fileID: -4461817416433547020}
   - {fileID: -4461817416433547020}
@@ -360,6 +370,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: WFC2D tile
   tileId: 897274ce1241a9a44aace18bf335c7e6
+  frequency: 1
+  rotationModule: 4
   adjacencyCodes:
   - {fileID: -8537565255469427290}
   - {fileID: 5115784391524818941}
@@ -462,7 +474,7 @@ MonoBehaviour:
   - {fileID: -4461817416433547020}
   - {fileID: 5115784391524818941}
   - {fileID: 320844543349374791}
-  useRotations: 0
+  useRotations: 1
 --- !u!114 &320844543349374791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -477,6 +489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uid: 50b6e7b3abd786a4f8aa59cc8ca34fd3
   code: BrownBlue
+  isSymmetrical: 0
   nodeData: {fileID: 1683694367031076417}
 --- !u!114 &484598679152122901
 MonoBehaviour:
@@ -580,6 +593,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: WFC2D tile
   tileId: 7099ead2d0d19124a9b6fcfa89b47ada
+  frequency: 1
+  rotationModule: 4
   adjacencyCodes:
   - {fileID: 320844543349374791}
   - {fileID: -8537565255469427290}
@@ -635,6 +650,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: WFC2D tile
   tileId: 7c6e7bdd54b7f324fa2e38ca54622a73
+  frequency: 1
+  rotationModule: 4
   adjacencyCodes:
   - {fileID: 5115784391524818941}
   - {fileID: -4461817416433547020}
@@ -722,6 +739,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: WFC2D tile
   tileId: 06c72f889f885ba4aac60a2586cdb431
+  frequency: 1
+  rotationModule: 4
   adjacencyCodes:
   - {fileID: -8537565255469427290}
   - {fileID: 5115784391524818941}
@@ -745,6 +764,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uid: c2233470c9847cc42b7a0ff3d6906eb6
   code: BlueBrown
+  isSymmetrical: 0
   nodeData: {fileID: 524620828433631441}
 --- !u!114 &5481629032874502181
 MonoBehaviour:
@@ -792,6 +812,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: WFC2D tile
   tileId: c8a81cc394dd8fc4292cae1f23330cd9
+  frequency: 1
+  rotationModule: 4
   adjacencyCodes:
   - {fileID: 320844543349374791}
   - {fileID: 5115784391524818941}

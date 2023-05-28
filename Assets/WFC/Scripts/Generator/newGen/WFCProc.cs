@@ -47,13 +47,12 @@ public class WFCProc
     private AdjacentModel run2DModel()
     {
         List<WFCTile> genList = new List<WFCTile>();
+        genList.AddRange(listOfTiles);
         if (useRotation)
         {
             AddRotations();
             genList.AddRange(listOfRotatedTiles);
         }
-
-        genList.AddRange(listOfTiles);
         adjacency.match_Tiles(genList);
         var model = new AdjacentModel(DirectionSet.Cartesian2d);
         Dictionary<WFCTile, Tile> tileMap = new Dictionary<WFCTile, Tile>();
@@ -97,7 +96,4 @@ public class WFCProc
 
         listOfRotatedTiles.Clear();
     }
-
-    //Setters
-    public void SetList(List<WFCTile> newList) => this.listOfTiles = newList;
 }

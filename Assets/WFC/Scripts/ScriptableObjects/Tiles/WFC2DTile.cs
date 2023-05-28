@@ -26,10 +26,10 @@ namespace WFC
 
         public enum rotation
         {
+            noRotation,
             Degrees90,
             Degrees180,
             Degrees270,
-            noRotation
         };
 
         public WFC2DTile()
@@ -70,8 +70,9 @@ namespace WFC
             if (rotationList.Length == 0) return res;
             foreach (var rotation in rotationList)
             {
-                res.Add(copyForRotation((int)rotation.degrees + 1));
+                res.Add(copyForRotation((int)rotation.degrees));
             }
+
             return res;
         }
 
