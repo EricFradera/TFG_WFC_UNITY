@@ -28,7 +28,8 @@ namespace WFC
         {
             Degrees90,
             Degrees180,
-            Degrees270
+            Degrees270,
+            noRotation
         };
 
         public WFC2DTile()

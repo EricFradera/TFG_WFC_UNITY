@@ -46,26 +46,30 @@ public class WFCProc
 
     private AdjacentModel run2DModel()
     {
-        //AddRotations();
-        //List<WFCTile> genList = new List<WFCTile>();
-        //genList.AddRange(listOfTiles);
-        //genList.AddRange(listOfRotatedTiles);
-        adjacency.match_Tiles(listOfTiles);
+        List<WFCTile> genList = new List<WFCTile>();
+        if (useRotation)
+        {
+            AddRotations();
+            genList.AddRange(listOfRotatedTiles);
+        }
+
+        genList.AddRange(listOfTiles);
+        adjacency.match_Tiles(genList);
         var model = new AdjacentModel(DirectionSet.Cartesian2d);
         Dictionary<WFCTile, Tile> tileMap = new Dictionary<WFCTile, Tile>();
-        foreach (WFC2DTile tile in listOfTiles)
+        foreach (WFC2DTile tile in genList)
         {
             tileMap.Add(tile, new Tile(tile));
             model.SetFrequency(tileMap[tile], 1);
         }
 
-        for (int i = 0; i < listOfTiles.Count; i++)
+        for (int i = 0; i < genList.Count; i++)
         {
-            for (int dir = 0; dir < listOfTiles[i].adjacencyPairs.Length; dir++)
+            for (int dir = 0; dir < genList[i].adjacencyPairs.Length; dir++)
             {
-                for (int j = 0; j < listOfTiles[i].adjacencyPairs[dir].Count; j++)
+                for (int j = 0; j < genList[i].adjacencyPairs[dir].Count; j++)
                 {
-                    model.AddAdjacency(tileMap[listOfTiles[i]], tileMap[listOfTiles[i].adjacencyPairs[dir][j]],
+                    model.AddAdjacency(tileMap[genList[i]], tileMap[genList[i].adjacencyPairs[dir][j]],
                         direction[dir]);
                 }
             }
@@ -88,11 +92,12 @@ public class WFCProc
     {
         foreach (var tile in listOfRotatedTiles)
         {
-            Object.Destroy(tile);
+            Object.DestroyImmediate(tile);
         }
 
         listOfRotatedTiles.Clear();
     }
+
     //Setters
     public void SetList(List<WFCTile> newList) => this.listOfTiles = newList;
 }

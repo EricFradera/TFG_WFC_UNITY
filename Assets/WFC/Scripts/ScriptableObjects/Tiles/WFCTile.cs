@@ -17,7 +17,7 @@ public abstract class WFCTile : ScriptableObject
     public float frequency=1f;
 
     //rotation ver
-    public int rotationModule = 0;
+    public int rotationModule = 4;
 
     //Each tile has its own adjacency codes (ej: up,right,down,left)
     public InputCodeData[] adjacencyCodes;

@@ -18,7 +18,7 @@ namespace WFC
         public int configurationID;
         public List<WFCTile> wfcTilesList = new List<WFCTile>();
         public List<InputCodeData> nodeHelpers;
-        [Rename("Use rotations with new tiles")]
+        [Rename("Use rotations with tiles")]
         public bool useRotations;
 
         public abstract WFCManager createWFCManager();
