@@ -11,6 +11,7 @@ using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using WFC;
+using Object = UnityEngine.Object;
 using Resolution = DeBroglie.Resolution;
 
 [ExecuteInEditMode]
@@ -18,6 +19,7 @@ public class WFCProc
 {
     private Generate_Adjacency adjacency;
     private List<WFCTile> listOfTiles;
+    private List<WFCTile> listOfRotatedTiles;
     private WFCManager configManager;
     private Direction[] direction = { Direction.YPlus, Direction.XPlus, Direction.YMinus, Direction.XMinus };
     private bool useRotation;
@@ -25,7 +27,7 @@ public class WFCProc
     public WFCProc(List<WFCTile> listOfTiles, WFCManager manager)
     {
         this.listOfTiles = listOfTiles;
-        adjacency = new Generate_Adjacency(this.listOfTiles);
+        adjacency = new Generate_Adjacency();
         this.configManager = manager;
         this.useRotation = manager.getUseRotations();
     }
@@ -39,29 +41,31 @@ public class WFCProc
         var status = propagator.Run();
         if (status != Resolution.Decided) throw new Exception("The WFC resulted as undecided");
         var output = propagator.ToValueArray<WFCTile>();
-        Debug.Log("good");
         return output;
     }
 
     private AdjacentModel run2DModel()
     {
-        //AddRotations();
-        adjacency.match_Tiles();
+        AddRotations();
+        List<WFCTile> genList = new List<WFCTile>();
+        genList.AddRange(listOfTiles);
+        genList.AddRange(listOfRotatedTiles);
+        adjacency.match_Tiles(genList);
         var model = new AdjacentModel(DirectionSet.Cartesian2d);
         Dictionary<WFCTile, Tile> tileMap = new Dictionary<WFCTile, Tile>();
-        foreach (WFC2DTile tile in listOfTiles)
+        foreach (WFC2DTile tile in genList)
         {
             tileMap.Add(tile, new Tile(tile));
             model.SetFrequency(tileMap[tile], 1);
         }
 
-        for (int i = 0; i < listOfTiles.Count; i++)
+        for (int i = 0; i < genList.Count; i++)
         {
-            for (int dir = 0; dir < listOfTiles[i].adjacencyPairs.Length; dir++)
+            for (int dir = 0; dir < genList[i].adjacencyPairs.Length; dir++)
             {
-                for (int j = 0; j < listOfTiles[i].adjacencyPairs[dir].Count; j++)
+                for (int j = 0; j < genList[i].adjacencyPairs[dir].Count; j++)
                 {
-                    model.AddAdjacency(tileMap[listOfTiles[i]], tileMap[listOfTiles[i].adjacencyPairs[dir][j]],
+                    model.AddAdjacency(tileMap[genList[i]], tileMap[genList[i].adjacencyPairs[dir][j]],
                         direction[dir]);
                 }
             }
@@ -73,12 +77,21 @@ public class WFCProc
 
     private void AddRotations()
     {
-        List<WFCTile> newRotations = new List<WFCTile>();
+        listOfRotatedTiles = new List<WFCTile>();
         foreach (var tile in listOfTiles)
         {
-            newRotations.AddRange(tile.getRotationTiles());
+            listOfRotatedTiles.AddRange(tile.getRotationTiles());
         }
-        listOfTiles.AddRange(newRotations);
+    }
+
+    public void clearRotationList()
+    {
+        foreach (var tile in listOfRotatedTiles)
+        {
+            Object.DestroyImmediate(tile);
+        }
+
+        listOfRotatedTiles.Clear();
     }
 
     //Setters

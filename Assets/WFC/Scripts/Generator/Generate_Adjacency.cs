@@ -12,13 +12,10 @@ public class Generate_Adjacency
 {
     private List<WFCTile> _adjacencyGen;
 
-    public Generate_Adjacency(List<WFCTile> adjacencyGen)
-    {
-        this._adjacencyGen = adjacencyGen;
-    }
 
-    public void match_Tiles()
+    public void match_Tiles(List<WFCTile> newList)
     {
+        _adjacencyGen = newList;
         cleanUp();
         foreach (var tileOrigin in _adjacencyGen)
         {
@@ -31,7 +28,6 @@ public class Generate_Adjacency
                 }
             }
         }
-        
     }
 
     private bool match(WFCTile tileOrigin, WFCTile tileDest, int i)

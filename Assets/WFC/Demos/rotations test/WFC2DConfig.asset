@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8989813867580603332
+--- !u!114 &-5865166261858546411
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,82 +9,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e890ea296fd8fc84392022df9300b300, type: 3}
+  m_Script: {fileID: 11500000, guid: 34fa54262e976104a85adc4cba5eead0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileName: test
-  tileId: 419c185889853c74a82630f6888de49f
-  frequency: 0
-  rotationModule: 0
-  adjacencyCodes:
-  - {fileID: -981283949929643880}
-  - {fileID: -7735231887239307238}
-  - {fileID: -981283949929643880}
-  - {fileID: -981283949929643880}
-  nodeData: {fileID: -7587313929445829670}
-  tileVisuals: {fileID: 0}
-  tileTexture: {fileID: 2800000, guid: 0d67190447869924ebc6ff321f01a495, type: 3}
-  rotationList:
-  - degrees: 0
-  - degrees: 1
-  - degrees: 2
---- !u!114 &-8406819281350825751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e890ea296fd8fc84392022df9300b300, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tileName: 3
-  tileId: e9633d6523c387e4d877dcc37ba9b300
-  frequency: 0
-  rotationModule: 0
-  adjacencyCodes:
-  - {fileID: -981283949929643880}
-  - {fileID: -7735231887239307238}
-  - {fileID: -7735231887239307238}
-  - {fileID: -7735231887239307238}
-  nodeData: {fileID: 5303783761715654846}
-  tileVisuals: {fileID: 0}
-  tileTexture: {fileID: 2800000, guid: 9c62c0ca994197f408cb07e8f41a15a0, type: 3}
-  rotationList:
-  - degrees: 0
-  - degrees: 1
-  - degrees: 2
---- !u!114 &-7837947181628119531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e890ea296fd8fc84392022df9300b300, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tileName: test
-  tileId: e1b1105c93bdfa346b44abccb744e310
-  frequency: 0
-  rotationModule: 0
-  adjacencyCodes:
-  - {fileID: -981283949929643880}
-  - {fileID: -981283949929643880}
-  - {fileID: -981283949929643880}
-  - {fileID: -981283949929643880}
-  nodeData: {fileID: 8392468867680107148}
-  tileVisuals: {fileID: 0}
-  tileTexture: {fileID: 2800000, guid: 4cdce0087e6fad84799ada2a5e502729, type: 3}
-  rotationList:
-  - degrees: 0
-  - degrees: 1
-  - degrees: 2
---- !u!114 &-7735231887239307238
+  x: 262.76
+  y: 295.4
+  num: 0
+  relationShips:
+  - indexOutput: 0
+    inputTile: {fileID: 0}
+    indexInput: 0
+    inputCodeData: {fileID: 4803221119060463498}
+  - indexOutput: 3
+    inputTile: {fileID: 0}
+    indexInput: 0
+    inputCodeData: {fileID: 4803221119060463498}
+  - indexOutput: 1
+    inputTile: {fileID: 0}
+    indexInput: 0
+    inputCodeData: {fileID: -2850553653606345354}
+  - indexOutput: 2
+    inputTile: {fileID: 0}
+    indexInput: 0
+    inputCodeData: {fileID: -2850553653606345354}
+--- !u!114 &-2850553653606345354
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,250 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 435c0fdac9c8b8f4581b588fcbf0a10b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uid: 31e6412272a11a94391c577b37d1c78b
-  code: Camino
-  isSymmetrical: 1
-  nodeData: {fileID: -5546418208532939265}
---- !u!114 &-7587313929445829670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34fa54262e976104a85adc4cba5eead0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  x: 0.000030517578
-  y: 1328.182
-  num: 0
-  relationShips:
-  - indexOutput: 0
-    inputTile: {fileID: 0}
-    indexInput: 0
-    inputCodeData: {fileID: -981283949929643880}
-  - indexOutput: 2
-    inputTile: {fileID: 0}
-    indexInput: 0
-    inputCodeData: {fileID: -981283949929643880}
-  - indexOutput: 3
-    inputTile: {fileID: 0}
-    indexInput: 0
-    inputCodeData: {fileID: -981283949929643880}
-  - indexOutput: 1
-    inputTile: {fileID: 0}
-    indexInput: 0
-    inputCodeData: {fileID: -7735231887239307238}
---- !u!114 &-7028749242077513924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34fa54262e976104a85adc4cba5eead0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  x: 356.2
-  y: 253.59998
-  num: 12
-  relationShips:
-  - indexOutput: 0
-    inputTile: {fileID: -7837947181628119531}
-    indexInput: 0
-    inputCodeData: {fileID: 0}
-  - indexOutput: 1
-    inputTile: {fileID: -7837947181628119531}
-    indexInput: 0
-    inputCodeData: {fileID: 0}
-  - indexOutput: 2
-    inputTile: {fileID: -7837947181628119531}
-    indexInput: 0
-    inputCodeData: {fileID: 0}
-  - indexOutput: 3
-    inputTile: {fileID: -7837947181628119531}
-    indexInput: 0
-    inputCodeData: {fileID: 0}
-  - indexOutput: 0
-    inputTile: {fileID: 2327530440141039726}
-    indexInput: 0
-    inputCodeData: {fileID: 0}
-  - indexOutput: 3
-    inputTile: {fileID: 2327530440141039726}
-    indexInput: 0
-    inputCodeData: {fileID: 0}
-  - indexOutput: 0
-    inputTile: {fileID: 5829826301829498509}
-    indexInput: 0
-    inputCodeData: {fileID: 0}
-  - indexOutput: 2
-    inputTile: {fileID: 5829826301829498509}
-    indexInput: 0
-    inputCodeData: {fileID: 0}
-  - indexOutput: 0
-    inputTile: {fileID: -8406819281350825751}
-    indexInput: 0
-    inputCodeData: {fileID: 0}
-  - indexOutput: 0
-    inputTile: {fileID: -8989813867580603332}
-    indexInput: 0
-    inputCodeData: {fileID: 0}
-  - indexOutput: 2
-    inputTile: {fileID: -8989813867580603332}
-    indexInput: 0
-    inputCodeData: {fileID: 0}
-  - indexOutput: 3
-    inputTile: {fileID: -8989813867580603332}
-    indexInput: 0
-    inputCodeData: {fileID: 0}
---- !u!114 &-5546418208532939265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34fa54262e976104a85adc4cba5eead0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  x: 522.7689
-  y: 1404.42
-  num: 12
-  relationShips:
-  - indexOutput: 1
-    inputTile: {fileID: 2327530440141039726}
-    indexInput: 0
-    inputCodeData: {fileID: 0}
-  - indexOutput: 2
-    inputTile: {fileID: 2327530440141039726}
-    indexInput: 0
-    inputCodeData: {fileID: 0}
-  - indexOutput: 1
-    inputTile: {fileID: 5829826301829498509}
-    indexInput: 0
-    inputCodeData: {fileID: 0}
-  - indexOutput: 3
-    inputTile: {fileID: 5829826301829498509}
-    indexInput: 0
-    inputCodeData: {fileID: 0}
-  - indexOutput: 1
-    inputTile: {fileID: -8406819281350825751}
-    indexInput: 0
-    inputCodeData: {fileID: 0}
-  - indexOutput: 2
-    inputTile: {fileID: -8406819281350825751}
-    indexInput: 0
-    inputCodeData: {fileID: 0}
-  - indexOutput: 3
-    inputTile: {fileID: -8406819281350825751}
-    indexInput: 0
-    inputCodeData: {fileID: 0}
-  - indexOutput: 1
-    inputTile: {fileID: -8989813867580603332}
-    indexInput: 0
-    inputCodeData: {fileID: 0}
-  - indexOutput: 0
-    inputTile: {fileID: 102195954590415015}
-    indexInput: 0
-    inputCodeData: {fileID: 0}
-  - indexOutput: 1
-    inputTile: {fileID: 102195954590415015}
-    indexInput: 0
-    inputCodeData: {fileID: 0}
-  - indexOutput: 2
-    inputTile: {fileID: 102195954590415015}
-    indexInput: 0
-    inputCodeData: {fileID: 0}
-  - indexOutput: 3
-    inputTile: {fileID: 102195954590415015}
-    indexInput: 0
-    inputCodeData: {fileID: 0}
---- !u!114 &-5477994624713039103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34fa54262e976104a85adc4cba5eead0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  x: 0
-  y: 331
-  num: 0
-  relationShips:
-  - indexOutput: 0
-    inputTile: {fileID: 0}
-    indexInput: 0
-    inputCodeData: {fileID: -981283949929643880}
-  - indexOutput: 3
-    inputTile: {fileID: 0}
-    indexInput: 0
-    inputCodeData: {fileID: -981283949929643880}
-  - indexOutput: 1
-    inputTile: {fileID: 0}
-    indexInput: 0
-    inputCodeData: {fileID: -7735231887239307238}
-  - indexOutput: 2
-    inputTile: {fileID: 0}
-    indexInput: 0
-    inputCodeData: {fileID: -7735231887239307238}
---- !u!114 &-4415968591742456219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34fa54262e976104a85adc4cba5eead0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  x: 0
-  y: 659
-  num: 0
-  relationShips:
-  - indexOutput: 0
-    inputTile: {fileID: 0}
-    indexInput: 0
-    inputCodeData: {fileID: -981283949929643880}
-  - indexOutput: 2
-    inputTile: {fileID: 0}
-    indexInput: 0
-    inputCodeData: {fileID: -981283949929643880}
-  - indexOutput: 1
-    inputTile: {fileID: 0}
-    indexInput: 0
-    inputCodeData: {fileID: -7735231887239307238}
-  - indexOutput: 3
-    inputTile: {fileID: 0}
-    indexInput: 0
-    inputCodeData: {fileID: -7735231887239307238}
---- !u!114 &-981283949929643880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 435c0fdac9c8b8f4581b588fcbf0a10b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uid: a970ac50d8092564e9180fa41173a162
-  code: Verde
-  isSymmetrical: 1
-  nodeData: {fileID: -7028749242077513924}
+  uid: 3e9fcdb17db6c344c8835d9e2999e7d3
+  code: p
+  isSymmetrical: 0
+  nodeData: {fileID: 8333458062853503071}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,45 +63,12 @@ MonoBehaviour:
   configurationName: 
   configurationID: 0
   wfcTilesList:
-  - {fileID: -7837947181628119531}
-  - {fileID: 102195954590415015}
-  - {fileID: -8406819281350825751}
-  - {fileID: 2327530440141039726}
-  - {fileID: -8989813867580603332}
-  - {fileID: 5829826301829498509}
+  - {fileID: 4441927180028607744}
   nodeHelpers:
-  - {fileID: -981283949929643880}
-  - {fileID: -7735231887239307238}
-  useRotations: 1
---- !u!114 &102195954590415015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e890ea296fd8fc84392022df9300b300, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tileName: 5
-  tileId: 31db35395acf07b4b9fd169a1db42147
-  frequency: 0
-  rotationModule: 0
-  adjacencyCodes:
-  - {fileID: -7735231887239307238}
-  - {fileID: -7735231887239307238}
-  - {fileID: -7735231887239307238}
-  - {fileID: -7735231887239307238}
-  nodeData: {fileID: 681362642327027054}
-  tileVisuals: {fileID: 0}
-  tileTexture: {fileID: 2800000, guid: 76d03fe97d0350842a933c205c4db05d, type: 3}
-  rotationList:
-  - degrees: 0
-  - degrees: 1
-  - degrees: 2
---- !u!114 &681362642327027054
+  - {fileID: 4803221119060463498}
+  - {fileID: -2850553653606345354}
+  useRotations: 0
+--- !u!114 &1595060632180148862
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -405,27 +80,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34fa54262e976104a85adc4cba5eead0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: -0.000016391066
-  y: 1659.2001
-  num: 0
+  x: 610.40015
+  y: 314.344
+  num: 2
   relationShips:
   - indexOutput: 0
-    inputTile: {fileID: 0}
+    inputTile: {fileID: 4441927180028607744}
     indexInput: 0
-    inputCodeData: {fileID: -7735231887239307238}
-  - indexOutput: 1
-    inputTile: {fileID: 0}
-    indexInput: 0
-    inputCodeData: {fileID: -7735231887239307238}
-  - indexOutput: 2
-    inputTile: {fileID: 0}
-    indexInput: 0
-    inputCodeData: {fileID: -7735231887239307238}
+    inputCodeData: {fileID: 0}
   - indexOutput: 3
-    inputTile: {fileID: 0}
+    inputTile: {fileID: 4441927180028607744}
     indexInput: 0
-    inputCodeData: {fileID: -7735231887239307238}
---- !u!114 &2327530440141039726
+    inputCodeData: {fileID: 0}
+--- !u!114 &4441927180028607744
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -437,23 +104,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e890ea296fd8fc84392022df9300b300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileName: 5
-  tileId: 13858e41bfb5eb24c8dfe35a8a8d214c
-  frequency: 0
+  tileName: WFC2D tile
+  tileId: 6b509e1060f639247b51b46e4655dfa8
+  frequency: 1
   rotationModule: 0
   adjacencyCodes:
-  - {fileID: -981283949929643880}
-  - {fileID: -7735231887239307238}
-  - {fileID: -7735231887239307238}
-  - {fileID: -981283949929643880}
-  nodeData: {fileID: -5477994624713039103}
+  - {fileID: 4803221119060463498}
+  - {fileID: -2850553653606345354}
+  - {fileID: -2850553653606345354}
+  - {fileID: 4803221119060463498}
+  nodeData: {fileID: -5865166261858546411}
   tileVisuals: {fileID: 0}
   tileTexture: {fileID: 2800000, guid: d10752ecf6a6fdc4ab500ebdf831311b, type: 3}
-  rotationList:
-  - degrees: 0
-  - degrees: 1
-  - degrees: 2
---- !u!114 &5303783761715654846
+  rotationList: []
+--- !u!114 &4803221119060463498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 435c0fdac9c8b8f4581b588fcbf0a10b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uid: 4731c1882310ede448de5bb5405cf2b0
+  code: g
+  isSymmetrical: 0
+  nodeData: {fileID: 1595060632180148862}
+--- !u!114 &8333458062853503071
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -465,83 +145,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34fa54262e976104a85adc4cba5eead0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 0
-  y: 999
-  num: 0
+  x: 610.12
+  y: 461.87997
+  num: 2
   relationShips:
-  - indexOutput: 0
-    inputTile: {fileID: 0}
-    indexInput: 0
-    inputCodeData: {fileID: -981283949929643880}
   - indexOutput: 1
-    inputTile: {fileID: 0}
+    inputTile: {fileID: 4441927180028607744}
     indexInput: 0
-    inputCodeData: {fileID: -7735231887239307238}
+    inputCodeData: {fileID: 0}
   - indexOutput: 2
-    inputTile: {fileID: 0}
+    inputTile: {fileID: 4441927180028607744}
     indexInput: 0
-    inputCodeData: {fileID: -7735231887239307238}
-  - indexOutput: 3
-    inputTile: {fileID: 0}
-    indexInput: 0
-    inputCodeData: {fileID: -7735231887239307238}
---- !u!114 &5829826301829498509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e890ea296fd8fc84392022df9300b300, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tileName: 2
-  tileId: 1ea0b16aefb33b4409508de75f48a2a4
-  frequency: 0
-  rotationModule: 0
-  adjacencyCodes:
-  - {fileID: -981283949929643880}
-  - {fileID: -7735231887239307238}
-  - {fileID: -981283949929643880}
-  - {fileID: -7735231887239307238}
-  nodeData: {fileID: -4415968591742456219}
-  tileVisuals: {fileID: 0}
-  tileTexture: {fileID: 2800000, guid: 246aa63d84b5c6b4cb91936466a1bcbb, type: 3}
-  rotationList:
-  - degrees: 0
-  - degrees: 1
-  - degrees: 2
---- !u!114 &8392468867680107148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34fa54262e976104a85adc4cba5eead0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  x: 0
-  y: 0
-  num: 0
-  relationShips:
-  - indexOutput: 0
-    inputTile: {fileID: 0}
-    indexInput: 0
-    inputCodeData: {fileID: -981283949929643880}
-  - indexOutput: 1
-    inputTile: {fileID: 0}
-    indexInput: 0
-    inputCodeData: {fileID: -981283949929643880}
-  - indexOutput: 2
-    inputTile: {fileID: 0}
-    indexInput: 0
-    inputCodeData: {fileID: -981283949929643880}
-  - indexOutput: 3
-    inputTile: {fileID: 0}
-    indexInput: 0
-    inputCodeData: {fileID: -981283949929643880}
+    inputCodeData: {fileID: 0}

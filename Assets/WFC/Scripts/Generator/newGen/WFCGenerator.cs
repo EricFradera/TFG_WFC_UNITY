@@ -33,6 +33,8 @@ public class WFCGenerator : MonoBehaviour
         generator = new WFCProc(WFCConfigFile.wfcTilesList, WFCConfigFile.createWFCManager());
 
         gen2D(lineCount, half);
+        
+        generator.clearRotationList();
     }
 
     private void gen2D(int lineCount, int half)
@@ -55,7 +57,7 @@ public class WFCGenerator : MonoBehaviour
                 {
                     var primitive = GameObject.CreatePrimitive(PrimitiveType.Quad);
                     primitive.transform.position = new Vector3(xCoord, 0, zCoord);
-                    primitive.transform.Rotate(new Vector3(90f, 0, 0));
+                    primitive.transform.Rotate(new Vector3(90f, 0, (res.Get(i, j).rotationModule + 1) * 90));
                     primitive.GetComponent<MeshRenderer>().material = genMat((WFC2DTile)res.Get(i, j));
                     gameObjectArray[i, j] = primitive;
                 }

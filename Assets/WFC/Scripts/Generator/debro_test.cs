@@ -28,7 +28,7 @@ namespace WFC
         public debro_test(List<WFCTile> tileData)
         {
             this.tileData = tileData;
-            _adjacencyGen = new Generate_Adjacency(this.tileData);
+            //_adjacencyGen = new Generate_Adjacency(this.tileData);
         }
 
         public ITopoArray<string> runWFC(int size)
@@ -83,7 +83,7 @@ namespace WFC
 
         private AdjacentModel generateMountain()
         {
-            _adjacencyGen.match_Tiles();
+            //_adjacencyGen.match_Tiles();
             var model = new AdjacentModel(DirectionSet.Cartesian2d);
             Dictionary<WFCTile, Tile> tileMap = new Dictionary<WFCTile, Tile>();
             //List<Tile> tileList = new List<Tile>();
