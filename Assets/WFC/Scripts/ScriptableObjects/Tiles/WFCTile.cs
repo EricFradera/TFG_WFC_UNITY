@@ -14,6 +14,7 @@ public abstract class WFCTile : ScriptableObject
 
     //Sides
     protected int dim;
+    public float frequency=1f;
 
     //rotation ver
     public int rotationModule = 0;

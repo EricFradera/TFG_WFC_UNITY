@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e890ea296fd8fc84392022df9300b300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileName: 4
+  tileName: test
   tileId: 419c185889853c74a82630f6888de49f
+  frequency: 0
   rotationModule: 0
   adjacencyCodes:
   - {fileID: -981283949929643880}
@@ -41,6 +42,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: 3
   tileId: e9633d6523c387e4d877dcc37ba9b300
+  frequency: 0
   rotationModule: 0
   adjacencyCodes:
   - {fileID: -981283949929643880}
@@ -68,6 +70,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: test
   tileId: e1b1105c93bdfa346b44abccb744e310
+  frequency: 0
   rotationModule: 0
   adjacencyCodes:
   - {fileID: -981283949929643880}
@@ -376,6 +379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: 5
   tileId: 31db35395acf07b4b9fd169a1db42147
+  frequency: 0
   rotationModule: 0
   adjacencyCodes:
   - {fileID: -7735231887239307238}
@@ -433,8 +437,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e890ea296fd8fc84392022df9300b300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileName: 1
+  tileName: 5
   tileId: 13858e41bfb5eb24c8dfe35a8a8d214c
+  frequency: 0
   rotationModule: 0
   adjacencyCodes:
   - {fileID: -981283949929643880}
@@ -494,6 +499,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: 2
   tileId: 1ea0b16aefb33b4409508de75f48a2a4
+  frequency: 0
   rotationModule: 0
   adjacencyCodes:
   - {fileID: -981283949929643880}

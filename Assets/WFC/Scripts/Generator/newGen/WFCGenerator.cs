@@ -99,7 +99,11 @@ public class WFCGenerator : MonoBehaviour
         }
     }
 
-    public void populateList() => wfcTilesList = WFCConfigFile.wfcTilesList;
+    public void populateList()
+    {
+        if (WFCConfigFile != null) wfcTilesList = WFCConfigFile.wfcTilesList;
+    }
+
     public void clearList() => wfcTilesList = null;
 
     public void ClearPreviousIteration()

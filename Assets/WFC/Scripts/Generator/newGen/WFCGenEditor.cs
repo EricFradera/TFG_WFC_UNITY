@@ -92,7 +92,8 @@ public class WFCGenEditor : Editor
         {
             if (wfcConfigFileField.value is not null)
             {
-                switch (wfcConfigFileField.value)
+                var newConfig = wfcConfigFileField.value;
+                switch (newConfig)
                 {
                     case WFC1DConfig wfc1DConfig:
                         indexGizmo = GizmoGenerator.GIZMO1D;
@@ -111,10 +112,9 @@ public class WFCGenEditor : Editor
                         configFile = wfcHexConfig;
                         break;
                 }
-                
-                current.populateList();
+
                 wfcTilesList = configFile.wfcTilesList;
-                
+                current.populateList();
             }
             else
             {
@@ -139,30 +139,32 @@ public class WFCGenEditor : Editor
     private void OnSceneGUI()
     {
         //TODO
-        Func<VisualElement> makeItem = () =>
+        if (configFile is not null)
         {
-            var tileItem = new VisualElement();
-            tileItem.Add(new TextField());
-            tileItem.Add(new Label());
-            return tileItem;
-        };
-        Action<VisualElement, int> bindItem = (e, i) =>
-        {
-            ((TextField)e.ElementAt(0)).value = wfcTilesList[i].tileName;
-            ((TextField)e.ElementAt(0)).RegisterValueChangedCallback(evt =>
+            Func<VisualElement> makeItem = () =>
             {
-                wfcTilesList[i].tileName = ((TextField)e.ElementAt(0)).text;
-            });
-            ((Label)e.ElementAt(1)).text = wfcTilesList[i].tileId;
-        };
-        listViewComponent.makeItem = makeItem;
-        listViewComponent.bindItem = bindItem;
-        listViewComponent.itemsSource = wfcTilesList;
-        listViewComponent.selectionType = SelectionType.Multiple;
-        listViewComponent.style.flexGrow = 1;
-        listViewComponent.style.minHeight = 20;
-        
-        
+                var tileItem = new VisualElement();
+                tileItem.Add(new TextField("Tile name"));
+                tileItem.Add(new FloatField("Frequency of the tile"));
+                tileItem.Add(new ObjectField("Texture"));
+                return tileItem;
+            };
+            Action<VisualElement, int> bindItem = (e, i) =>
+            {
+                ((TextField)e.ElementAt(0)).value = wfcTilesList[i].tileName;
+                ((TextField)e.ElementAt(0)).RegisterValueChangedCallback(evt =>
+                {
+                    wfcTilesList[i].tileName = ((TextField)e.ElementAt(0)).text;
+                });
+                ((FloatField)e.ElementAt(1)).value = wfcTilesList[i].frequency;
+                ((ObjectField)e.ElementAt(2)).value = wfcTilesList[i].tileVisuals;
+            };
+            listViewComponent.makeItem = makeItem;
+            listViewComponent.bindItem = bindItem;
+            listViewComponent.itemsSource = wfcTilesList;
+            listViewComponent.selectionType = SelectionType.Multiple;
+        }
+
         if (configFile is null) return;
         gizmoList[(int)indexGizmo].enableGizmo(current.transform);
         gizmoList[(int)indexGizmo].generateGizmo(lineColor, gridSize, gridExtent);
