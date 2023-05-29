@@ -1,5 +1,71 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8473049001214707127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1747b3fffdddd4d4c8c4fe1129790d7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileName: WFC3D tile
+  tileId: 2ebd6dd269a29634ba405f3bdf6bbab5
+  frequency: 1
+  rotationModule: 0
+  adjacencyCodes:
+  - {fileID: 7718876244115497030}
+  - {fileID: 7718876244115497030}
+  - {fileID: 7718876244115497030}
+  - {fileID: 7718876244115497030}
+  - {fileID: 7718876244115497030}
+  - {fileID: 7718876244115497030}
+  nodeData: {fileID: -2713717480260015446}
+  tileVisuals: {fileID: 0}
+  previewTexture2D: {fileID: 0}
+--- !u!114 &-2713717480260015446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34fa54262e976104a85adc4cba5eead0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  x: 10.040009
+  y: 258.656
+  num: 0
+  relationShips:
+  - indexOutput: 0
+    inputTile: {fileID: 0}
+    indexInput: 0
+    inputCodeData: {fileID: 7718876244115497030}
+  - indexOutput: 1
+    inputTile: {fileID: 0}
+    indexInput: 0
+    inputCodeData: {fileID: 7718876244115497030}
+  - indexOutput: 2
+    inputTile: {fileID: 0}
+    indexInput: 0
+    inputCodeData: {fileID: 7718876244115497030}
+  - indexOutput: 3
+    inputTile: {fileID: 0}
+    indexInput: 0
+    inputCodeData: {fileID: 7718876244115497030}
+  - indexOutput: 4
+    inputTile: {fileID: 0}
+    indexInput: 0
+    inputCodeData: {fileID: 7718876244115497030}
+  - indexOutput: 5
+    inputTile: {fileID: 0}
+    indexInput: 0
+    inputCodeData: {fileID: 7718876244115497030}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16,6 +82,7 @@ MonoBehaviour:
   configurationID: 0
   wfcTilesList:
   - {fileID: 1554676132517540130}
+  - {fileID: -8473049001214707127}
   nodeHelpers:
   - {fileID: 7718876244115497030}
   - {fileID: 9173391095063579968}
@@ -61,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 196.40002
   y: 0
-  num: 4
+  num: 10
   relationShips:
   - indexOutput: 0
     inputTile: {fileID: 1554676132517540130}
@@ -77,6 +144,30 @@ MonoBehaviour:
     inputCodeData: {fileID: 0}
   - indexOutput: 3
     inputTile: {fileID: 1554676132517540130}
+    indexInput: 0
+    inputCodeData: {fileID: 0}
+  - indexOutput: 0
+    inputTile: {fileID: -8473049001214707127}
+    indexInput: 0
+    inputCodeData: {fileID: 0}
+  - indexOutput: 1
+    inputTile: {fileID: -8473049001214707127}
+    indexInput: 0
+    inputCodeData: {fileID: 0}
+  - indexOutput: 2
+    inputTile: {fileID: -8473049001214707127}
+    indexInput: 0
+    inputCodeData: {fileID: 0}
+  - indexOutput: 3
+    inputTile: {fileID: -8473049001214707127}
+    indexInput: 0
+    inputCodeData: {fileID: 0}
+  - indexOutput: 4
+    inputTile: {fileID: -8473049001214707127}
+    indexInput: 0
+    inputCodeData: {fileID: 0}
+  - indexOutput: 5
+    inputTile: {fileID: -8473049001214707127}
     indexInput: 0
     inputCodeData: {fileID: 0}
 --- !u!114 &5960109988555807737
