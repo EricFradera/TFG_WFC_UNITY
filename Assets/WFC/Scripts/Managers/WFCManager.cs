@@ -19,7 +19,7 @@ public abstract class WFCManager
     //abstract methods
     public abstract WFCTile CreateNodeTile();
     public abstract EditorManager getEditorManager();
-    public abstract IWFCSpawner GetWfcSpawner();
+    
 
     protected void createNodeData(WFCTile nodeTile)
     {

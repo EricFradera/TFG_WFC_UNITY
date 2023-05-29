@@ -13,4 +13,9 @@ public class WFCHexConfig : WFCConfig
     {
         return new WFCHEXManager(this);
     }
+
+    public override WFCSpawnerAbstact CreateSpawner(Transform transform, int lineCount, float m_gridSize, float m_gridExtent)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -27,8 +27,5 @@ public class WFCHEXManager : WFCManager
         return new EditorHexManager(this);
     }
 
-    public override IWFCSpawner GetWfcSpawner()
-    {
-        throw new System.NotImplementedException();
-    }
+   
 }

@@ -13,4 +13,11 @@ public class WFC1DConfig :WFCConfig
     {
         return new WFC1DManager(this);
     }
+
+    public override WFCSpawnerAbstact CreateSpawner(Transform transform, int lineCount, float m_gridSize, float m_gridExtent)
+    {
+        throw new NotImplementedException();
+    }
+
+    
 }

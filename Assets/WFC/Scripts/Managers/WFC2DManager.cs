@@ -28,8 +28,5 @@ public class WFC2DManager : WFCManager
         return new Editor2DManager(this);
     }
 
-    public override IWFCSpawner GetWfcSpawner()
-    {
-        throw new System.NotImplementedException();
-    }
+    
 }

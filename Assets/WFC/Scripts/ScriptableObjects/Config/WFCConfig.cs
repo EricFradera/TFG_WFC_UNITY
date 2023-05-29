@@ -22,5 +22,6 @@ namespace WFC
         public bool useRotations;
 
         public abstract WFCManager createWFCManager();
+        public abstract WFCSpawnerAbstact CreateSpawner(Transform transform, int lineCount, float m_gridSize, float m_gridExtent);
     }
 }

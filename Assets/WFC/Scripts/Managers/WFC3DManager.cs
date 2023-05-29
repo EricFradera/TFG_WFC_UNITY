@@ -26,10 +26,7 @@ public class WFC3DManager : WFCManager
         return new Editor3DManager(this);
     }
 
-    public override IWFCSpawner GetWfcSpawner()
-    {
-        throw new System.NotImplementedException();
-    }
+    
 
     
 }

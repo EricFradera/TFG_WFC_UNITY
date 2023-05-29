@@ -27,8 +27,5 @@ public class WFC1DManager : WFCManager
         return new Editor1DManager(this);
     }
 
-    public override IWFCSpawner GetWfcSpawner()
-    {
-        throw new System.NotImplementedException();
-    }
+    
 }
