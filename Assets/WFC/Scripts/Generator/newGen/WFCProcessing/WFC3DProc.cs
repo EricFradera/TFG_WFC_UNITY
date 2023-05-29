@@ -23,8 +23,8 @@ public class WFC3DProc : WFCAbstractProc
         var model = RunModel();
         var topology = new GridTopology(size, size, size, periodic: false);
         var propagator = new TilePropagator(model, topology, true);
-        var status = propagator.Run();
-        if (status != Resolution.Decided) throw new Exception("The WFC resulted as undecided");
+        //var status = propagator.Run();
+        //if (status != Resolution.Decided) throw new Exception("The WFC resulted as undecided");
         var output = propagator.ToValueArray<WFCTile>();
         return output;
     }

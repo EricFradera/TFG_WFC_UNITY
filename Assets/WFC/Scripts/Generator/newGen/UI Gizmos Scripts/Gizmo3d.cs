@@ -5,6 +5,8 @@ using UnityEditor;
 using UnityEngine;
 
 
+
+
 public class Gizmo3d : IGizmos
 {
     private GameObject cube;
@@ -15,7 +17,7 @@ public class Gizmo3d : IGizmos
         cube ??= GameObject.CreatePrimitive(PrimitiveType.Cube);
         gridMat ??= new Material(Shader.Find("Shader Graphs/gridShader"));
         cube.transform.position = new Vector3(0, 0, 0);
-        cube.transform.parent = component.transform;
+        //cube.transform.parent = component.transform;
         gridMat = new Material(Shader.Find("Shader Graphs/gridShader"));
         if (cube.TryGetComponent<Renderer>(out var renderer)) renderer.material = gridMat;
     }

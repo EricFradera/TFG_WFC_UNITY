@@ -13,13 +13,14 @@ public class WFC3DConfig : WFCConfig
         return new WFC3DManager(this);
     }
 
-    public override WFCSpawnerAbstact CreateSpawner(Transform transform, int lineCount, float m_gridSize, float m_gridExtent)
+    public override WFCSpawnerAbstact CreateSpawner(Transform transform, int lineCount, float m_gridSize,
+        float m_gridExtent)
     {
-        throw new NotImplementedException();
+        return new WFCSpawner3D(transform, lineCount, m_gridSize, m_gridExtent);
     }
 
     public override WFCAbstractProc CreateProcessor(List<WFCTile> listOfTiles, WFCManager manager)
     {
-        throw new NotImplementedException();
+        return new WFC3DProc(listOfTiles, manager);
     }
 }
