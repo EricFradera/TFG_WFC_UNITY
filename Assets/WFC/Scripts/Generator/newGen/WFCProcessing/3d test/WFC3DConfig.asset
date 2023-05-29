@@ -24,7 +24,8 @@ MonoBehaviour:
   - {fileID: 7718876244115497030}
   - {fileID: 7718876244115497030}
   nodeData: {fileID: -2713717480260015446}
-  tileVisuals: {fileID: 0}
+  tileVisuals: {fileID: 919132149155446097, guid: b1a9b365a0f89844180a8987429aa5d0,
+    type: 3}
   previewTexture2D: {fileID: 0}
 --- !u!114 &-2713717480260015446
 MonoBehaviour:
