@@ -17,6 +17,7 @@ public class WFC3DManager : WFCManager
         nodeTile.tileId = GUID.Generate().ToString();
         wfcConfig.wfcTilesList.Add(nodeTile);
         AssetDatabase.AddObjectToAsset(nodeTile, wfcConfig);
+        createNodeData(nodeTile);
         AssetDatabase.SaveAssets();
         return nodeTile;
     }
@@ -25,8 +26,6 @@ public class WFC3DManager : WFCManager
     {
         return new Editor3DManager(this);
     }
-
-    
 
     
 }

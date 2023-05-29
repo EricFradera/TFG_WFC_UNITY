@@ -18,6 +18,7 @@ public class WFC1DManager : WFCManager
         nodeTile.tileId = GUID.Generate().ToString();
         wfcConfig.wfcTilesList.Add(nodeTile);
         AssetDatabase.AddObjectToAsset(nodeTile, wfcConfig);
+        createNodeData(nodeTile);
         AssetDatabase.SaveAssets();
         return nodeTile;
     }

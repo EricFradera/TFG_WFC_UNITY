@@ -18,6 +18,7 @@ public class WFCHEXManager : WFCManager
         nodeTile.tileId = GUID.Generate().ToString();
         wfcConfig.wfcTilesList.Add(nodeTile);
         AssetDatabase.AddObjectToAsset(nodeTile, wfcConfig);
+        createNodeData(nodeTile);
         AssetDatabase.SaveAssets();
         return nodeTile;
     }
@@ -26,6 +27,4 @@ public class WFCHEXManager : WFCManager
     {
         return new EditorHexManager(this);
     }
-
-   
 }
