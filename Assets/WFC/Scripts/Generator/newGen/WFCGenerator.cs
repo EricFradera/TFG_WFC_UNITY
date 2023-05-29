@@ -16,7 +16,7 @@ public class WFCGenerator : MonoBehaviour
     public Color lineColor = Color.white;
     public List<WFCTile> wfcTilesList;
     private GameObject[,] gameObjectArray;
-    private WFCProc generator;
+    private WFCAbstractProc generator;
     private WFCSpawnerAbstact spawner;
     private WFCManager manager;
     public Vector2 vecSize;
@@ -32,8 +32,9 @@ public class WFCGenerator : MonoBehaviour
         ClearPreviousIteration();
         spawner = WFCConfigFile.CreateSpawner(transform, lineCount, m_gridSize, m_gridExtent);
         //Generation
-        generator = new WFCProc(WFCConfigFile.wfcTilesList, WFCConfigFile.createWFCManager());
-        spawner.spawnTiles(generator.runWFC(lineCount), WFCConfigFile.useRotations);
+        generator = WFCConfigFile.CreateProcessor(WFCConfigFile.wfcTilesList, WFCConfigFile.createWFCManager());
+        //generator = new WFCProc(WFCConfigFile.wfcTilesList, WFCConfigFile.createWFCManager());
+        spawner.spawnTiles(generator.RunWFC(lineCount), WFCConfigFile.useRotations);
         if (WFCConfigFile.useRotations) generator.clearRotationList();
     }
 

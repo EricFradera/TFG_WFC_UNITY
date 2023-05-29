@@ -18,4 +18,9 @@ public class WFCHexConfig : WFCConfig
     {
         throw new NotImplementedException();
     }
+
+    public override WFCAbstractProc CreateProcessor(List<WFCTile> listOfTiles, WFCManager manager)
+    {
+        throw new NotImplementedException();
+    }
 }

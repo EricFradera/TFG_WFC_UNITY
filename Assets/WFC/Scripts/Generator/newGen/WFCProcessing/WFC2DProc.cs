@@ -1,48 +1,23 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using DeBroglie;
 using DeBroglie.Models;
-using DeBroglie.Rot;
 using DeBroglie.Topo;
-using Unity.VisualScripting;
-using UnityEditor.Rendering;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 using WFC;
-using Object = UnityEngine.Object;
-using Resolution = DeBroglie.Resolution;
 
-[ExecuteInEditMode]
-public class WFCProc
+public class WFC2DProc : WFCAbstractProc
 {
-    private Generate_Adjacency adjacency;
-    private List<WFCTile> listOfTiles;
-    private List<WFCTile> listOfRotatedTiles;
     private Direction[] direction = { Direction.YPlus, Direction.XPlus, Direction.YMinus, Direction.XMinus };
+    private List<WFCTile> listOfRotatedTiles;
     private bool useRotation;
 
-    public WFCProc(List<WFCTile> listOfTiles, WFCManager manager)
+
+    public WFC2DProc(List<WFCTile> listOfTiles, WFCManager manager) : base(listOfTiles, manager)
     {
-        this.listOfTiles = listOfTiles;
-        adjacency = new Generate_Adjacency();
-        this.useRotation = manager.getUseRotations();
     }
 
-    public ITopoArray<WFCTile> runWFC(int size)
-    {
-        if (listOfTiles is null) throw new Exception("List of tiles is Empty");
-        var model = run2DModel();
-        var topology = new GridTopology(size, size, periodic: false);
-        var propagator = new TilePropagator(model, topology, true);
-        var status = propagator.Run();
-        if (status != Resolution.Decided) throw new Exception("The WFC resulted as undecided");
-        var output = propagator.ToValueArray<WFCTile>();
-        return output;
-    }
-
-    private AdjacentModel run2DModel()
+    public override AdjacentModel RunModel()
     {
         List<WFCTile> genList = new List<WFCTile>();
         genList.AddRange(listOfTiles);
@@ -76,7 +51,6 @@ public class WFCProc
         return model;
     }
 
-
     private void AddRotations()
     {
         listOfRotatedTiles = new List<WFCTile>();
@@ -86,7 +60,7 @@ public class WFCProc
         }
     }
 
-    public void clearRotationList()
+    public override void clearRotationList()
     {
         foreach (var tile in listOfRotatedTiles)
         {
@@ -94,5 +68,10 @@ public class WFCProc
         }
 
         listOfRotatedTiles.Clear();
+    }
+
+    public void setUseRotations(bool useRotations)
+    {
+        this.useRotation = useRotations;
     }
 }

@@ -38,7 +38,6 @@ public class Generate_Adjacency
             if (tileOrigin.adjacencyCodes[i].code == tileDest.adjacencyCodes[tileDest.GetInverse(i)].code)
                 return true;
         }
-
         return false;
     }
 

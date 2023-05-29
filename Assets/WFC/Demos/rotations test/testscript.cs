@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+#if false
+public class testscript : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -32,3 +33,4 @@ public class NewBehaviourScript : MonoBehaviour
                   "," + tempArray[3]);
     }
 }
+#endif

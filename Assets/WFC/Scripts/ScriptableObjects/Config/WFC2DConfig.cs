@@ -13,10 +13,17 @@ public class WFC2DConfig : WFCConfig
         return new WFC2DManager(this);
     }
 
-    public override WFCSpawnerAbstact CreateSpawner(Transform transform, int lineCount, float m_gridSize, float m_gridExtent)
+    public override WFCSpawnerAbstact CreateSpawner(Transform transform, int lineCount, float m_gridSize,
+        float m_gridExtent)
     {
-        
         return new WFCSpawner2D(transform,
             lineCount, m_gridSize, m_gridExtent);
+    }
+
+    public override WFCAbstractProc CreateProcessor(List<WFCTile> listOfTiles, WFCManager manager)
+    {
+        var processor = new WFC2DProc(listOfTiles, manager);
+        processor.setUseRotations(useRotations);
+        return processor;
     }
 }
