@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using WFC;
 
-[CreateAssetMenu(menuName = "WFC components/WFCConfig/WFCHEXConfig", order = 4, fileName = "WFCHEXConfig"),
+[CreateAssetMenu(menuName = "WFC components/WFCHEXConfig", order = 4, fileName = "WFCHEXConfig"),
  Serializable]
 public class WFCHexConfig : WFCConfig
 {

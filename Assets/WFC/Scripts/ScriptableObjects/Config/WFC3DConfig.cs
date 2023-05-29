@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using WFC;
 
-[CreateAssetMenu(menuName = "WFC components/WFCConfig/WFC3DConfig", order = 3, fileName = "WFC3DConfig"), Serializable]
+[CreateAssetMenu(menuName = "WFC components/WFC3DConfig", order = 3, fileName = "WFC3DConfig"), Serializable]
 public class WFC3DConfig : WFCConfig
 {
     public override WFCManager createWFCManager()

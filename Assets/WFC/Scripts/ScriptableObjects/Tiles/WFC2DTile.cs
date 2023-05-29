@@ -11,7 +11,6 @@ using UnityEngine.Serialization;
 
 namespace WFC
 {
-    [CreateAssetMenu(menuName = "WFC components/WFC2DTile", order = 1, fileName = "WFC2dTile"), Serializable]
     public class WFC2DTile : WFCTile
     {
         [JsonIgnore] public Texture2D tileTexture;
