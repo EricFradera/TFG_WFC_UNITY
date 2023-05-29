@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DeBroglie;
 using DeBroglie.Models;
 using DeBroglie.Topo;
-using UnityEngine;
 using WFC;
+using Object = UnityEngine.Object;
 
 public class WFC2DProc : WFCAbstractProc
 {
@@ -15,6 +16,18 @@ public class WFC2DProc : WFCAbstractProc
 
     public WFC2DProc(List<WFCTile> listOfTiles, WFCManager manager) : base(listOfTiles, manager)
     {
+    }
+
+    public override ITopoArray<WFCTile> RunWFC(int size)
+    {
+        if (listOfTiles is null) throw new Exception("List of tiles is Empty");
+        var model = RunModel();
+        var topology = new GridTopology(size, size, periodic: false);
+        var propagator = new TilePropagator(model, topology, true); //backtrackinh need s tp be able to turn off
+        var status = propagator.Run();
+        if (status != Resolution.Decided) throw new Exception("The WFC resulted as undecided");
+        var output = propagator.ToValueArray<WFCTile>();
+        return output;
     }
 
     public override AdjacentModel RunModel()

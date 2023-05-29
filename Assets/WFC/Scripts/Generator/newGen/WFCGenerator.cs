@@ -31,9 +31,7 @@ public class WFCGenerator : MonoBehaviour
         lineCount--;
         ClearPreviousIteration();
         spawner = WFCConfigFile.CreateSpawner(transform, lineCount, m_gridSize, m_gridExtent);
-        //Generation
         generator = WFCConfigFile.CreateProcessor(WFCConfigFile.wfcTilesList, WFCConfigFile.createWFCManager());
-        //generator = new WFCProc(WFCConfigFile.wfcTilesList, WFCConfigFile.createWFCManager());
         spawner.spawnTiles(generator.RunWFC(lineCount), WFCConfigFile.useRotations);
         if (WFCConfigFile.useRotations) generator.clearRotationList();
     }
