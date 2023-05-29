@@ -58,7 +58,15 @@ public class WFCGenerator : MonoBehaviour
                 {
                     var primitive = GameObject.CreatePrimitive(PrimitiveType.Quad);
                     primitive.transform.position = new Vector3(xCoord, 0, zCoord);
-                    primitive.transform.Rotate(new Vector3(90f, 0, (res.Get(i, j).rotationModule+1) * 90));
+                    if (WFCConfigFile.useRotations)
+                    {
+                        primitive.transform.Rotate(new Vector3(90f, 0, (res.Get(i, j).rotationModule+1) * 90));
+                    }
+                    else
+                    {
+                        primitive.transform.Rotate(new Vector3(90f, 0, 0));
+                    }
+                    
                     primitive.GetComponent<MeshRenderer>().material = genMat((WFC2DTile)res.Get(i, j));
                     gameObjectArray[i, j] = primitive;
                 }

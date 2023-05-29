@@ -474,7 +474,7 @@ MonoBehaviour:
   - {fileID: -4461817416433547020}
   - {fileID: 5115784391524818941}
   - {fileID: 320844543349374791}
-  useRotations: 1
+  useRotations: 0
 --- !u!114 &320844543349374791
 MonoBehaviour:
   m_ObjectHideFlags: 0
