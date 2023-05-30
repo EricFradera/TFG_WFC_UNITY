@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "WFC components/WFC2DTile", order = 1, fileName = "WFC2dTile"), Serializable]
 public class WFC1DTile : WFCTile
 {
     [Rename("Flip tile")] public bool flip;
+    [JsonIgnore] public Texture2D tileTexture;
 
 
     public WFC1DTile()

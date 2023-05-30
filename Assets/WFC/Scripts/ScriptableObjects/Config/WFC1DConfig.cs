@@ -21,6 +21,6 @@ public class WFC1DConfig : WFCConfig
 
     public override WFCAbstractProc CreateProcessor(List<WFCTile> listOfTiles, WFCManager manager)
     {
-        throw new NotImplementedException();
+        return new WFC1DProc(listOfTiles, manager);
     }
 }
