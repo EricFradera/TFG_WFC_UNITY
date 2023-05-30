@@ -11,7 +11,7 @@ using Resolution = DeBroglie.Resolution;
 public class WFC3DProc : WFCAbstractProc
 {
     private Direction[] direction =
-        { Direction.YPlus, Direction.XPlus, Direction.YMinus, Direction.XMinus, Direction.ZPlus, Direction.ZMinus };
+        { Direction.YPlus, Direction.YMinus, Direction.XPlus, Direction.XMinus, Direction.ZPlus, Direction.ZMinus };
 
     public WFC3DProc(List<WFCTile> listOfTiles, WFCManager manager) : base(listOfTiles, manager)
     {
@@ -22,7 +22,7 @@ public class WFC3DProc : WFCAbstractProc
         if (listOfTiles is null) throw new Exception("List of tiles is Empty");
         var model = RunModel();
         var topology = new GridTopology(size, size, size, periodic: false);
-        var propagator = new TilePropagator(model, topology, false);
+        var propagator = new TilePropagator(model, topology, true);
         var status = propagator.Run();
         if (status != Resolution.Decided) throw new Exception("The WFC resulted as undecided");
         var output = propagator.ToValueArray<WFCTile>();

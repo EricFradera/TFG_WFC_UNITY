@@ -38,24 +38,24 @@ namespace WFC
 
         private enum IndexDirection
         {
-            UP,
-            RIGHT,
-            DOWN,
-            LEFT,
-            ZUP,
-            ZDOWN
+            YPLUS,
+            YMINUS,
+            XPLUS,
+            XMINUS,
+            ZPLUS,
+            ZMINUS
         }
 
         public override int GetInverse(int indexDirection)
         {
             return (IndexDirection)indexDirection switch
             {
-                IndexDirection.UP => (int)IndexDirection.DOWN,
-                IndexDirection.RIGHT => (int)IndexDirection.LEFT,
-                IndexDirection.DOWN => (int)IndexDirection.UP,
-                IndexDirection.LEFT => (int)IndexDirection.RIGHT,
-                IndexDirection.ZUP => (int)IndexDirection.ZDOWN,
-                IndexDirection.ZDOWN => (int)IndexDirection.ZUP,
+                IndexDirection.YPLUS => (int)IndexDirection.YMINUS,
+                IndexDirection.YMINUS => (int)IndexDirection.YPLUS,
+                IndexDirection.XPLUS => (int)IndexDirection.XMINUS,
+                IndexDirection.XMINUS => (int)IndexDirection.XPLUS,
+                IndexDirection.ZPLUS => (int)IndexDirection.ZMINUS,
+                IndexDirection.ZMINUS => (int)IndexDirection.ZPLUS,
                 _ => -1
             };
         }

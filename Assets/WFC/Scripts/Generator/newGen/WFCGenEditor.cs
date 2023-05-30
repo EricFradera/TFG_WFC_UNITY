@@ -20,7 +20,6 @@ public class WFCGenEditor : Editor
     //Input variables
     private float gridSize;
     private float gridExtent;
-    private Vector2 sizeVec;
     private Color lineColor;
     public WFCConfig configFile;
     public WFCGenerator current;
@@ -85,7 +84,7 @@ public class WFCGenEditor : Editor
         sizeFloatField.RegisterValueChangedCallback(evt => { gridSize = sizeFloatField.value; });
         extentFloatField.RegisterValueChangedCallback(evt => { gridExtent = extentFloatField.value; });
         lineColorField.RegisterValueChangedCallback(evt => { lineColor = lineColorField.value; });
-        vectorInput.RegisterValueChangedCallback(evt => { sizeVec = vectorInput.value; });
+
 
         //Generate ListView
         wfcConfigFileField.RegisterValueChangedCallback(evt =>
