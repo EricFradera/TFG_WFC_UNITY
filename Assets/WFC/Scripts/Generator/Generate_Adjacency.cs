@@ -46,23 +46,7 @@ public class Generate_Adjacency
         }
         return true;
     }
-
-    private bool checkCodes(WFCTile tileOrigin, WFCTile tileDest, int i)
-    {
-        if (tileOrigin.adjacencyCodes[i].socketCodes.Count == tileDest.adjacencyCodes[i].socketCodes.Count)
-        {
-            for (int j = 0; j < tileOrigin.adjacencyCodes[i].socketCodes.Count(); j++)
-            {
-                if (tileOrigin.adjacencyCodes[i].socketCodes[j] !=
-                    tileDest.adjacencyCodes[tileDest.GetInverse(i)].socketCodes[j])
-                    return false;
-            }
-
-            return true;
-        }
-
-        return false;
-    }
+    
 
     private void cleanUp()
     {
