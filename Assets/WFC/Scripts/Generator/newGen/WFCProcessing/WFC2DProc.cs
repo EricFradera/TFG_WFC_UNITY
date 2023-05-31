@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using DeBroglie;
 using DeBroglie.Models;
 using DeBroglie.Topo;
+using UnityEngine;
 using WFC;
 using Object = UnityEngine.Object;
+using Resolution = DeBroglie.Resolution;
 
 public class WFC2DProc : WFCAbstractProc
 {

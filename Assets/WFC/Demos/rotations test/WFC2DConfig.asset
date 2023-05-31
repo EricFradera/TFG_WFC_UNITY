@@ -232,6 +232,6 @@ MonoBehaviour:
   tileVisuals: {fileID: 0}
   tileTexture: {fileID: 2800000, guid: d10752ecf6a6fdc4ab500ebdf831311b, type: 3}
   rotationList:
+  - degrees: 0
   - degrees: 1
   - degrees: 2
-  - degrees: 3

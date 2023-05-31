@@ -25,7 +25,6 @@ namespace WFC
 
         public enum rotation
         {
-            noRotation,
             Degrees90,
             Degrees180,
             Degrees270,
@@ -69,7 +68,7 @@ namespace WFC
             if (rotationList.Length == 0) return res;
             foreach (var rotation in rotationList)
             {
-                res.Add(copyForRotation((int)rotation.degrees));
+                res.Add(copyForRotation((int)rotation.degrees + 1));
             }
 
             return res;
@@ -99,6 +98,7 @@ namespace WFC
             {
                 tempArray[(i + rotation) % listLenght] = adjacencyCodes[i];
             }
+
 
             return tempArray;
         }

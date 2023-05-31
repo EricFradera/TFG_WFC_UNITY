@@ -35,20 +35,9 @@ public class WFCSpawner2D : WFCSpawnerAbstact
                 }
                 else
                 {
-                    
-
                     var primitive = GameObject.CreatePrimitive(PrimitiveType.Quad);
                     primitive.transform.position = new Vector3(xCoord, 0, zCoord);
-                    
-                    if (useRotations)
-                    {
-                        primitive.transform.Rotate(new Vector3(90f, 0, (result.Get(i, j).rotationModule + 1) * 90));
-                    }
-                    else
-                    {
-                        primitive.transform.Rotate(new Vector3(90f, 0, 0));
-                    }
-
+                    primitive.transform.Rotate(new Vector3(90f, 0, (result.Get(i, j).rotationModule) * -90));
                     primitive.GetComponent<MeshRenderer>().material = genMat((WFC2DTile)result.Get(i, j));
                     gameObjectArray[i, j] = primitive;
                 }
@@ -74,20 +63,20 @@ public class WFCSpawner2D : WFCSpawnerAbstact
     public override void ClearPreviousIteration()
     {
         materials.Clear();
-         
-                 if (gameObjectArray == null)
-                 {
-                     for (int i = transform.childCount - 1; i >= 0; i--)
-                     {
-                         Object.DestroyImmediate(transform.GetChild(i).gameObject);
-                     }
-                 }
-                 else
-                 {
-                     foreach (var tile in gameObjectArray)
-                     {
-                         Object.DestroyImmediate(tile);
-                     }
-                 }
+
+        if (gameObjectArray == null)
+        {
+            for (int i = transform.childCount - 1; i >= 0; i--)
+            {
+                Object.DestroyImmediate(transform.GetChild(i).gameObject);
+            }
+        }
+        else
+        {
+            foreach (var tile in gameObjectArray)
+            {
+                Object.DestroyImmediate(tile);
+            }
+        }
     }
 }
