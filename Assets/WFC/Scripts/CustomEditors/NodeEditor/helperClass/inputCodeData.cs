@@ -8,7 +8,8 @@ using UnityEngine;
 public abstract class InputCodeData : ScriptableObject
 {
     public string uid;
-    public string code;
+    public string socketName;
+    public List<string> socketCodes;
     public bool isSymmetrical;
     public nodeData nodeData;
 
@@ -20,6 +21,8 @@ public abstract class InputCodeData : ScriptableObject
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
     }
+
+    public abstract string getCode(bool inverse);
 
     protected void GenerateUid() => uid = GUID.Generate().ToString();
 }

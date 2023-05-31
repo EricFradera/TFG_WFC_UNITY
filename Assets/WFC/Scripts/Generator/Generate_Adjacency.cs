@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Animations;
 using WFC;
@@ -32,12 +33,34 @@ public class Generate_Adjacency
 
     private bool match(WFCTile tileOrigin, WFCTile tileDest, int i)
     {
-        if (tileOrigin.adjacencyCodes[i].code is not null &&
-            tileDest.adjacencyCodes[tileDest.GetInverse(i)].code is not null)
+        var tileOriginSize = tileOrigin.adjacencyCodes[i].socketCodes.Count;
+        var tileDestSize = tileDest.adjacencyCodes[tileDest.GetInverse(i)].socketCodes.Count;
+
+        if (tileOriginSize == 0 || tileDestSize == 0) return false;
+        if (tileOriginSize != tileDestSize) return false;
+        for (int j = 0; j < tileOrigin.adjacencyCodes[i].socketCodes.Count(); j++)
         {
-            if (tileOrigin.adjacencyCodes[i].code == tileDest.adjacencyCodes[tileDest.GetInverse(i)].code)
-                return true;
+            if (tileOrigin.adjacencyCodes[i].getCode(false) !=
+                tileDest.adjacencyCodes[tileDest.GetInverse(i)].getCode(true))
+                return false;
         }
+        return true;
+    }
+
+    private bool checkCodes(WFCTile tileOrigin, WFCTile tileDest, int i)
+    {
+        if (tileOrigin.adjacencyCodes[i].socketCodes.Count == tileDest.adjacencyCodes[i].socketCodes.Count)
+        {
+            for (int j = 0; j < tileOrigin.adjacencyCodes[i].socketCodes.Count(); j++)
+            {
+                if (tileOrigin.adjacencyCodes[i].socketCodes[j] !=
+                    tileDest.adjacencyCodes[tileDest.GetInverse(i)].socketCodes[j])
+                    return false;
+            }
+
+            return true;
+        }
+
         return false;
     }
 

@@ -26,14 +26,14 @@ public class StringCodeNode : NodeComponent
         CreateInputPort();
         //Here we add the rest of stuf
         Label titleLabel = this.Q<Label>("title-label");
-        titleLabel.bindingPath = "code";
+        titleLabel.bindingPath = "socketName";
         titleLabel.Bind(new SerializedObject(codeData));
     }
 
     private void CreateInputPort()
     {
         input[0] = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Multi, typeof(bool));
-        input[0].portName = "Color";
+        input[0].portName = "Code";
         inputContainer.Add(input[0]);
     }
 
