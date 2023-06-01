@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8985404651794669373
+--- !u!114 &-8156496505516926227
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34fa54262e976104a85adc4cba5eead0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 542.8
-  y: 168.79999
+  x: 237.07999
+  y: -0.000015258789
   num: 1
   relationShips:
   - indexOutput: 0
-    inputTile: {fileID: 7265646286187750198}
+    inputTile: {fileID: 7674153501041222294}
     indexInput: 1
     inputCodeData: {fileID: 0}
 --- !u!114 &11400000
@@ -35,11 +35,11 @@ MonoBehaviour:
   configurationName: 
   configurationID: 0
   wfcTilesList:
-  - {fileID: 7265646286187750198}
-  - {fileID: 8311686671964851268}
+  - {fileID: 7674153501041222294}
+  - {fileID: 4392582278311578860}
   nodeHelpers: []
   useRotations: 0
---- !u!114 &2908226713040720266
+--- !u!114 &2304268933133175528
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -51,15 +51,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34fa54262e976104a85adc4cba5eead0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 141.44
-  y: 168.872
+  x: 0
+  y: 0
   num: 1
   relationShips:
   - indexOutput: 0
-    inputTile: {fileID: 8311686671964851268}
+    inputTile: {fileID: 4392582278311578860}
     indexInput: 1
     inputCodeData: {fileID: 0}
---- !u!114 &7265646286187750198
+--- !u!114 &4392582278311578860
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -72,17 +72,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileName: WFC1D tile
-  tileId: 97970e4b1d8681c4c8d7d7370e460816
+  tileId: 3e40d0ebd098934419a6fe8ffa8dffea
   frequency: 1
   rotationModule: 0
   adjacencyCodes:
   - {fileID: 0}
   - {fileID: 0}
-  nodeData: {fileID: 2908226713040720266}
+  nodeData: {fileID: -8156496505516926227}
   tileVisuals: {fileID: 0}
   flip: 0
-  tileTexture: {fileID: 2800000, guid: 43c604d0ac47a354db1e50ad12169e6d, type: 3}
---- !u!114 &8311686671964851268
+  tileTexture: {fileID: 0}
+--- !u!114 &7674153501041222294
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,13 +95,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileName: WFC1D tile
-  tileId: 02a24d8e6a927cc4b98e3bb00dfe82fb
+  tileId: 429c24226c587dc4da53978b0436f094
   frequency: 1
   rotationModule: 0
   adjacencyCodes:
   - {fileID: 0}
   - {fileID: 0}
-  nodeData: {fileID: -8985404651794669373}
+  nodeData: {fileID: 2304268933133175528}
   tileVisuals: {fileID: 0}
   flip: 0
-  tileTexture: {fileID: 2800000, guid: 43c604d0ac47a354db1e50ad12169e6d, type: 3}
+  tileTexture: {fileID: 0}

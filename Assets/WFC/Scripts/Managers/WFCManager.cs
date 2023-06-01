@@ -75,12 +75,9 @@ public abstract class WFCManager
     public void AddChild(WFCTile parent, WFCTile child, int dirParent, int dirChild)
     {
         if (parent == null || child == null) return;
-        parent.adjacencyPairs[dirParent].Add(child);
         parent.nodeData.addNewRel(dirParent, child, dirChild);
-        child.adjacencyPairs[dirChild].Add(parent);
         EditorUtility.SetDirty(wfcConfig);
         parent.saveData();
-        child.saveData();
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
     }
@@ -96,23 +93,13 @@ public abstract class WFCManager
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
     }
-
-    //here
+    
     public void RemoveChild(WFCTile parent, WFCTile child, int dirParent, int dirChild)
     {
-        try
-        {
-            parent.adjacencyPairs[dirParent].Remove(child);
-            child.adjacencyPairs[dirChild].Remove(parent);
-        }
-        catch (Exception e)
-        {
-            Debug.Log(e);
-        }
+        
         parent.nodeData.removeRel(dirParent, child, dirChild);
         EditorUtility.SetDirty(wfcConfig);
         parent.saveData();
-        child.saveData();
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
     }
