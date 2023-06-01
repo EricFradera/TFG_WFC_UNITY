@@ -14,16 +14,16 @@ using WFC;
 
 public abstract class NodeComponent : Node
 {
-    public Port[] input;
+    public Port input;
     public Port[] output;
     public Action<NodeComponent> OnNodeSelection;
     protected String[] portNames;
 
-    protected void CreateInputPort(int dir)
+    protected void CreateInputPort()
     {
-        input[dir] = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Multi, typeof(bool));
-        input[dir].portName = portNames[dir];
-        inputContainer.Add(input[dir]);
+        input = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Multi, typeof(bool));
+        input.portName = "input";
+        inputContainer.Add(input);
     }
 
     protected void CreateOutputPort(int dir)

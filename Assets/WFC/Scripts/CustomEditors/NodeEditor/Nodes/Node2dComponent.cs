@@ -16,9 +16,9 @@ public class Node2dComponent : NodeTileComponent
         portNames = new[] { "up", "right", "down", "left" };
         for (int i = 0; i < tile.Getdim(); i++)
         {
-            CreateInputPort(i);
             CreateOutputPort(i);
         }
+        CreateInputPort();
 
         ImageView();
     }

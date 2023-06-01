@@ -14,9 +14,9 @@ public class NodeHEXComponent : NodeTileComponent
         portNames = new[] { "up", "upRight", "downRight", "down", "downLeft", "upLeft" };
         for (int i = 0; i < tile.Getdim(); i++)
         {
-            CreateInputPort(i);
             CreateOutputPort(i);
         }
+        CreateInputPort();
         //ImageView();
     }
 

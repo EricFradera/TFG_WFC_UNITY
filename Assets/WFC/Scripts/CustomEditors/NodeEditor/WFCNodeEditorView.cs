@@ -54,14 +54,14 @@ public class WFCNodeEditorView : GraphView
                         var childTileComponent = FindNodeComponent(relationInputTile);
                         childTileComponent.SetPosition(relationInputTile.nodeData.getPosition());
                         Edge edgeTile = parentComponent.output[relation.indexOutput]
-                            .ConnectTo(childTileComponent.input[relation.indexInput]);
+                            .ConnectTo(childTileComponent.input);
                         AddElement(edgeTile);
                         break;
                     case InputCodeData relationInputHelper:
                         var childHelperComponent = FindHelperNode(relationInputHelper);
                         childHelperComponent.SetPosition(relationInputHelper.nodeData.getPosition());
                         Edge edgeHelper = parentComponent.output[relation.indexOutput]
-                            .ConnectTo(childHelperComponent.input[0]);
+                            .ConnectTo(childHelperComponent.input);
                         AddElement(edgeHelper);
                         break;
                 }

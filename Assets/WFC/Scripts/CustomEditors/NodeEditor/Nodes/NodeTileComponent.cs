@@ -16,7 +16,6 @@ public class NodeTileComponent : NodeComponent
         this.tile = tile;
         this.viewDataKey = tile.tileId;
         this.title = tile.tileName;
-        input = new Port[tile.Getdim()];
         output = new Port[tile.Getdim()];
         style.left = tile.nodeData.x;
         style.top = tile.nodeData.y;

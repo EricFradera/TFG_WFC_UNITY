@@ -21,14 +21,12 @@ public class nodeData : ScriptableObject
     {
         public int indexOutput;
         public WFCTile inputTile;
-        public int indexInput;
         public InputCodeData inputCodeData;
 
-        public void setTileRel(int indexOutput, WFCTile inputTile, int indexInput)
+        public void setTileRel(int indexOutput, WFCTile inputTile)
         {
             this.indexOutput = indexOutput;
             this.inputTile = inputTile;
-            this.indexInput = indexInput;
             this.inputCodeData = null;
         }
 
@@ -36,7 +34,6 @@ public class nodeData : ScriptableObject
         {
             this.indexOutput = indexOutput;
             this.inputCodeData = inputTile;
-            this.indexInput = 0;
             this.inputTile = null;
         }
 
@@ -63,11 +60,10 @@ public class nodeData : ScriptableObject
         AssetDatabase.Refresh();
     }
 
-    public void removeRel(int dirParent, object child, int dirChild)
+    public void removeRel(int dirParent, object child)
     {
         foreach (var relation in relationShips.Where(relation =>
-                     relation.indexOutput == dirParent && relation.inputTile == child &&
-                     relation.indexInput == dirChild))
+                     relation.indexOutput == dirParent && relation.inputTile == child))
         {
             relationShips.Remove(relation);
             return;
@@ -83,10 +79,10 @@ public class nodeData : ScriptableObject
         AssetDatabase.Refresh();
     }
 
-    public void addNewRel(int dirParent, WFCTile child, int dirChild)
+    public void addNewRel(int dirParent, WFCTile child)
     {
         var newRel = new nodeRelation();
-        newRel.setTileRel(dirParent, child, dirChild);
+        newRel.setTileRel(dirParent, child);
         relationShips.Add(newRel);
         num++;
         AssetDatabase.SaveAssets();

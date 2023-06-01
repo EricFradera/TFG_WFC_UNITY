@@ -14,9 +14,9 @@ public class Node1dComponent : NodeTileComponent
         portNames = new[] { "right", "left" };
         for (int i = 0; i < 2; i++)
         {
-            CreateInputPort(i);
             CreateOutputPort(i);
         }
+        CreateInputPort();
         //ImageView();
     }
 

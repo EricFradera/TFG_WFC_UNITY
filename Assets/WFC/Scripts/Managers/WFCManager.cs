@@ -19,7 +19,7 @@ public abstract class WFCManager
     //abstract methods
     public abstract WFCTile CreateNodeTile();
     public abstract EditorManager getEditorManager();
-    
+
 
     protected void createNodeData(WFCTile nodeTile)
     {
@@ -72,10 +72,10 @@ public abstract class WFCManager
         AssetDatabase.Refresh();
     }
 
-    public void AddChild(WFCTile parent, WFCTile child, int dirParent, int dirChild)
+    public void AddChild(WFCTile parent, WFCTile child, int dirParent)
     {
         if (parent == null || child == null) return;
-        parent.nodeData.addNewRel(dirParent, child, dirChild);
+        parent.nodeData.addNewRel(dirParent, child);
         EditorUtility.SetDirty(wfcConfig);
         parent.saveData();
         AssetDatabase.SaveAssets();
@@ -86,18 +86,17 @@ public abstract class WFCManager
     {
         if (data == null || tile == null) return;
         tile.nodeData.addNewRel(dir, data);
-        data.nodeData.addNewRel(dir, tile, 0);
+        data.nodeData.addNewRel(dir, tile);
         tile.adjacencyCodes[dir] = data;
         EditorUtility.SetDirty(wfcConfig);
         tile.saveData();
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
     }
-    
+
     public void RemoveChild(WFCTile parent, WFCTile child, int dirParent, int dirChild)
     {
-        
-        parent.nodeData.removeRel(dirParent, child, dirChild);
+        parent.nodeData.removeRel(dirParent, child);
         EditorUtility.SetDirty(wfcConfig);
         parent.saveData();
         AssetDatabase.SaveAssets();
@@ -107,7 +106,7 @@ public abstract class WFCManager
     public void removeHelper(StringCodeData codeData, WFCTile tile, int dirParent)
     {
         tile.adjacencyCodes[dirParent] = null;
-        tile.nodeData.removeRel(dirParent, codeData, 0);
+        tile.nodeData.removeRel(dirParent, codeData);
         EditorUtility.SetDirty(wfcConfig);
         tile.saveData();
         AssetDatabase.SaveAssets();

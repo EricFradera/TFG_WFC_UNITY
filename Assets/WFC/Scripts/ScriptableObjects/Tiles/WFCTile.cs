@@ -68,7 +68,6 @@ public abstract class WFCTile : ScriptableObject
             if (adjacencyPairs[i].Count != 0)
                 GeneratedAdjacencyPairs[i].AddRange(adjacencyPairs[i]);
         }
-            
     }
 
     public void genWithRelAdjacency()
@@ -77,7 +76,7 @@ public abstract class WFCTile : ScriptableObject
         {
             if (rel.inputTile is null) continue;
             adjacencyPairs[rel.indexOutput].Add(rel.inputTile);
-            rel.inputTile.addRel(this,rel.indexInput);
+            rel.inputTile.addRel(this, this.GetInverse(rel.indexOutput));
         }
     }
 

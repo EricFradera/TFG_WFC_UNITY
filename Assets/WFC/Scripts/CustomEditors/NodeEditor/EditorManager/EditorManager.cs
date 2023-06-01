@@ -49,8 +49,7 @@ public abstract class EditorManager
         switch (edge.input.node)
         {
             case NodeTileComponent inputNode when edge.output.node is NodeTileComponent outputNode:
-                wfcConfigManager.AddChild(outputNode.tile, inputNode.tile, dirHelper(edge.output.portName),
-                    dirHelper(edge.input.portName));
+                wfcConfigManager.AddChild(outputNode.tile, inputNode.tile, dirHelper(edge.output.portName));
                 break;
             case StringCodeNode inputNode when edge.output.node is NodeTileComponent outputNode:
                 wfcConfigManager.AddHelper(inputNode.codeData, outputNode.tile, dirHelper(edge.output.portName));
