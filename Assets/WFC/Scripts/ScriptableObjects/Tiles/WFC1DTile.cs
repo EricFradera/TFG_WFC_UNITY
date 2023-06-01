@@ -16,6 +16,7 @@ public class WFC1DTile : WFCTile
         dim = 2;
         this.adjacencyCodes = new InputCodeData[dim];
         this.adjacencyPairs = new List<WFCTile>[dim];
+        this.GeneratedAdjacencyPairs = new List<WFCTile>[dim];
     }
 
     private enum IndexDirection

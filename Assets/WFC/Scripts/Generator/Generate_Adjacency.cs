@@ -12,7 +12,7 @@ using Debug = UnityEngine.Debug;
 public class Generate_Adjacency
 {
     private List<WFCTile> _adjacencyGen;
-    
+
     public void match_Tiles(List<WFCTile> newList)
     {
         _adjacencyGen = newList;
@@ -24,14 +24,19 @@ public class Generate_Adjacency
                 for (int i = 0; i < tileOrigin.adjacencyCodes.Length; i++)
                 {
                     if (match(tileOrigin, tileDest, i))
-                        tileOrigin.adjacencyPairs[i].Add(tileDest);
+                        tileOrigin.GeneratedAdjacencyPairs[i].Add(tileDest);
                 }
             }
+
+            tileOrigin.MixAdj();
         }
     }
 
     private bool match(WFCTile tileOrigin, WFCTile tileDest, int i)
     {
+        if (tileOrigin.adjacencyCodes[i] is null || tileDest.adjacencyCodes[tileDest.GetInverse(i)] is null)
+            return false;
+        
         var tileOriginSize = tileOrigin.adjacencyCodes[i].socketCodes.Count;
         var tileDestSize = tileDest.adjacencyCodes[tileDest.GetInverse(i)].socketCodes.Count;
 
@@ -43,18 +48,19 @@ public class Generate_Adjacency
                 tileDest.adjacencyCodes[tileDest.GetInverse(i)].getCode(true))
                 return false;
         }
+
         return true;
     }
-    
+
 
     private void cleanUp()
     {
         foreach (var tile in _adjacencyGen)
         {
-            for (int i = 0; i < tile.adjacencyPairs.Length; i++)
+            for (int i = 0; i < tile.GeneratedAdjacencyPairs.Length; i++)
             {
-                if (tile.adjacencyPairs[i] is null) tile.adjacencyPairs[i] = new List<WFCTile>();
-                else tile.adjacencyPairs[i].Clear();
+                if (tile.GeneratedAdjacencyPairs[i] is null) tile.GeneratedAdjacencyPairs[i] = new List<WFCTile>();
+                else tile.GeneratedAdjacencyPairs[i].Clear();
             }
         }
     }

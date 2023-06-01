@@ -98,7 +98,7 @@ namespace WFC
                 //tileList.Add(tileMap[tile]);
             }
 
-            for (int i = 0; i < tileData.Count; i++)
+            /*for (int i = 0; i < tileData.Count; i++)
             {
                 for (int dir = 0; dir < tileData[i].adjacencyPairs.Length; dir++)
                 {
@@ -108,7 +108,7 @@ namespace WFC
                             direction[dir]);
                     }
                 }
-            }
+            }*/
             return model;
         }
     }

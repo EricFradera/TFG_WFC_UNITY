@@ -14,7 +14,7 @@ public abstract class WFCTile : ScriptableObject
 
     //Sides
     protected int dim;
-    public float frequency=1f;
+    public float frequency = 1f;
 
     //rotation ver
     public int rotationModule = 0;
@@ -24,8 +24,9 @@ public abstract class WFCTile : ScriptableObject
 
     //this is not getting serialised, so it won't save between sessions
     public List<WFCTile>[] adjacencyPairs;
+
     //I need a second structure here
-    //public List<WFCTile>[] GeneratedAdjacencyPairs;
+    public List<WFCTile>[] GeneratedAdjacencyPairs;
 
 
     // Node data
@@ -33,7 +34,7 @@ public abstract class WFCTile : ScriptableObject
 
     //Asset data
     [JsonIgnore] public GameObject tileVisuals;
-    
+
 
     //always have to be an inverse function for tile matching
     public abstract int GetInverse(int indexDirection);
@@ -50,12 +51,24 @@ public abstract class WFCTile : ScriptableObject
     {
         adjacencyCodes = new InputCodeData[dim];
         for (int i = 0; i < dim; i++) this.adjacencyPairs[i] = new List<WFCTile>();
+        for (int i = 0; i < dim; i++) this.GeneratedAdjacencyPairs[i] = new List<WFCTile>();
     }
 
     public void deleteNodeData()
     {
         nodeData.deleteAllRelFromTile();
         AssetDatabase.RemoveObjectFromAsset(nodeData);
+    }
+
+    public void MixAdj()
+    {
+        for (int i = 0; i < dim; i++)
+        {
+            if (adjacencyPairs[i] is null) continue;
+            if (adjacencyPairs[i].Count != 0)
+                GeneratedAdjacencyPairs[i].AddRange(adjacencyPairs[i]);
+        }
+            
     }
 
 

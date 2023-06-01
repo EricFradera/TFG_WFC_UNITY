@@ -43,11 +43,11 @@ public class WFC1DProc : WFCAbstractProc
 
         for (int i = 0; i < genList.Count; i++)
         {
-            for (int dir = 0; dir < genList[i].adjacencyPairs.Length; dir++)
+            for (int dir = 0; dir < genList[i].GeneratedAdjacencyPairs.Length; dir++)
             {
-                for (int j = 0; j < genList[i].adjacencyPairs[dir].Count; j++)
+                for (int j = 0; j < genList[i].GeneratedAdjacencyPairs[dir].Count; j++)
                 {
-                    model.AddAdjacency(tileMap[genList[i]], tileMap[genList[i].adjacencyPairs[dir][j]],
+                    model.AddAdjacency(tileMap[genList[i]], tileMap[genList[i].GeneratedAdjacencyPairs[dir][j]],
                         direction[dir]);
                 }
             }

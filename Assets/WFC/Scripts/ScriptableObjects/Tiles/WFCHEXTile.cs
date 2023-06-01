@@ -9,6 +9,7 @@ public class WFCHEXTile : WFCTile
         dim = 6;
         adjacencyCodes = new InputCodeData[dim];
         adjacencyPairs = new List<WFCTile>[dim];
+        GeneratedAdjacencyPairs = new List<WFCTile>[dim];
     }
 
     private enum IndexDirection
