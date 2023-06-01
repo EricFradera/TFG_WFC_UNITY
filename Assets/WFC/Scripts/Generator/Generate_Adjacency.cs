@@ -17,6 +17,8 @@ public class Generate_Adjacency
     {
         _adjacencyGen = newList;
         cleanUp();
+        foreach (var tile in _adjacencyGen)tile.genWithRelAdjacency();
+        
         foreach (var tileOrigin in _adjacencyGen)
         {
             foreach (var tileDest in _adjacencyGen)
@@ -27,7 +29,6 @@ public class Generate_Adjacency
                         tileOrigin.GeneratedAdjacencyPairs[i].Add(tileDest);
                 }
             }
-
             tileOrigin.MixAdj();
         }
     }

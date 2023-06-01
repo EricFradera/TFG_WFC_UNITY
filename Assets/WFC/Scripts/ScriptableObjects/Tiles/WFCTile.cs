@@ -71,6 +71,21 @@ public abstract class WFCTile : ScriptableObject
             
     }
 
+    public void genWithRelAdjacency()
+    {
+        foreach (var rel in nodeData.relationShips)
+        {
+            if (rel.inputTile is null) continue;
+            adjacencyPairs[rel.indexOutput].Add(rel.inputTile);
+            rel.inputTile.addRel(this,rel.indexInput);
+        }
+    }
+
+    public void addRel(WFCTile parent, int index)
+    {
+        adjacencyPairs[index].Add(parent);
+    }
+
 
     public int Getdim()
     {
