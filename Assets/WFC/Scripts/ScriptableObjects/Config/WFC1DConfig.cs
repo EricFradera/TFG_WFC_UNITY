@@ -16,7 +16,7 @@ public class WFC1DConfig : WFCConfig
     public override WFCSpawnerAbstact CreateSpawner(Transform transform, int lineCount, float m_gridSize,
         float m_gridExtent)
     {
-        throw new NotImplementedException();
+        return new WFCSpawner1D(transform, lineCount, m_gridSize, m_gridExtent);
     }
 
     public override WFCAbstractProc CreateProcessor(List<WFCTile> listOfTiles, WFCManager manager)

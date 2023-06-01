@@ -41,7 +41,7 @@ public class WFCSpawner2D : WFCSpawnerAbstact
                     primitive.GetComponent<MeshRenderer>().material = genMat((WFC2DTile)result.Get(i, j));
                     gameObjectArray[i, j] = primitive;
                 }
-                gameObjectArray[i, j].transform.localScale = new Vector3(m_gridSize, 1, m_gridSize);
+                gameObjectArray[i, j].transform.localScale = new Vector3(m_gridSize, m_gridSize, 1);
                 gameObjectArray[i, j].transform.parent = this.transform;
             }
         }

@@ -24,6 +24,9 @@ public abstract class WFCTile : ScriptableObject
 
     //this is not getting serialised, so it won't save between sessions
     public List<WFCTile>[] adjacencyPairs;
+    //I need a second structure here
+    //public List<WFCTile>[] GeneratedAdjacencyPairs;
+
 
     // Node data
     public nodeData nodeData;

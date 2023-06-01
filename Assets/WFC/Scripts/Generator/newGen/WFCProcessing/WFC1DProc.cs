@@ -20,7 +20,7 @@ public class WFC1DProc : WFCAbstractProc
         if (listOfTiles is null) throw new Exception("List of tiles is Empty");
         var model = RunModel();
         var topology = new GridTopology(size, 1, periodic: false);
-        var propagator = new TilePropagator(model, topology, true); //backtrackinh need s tp be able to turn off
+        var propagator = new TilePropagator(model, topology, true); //backtracking need s tp be able to turn off
         var status = propagator.Run();
         if (status != Resolution.Decided) throw new Exception("The WFC resulted as undecided");
         var output = propagator.ToValueArray<WFCTile>();

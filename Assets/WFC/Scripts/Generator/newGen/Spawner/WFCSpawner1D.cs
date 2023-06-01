@@ -16,7 +16,18 @@ public class WFCSpawner1D : WFCSpawnerAbstact
 
     public override void spawnTiles(ITopoArray<WFCTile> result, bool useRotations)
     {
-        if (lineCount % 2 == 0) lineCount++;
+        var primitive = GameObject.CreatePrimitive(PrimitiveType.Quad);
+
+        var sliptCount = m_gridExtent / m_gridSize;
+        
+        float xCoord = (2-Mathf.RoundToInt(m_gridSize) / 2)*sliptCount;
+        
+        primitive.transform.position = new Vector3(xCoord, 0, 0);
+        primitive.transform.Rotate(new Vector3(90f, 0, 0));
+        primitive.transform.localScale = new Vector3(m_gridExtent / m_gridSize, m_gridExtent / m_gridSize, 1);
+        //Mathf.RoundToInt(gridSize)
+    }
+    /*if (lineCount % 2 == 0) lineCount++;
         lineCount--;
         var halfLines = lineCount / 2;
 
@@ -28,24 +39,15 @@ public class WFCSpawner1D : WFCSpawnerAbstact
                 float zCoord = (j - halfLines) * m_gridSize + (m_gridSize / 2);
                 if (false)
                 {
-                    /*gameObjectArray[i, j] = (GameObject)Instantiate(result.Get(i, j).tileVisuals,
+                    gameObjectArray[i, j] = Object.Instantiate(result.Get(i, j).tileVisuals,
                         new Vector3(xCoord, 0, zCoord),
-                        transform.rotation);*/
+                        transform.rotation);
                 }
                 else
                 {
                     var primitive = GameObject.CreatePrimitive(PrimitiveType.Quad);
                     primitive.transform.position = new Vector3(xCoord, 0, zCoord);
-
-                    if (useRotations)
-                    {
-                        primitive.transform.Rotate(new Vector3(90f, 0, (result.Get(i, j).rotationModule + 1) * 90));
-                    }
-                    else
-                    {
-                        primitive.transform.Rotate(new Vector3(90f, 0, 0));
-                    }
-
+                    primitive.transform.Rotate(new Vector3(90f, 0, (result.Get(i, j).rotationModule) * -90));
                     primitive.GetComponent<MeshRenderer>().material = genMat((WFC1DTile)result.Get(i, j));
                     gameObjectArray[i, j] = primitive;
                 }
@@ -53,8 +55,7 @@ public class WFCSpawner1D : WFCSpawnerAbstact
                 gameObjectArray[i, j].transform.localScale = new Vector3(m_gridSize, 1, m_gridSize);
                 gameObjectArray[i, j].transform.parent = this.transform;
             }
-        }
-    }
+        }*/
 
     private Material genMat(WFC1DTile tile)
     {

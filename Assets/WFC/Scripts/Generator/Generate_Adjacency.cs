@@ -12,8 +12,7 @@ using Debug = UnityEngine.Debug;
 public class Generate_Adjacency
 {
     private List<WFCTile> _adjacencyGen;
-
-
+    
     public void match_Tiles(List<WFCTile> newList)
     {
         _adjacencyGen = newList;
