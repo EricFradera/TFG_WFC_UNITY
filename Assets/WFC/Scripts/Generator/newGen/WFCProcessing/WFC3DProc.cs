@@ -17,8 +17,12 @@ public class WFC3DProc : WFCAbstractProc
     {
     }
 
-    public override ITopoArray<WFCTile> RunWFC(int size)
+    public override ITopoArray<WFCTile> RunWFC(float m_gridExtent, float m_gridSize)
     {
+        var size = Mathf.RoundToInt((m_gridExtent * 2) / m_gridSize);
+        if (size % 2 == 0) size++;
+        size--;
+
         if (listOfTiles is null) throw new Exception("List of tiles is Empty");
         var model = RunModel();
         var topology = new GridTopology(size, size, size, periodic: false);

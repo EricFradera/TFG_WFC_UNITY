@@ -61,7 +61,7 @@ MonoBehaviour:
   nodeData: {fileID: 4553272942373801569}
   tileVisuals: {fileID: 0}
   flip: 0
-  tileTexture: {fileID: 0}
+  tileTexture: {fileID: 2800000, guid: 43c604d0ac47a354db1e50ad12169e6d, type: 3}
 --- !u!114 &2018842581775747013
 MonoBehaviour:
   m_ObjectHideFlags: 0

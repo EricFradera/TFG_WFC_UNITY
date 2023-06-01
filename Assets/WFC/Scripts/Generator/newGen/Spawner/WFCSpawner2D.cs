@@ -20,6 +20,7 @@ public class WFCSpawner2D : WFCSpawnerAbstact
         if (lineCount % 2 == 0) lineCount++;
         lineCount--;
         var halfLines = lineCount / 2;
+        GameObject primitive;
 
         for (int i = 0; i < lineCount; i++)
         {
@@ -35,12 +36,13 @@ public class WFCSpawner2D : WFCSpawnerAbstact
                 }
                 else
                 {
-                    var primitive = GameObject.CreatePrimitive(PrimitiveType.Quad);
+                    primitive = GameObject.CreatePrimitive(PrimitiveType.Quad);
                     primitive.transform.position = new Vector3(xCoord, 0, zCoord);
                     primitive.transform.Rotate(new Vector3(90f, 0, (result.Get(i, j).rotationModule) * -90));
                     primitive.GetComponent<MeshRenderer>().material = genMat((WFC2DTile)result.Get(i, j));
                     gameObjectArray[i, j] = primitive;
                 }
+
                 gameObjectArray[i, j].transform.localScale = new Vector3(m_gridSize, m_gridSize, 1);
                 gameObjectArray[i, j].transform.parent = this.transform;
             }
