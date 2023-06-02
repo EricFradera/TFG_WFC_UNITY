@@ -19,7 +19,6 @@ public class StringCodeNode : NodeComponent
         this.codeData = (StringCodeData)codeData;
         this.viewDataKey = codeData.uid;
         this.title = "String code node";
-        portNames = new[] { "code" };
         style.left = codeData.nodeData.x;
         style.top = codeData.nodeData.y;
         CreateInputPort();
@@ -33,7 +32,7 @@ public class StringCodeNode : NodeComponent
     {
         input = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Multi, typeof(bool));
         input.portName = "Code";
-        inputContainer.Add(input[0]);
+        inputContainer.Add(input);
     }
 
     protected override void setNodePos(float x, float y)
