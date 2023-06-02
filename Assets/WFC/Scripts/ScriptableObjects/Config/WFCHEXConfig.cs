@@ -14,9 +14,10 @@ public class WFCHexConfig : WFCConfig
         return new WFCHEXManager(this);
     }
 
-    public override WFCSpawnerAbstact CreateSpawner(Transform transform, int lineCount, float m_gridSize, float m_gridExtent)
+    public override WFCSpawnerAbstact CreateSpawner(Transform transform, int lineCount, float m_gridSize,
+        float m_gridExtent)
     {
-        throw new NotImplementedException();
+        return new WFCSpawnerHex(transform, lineCount, m_gridSize, m_gridExtent);
     }
 
     public override WFCAbstractProc CreateProcessor(List<WFCTile> listOfTiles, WFCManager manager)

@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using UnityEngine;
 
 public class WFCHEXTile : WFCTile
 {
+    [JsonIgnore] public Texture2D tileTexture;
     public WFCHEXTile()
     {
         dim = 6;
@@ -39,11 +42,11 @@ public class WFCHEXTile : WFCTile
 
     public override List<WFCTile> getRotationTiles()
     {
-        throw new System.NotImplementedException();
+        throw new Exception("This not currently supported");
     }
 
     protected override WFCTile copyForRotation( int rot)
     {
-        throw new System.NotImplementedException();
+        throw new Exception("This not currently supported");
     }
 }
