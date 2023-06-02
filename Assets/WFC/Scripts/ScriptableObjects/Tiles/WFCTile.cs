@@ -50,10 +50,17 @@ public abstract class WFCTile : ScriptableObject
     public void InitDataStructures()
     {
         if (adjacencyCodes is null) adjacencyCodes = new InputCodeData[dim];
-        if (adjacencyPairs is null) adjacencyPairs = new List<WFCTile>[dim];
-        if (GeneratedAdjacencyPairs is null) GeneratedAdjacencyPairs = new List<WFCTile>[dim];
-        for (int i = 0; i < dim; i++) adjacencyPairs[i] = new List<WFCTile>();
-        for (int i = 0; i < dim; i++) GeneratedAdjacencyPairs[i] = new List<WFCTile>();
+        if (adjacencyPairs is null)
+        {
+            adjacencyPairs = new List<WFCTile>[dim];
+            for (int i = 0; i < dim; i++) adjacencyPairs[i] = new List<WFCTile>();
+        }
+
+        if (GeneratedAdjacencyPairs is null)
+        {
+            GeneratedAdjacencyPairs = new List<WFCTile>[dim];
+            for (int i = 0; i < dim; i++) GeneratedAdjacencyPairs[i] = new List<WFCTile>();
+        }
     }
 
     public void deleteNodeData()
@@ -85,7 +92,7 @@ public abstract class WFCTile : ScriptableObject
 
     public void addRel(WFCTile parent, int index)
     {
-        if (adjacencyPairs is null)InitDataStructures();
+        if (adjacencyPairs is null) InitDataStructures();
         adjacencyPairs[index].Add(parent);
     }
 
