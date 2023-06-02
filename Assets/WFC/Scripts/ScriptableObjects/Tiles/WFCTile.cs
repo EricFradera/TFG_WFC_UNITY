@@ -85,6 +85,8 @@ public abstract class WFCTile : ScriptableObject
         foreach (var rel in nodeData.relationShips)
         {
             if (rel.inputTile is null) continue;
+            adjacencyPairs ??= new List<WFCTile>[dim];
+            adjacencyPairs[rel.indexOutput] ??= new List<WFCTile>();
             adjacencyPairs[rel.indexOutput].Add(rel.inputTile);
             rel.inputTile.addRel(this, this.GetInverse(rel.indexOutput));
         }
@@ -92,7 +94,8 @@ public abstract class WFCTile : ScriptableObject
 
     public void addRel(WFCTile parent, int index)
     {
-        if (adjacencyPairs is null) InitDataStructures();
+        if (adjacencyPairs is null) adjacencyPairs = new List<WFCTile>[dim];
+        if (adjacencyPairs[index] is null) adjacencyPairs[index] = new List<WFCTile>();
         adjacencyPairs[index].Add(parent);
     }
 
