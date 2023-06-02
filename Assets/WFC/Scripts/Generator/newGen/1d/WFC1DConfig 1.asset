@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   x: 1141.6
-  y: 317.60004
+  y: 317.6
   num: 0
   relationShips: []
 --- !u!114 &-2227351088386354827
@@ -116,8 +116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34fa54262e976104a85adc4cba5eead0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 836.80005
-  y: 113
+  x: 820
+  y: 105.4
   num: 2
   relationShips:
   - indexOutput: 0

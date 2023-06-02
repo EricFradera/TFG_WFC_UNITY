@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class WFCHEXProc : WFCAbstractProc
 {
-    private Direction[] direction = { Di };
+    private Direction[] direction = { };
     private List<WFCTile> listOfRotatedTiles;
     private bool useRotation;
 

@@ -78,11 +78,9 @@ MonoBehaviour:
   relationShips:
   - indexOutput: 1
     inputTile: {fileID: 7351650836724426705}
-    indexInput: 0
     inputCodeData: {fileID: 0}
   - indexOutput: 2
     inputTile: {fileID: 7351650836724426705}
-    indexInput: 0
     inputCodeData: {fileID: 0}
 --- !u!114 &4841665385883773036
 MonoBehaviour:
@@ -102,19 +100,15 @@ MonoBehaviour:
   relationShips:
   - indexOutput: 0
     inputTile: {fileID: 0}
-    indexInput: 0
     inputCodeData: {fileID: -4349503812782463007}
   - indexOutput: 3
     inputTile: {fileID: 0}
-    indexInput: 0
     inputCodeData: {fileID: -4349503812782463007}
   - indexOutput: 1
     inputTile: {fileID: 0}
-    indexInput: 0
     inputCodeData: {fileID: -3284545374100404967}
   - indexOutput: 2
     inputTile: {fileID: 0}
-    indexInput: 0
     inputCodeData: {fileID: -3284545374100404967}
 --- !u!114 &7351650836724426705
 MonoBehaviour:
@@ -156,15 +150,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34fa54262e976104a85adc4cba5eead0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 500.12003
+  x: 569
   y: 252
   num: 2
   relationShips:
   - indexOutput: 0
     inputTile: {fileID: 7351650836724426705}
-    indexInput: 0
     inputCodeData: {fileID: 0}
   - indexOutput: 3
     inputTile: {fileID: 7351650836724426705}
-    indexInput: 0
     inputCodeData: {fileID: 0}
