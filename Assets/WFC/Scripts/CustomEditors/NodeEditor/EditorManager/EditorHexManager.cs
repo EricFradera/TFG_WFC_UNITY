@@ -31,12 +31,12 @@ public class EditorHexManager : EditorManager
     {
         return dirName switch
         {
-            "up" => 0,
-            "upRight" => 1,
-            "downRight" => 2,
-            "down" => 3,
-            "downLeft" => 4,
-            "upLeft" => 5,
+            "Y-" => 0,
+            "X+" => 1,
+            "Z-" => 2,
+            "Y+" => 3,
+            "X-" => 4,
+            "Z+" => 5,
             _ => -1
         };
     }

@@ -32,12 +32,12 @@ public class Editor3DManager : EditorManager
     {
         return dirName switch
         {
-            "y+" => 0,
-            "y-" => 1,
-            "x+" => 2,
-            "x-" => 3,
-            "z+" => 4,
-            "z-" => 5,
+            "Y+" => 0,
+            "Y-" => 1,
+            "X+" => 2,
+            "X-" => 3,
+            "Z+" => 4,
+            "Z-" => 5,
             _ => -1
         };
     }

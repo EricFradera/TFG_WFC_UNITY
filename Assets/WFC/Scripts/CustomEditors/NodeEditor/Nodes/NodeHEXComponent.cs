@@ -11,11 +11,12 @@ public class NodeHEXComponent : NodeTileComponent
 {
     public NodeHEXComponent(WFCHEXTile tile) : base(tile)
     {
-        portNames = new[] { "up", "upRight", "downRight", "down", "downLeft", "upLeft" };
+        portNames = new[] { "Y-", "X+", "Z-", "Y+", "X-", "Z+" };
         for (int i = 0; i < tile.Getdim(); i++)
         {
             CreateOutputPort(i);
         }
+
         CreateInputPort();
         //ImageView();
     }

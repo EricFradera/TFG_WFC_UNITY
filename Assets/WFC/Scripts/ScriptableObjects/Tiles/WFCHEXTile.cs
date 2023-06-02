@@ -7,6 +7,7 @@ using UnityEngine;
 public class WFCHEXTile : WFCTile
 {
     [JsonIgnore] public Texture2D tileTexture;
+
     public WFCHEXTile()
     {
         dim = 6;
@@ -17,24 +18,24 @@ public class WFCHEXTile : WFCTile
 
     private enum IndexDirection
     {
-        UP,
-        RIGHTUP,
-        RIGHTDOWN,
-        DOWN,
-        LEFTDOWN,
-        LEFTUP
+        YMINUS,
+        XPLUS,
+        ZMINUS,
+        YPLUS,
+        XMINUS,
+        ZPLUS
     }
 
     public override int GetInverse(int indexDirection)
     {
         return (IndexDirection)indexDirection switch
         {
-            IndexDirection.UP => (int)IndexDirection.DOWN,
-            IndexDirection.RIGHTUP => (int)IndexDirection.LEFTDOWN,
-            IndexDirection.RIGHTDOWN => (int)IndexDirection.LEFTUP,
-            IndexDirection.DOWN => (int)IndexDirection.UP,
-            IndexDirection.LEFTDOWN => (int)IndexDirection.RIGHTUP,
-            IndexDirection.LEFTUP => (int)IndexDirection.RIGHTDOWN,
+            IndexDirection.YMINUS => (int)IndexDirection.YPLUS,
+            IndexDirection.XPLUS => (int)IndexDirection.XMINUS,
+            IndexDirection.ZMINUS => (int)IndexDirection.ZPLUS,
+            IndexDirection.YPLUS => (int)IndexDirection.YMINUS,
+            IndexDirection.XMINUS => (int)IndexDirection.XPLUS,
+            IndexDirection.ZPLUS => (int)IndexDirection.ZMINUS,
             _ => -1
         };
     }
@@ -45,7 +46,7 @@ public class WFCHEXTile : WFCTile
         throw new Exception("This not currently supported");
     }
 
-    protected override WFCTile copyForRotation( int rot)
+    protected override WFCTile copyForRotation(int rot)
     {
         throw new Exception("This not currently supported");
     }

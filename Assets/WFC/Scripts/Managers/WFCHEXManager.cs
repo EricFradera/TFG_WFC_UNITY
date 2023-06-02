@@ -13,7 +13,7 @@ public class WFCHEXManager : WFCManager
     public override WFCTile CreateNodeTile()
     {
         WFCHEXTile nodeTile = ScriptableObject.CreateInstance<WFCHEXTile>();
-        nodeTile.tileName = "WFC2D tile";
+        nodeTile.tileName = "HEX tile";
         nodeTile.InitDataStructures();
         nodeTile.tileId = GUID.Generate().ToString();
         wfcConfig.wfcTilesList.Add(nodeTile);

@@ -29,7 +29,7 @@ public class WFC2DProc : WFCAbstractProc
         if (listOfTiles is null) throw new Exception("List of tiles is Empty");
         var model = RunModel();
         var topology = new GridTopology(size, size, periodic: false);
-        var propagator = new TilePropagator(model, topology, true); //backtrackinh need s tp be able to turn off
+        var propagator = new TilePropagator(model, topology, true); //backtracking need s tp be able to turn off
         var status = propagator.Run();
         if (status != Resolution.Decided) throw new Exception("The WFC resulted as undecided");
         var output = propagator.ToValueArray<WFCTile>();
@@ -62,7 +62,7 @@ public class WFC2DProc : WFCAbstractProc
                 for (int j = 0; j < genList[i].GeneratedAdjacencyPairs[dir].Count; j++)
                 {
                     model.AddAdjacency(tileMap[genList[i]], tileMap[genList[i].GeneratedAdjacencyPairs[dir][j]],
-                        direction[dir]);
+                        Direction.ZPlus);
                 }
             }
         }

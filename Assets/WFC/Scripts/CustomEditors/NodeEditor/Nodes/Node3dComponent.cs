@@ -15,7 +15,7 @@ public class Node3dComponent : NodeTileComponent
     public Node3dComponent(WFC3DTile tile) : base(tile)
     {
         
-        portNames = new[] { "y+", "y-", "x+", "x-", "z+", "z-" };
+        portNames = new[] { "Y+", "Y-", "X+", "X-", "Z+", "Z-" };
         for (int i = 0; i <tile.Getdim(); i++)
         {
             CreateOutputPort(i);
