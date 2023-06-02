@@ -49,9 +49,11 @@ public abstract class WFCTile : ScriptableObject
 
     public void InitDataStructures()
     {
-        adjacencyCodes = new InputCodeData[dim];
-        for (int i = 0; i < dim; i++) this.adjacencyPairs[i] = new List<WFCTile>();
-        for (int i = 0; i < dim; i++) this.GeneratedAdjacencyPairs[i] = new List<WFCTile>();
+        if (adjacencyCodes is null) adjacencyCodes = new InputCodeData[dim];
+        if (adjacencyPairs is null) adjacencyPairs = new List<WFCTile>[dim];
+        if (GeneratedAdjacencyPairs is null) GeneratedAdjacencyPairs = new List<WFCTile>[dim];
+        for (int i = 0; i < dim; i++) adjacencyPairs[i] = new List<WFCTile>();
+        for (int i = 0; i < dim; i++) GeneratedAdjacencyPairs[i] = new List<WFCTile>();
     }
 
     public void deleteNodeData()
@@ -72,6 +74,7 @@ public abstract class WFCTile : ScriptableObject
 
     public void genWithRelAdjacency()
     {
+        if (adjacencyPairs is null) InitDataStructures();
         foreach (var rel in nodeData.relationShips)
         {
             if (rel.inputTile is null) continue;
@@ -82,6 +85,7 @@ public abstract class WFCTile : ScriptableObject
 
     public void addRel(WFCTile parent, int index)
     {
+        if (adjacencyPairs is null)InitDataStructures();
         adjacencyPairs[index].Add(parent);
     }
 

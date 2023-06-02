@@ -16,15 +16,17 @@ public class Node1dComponent : NodeTileComponent
         {
             CreateOutputPort(i);
         }
+
         CreateInputPort();
-        //ImageView();
+        ImageView();
     }
 
     // to update the image https://docs.unity3d.com/Manual/UIE-bind-custom-control.html
     private void ImageView()
     {
-        WFC2DTile imageTile = (WFC2DTile)this.tile;
-        imageTile.tileTexture ??= Texture2D.whiteTexture;
+        WFC1DTile imageTile = (WFC1DTile)this.tile;
+        if (imageTile.tileTexture is null) imageTile.tileTexture = Texture2D.whiteTexture;
+        
         var container = new VisualElement
         {
             name = " Parent Container",
