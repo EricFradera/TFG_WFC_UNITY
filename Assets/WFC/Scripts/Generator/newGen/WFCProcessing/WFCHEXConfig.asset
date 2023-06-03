@@ -126,7 +126,8 @@ MonoBehaviour:
   - {fileID: 5129176073410613815}
   - {fileID: 5129176073410613815}
   nodeData: {fileID: -4951864248963874696}
-  tileVisuals: {fileID: 0}
+  tileVisuals: {fileID: 2574290518584772563, guid: d895f9f6e5300644598b2b44308d989a,
+    type: 3}
   tileTexture: {fileID: 2800000, guid: a0f78fb6d5ef0cd4b842b8a27d805900, type: 3}
 --- !u!114 &-3530560078951789667
 MonoBehaviour:
@@ -217,7 +218,8 @@ MonoBehaviour:
   - {fileID: 5129176073410613815}
   - {fileID: 5129176073410613815}
   nodeData: {fileID: -5374164997422281470}
-  tileVisuals: {fileID: 0}
+  tileVisuals: {fileID: 6408024026516023668, guid: fe98acc0dc5c349438014797b8971904,
+    type: 3}
   tileTexture: {fileID: 2800000, guid: 989d4f2c183cae14089cd667ded09320, type: 3}
 --- !u!114 &769680478841752743
 MonoBehaviour:
@@ -243,7 +245,8 @@ MonoBehaviour:
   - {fileID: 7515726220546144372}
   - {fileID: 7515726220546144372}
   nodeData: {fileID: -7141940766345126423}
-  tileVisuals: {fileID: 0}
+  tileVisuals: {fileID: 7091492902124891091, guid: 44c47034d0ebc7e44bce143c1110850a,
+    type: 3}
   tileTexture: {fileID: 2800000, guid: bc3a1fcf949ec5b46857dacc8dabf07d, type: 3}
 --- !u!114 &5129176073410613815
 MonoBehaviour:
