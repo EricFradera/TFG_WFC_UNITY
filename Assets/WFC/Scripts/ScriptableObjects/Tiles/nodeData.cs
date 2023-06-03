@@ -62,13 +62,23 @@ public class nodeData : ScriptableObject
 
     public void removeRel(int dirParent, object child)
     {
-        foreach (var relation in relationShips.Where(relation =>
-                     relation.indexOutput == dirParent && relation.inputTile == child))
-        {
-            relationShips.Remove(relation);
-            return;
-        }
+        if (child.GetType() == typeof(WFCTile))
+            foreach (var relation in relationShips.Where(relation =>
+                         relation.indexOutput == dirParent && relation.inputTile == (WFCTile)child))
+            {
+                relationShips.Remove(relation);
+                return;
+            }
+
+        else
+            foreach (var relation in relationShips.Where(relation =>
+                         relation.indexOutput == dirParent && relation.inputCodeData == (InputCodeData)child))
+            {
+                relationShips.Remove(relation);
+                return;
+            }
     }
+
 
     public void addNewRel(int dir, InputCodeData data)
     {
