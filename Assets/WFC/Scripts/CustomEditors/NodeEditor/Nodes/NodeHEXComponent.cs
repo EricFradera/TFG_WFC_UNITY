@@ -11,7 +11,7 @@ public class NodeHEXComponent : NodeTileComponent
 {
     public NodeHEXComponent(WFCHEXTile tile) : base(tile)
     {
-        portNames = new[] { "Y-", "X+", "Z-", "Y+", "X-", "Z+" };
+        portNames = new[] { "X+", "X-", "Y+", "Y-", "Z+", "Z-" };
         for (int i = 0; i < tile.Getdim(); i++)
         {
             CreateOutputPort(i);

@@ -18,12 +18,12 @@ public class WFCHEXTile : WFCTile
 
     private enum IndexDirection
     {
-        YMINUS,
         XPLUS,
-        ZMINUS,
-        YPLUS,
         XMINUS,
-        ZPLUS
+        YMINUS,
+        YPLUS,
+        ZPLUS,
+        ZMINUS,
     }
 
     public override int GetInverse(int indexDirection)

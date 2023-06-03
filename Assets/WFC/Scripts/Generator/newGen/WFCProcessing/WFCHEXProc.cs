@@ -9,8 +9,7 @@ using Resolution = UnityEngine.Resolution;
 
 public class WFCHEXProc : WFCAbstractProc
 {
-    private int[] directions = new[] { 3, 0, 4, 2, 1, 5 };
-
+    
     private List<WFCTile> listOfRotatedTiles;
     private bool useRotation;
 
@@ -59,7 +58,8 @@ public class WFCHEXProc : WFCAbstractProc
                 for (int j = 0; j < genList[i].GeneratedAdjacencyPairs[dir].Count; j++)
                 {
                     model.AddAdjacency(tileMap[genList[i]], tileMap[genList[i].GeneratedAdjacencyPairs[dir][j]],
-                        (Direction)directions[dir]);
+                        dirHelper.GetDirection(dirHelper.DX[dir], dirHelper.DY[dir],
+                            dirHelper.DZ[dir]));
                 }
             }
         }

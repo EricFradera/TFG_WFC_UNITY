@@ -9,6 +9,7 @@ namespace DeBroglie.Topo
         X,
         Y,
         Z,
+
         // The "third" axis used for DirectionSet.Hexagonal2d 
         // it's redundant with X and Y, but still useful to refer to.
         W,
@@ -22,6 +23,7 @@ namespace DeBroglie.Topo
         YMinus = 3,
         ZPlus = 4,
         ZMinus = 5,
+
         // Shared with Z, there's no DirectionSet that uses both.
         WPlus = 4,
         WMinus = 5,
@@ -41,7 +43,6 @@ namespace DeBroglie.Topo
 
     public enum EdgeLabel
     {
-
     }
 
     /// <summary>
@@ -92,9 +93,9 @@ namespace DeBroglie.Topo
         public static readonly DirectionSet Hexagonal3d = new DirectionSet
         {
             //           X+  X-  Y+  Y-  Z+  Z-  W+  W-
-            DX = new[] {  1, -1,  0,  0,  0,  0,  1, -1 },
-            DY = new[] {  0,  0,  1, -1,  0,  0,  0,  0 },
-            DZ = new[] {  0,  0,  0,  0,  1, -1,  1, -1 },
+            DX = new[] { 1, -1, 0, 0, 0, 0, 1, -1 },
+            DY = new[] { 0, 0, 1, -1, 0, 0, 0, 0 },
+            DZ = new[] { 0, 0, 0, 0, 1, -1, 1, -1 },
             Count = 8,
             Type = DirectionSetType.Hexagonal3d,
         };
@@ -119,7 +120,7 @@ namespace DeBroglie.Topo
             return (Direction)((int)d ^ 1);
         }
 
-        public Direction GetDirection(int x, int y, int z=0)
+        public Direction GetDirection(int x, int y, int z = 0)
         {
             for (int d = 0; d < Count; d++)
             {
@@ -128,6 +129,7 @@ namespace DeBroglie.Topo
                     return (Direction)d;
                 }
             }
+
             throw new Exception($"No direction corresponds to ({x}, {y}, {z})");
         }
 
