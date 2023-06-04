@@ -17,8 +17,8 @@ public class Generate_Adjacency
     {
         _adjacencyGen = newList;
         cleanUp();
-        foreach (var tile in _adjacencyGen)tile.genWithRelAdjacency();
-        
+        foreach (var tile in _adjacencyGen) tile.genWithRelAdjacency();
+
         foreach (var tileOrigin in _adjacencyGen)
         {
             foreach (var tileDest in _adjacencyGen)
@@ -29,6 +29,7 @@ public class Generate_Adjacency
                         tileOrigin.GeneratedAdjacencyPairs[i].Add(tileDest);
                 }
             }
+
             tileOrigin.MixAdj();
         }
     }
@@ -37,7 +38,7 @@ public class Generate_Adjacency
     {
         if (tileOrigin.adjacencyCodes[i] is null || tileDest.adjacencyCodes[tileDest.GetInverse(i)] is null)
             return false;
-        
+
         var tileOriginSize = tileOrigin.adjacencyCodes[i].socketCodes.Count;
         var tileDestSize = tileDest.adjacencyCodes[tileDest.GetInverse(i)].socketCodes.Count;
 

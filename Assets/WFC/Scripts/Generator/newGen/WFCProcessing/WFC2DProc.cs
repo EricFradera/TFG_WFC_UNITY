@@ -62,7 +62,7 @@ public class WFC2DProc : WFCAbstractProc
                 for (int j = 0; j < genList[i].GeneratedAdjacencyPairs[dir].Count; j++)
                 {
                     model.AddAdjacency(tileMap[genList[i]], tileMap[genList[i].GeneratedAdjacencyPairs[dir][j]],
-                        Direction.ZPlus);
+                        direction[dir]);
                 }
             }
         }

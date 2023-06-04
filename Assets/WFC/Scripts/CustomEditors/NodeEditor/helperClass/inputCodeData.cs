@@ -10,10 +10,10 @@ public abstract class InputCodeData : ScriptableObject
     public string uid;
     public string socketName;
     public List<string> socketCodes;
-    public bool isSymmetrical;
     public nodeData nodeData;
 
     public abstract nodeData Init();
+
     public void deleteNodeData()
     {
         nodeData.deleteAllRelFromTile();
@@ -25,4 +25,5 @@ public abstract class InputCodeData : ScriptableObject
     public abstract string getCode(bool inverse);
 
     protected void GenerateUid() => uid = GUID.Generate().ToString();
+    public abstract InputCodeData genRotCode(int rot, int axis);
 }

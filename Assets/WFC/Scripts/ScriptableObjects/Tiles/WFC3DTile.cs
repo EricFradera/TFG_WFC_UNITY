@@ -37,9 +37,8 @@ namespace WFC
 
         private IndexDirection[,] rotationOrder = new IndexDirection[,]
         {
-             
             { IndexDirection.ZPLUS, IndexDirection.XPLUS, IndexDirection.ZMINUS, IndexDirection.XMINUS }, // X Rotation
-            { IndexDirection.YPLUS, IndexDirection.ZPLUS, IndexDirection.YMINUS, IndexDirection.ZMINUS },// Y Rotation
+            { IndexDirection.YPLUS, IndexDirection.ZPLUS, IndexDirection.YMINUS, IndexDirection.ZMINUS }, // Y Rotation
             { IndexDirection.YPLUS, IndexDirection.XMINUS, IndexDirection.YMINUS, IndexDirection.XPLUS } // Z rotation
         };
 
@@ -134,5 +133,6 @@ namespace WFC
 
             return rotationArray;
         }
+        
     }
 }

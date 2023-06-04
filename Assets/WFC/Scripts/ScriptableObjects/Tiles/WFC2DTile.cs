@@ -99,8 +99,6 @@ namespace WFC
             {
                 tempArray[(i + rotation) % listLenght] = adjacencyCodes[i];
             }
-
-
             return tempArray;
         }
     }
