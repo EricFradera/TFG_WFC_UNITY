@@ -107,5 +107,5 @@ public abstract class WFCTile : ScriptableObject
 
     public abstract List<WFCTile> getRotationTiles();
 
-    protected abstract WFCTile copyForRotation(int rot);
+    protected abstract WFCTile copyForRotation(int rot, int axis);
 }

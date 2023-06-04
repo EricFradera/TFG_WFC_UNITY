@@ -46,7 +46,7 @@ public class WFCHEXTile : WFCTile
         throw new Exception("This not currently supported");
     }
 
-    protected override WFCTile copyForRotation(int rot)
+    protected override WFCTile copyForRotation(int rot, int axis)
     {
         throw new Exception("This not currently supported");
     }

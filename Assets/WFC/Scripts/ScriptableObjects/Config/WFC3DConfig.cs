@@ -21,6 +21,8 @@ public class WFC3DConfig : WFCConfig
 
     public override WFCAbstractProc CreateProcessor(List<WFCTile> listOfTiles, WFCManager manager)
     {
-        return new WFC3DProc(listOfTiles, manager);
+        var processor = new WFC3DProc(listOfTiles, manager);
+        processor.setUseRotations(useRotations);
+        return processor;
     }
 }

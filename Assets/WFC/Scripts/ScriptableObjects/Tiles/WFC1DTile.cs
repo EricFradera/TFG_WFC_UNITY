@@ -41,7 +41,7 @@ public class WFC1DTile : WFCTile
         throw new NotImplementedException();
     }
 
-    protected override WFCTile copyForRotation(int rot)
+    protected override WFCTile copyForRotation(int rot, int axis)
     {
         throw new NotImplementedException();
     }

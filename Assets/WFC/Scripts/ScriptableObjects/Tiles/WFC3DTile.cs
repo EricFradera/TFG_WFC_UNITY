@@ -3,31 +3,45 @@ using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace WFC
 {
     public class WFC3DTile : WFCTile
     {
         [JsonIgnore] public Texture2D previewTexture2D;
-        
-        /*[Serializable]
+
+        [Serializable]
         public struct rotationValues
         {
-            public string RotationName;
-            public rotation x;
-            public rotation y;
-            public rotation z;
+            public rotation degrees;
+            public Axis axisOfRotation;
         }
 
         [Header(("Rotations"))] public rotationValues[] rotationList;
+        public int rotationAxis = 0;
 
         public enum rotation
         {
-            NoRotation,
             Degrees90,
             Degrees180,
             Degrees270
-        };*/
+        };
+
+        public enum Axis
+        {
+            X,
+            Y,
+            Z
+        }
+
+        private IndexDirection[,] rotationOrder = new IndexDirection[,]
+        {
+             
+            { IndexDirection.ZPLUS, IndexDirection.XPLUS, IndexDirection.ZMINUS, IndexDirection.XMINUS }, // X Rotation
+            { IndexDirection.YPLUS, IndexDirection.ZPLUS, IndexDirection.YMINUS, IndexDirection.ZMINUS },// Y Rotation
+            { IndexDirection.YPLUS, IndexDirection.XMINUS, IndexDirection.YMINUS, IndexDirection.XPLUS } // Z rotation
+        };
 
         public WFC3DTile()
         {
@@ -39,10 +53,10 @@ namespace WFC
 
         private enum IndexDirection
         {
-            YPLUS,
-            YMINUS,
             XPLUS,
             XMINUS,
+            YPLUS,
+            YMINUS,
             ZPLUS,
             ZMINUS
         }
@@ -63,15 +77,62 @@ namespace WFC
 
         public override List<WFCTile> getRotationTiles()
         {
-            throw new NotImplementedException();
+            List<WFCTile> res = new List<WFCTile>();
+            if (rotationList.Length == 0) return res;
+            foreach (var rotation in rotationList)
+            {
+                res.Add(copyForRotation((int)rotation.degrees + 1, (int)rotation.axisOfRotation + 1)); //prone to error
+            }
+
+            return res;
         }
 
-        protected override WFCTile copyForRotation(int rot)
+        protected override WFCTile copyForRotation(int rot, int axis)
         {
-            throw new NotImplementedException();
+            var tempTile = CreateInstance<WFC3DTile>();
+            tempTile.tileName = tileName + "_" + axis + "_" + (90 * rot);
+            tempTile.tileId = tileId + "_" + axis + (90 * rot);
+            tempTile.adjacencyCodes = rotationHelper(rot, axis);
+            tempTile.adjacencyPairs = new List<WFCTile>[dim];
+            tempTile.nodeData = nodeData;
+            tempTile.tileVisuals = tileVisuals;
+            tempTile.rotationModule = rot;
+            tempTile.rotationAxis = axis;
+            return tempTile;
         }
 
+        private InputCodeData[] rotationHelper(int rotation, int axis) //Most important thing
+        {
+            var listLenght = 4;
+            rotation = rotation % listLenght;
+            InputCodeData[] rotationArray = new InputCodeData[listLenght];
+            for (int i = 0; i < listLenght; i++) rotationArray[i] = adjacencyCodes[(int)rotationOrder[axis - 1, i]];
 
-       
+
+            InputCodeData[] tempArray = new InputCodeData[listLenght];
+            for (int i = 0; i < listLenght; i++)
+            {
+                tempArray[(i + rotation) % listLenght] = rotationArray[i];
+            }
+
+            rotationArray = new InputCodeData[adjacencyCodes.Length];
+            bool found;
+            for (int i = 0; i < adjacencyCodes.Length; i++)
+            {
+                found = false;
+                for (int j = 0; j < tempArray.Length; j++)
+                {
+                    if (i == (int)rotationOrder[axis - 1, j])
+                    {
+                        rotationArray[i] = tempArray[j];
+                        found = true;
+                    }
+                }
+
+                if (!found) rotationArray[i] = adjacencyCodes[i];
+            }
+
+            return rotationArray;
+        }
     }
 }

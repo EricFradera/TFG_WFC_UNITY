@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DeBroglie.Topo;
 using UnityEngine;
+using WFC;
 
 public class WFCSpawner3D : WFCSpawnerAbstact
 {
@@ -16,6 +17,7 @@ public class WFCSpawner3D : WFCSpawnerAbstact
 
     public override void spawnTiles(ITopoArray<WFCTile> res, bool useRotations)
     {
+        WFC3DTile tempTile;
         if (lineCount % 2 == 0) lineCount++;
         lineCount--;
         var halfLines = lineCount / 2;
@@ -29,9 +31,25 @@ public class WFCSpawner3D : WFCSpawnerAbstact
                     float xCoord = (i - halfLines) * m_gridSize + (m_gridSize / 2);
                     float zCoord = (j - halfLines) * m_gridSize + (m_gridSize / 2);
                     float yCoord = (k - halfLines) * m_gridSize + (m_gridSize / 2);
-                    gameObjectArray[i, j] = Object.Instantiate(res.Get(i, k,j).tileVisuals,
+                    tempTile = (WFC3DTile)res.Get(i, k, j);
+                    gameObjectArray[i, j] = Object.Instantiate(tempTile.tileVisuals,
                         new Vector3(xCoord, yCoord, zCoord),
                         transform.rotation);
+
+                    switch (tempTile.rotationAxis)
+                    {
+                        case 1:
+                            gameObjectArray[i, j].transform
+                                .Rotate(new Vector3(tempTile.rotationModule * -90, 0, 0)); //maybe is -90
+                            break;
+                        case 2:
+                            gameObjectArray[i, j].transform.Rotate(new Vector3(0, tempTile.rotationModule * -90, 0));
+                            break;
+                        case 3:
+                            gameObjectArray[i, j].transform.Rotate(new Vector3(0, 0, tempTile.rotationModule * -90));
+                            break;
+                    }
+
                     gameObjectArray[i, j].transform.localScale = new Vector3(m_gridSize, m_gridSize, m_gridSize);
                     gameObjectArray[i, j].transform.parent = transform;
                 }
@@ -41,7 +59,6 @@ public class WFCSpawner3D : WFCSpawnerAbstact
 
     public override void ClearPreviousIteration()
     {
-
         if (gameObjectArray == null)
         {
             for (int i = transform.childCount - 1; i >= 0; i--)

@@ -69,18 +69,18 @@ namespace WFC
             if (rotationList.Length == 0) return res;
             foreach (var rotation in rotationList)
             {
-                res.Add(copyForRotation((int)rotation.degrees + 1));
+                res.Add(copyForRotation((int)rotation.degrees + 1, 0));
             }
 
             return res;
         }
 
-        protected override WFCTile copyForRotation(int rot)
+        protected override WFCTile copyForRotation(int rot, int axis)
         {
             var tempTile = CreateInstance<WFC2DTile>();
             tempTile.tileName = tileName + "_" + (90 * rot);
             tempTile.tileId = tileId + "_" + (90 * rot);
-            tempTile.adjacencyCodes = rotationHelper(rot);
+            tempTile.adjacencyCodes = rotationHelper(rot, 0);
             tempTile.adjacencyPairs = new List<WFCTile>[dim];
             tempTile.nodeData = nodeData;
             tempTile.tileVisuals = tileVisuals;
@@ -89,7 +89,7 @@ namespace WFC
             return tempTile;
         }
 
-        private InputCodeData[] rotationHelper(int rotation)
+        private InputCodeData[] rotationHelper(int rotation, int axis)
         {
             var listLenght = adjacencyCodes.Length;
             rotation = rotation % listLenght;
