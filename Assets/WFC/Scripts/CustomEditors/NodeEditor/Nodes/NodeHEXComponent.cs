@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor.UIElements;
@@ -18,14 +19,16 @@ public class NodeHEXComponent : NodeTileComponent
         }
 
         CreateInputPort();
-        //ImageView();
+        ImageView();
     }
 
     // to update the image https://docs.unity3d.com/Manual/UIE-bind-custom-control.html
-    private void ImageView(int tileSetIndex)
+    private void ImageView()
     {
-        WFC2DTile imageTile = (WFC2DTile)this.tile;
-        imageTile.tileTexture[tileSetIndex] ??= Texture2D.whiteTexture;
+        WFCHEXTile imageTile = (WFCHEXTile)this.tile;
+        if (tile.tileVisuals[0] is null) imageTile.previewTexture2D = Texture2D.whiteTexture;
+        else imageTile.previewTexture2D = AssetPreview.GetAssetPreview(tile.tileVisuals[0]);
+
         var container = new VisualElement
         {
             name = " Parent Container",
@@ -36,7 +39,7 @@ public class NodeHEXComponent : NodeTileComponent
         {
             name = "tileTexture",
             pickingMode = PickingMode.Ignore,
-            image = imageTile.tileTexture[tileSetIndex]
+            image = imageTile.previewTexture2D
         };
         container.style.height = new StyleLength(120);
         previewImage.StretchToParentSize();

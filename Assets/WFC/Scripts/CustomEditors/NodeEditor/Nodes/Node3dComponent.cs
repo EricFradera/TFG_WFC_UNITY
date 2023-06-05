@@ -10,25 +10,27 @@ using WFC;
 
 public class Node3dComponent : NodeTileComponent
 {
-    [JsonIgnore] public Texture2D previewTexture2D;
+    
 
     public Node3dComponent(WFC3DTile tile) : base(tile)
     {
-        
         portNames = new[] { "Y+", "Y-", "X+", "X-", "Z+", "Z-" };
-        for (int i = 0; i <tile.Getdim(); i++)
+        for (int i = 0; i < tile.Getdim(); i++)
         {
             CreateOutputPort(i);
         }
+
         CreateInputPort();
         ImageView();
     }
 
-    // to update the image https://docs.unity3d.com/Manual/UIE-bind-custom-control.html
+    
     private void ImageView()
     {
         WFC3DTile imageTile = (WFC3DTile)this.tile;
-        imageTile.previewTexture2D ??= Texture2D.whiteTexture;
+        if (tile.tileVisuals[0] is null) imageTile.previewTexture2D = Texture2D.whiteTexture;
+        else imageTile.previewTexture2D = AssetPreview.GetAssetPreview(tile.tileVisuals[0]);
+
         var container = new VisualElement
         {
             name = " Parent Container",

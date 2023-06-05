@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class WFCHEXTile : WFCTile
 {
+    [JsonIgnore] public Texture2D previewTexture2D;
     
     public WFCHEXTile()
     {
