@@ -29,22 +29,12 @@ public class WFCSpawnerHex : WFCSpawnerAbstact
                 //tempGameObject.GetComponent<MeshRenderer>().material = genMat((WFCHEXTile)result.Get(x, z));
                 tempGameObject.transform.position = z % 2 == 0
                     ? new Vector3(x * tileOffsetX, 0, z * tileOffsetZ)
-                    : new Vector3(x * tileOffsetX + tileOffsetX / 2, 0,z* tileOffsetZ);
+                    : new Vector3(x * tileOffsetX + tileOffsetX / 2, 0, z * tileOffsetZ);
                 tempGameObject.transform.parent = this.transform;
             }
         }
     }
 
-    private Material genMat(WFCHEXTile tile)
-    {
-        if (materials.ContainsKey(tile.tileId)) return materials[tile.tileId];
-        var mat = new Material(Shader.Find("Universal Render Pipeline/Unlit"))
-        {
-            mainTexture = tile.tileTexture
-        };
-        materials.Add(tile.tileId, mat);
-        return mat;
-    }
 
     public override void ClearPreviousIteration()
     {

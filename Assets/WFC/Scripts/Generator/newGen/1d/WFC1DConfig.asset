@@ -16,7 +16,6 @@ MonoBehaviour:
   socketName: red
   socketCodes:
   - red
-  isSymmetrical: 0
   nodeData: {fileID: 2460627694950511485}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -59,9 +58,10 @@ MonoBehaviour:
   - {fileID: 2018842581775747013}
   - {fileID: -7722310329572863171}
   nodeData: {fileID: 4553272942373801569}
-  tileVisuals: {fileID: 0}
-  flip: 0
+  tileVisuals: {fileID: 4253970619936223274, guid: d66ae7a7e909b7c4c874c806f0eced13,
+    type: 3}
   tileTexture: {fileID: 2800000, guid: 43c604d0ac47a354db1e50ad12169e6d, type: 3}
+  assetType: 0
 --- !u!114 &2018842581775747013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,7 +78,6 @@ MonoBehaviour:
   socketName: blue
   socketCodes:
   - blue
-  isSymmetrical: 0
   nodeData: {fileID: 2390216843352027353}
 --- !u!114 &2390216843352027353
 MonoBehaviour:
@@ -98,19 +97,15 @@ MonoBehaviour:
   relationShips:
   - indexOutput: 1
     inputTile: {fileID: 1265548001485276284}
-    indexInput: 0
     inputCodeData: {fileID: 0}
   - indexOutput: 1
     inputTile: {fileID: 3196247251796608518}
-    indexInput: 0
     inputCodeData: {fileID: 0}
   - indexOutput: 0
     inputTile: {fileID: 1265548001485276284}
-    indexInput: 0
     inputCodeData: {fileID: 0}
   - indexOutput: 1
     inputTile: {fileID: 3196247251796608518}
-    indexInput: 0
     inputCodeData: {fileID: 0}
 --- !u!114 &2460627694950511485
 MonoBehaviour:
@@ -130,23 +125,18 @@ MonoBehaviour:
   relationShips:
   - indexOutput: 0
     inputTile: {fileID: 1265548001485276284}
-    indexInput: 0
     inputCodeData: {fileID: 0}
   - indexOutput: 0
     inputTile: {fileID: 3196247251796608518}
-    indexInput: 0
     inputCodeData: {fileID: 0}
   - indexOutput: 0
     inputTile: {fileID: 1265548001485276284}
-    indexInput: 0
     inputCodeData: {fileID: 0}
   - indexOutput: 1
     inputTile: {fileID: 1265548001485276284}
-    indexInput: 0
     inputCodeData: {fileID: 0}
   - indexOutput: 0
     inputTile: {fileID: 3196247251796608518}
-    indexInput: 0
     inputCodeData: {fileID: 0}
 --- !u!114 &3196247251796608518
 MonoBehaviour:
@@ -168,9 +158,10 @@ MonoBehaviour:
   - {fileID: -7722310329572863171}
   - {fileID: 2018842581775747013}
   nodeData: {fileID: 6407688493230535361}
-  tileVisuals: {fileID: 0}
-  flip: 0
+  tileVisuals: {fileID: 4253970619936223274, guid: d66ae7a7e909b7c4c874c806f0eced13,
+    type: 3}
   tileTexture: {fileID: 2800000, guid: 43c604d0ac47a354db1e50ad12169e6d, type: 3}
+  assetType: 0
 --- !u!114 &4553272942373801569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,23 +180,18 @@ MonoBehaviour:
   relationShips:
   - indexOutput: 0
     inputTile: {fileID: 0}
-    indexInput: 0
     inputCodeData: {fileID: -7722310329572863171}
   - indexOutput: 1
     inputTile: {fileID: 0}
-    indexInput: 0
     inputCodeData: {fileID: 2018842581775747013}
   - indexOutput: 0
     inputTile: {fileID: 0}
-    indexInput: 0
     inputCodeData: {fileID: -7722310329572863171}
   - indexOutput: 0
     inputTile: {fileID: 0}
-    indexInput: 0
     inputCodeData: {fileID: 2018842581775747013}
   - indexOutput: 1
     inputTile: {fileID: 0}
-    indexInput: 0
     inputCodeData: {fileID: -7722310329572863171}
 --- !u!114 &6407688493230535361
 MonoBehaviour:
@@ -220,22 +206,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   x: 214.40002
-  y: 484
+  y: 616
   num: 0
   relationShips:
   - indexOutput: 0
     inputTile: {fileID: 0}
-    indexInput: 0
     inputCodeData: {fileID: -7722310329572863171}
   - indexOutput: 1
     inputTile: {fileID: 0}
-    indexInput: 0
     inputCodeData: {fileID: 2018842581775747013}
   - indexOutput: 0
     inputTile: {fileID: 0}
-    indexInput: 0
     inputCodeData: {fileID: -7722310329572863171}
   - indexOutput: 1
     inputTile: {fileID: 0}
-    indexInput: 0
     inputCodeData: {fileID: 2018842581775747013}

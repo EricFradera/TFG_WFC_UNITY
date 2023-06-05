@@ -21,6 +21,7 @@ public class WFCSpawner2D : WFCSpawnerAbstact
         lineCount--;
         var halfLines = lineCount / 2;
         GameObject primitive;
+        WFC2DTile wfc2DTile;
 
         for (int i = 0; i < lineCount; i++)
         {
@@ -28,18 +29,21 @@ public class WFCSpawner2D : WFCSpawnerAbstact
             {
                 float xCoord = (i - halfLines) * m_gridSize + (m_gridSize / 2);
                 float zCoord = (j - halfLines) * m_gridSize + (m_gridSize / 2);
-                if (false)
+                wfc2DTile = (WFC2DTile)result.Get(i, j);
+                if (wfc2DTile.assetType == WFC2DTile.AssetType.useGameObject)
                 {
-                    /*gameObjectArray[i, j] = (GameObject)Instantiate(result.Get(i, j).tileVisuals,
+                    primitive = Object.Instantiate(wfc2DTile.tileVisuals,
                         new Vector3(xCoord, 0, zCoord),
-                        transform.rotation);*/
+                        wfc2DTile.tileVisuals.transform.rotation);
+                    primitive.transform.Rotate(new Vector3(0, 0, (wfc2DTile.rotationModule) * -90));
+                    gameObjectArray[i, j] = primitive;
                 }
                 else
                 {
                     primitive = GameObject.CreatePrimitive(PrimitiveType.Quad);
                     primitive.transform.position = new Vector3(xCoord, 0, zCoord);
-                    primitive.transform.Rotate(new Vector3(90f, 0, (result.Get(i, j).rotationModule) * -90));
-                    primitive.GetComponent<MeshRenderer>().material = genMat((WFC2DTile)result.Get(i, j));
+                    primitive.transform.Rotate(new Vector3(90f, 0, (wfc2DTile.rotationModule) * -90));
+                    primitive.GetComponent<MeshRenderer>().material = genMat(wfc2DTile);
                     gameObjectArray[i, j] = primitive;
                 }
 

@@ -23,14 +23,14 @@ public abstract class WFCTile : ScriptableObject
     public InputCodeData[] adjacencyCodes;
 
     //this is not getting serialised, so it won't save between sessions
-    public List<WFCTile>[] adjacencyPairs;
+    [JsonIgnore]public List<WFCTile>[] adjacencyPairs;
 
     //I need a second structure here
-    public List<WFCTile>[] GeneratedAdjacencyPairs;
+    [JsonIgnore]public List<WFCTile>[] GeneratedAdjacencyPairs;
 
 
     // Node data
-    public nodeData nodeData;
+    [HideInInspector]public nodeData nodeData;
 
     //Asset data
     [JsonIgnore] public GameObject tileVisuals;

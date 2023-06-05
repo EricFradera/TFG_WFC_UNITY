@@ -6,8 +6,7 @@ using UnityEngine;
 
 public class WFCHEXTile : WFCTile
 {
-    [JsonIgnore] public Texture2D tileTexture;
-
+    
     public WFCHEXTile()
     {
         dim = 6;

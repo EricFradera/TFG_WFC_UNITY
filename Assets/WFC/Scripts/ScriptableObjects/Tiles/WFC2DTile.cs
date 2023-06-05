@@ -15,6 +15,16 @@ namespace WFC
     {
         [JsonIgnore] public Texture2D tileTexture;
 
+
+        [Serializable]
+        public enum AssetType
+        {
+            useTexture,
+            useGameObject
+        }
+
+        public AssetType assetType;
+
         [Serializable]
         public struct rotationValues
         {
@@ -82,6 +92,7 @@ namespace WFC
             tempTile.tileId = tileId + "_" + (90 * rot);
             tempTile.adjacencyCodes = rotationHelper(rot, 0);
             tempTile.adjacencyPairs = new List<WFCTile>[dim];
+            tempTile.assetType = assetType;
             tempTile.nodeData = nodeData;
             tempTile.tileVisuals = tileVisuals;
             tempTile.tileTexture = tileTexture;
@@ -99,6 +110,7 @@ namespace WFC
             {
                 tempArray[(i + rotation) % listLenght] = adjacencyCodes[i];
             }
+
             return tempArray;
         }
     }

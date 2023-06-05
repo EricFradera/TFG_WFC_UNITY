@@ -18,7 +18,6 @@ MonoBehaviour:
   - G
   - G
   - G
-  isSymmetrical: 0
   nodeData: {fileID: 7928830062883738537}
 --- !u!114 &-3284545374100404967
 MonoBehaviour:
@@ -38,7 +37,6 @@ MonoBehaviour:
   - G
   - P
   - G
-  isSymmetrical: 0
   nodeData: {fileID: 4320913824661431408}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -134,6 +132,7 @@ MonoBehaviour:
   nodeData: {fileID: 4841665385883773036}
   tileVisuals: {fileID: 0}
   tileTexture: {fileID: 2800000, guid: d10752ecf6a6fdc4ab500ebdf831311b, type: 3}
+  assetType: 0
   rotationList:
   - degrees: 0
   - degrees: 1
