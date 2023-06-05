@@ -143,14 +143,14 @@ public class WFCGenEditor : Editor
     private void OnSceneGUI()
     {
         //TODO
-        if (false)
+        if (!(configFile.wfcTilesList is null || configFile.wfcTilesList.Count == 0))
         {
             Func<VisualElement> makeItem = () =>
             {
                 var tileItem = new VisualElement();
                 tileItem.Add(new TextField("Tile name"));
                 tileItem.Add(new FloatField("Frequency of the tile"));
-                tileItem.Add(new ObjectField("Texture"));
+                //tileItem.Add(new ObjectField("Texture"));
                 return tileItem;
             };
             Action<VisualElement, int> bindItem = (e, i) =>
@@ -166,7 +166,6 @@ public class WFCGenEditor : Editor
             listViewComponent.makeItem = makeItem;
             listViewComponent.bindItem = bindItem;
             listViewComponent.itemsSource = wfcTilesList;
-            listViewComponent.selectionType = SelectionType.Multiple;
         }
 
         if (configFile is null) return;
