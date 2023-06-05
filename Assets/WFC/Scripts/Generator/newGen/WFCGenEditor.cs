@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using WFC;
 
+
 #if true
 
 
@@ -20,6 +21,7 @@ public class WFCGenEditor : Editor
     //Input variables
     private float gridSize;
     private float gridExtent;
+    private bool backtracking;
     private Color lineColor;
     public WFCConfig configFile;
     public WFCGenerator current;
@@ -69,6 +71,7 @@ public class WFCGenEditor : Editor
         var generateButton = root.Q<Button>("generateButton");
         var clearButton = root.Q<Button>("clearButton");
         var vectorInput = root.Q<Vector2Field>("vecSize");
+        var backtrackingToggle = root.Q<Toggle>("backtracking");
 
 
         //Binding components
@@ -78,12 +81,14 @@ public class WFCGenEditor : Editor
         wfcConfigFileField.BindProperty(serializedObject.FindProperty("WFCConfigFile"));
         listViewComponent.BindProperty(serializedObject.FindProperty("wfcTilesList"));
         vectorInput.BindProperty(serializedObject.FindProperty("vecSize"));
+        backtrackingToggle.BindProperty(serializedObject.FindProperty("backtracking"));
 
 
         //modify variable values
         sizeFloatField.RegisterValueChangedCallback(evt => { gridSize = sizeFloatField.value; });
         extentFloatField.RegisterValueChangedCallback(evt => { gridExtent = extentFloatField.value; });
         lineColorField.RegisterValueChangedCallback(evt => { lineColor = lineColorField.value; });
+        backtrackingToggle.RegisterValueChangedCallback(evt => { backtracking = backtrackingToggle.value; });
 
 
         //Generate ListView

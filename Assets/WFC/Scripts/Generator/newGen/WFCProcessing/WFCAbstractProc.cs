@@ -16,7 +16,7 @@ public abstract class WFCAbstractProc
         adjacency = new Generate_Adjacency();
         
     }
-    public abstract ITopoArray<WFCTile> RunWFC(float m_gridExtent,float m_gridSize);
+    public abstract ITopoArray<WFCTile> RunWFC(float m_gridExtent,float m_gridSize, bool useBacktracking);
 
     public abstract AdjacentModel RunModel();
     public abstract void clearRotationList();

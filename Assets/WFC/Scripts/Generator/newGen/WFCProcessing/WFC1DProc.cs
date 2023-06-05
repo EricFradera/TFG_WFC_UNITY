@@ -17,12 +17,12 @@ public class WFC1DProc : WFCAbstractProc
     {
     }
 
-    public override ITopoArray<WFCTile> RunWFC(float m_gridExtent, float m_gridSize)
+    public override ITopoArray<WFCTile> RunWFC(float m_gridExtent, float m_gridSize, bool useBacktracking)
     {
         if (listOfTiles is null) throw new Exception("List of tiles is Empty");
         var model = RunModel();
         var topology = new GridTopology(Mathf.RoundToInt(m_gridSize), 1, periodic: false);
-        var propagator = new TilePropagator(model, topology, true); //backtracking need s tp be able to turn off
+        var propagator = new TilePropagator(model, topology, useBacktracking); 
         var status = propagator.Run();
         if (status != Resolution.Decided) throw new Exception("The WFC resulted as undecided");
         var output = propagator.ToValueArray<WFCTile>();
@@ -40,7 +40,7 @@ public class WFC1DProc : WFCAbstractProc
         foreach (WFC1DTile tile in genList)
         {
             tileMap.Add(tile, new Tile(tile));
-            model.SetFrequency(tileMap[tile], 1);
+            model.SetFrequency(tileMap[tile], tile.frequency);
         }
 
         for (int i = 0; i < genList.Count; i++)

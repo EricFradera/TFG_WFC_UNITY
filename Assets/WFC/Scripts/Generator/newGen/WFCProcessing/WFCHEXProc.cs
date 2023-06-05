@@ -9,7 +9,6 @@ using Resolution = UnityEngine.Resolution;
 
 public class WFCHEXProc : WFCAbstractProc
 {
-    
     private List<WFCTile> listOfRotatedTiles;
     private bool useRotation;
 
@@ -17,19 +16,17 @@ public class WFCHEXProc : WFCAbstractProc
     {
     }
 
-    public override ITopoArray<WFCTile> RunWFC(float m_gridExtent, float m_gridSize)
+    public override ITopoArray<WFCTile> RunWFC(float m_gridExtent, float m_gridSize, bool useBacktracking)
     {
         //This count is probably wrong
         var size = Mathf.RoundToInt((m_gridExtent * 2) / m_gridSize);
         if (size % 2 == 0) size++;
         size--;
 
-
         if (listOfTiles is null) throw new Exception("List of tiles is Empty");
         var model = RunModel();
-        //var topology = new GridTopology(size, size, periodic: false);
         var topology = new GridTopology(DirectionSet.Hexagonal2d, size, size, periodicX: false, periodicY: false);
-        var propagator = new TilePropagator(model, topology, true); //backtrackinh need s tp be able to turn off
+        var propagator = new TilePropagator(model, topology, useBacktracking);
         var status = propagator.Run();
         if (status != DeBroglie.Resolution.Decided) throw new Exception("The WFC resulted as undecided");
         var output = propagator.ToValueArray<WFCTile>();
@@ -47,7 +44,7 @@ public class WFCHEXProc : WFCAbstractProc
         foreach (WFCHEXTile tile in genList)
         {
             tileMap.Add(tile, new Tile(tile));
-            model.SetFrequency(tileMap[tile], 1);
+            model.SetFrequency(tileMap[tile], tile.frequency);
         }
 
 
