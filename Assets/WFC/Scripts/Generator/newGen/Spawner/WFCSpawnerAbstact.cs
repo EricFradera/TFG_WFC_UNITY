@@ -18,6 +18,6 @@ public abstract class WFCSpawnerAbstact
         this.m_gridExtent = m_gridExtent;
     }
 
-    public abstract void spawnTiles(ITopoArray<WFCTile> result, bool useRotations);
+    public abstract void spawnTiles(ITopoArray<WFCTile> result, bool useRotations,int tileSetIndex);
     public abstract void ClearPreviousIteration();
 }

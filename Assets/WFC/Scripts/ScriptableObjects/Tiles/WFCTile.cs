@@ -23,18 +23,17 @@ public abstract class WFCTile : ScriptableObject
     public InputCodeData[] adjacencyCodes;
 
     //this is not getting serialised, so it won't save between sessions
-    [JsonIgnore]public List<WFCTile>[] adjacencyPairs;
+    [JsonIgnore] public List<WFCTile>[] adjacencyPairs;
 
     //I need a second structure here
-    [JsonIgnore]public List<WFCTile>[] GeneratedAdjacencyPairs;
+    [JsonIgnore] public List<WFCTile>[] GeneratedAdjacencyPairs;
 
 
     // Node data
-    [HideInInspector]public nodeData nodeData;
+    [HideInInspector] public nodeData nodeData;
 
     //Asset data
-    [JsonIgnore] public GameObject tileVisuals;
-
+    [JsonIgnore] public GameObject[] tileVisuals;
 
     //always have to be an inverse function for tile matching
     public abstract int GetInverse(int indexDirection);
@@ -47,7 +46,7 @@ public abstract class WFCTile : ScriptableObject
         AssetDatabase.Refresh();
     }
 
-    public void InitDataStructures()
+    public virtual void InitDataStructures()
     {
         if (adjacencyCodes is null) adjacencyCodes = new InputCodeData[dim];
         if (adjacencyPairs is null)
@@ -61,6 +60,8 @@ public abstract class WFCTile : ScriptableObject
             GeneratedAdjacencyPairs = new List<WFCTile>[dim];
             for (int i = 0; i < dim; i++) GeneratedAdjacencyPairs[i] = new List<WFCTile>();
         }
+
+        tileVisuals = new GameObject[1];
     }
 
     public void deleteNodeData()

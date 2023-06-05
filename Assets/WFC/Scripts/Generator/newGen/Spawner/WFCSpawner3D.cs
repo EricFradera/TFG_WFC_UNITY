@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DeBroglie.Topo;
 using UnityEngine;
 using WFC;
+using Object = UnityEngine.Object;
 
 public class WFCSpawner3D : WFCSpawnerAbstact
 {
@@ -15,7 +17,7 @@ public class WFCSpawner3D : WFCSpawnerAbstact
         gameObjectArray = new GameObject[base.lineCount, lineCount];
     }
 
-    public override void spawnTiles(ITopoArray<WFCTile> res, bool useRotations)
+    public override void spawnTiles(ITopoArray<WFCTile> res, bool useRotations, int tileSetIndex)
     {
         WFC3DTile tempTile;
         if (lineCount % 2 == 0) lineCount++;
@@ -32,7 +34,12 @@ public class WFCSpawner3D : WFCSpawnerAbstact
                     float zCoord = (j - halfLines) * m_gridSize + (m_gridSize / 2);
                     float yCoord = (k - halfLines) * m_gridSize + (m_gridSize / 2);
                     tempTile = (WFC3DTile)res.Get(i, k, j);
-                    gameObjectArray[i, j] = Object.Instantiate(tempTile.tileVisuals,
+                    if (tempTile.tileVisuals[tileSetIndex] is null)
+                    {
+                        throw new Exception("GameObject is not set");
+                    }
+
+                    gameObjectArray[i, j] = Object.Instantiate(tempTile.tileVisuals[tileSetIndex],
                         new Vector3(xCoord, yCoord, zCoord),
                         transform.rotation);
 
@@ -40,7 +47,7 @@ public class WFCSpawner3D : WFCSpawnerAbstact
                     {
                         case 1:
                             gameObjectArray[i, j].transform
-                                .Rotate(new Vector3(tempTile.rotationModule * -90, 0, 0)); //maybe is -90
+                                .Rotate(new Vector3(tempTile.rotationModule * -90, 0, 0)); 
                             break;
                         case 2:
                             gameObjectArray[i, j].transform.Rotate(new Vector3(0, tempTile.rotationModule * -90, 0));

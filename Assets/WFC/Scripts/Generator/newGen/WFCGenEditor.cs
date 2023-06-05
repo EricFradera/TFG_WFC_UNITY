@@ -156,7 +156,7 @@ public class WFCGenEditor : Editor
                     wfcTilesList[i].tileName = ((TextField)e.ElementAt(0)).text;
                 });
                 ((FloatField)e.ElementAt(1)).value = wfcTilesList[i].frequency;
-                ((ObjectField)e.ElementAt(2)).value = wfcTilesList[i].tileVisuals;
+                //((ObjectField)e.ElementAt(2)).value = wfcTilesList[i].tileVisuals;
             };
             listViewComponent.makeItem = makeItem;
             listViewComponent.bindItem = bindItem;

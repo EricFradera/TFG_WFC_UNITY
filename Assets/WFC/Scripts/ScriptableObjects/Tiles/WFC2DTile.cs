@@ -13,7 +13,7 @@ namespace WFC
 {
     public class WFC2DTile : WFCTile
     {
-        [JsonIgnore] public Texture2D tileTexture;
+        [JsonIgnore] public Texture2D[] tileTexture;
 
 
         [Serializable]
@@ -112,6 +112,25 @@ namespace WFC
             }
 
             return tempArray;
+        }
+
+        public override void InitDataStructures()
+        {
+            if (adjacencyCodes is null) adjacencyCodes = new InputCodeData[dim];
+            if (adjacencyPairs is null)
+            {
+                adjacencyPairs = new List<WFCTile>[dim];
+                for (int i = 0; i < dim; i++) adjacencyPairs[i] = new List<WFCTile>();
+            }
+
+            if (GeneratedAdjacencyPairs is null)
+            {
+                GeneratedAdjacencyPairs = new List<WFCTile>[dim];
+                for (int i = 0; i < dim; i++) GeneratedAdjacencyPairs[i] = new List<WFCTile>();
+            }
+
+            if (tileVisuals is null) tileVisuals = new GameObject[1];
+            if (tileTexture is null) tileTexture = new Texture2D[1];
         }
     }
 }

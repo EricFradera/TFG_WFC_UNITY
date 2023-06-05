@@ -7,7 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "WFC components/WFC2DTile", order = 1, fileName = "WFC2dTile"), Serializable]
 public class WFC1DTile : WFCTile
 {
-    [JsonIgnore] public Texture2D tileTexture;
+    [JsonIgnore] public Texture2D[] tileTexture;
     
     public AssetType assetType;
 
@@ -40,6 +40,24 @@ public class WFC1DTile : WFCTile
             IndexDirection.LEFT => (int)IndexDirection.RIGHT,
             _ => -1
         };
+    }
+    public override void InitDataStructures()
+    {
+        if (adjacencyCodes is null) adjacencyCodes = new InputCodeData[dim];
+        if (adjacencyPairs is null)
+        {
+            adjacencyPairs = new List<WFCTile>[dim];
+            for (int i = 0; i < dim; i++) adjacencyPairs[i] = new List<WFCTile>();
+        }
+
+        if (GeneratedAdjacencyPairs is null)
+        {
+            GeneratedAdjacencyPairs = new List<WFCTile>[dim];
+            for (int i = 0; i < dim; i++) GeneratedAdjacencyPairs[i] = new List<WFCTile>();
+        }
+
+        if (tileVisuals.Length==0)tileVisuals = new GameObject[1];
+        if (tileTexture.Length==0)tileTexture = new Texture2D[1];
     }
 
 

@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DeBroglie.Topo;
 using UnityEngine;
 using WFC;
+using Object = UnityEngine.Object;
 
 public class WFCSpawner2D : WFCSpawnerAbstact
 {
@@ -15,7 +17,7 @@ public class WFCSpawner2D : WFCSpawnerAbstact
         gameObjectArray = new GameObject[base.lineCount, lineCount];
     }
 
-    public override void spawnTiles(ITopoArray<WFCTile> result, bool useRotations)
+    public override void spawnTiles(ITopoArray<WFCTile> result, bool useRotations, int tileSetIndex)
     {
         if (lineCount % 2 == 0) lineCount++;
         lineCount--;
@@ -32,18 +34,37 @@ public class WFCSpawner2D : WFCSpawnerAbstact
                 wfc2DTile = (WFC2DTile)result.Get(i, j);
                 if (wfc2DTile.assetType == WFC2DTile.AssetType.useGameObject)
                 {
-                    primitive = Object.Instantiate(wfc2DTile.tileVisuals,
+                    if (wfc2DTile.tileVisuals.Length <= tileSetIndex || tileSetIndex < 0)
+                    {
+                        throw new Exception("Index provided is not contained in the array");
+                    }
+
+                    if (wfc2DTile.tileVisuals[tileSetIndex] is null)
+                    {
+                        throw new Exception("GameObject is not set");
+                    }
+
+                    primitive = Object.Instantiate(wfc2DTile.tileVisuals[tileSetIndex],
                         new Vector3(xCoord, 0, zCoord),
-                        wfc2DTile.tileVisuals.transform.rotation);
+                        wfc2DTile.tileVisuals[tileSetIndex].transform.rotation);
                     primitive.transform.Rotate(new Vector3(0, 0, (wfc2DTile.rotationModule) * -90));
                     gameObjectArray[i, j] = primitive;
                 }
                 else
                 {
+                    if (wfc2DTile.tileTexture.Length <= tileSetIndex || tileSetIndex < 0)
+                    {
+                        throw new Exception("Index provided is not contained in the array");
+                    }
+
+                    if (wfc2DTile.tileTexture[tileSetIndex] is null)
+                    {
+                        throw new Exception("GameObject is not set");
+                    }
                     primitive = GameObject.CreatePrimitive(PrimitiveType.Quad);
                     primitive.transform.position = new Vector3(xCoord, 0, zCoord);
                     primitive.transform.Rotate(new Vector3(90f, 0, (wfc2DTile.rotationModule) * -90));
-                    primitive.GetComponent<MeshRenderer>().material = genMat(wfc2DTile);
+                    primitive.GetComponent<MeshRenderer>().material = genMat(wfc2DTile, tileSetIndex);
                     gameObjectArray[i, j] = primitive;
                 }
 
@@ -53,12 +74,12 @@ public class WFCSpawner2D : WFCSpawnerAbstact
         }
     }
 
-    private Material genMat(WFC2DTile tile)
+    private Material genMat(WFC2DTile tile, int tileSetIndex)
     {
         if (materials.ContainsKey(tile.tileId)) return materials[tile.tileId];
         var mat = new Material(Shader.Find("Universal Render Pipeline/Unlit"))
         {
-            mainTexture = tile.tileTexture
+            mainTexture = tile.tileTexture[tileSetIndex]
         };
         materials.Add(tile.tileId, mat);
         return mat;

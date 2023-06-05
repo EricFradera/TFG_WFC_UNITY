@@ -22,10 +22,10 @@ public class NodeHEXComponent : NodeTileComponent
     }
 
     // to update the image https://docs.unity3d.com/Manual/UIE-bind-custom-control.html
-    private void ImageView()
+    private void ImageView(int tileSetIndex)
     {
         WFC2DTile imageTile = (WFC2DTile)this.tile;
-        imageTile.tileTexture ??= Texture2D.whiteTexture;
+        imageTile.tileTexture[tileSetIndex] ??= Texture2D.whiteTexture;
         var container = new VisualElement
         {
             name = " Parent Container",
@@ -36,7 +36,7 @@ public class NodeHEXComponent : NodeTileComponent
         {
             name = "tileTexture",
             pickingMode = PickingMode.Ignore,
-            image = imageTile.tileTexture
+            image = imageTile.tileTexture[tileSetIndex]
         };
         container.style.height = new StyleLength(120);
         previewImage.StretchToParentSize();
