@@ -22,6 +22,7 @@ public class WFCGenEditor : Editor
     private float gridSize;
     private float gridExtent;
     private bool backtracking;
+    private int tileSetIndex;
     private Color lineColor;
     public WFCConfig configFile;
     public WFCGenerator current;
@@ -72,6 +73,7 @@ public class WFCGenEditor : Editor
         var clearButton = root.Q<Button>("clearButton");
         var vectorInput = root.Q<Vector2Field>("vecSize");
         var backtrackingToggle = root.Q<Toggle>("backtracking");
+        var tileSetIndexInput = root.Q<IntegerField>("tileSetIndex");
 
 
         //Binding components
@@ -82,6 +84,7 @@ public class WFCGenEditor : Editor
         listViewComponent.BindProperty(serializedObject.FindProperty("wfcTilesList"));
         vectorInput.BindProperty(serializedObject.FindProperty("vecSize"));
         backtrackingToggle.BindProperty(serializedObject.FindProperty("backtracking"));
+        tileSetIndexInput.BindProperty(serializedObject.FindProperty("tileSetIndex"));
 
 
         //modify variable values
@@ -89,6 +92,7 @@ public class WFCGenEditor : Editor
         extentFloatField.RegisterValueChangedCallback(evt => { gridExtent = extentFloatField.value; });
         lineColorField.RegisterValueChangedCallback(evt => { lineColor = lineColorField.value; });
         backtrackingToggle.RegisterValueChangedCallback(evt => { backtracking = backtrackingToggle.value; });
+        tileSetIndexInput.RegisterValueChangedCallback(evt => { tileSetIndex = tileSetIndexInput.value; });
 
 
         //Generate ListView

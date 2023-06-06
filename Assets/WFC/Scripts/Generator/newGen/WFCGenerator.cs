@@ -14,6 +14,7 @@ public class WFCGenerator : MonoBehaviour
     public float m_gridSize = 1f;
     public float m_gridExtent = 10f;
     public bool backtracking;
+    public int tileSetIndex;
     public Color lineColor = Color.white;
     public List<WFCTile> wfcTilesList;
     private GameObject[,] gameObjectArray;
@@ -33,7 +34,8 @@ public class WFCGenerator : MonoBehaviour
         ClearPreviousIteration();
         spawner = WFCConfigFile.CreateSpawner(transform, lineCount, m_gridSize, m_gridExtent);
         generator = WFCConfigFile.CreateProcessor(WFCConfigFile.wfcTilesList, WFCConfigFile.createWFCManager());
-        spawner.spawnTiles(generator.RunWFC(m_gridExtent, m_gridSize,backtracking), WFCConfigFile.useRotations,WFCConfigFile.tileSetIndex);
+        spawner.spawnTiles(generator.RunWFC(m_gridExtent, m_gridSize, backtracking), WFCConfigFile.useRotations,
+            tileSetIndex);
         if (WFCConfigFile.useRotations) generator.clearRotationList();
     }
 

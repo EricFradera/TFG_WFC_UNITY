@@ -18,13 +18,14 @@ namespace WFC
         public int configurationID;
         public List<WFCTile> wfcTilesList = new List<WFCTile>();
         public List<InputCodeData> nodeHelpers;
-        [Rename("Use rotations with tiles")]
-        public bool useRotations;
+        [Rename("Use rotations with tiles")] public bool useRotations;
 
-        public int tileSetIndex;
 
         public abstract WFCManager createWFCManager();
-        public abstract WFCSpawnerAbstact CreateSpawner(Transform transform, int lineCount, float m_gridSize, float m_gridExtent);
+
+        public abstract WFCSpawnerAbstact CreateSpawner(Transform transform, int lineCount, float m_gridSize,
+            float m_gridExtent);
+
         public abstract WFCAbstractProc CreateProcessor(List<WFCTile> listOfTiles, WFCManager manager);
     }
 }
