@@ -16,8 +16,8 @@ namespace WFC
     {
         public string configurationName;
         public int configurationID;
-        public List<WFCTile> wfcTilesList = new List<WFCTile>();
-        public List<InputCodeData> nodeHelpers;
+        public List<WFCTile> wfcTilesList = new();
+        public List<InputCodeData> nodeHelpers = new();
         [Rename("Use rotations with tiles")] public bool useRotations;
 
 

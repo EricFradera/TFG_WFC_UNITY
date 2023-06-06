@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
+using UnityEditor.Rendering;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -11,6 +12,9 @@ using Vector2 = System.Numerics.Vector2;
 
 public class Node2dComponent : NodeTileComponent
 {
+    VisualElement container;
+    Image previewImage;
+
     public Node2dComponent(WFC2DTile tile) : base(tile)
     {
         portNames = new[] { "up", "right", "down", "left" };
@@ -23,26 +27,27 @@ public class Node2dComponent : NodeTileComponent
 
         ImageView(0);
     }
+    
 
-    // to update the image https://docs.unity3d.com/Manual/UIE-bind-custom-control.html
     private void ImageView(int tileSetIndex)
     {
-        WFC2DTile imageTile = (WFC2DTile)this.tile;
-        if (imageTile.tileTexture.Length==0)  imageTile.InitDataStructures();
+        WFC2DTile imageTile = (WFC2DTile)tile;
+        if (imageTile.tileTexture.Length == 0) imageTile.InitDataStructures();
         imageTile.tileTexture[0] ??= Texture2D.whiteTexture;
-
-        var container = new VisualElement
+        
+        container = new VisualElement
         {
-            name = " Parent Container",
+            name = "Parent Container",
             pickingMode = PickingMode.Position,
             style = { overflow = Overflow.Visible },
         };
-        var previewImage = new Image
+        previewImage = new Image
         {
             name = "tileTexture",
             pickingMode = PickingMode.Ignore,
             image = imageTile.tileTexture[tileSetIndex]
         };
+        
         container.style.height = new StyleLength(120);
         previewImage.StretchToParentSize();
         container.contentContainer.Add(previewImage);

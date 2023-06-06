@@ -146,8 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34fa54262e976104a85adc4cba5eead0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 1672.1229
-  y: 657.60016
+  x: 1672
+  y: 657.6
   num: 0
   relationShips:
   - indexOutput: 0

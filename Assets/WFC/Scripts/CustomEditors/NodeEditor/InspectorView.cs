@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UIElements;
 using UnityEditor;
+using UnityEditor.UIElements;
 
 public class InspectorView : VisualElement
 {
@@ -28,7 +29,8 @@ public class InspectorView : VisualElement
             StringCodeNode stringCodeNode => Editor.CreateEditor(stringCodeNode.codeData),
             _ => editor
         };
-        IMGUIContainer container = new IMGUIContainer(() => { editor.OnInspectorGUI(); });
+        var container = new IMGUIContainer(() => { editor.OnInspectorGUI(); });
+
         Add(container);
     }
 }

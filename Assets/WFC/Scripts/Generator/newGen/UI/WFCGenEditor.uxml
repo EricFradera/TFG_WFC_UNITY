@@ -7,7 +7,7 @@
     <ui:IntegerField label="TileSetIndex" value="0" binding-path="tileSetIndex" name="tileSetIndex" />
     <uie:ObjectField label="WFCConfigFile" name="WFCConfigFile" binding-path="WFCConfigFile" view-data-key="WFCConfigFile" type="WFC.WFCConfig, Assembly-CSharp" />
     <uie:ColorField label="lineColor" value="#FFFFFFFF" name="lineColor" binding-path="lineColor" />
-    <ui:ListView focusable="true" binding-path="wfcTilesList" name="wfcTilesList" fixed-item-height="50" header-title="WFC tiles" show-border="true" view-data-key="wfcTilesList" show-add-remove-footer="false" show-foldout-header="true" horizontal-scrolling="false" reorderable="false" show-bound-collection-size="true" tabindex="0" style="flex-grow: 1;" />
+    <ui:ListView focusable="true" binding-path="wfcTilesList" name="wfcTilesList" fixed-item-height="300" header-title="WFC tiles" show-border="true" view-data-key="wfcTilesList" show-add-remove-footer="false" show-foldout-header="true" horizontal-scrolling="false" reorderable="false" show-bound-collection-size="true" tabindex="0" virtualization-method="FixedHeight" style="flex-grow: 1;" />
     <ui:VisualElement style="flex-grow: initial; background-color: rgba(0, 0, 0, 0); padding-top: 10px; padding-bottom: 2%;">
         <ui:Button text="Generate new Iteration" display-tooltip-when-elided="true" name="generateButton" binding-path="generateButton" />
         <ui:Button text="Clear Iteration" display-tooltip-when-elided="true" name="clearButton" binding-path="clearButton" />

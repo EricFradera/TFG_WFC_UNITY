@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEditor.UIElements;
@@ -16,6 +17,7 @@ using WFC;
 public class WFCGenEditor : Editor
 {
     public VisualTreeAsset m_InspectorXML;
+    public VisualTreeAsset itemList;
     private VisualElement root;
 
     //Input variables
@@ -27,7 +29,7 @@ public class WFCGenEditor : Editor
     public WFCConfig configFile;
     public WFCGenerator current;
 
-    public List<WFCTile> wfcTilesList;
+    public List<SerializedObject> wfcTilesList = new();
     [SerializeField] private VisualTreeAsset itemEditor;
     public ListView listViewComponent;
 
@@ -57,6 +59,7 @@ public class WFCGenEditor : Editor
 
     public override VisualElement CreateInspectorGUI()
     {
+        Debug.Log("Called");
         current = target as WFCGenerator;
         root = new VisualElement();
         if (m_InspectorXML is null) throw new Exception("XML file for the Inspector missing");
@@ -80,8 +83,8 @@ public class WFCGenEditor : Editor
         sizeFloatField.BindProperty(serializedObject.FindProperty("m_gridSize"));
         extentFloatField.BindProperty(serializedObject.FindProperty("m_gridExtent"));
         lineColorField.BindProperty(serializedObject.FindProperty("lineColor"));
-        wfcConfigFileField.BindProperty(serializedObject.FindProperty("WFCConfigFile"));
-        listViewComponent.BindProperty(serializedObject.FindProperty("wfcTilesList"));
+        //wfcConfigFileField.BindProperty(serializedObject.FindProperty("WFCConfigFile"));
+        //listViewComponent.BindProperty(serializedObject.FindProperty("wfcTilesList"));
         vectorInput.BindProperty(serializedObject.FindProperty("vecSize"));
         backtrackingToggle.BindProperty(serializedObject.FindProperty("backtracking"));
         tileSetIndexInput.BindProperty(serializedObject.FindProperty("tileSetIndex"));
@@ -121,20 +124,23 @@ public class WFCGenEditor : Editor
                         break;
                 }
 
-                wfcTilesList = configFile.wfcTilesList;
+                wfcTilesList.Clear();
+                wfcTilesList.AddRange(configFile.wfcTilesList.Select(x => new SerializedObject(x)));
                 current.populateList();
+                listViewComponent.Rebuild();
             }
             else
             {
                 configFile = null;
                 current.clearList();
-                wfcTilesList = null;
+                wfcTilesList.Clear();
+                listViewComponent.Rebuild();
             }
         });
         //Buttons
         generateButton.RegisterCallback<MouseUpEvent>((evt) => current.Generate());
         clearButton.RegisterCallback<MouseUpEvent>((evt) => current.ClearPreviousIteration());
-
+        CreateListView();
         return root;
     }
 
@@ -146,38 +152,25 @@ public class WFCGenEditor : Editor
 
     private void OnSceneGUI()
     {
-        //TODO
-        if (!(configFile.wfcTilesList is null || configFile.wfcTilesList.Count == 0))
-        {
-            Func<VisualElement> makeItem = () =>
-            {
-                var tileItem = new VisualElement();
-                tileItem.Add(new TextField("Tile name"));
-                tileItem.Add(new FloatField("Frequency of the tile"));
-                //tileItem.Add(new ObjectField("Texture"));
-                return tileItem;
-            };
-            Action<VisualElement, int> bindItem = (e, i) =>
-            {
-                ((TextField)e.ElementAt(0)).value = wfcTilesList[i].tileName;
-                ((TextField)e.ElementAt(0)).RegisterValueChangedCallback(evt =>
-                {
-                    wfcTilesList[i].tileName = ((TextField)e.ElementAt(0)).text;
-                });
-                ((FloatField)e.ElementAt(1)).value = wfcTilesList[i].frequency;
-                ((FloatField)e.ElementAt(1)).RegisterValueChangedCallback(evt =>
-                {
-                    wfcTilesList[i].frequency = ((FloatField)e.ElementAt(1)).value;
-                });
-            };
-            listViewComponent.makeItem = makeItem;
-            listViewComponent.bindItem = bindItem;
-            listViewComponent.itemsSource = wfcTilesList;
-        }
-
-        if (configFile is null) return;
+       if (configFile is null) return;
         gizmoList[(int)indexGizmo].enableGizmo(current.transform);
         gizmoList[(int)indexGizmo].generateGizmo(lineColor, gridSize, gridExtent);
+    }
+
+    private void CreateListView()
+    {
+        VisualElement MakeItem() => itemList.CloneTree();
+        
+        void BindItem(VisualElement e, int i)
+        {
+            SerializedObject wfcTile = wfcTilesList[i];
+            var textFieldInput = e.Q<TextField>("tileName");
+            textFieldInput.BindProperty(wfcTile.FindProperty("tileName"));
+        }
+
+        listViewComponent.makeItem = MakeItem;
+        listViewComponent.bindItem = BindItem;
+        listViewComponent.itemsSource = wfcTilesList;
     }
 }
 #endif
