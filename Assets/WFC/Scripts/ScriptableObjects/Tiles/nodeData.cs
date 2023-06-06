@@ -62,7 +62,6 @@ public class nodeData : ScriptableObject
 
     public void removeRel(int dirParent, object child)
     {
-        Debug.Log(child.GetType().BaseType);
         if (child.GetType().BaseType == typeof(WFCTile))
             foreach (var relation in relationShips.Where(relation =>
                          relation.indexOutput == dirParent && relation.inputTile == (WFCTile)child))

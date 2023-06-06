@@ -29,7 +29,6 @@ public class Generate_Adjacency
                         tileOrigin.GeneratedAdjacencyPairs[i].Add(tileDest);
                 }
             }
-
             tileOrigin.MixAdj();
         }
     }
