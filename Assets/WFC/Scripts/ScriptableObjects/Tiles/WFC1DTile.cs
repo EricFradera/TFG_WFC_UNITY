@@ -8,7 +8,7 @@ using UnityEngine;
 public class WFC1DTile : WFCTile
 {
     [JsonIgnore] public Texture2D[] tileTexture;
-    
+
     public AssetType assetType;
 
     public enum AssetType
@@ -41,6 +41,7 @@ public class WFC1DTile : WFCTile
             _ => -1
         };
     }
+
     public override void InitDataStructures()
     {
         if (adjacencyCodes is null) adjacencyCodes = new InputCodeData[dim];
@@ -56,8 +57,8 @@ public class WFC1DTile : WFCTile
             for (int i = 0; i < dim; i++) GeneratedAdjacencyPairs[i] = new List<WFCTile>();
         }
 
-        if (tileVisuals.Length==0)tileVisuals = new GameObject[1];
-        if (tileTexture.Length==0)tileTexture = new Texture2D[1];
+        if (tileVisuals is null || tileVisuals.Length == 0) tileVisuals = new GameObject[1];
+        if (tileTexture is null || tileTexture.Length == 0) tileTexture = new Texture2D[1];
     }
 
 

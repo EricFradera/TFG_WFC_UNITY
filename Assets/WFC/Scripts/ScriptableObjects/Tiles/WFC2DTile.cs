@@ -129,8 +129,8 @@ namespace WFC
                 for (int i = 0; i < dim; i++) GeneratedAdjacencyPairs[i] = new List<WFCTile>();
             }
 
-            if (tileVisuals is null) tileVisuals = new GameObject[1];
-            if (tileTexture is null) tileTexture = new Texture2D[1];
+            if (tileVisuals is null || tileVisuals.Length == 0) tileVisuals = new GameObject[1];
+            if (tileTexture is null || tileTexture.Length == 0) tileTexture = new Texture2D[1];
         }
     }
 }

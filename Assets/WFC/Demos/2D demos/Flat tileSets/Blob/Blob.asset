@@ -829,7 +829,7 @@ MonoBehaviour:
   - {fileID: 6639928989392501702}
   - {fileID: -71548512307869077}
   - {fileID: 3083771331775726898}
-  useRotations: 0
+  useRotations: 1
 --- !u!114 &78802836566847388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1153,7 +1153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: 0
   tileId: a7c04d96216ae5244b6e62fbc68f6fe3
-  frequency: 1
+  frequency: 25
   rotationModule: 0
   adjacencyCodes:
   - {fileID: -1772145917317211888}
@@ -1349,7 +1349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: 17
   tileId: 67e43f80f8611fa4b9a6c5db2b52ea6b
-  frequency: 1
+  frequency: 15
   rotationModule: 0
   adjacencyCodes:
   - {fileID: -8535069696280793451}
