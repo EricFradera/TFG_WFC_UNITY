@@ -25,16 +25,16 @@ public class Node2dComponent : NodeTileComponent
 
         CreateInputPort();
 
-        ImageView(0);
+        ImageView();
     }
     
 
-    private void ImageView(int tileSetIndex)
+    private void ImageView()
     {
         WFC2DTile imageTile = (WFC2DTile)tile;
         if (imageTile.tileTexture.Length == 0) imageTile.InitDataStructures();
         imageTile.tileTexture[0] ??= Texture2D.whiteTexture;
-        
+
         container = new VisualElement
         {
             name = "Parent Container",
@@ -45,7 +45,7 @@ public class Node2dComponent : NodeTileComponent
         {
             name = "tileTexture",
             pickingMode = PickingMode.Ignore,
-            image = imageTile.tileTexture[tileSetIndex]
+            image = imageTile.tileTexture[0]
         };
         
         container.style.height = new StyleLength(120);

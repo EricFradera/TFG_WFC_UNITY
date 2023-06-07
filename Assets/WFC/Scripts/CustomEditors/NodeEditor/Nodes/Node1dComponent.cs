@@ -18,14 +18,14 @@ public class Node1dComponent : NodeTileComponent
         }
 
         CreateInputPort();
-        ImageView(0);
+        ImageView();
     }
 
     // to update the image https://docs.unity3d.com/Manual/UIE-bind-custom-control.html
-    private void ImageView(int tileSetIndex)
+    private void ImageView()
     {
         WFC1DTile imageTile = (WFC1DTile)this.tile;
-        if (imageTile.tileTexture.Length==0) imageTile.InitDataStructures();
+        if (imageTile.tileTexture.Length == 0) imageTile.InitDataStructures();
         imageTile.tileTexture[0] ??= Texture2D.whiteTexture;
 
         var container = new VisualElement
@@ -38,7 +38,7 @@ public class Node1dComponent : NodeTileComponent
         {
             name = "tileTexture",
             pickingMode = PickingMode.Ignore,
-            image = imageTile.tileTexture[tileSetIndex]
+            image = imageTile.tileTexture[0]
         };
         container.style.height = new StyleLength(120);
         previewImage.StretchToParentSize();

@@ -59,7 +59,6 @@ public class WFCGenEditor : Editor
 
     public override VisualElement CreateInspectorGUI()
     {
-        Debug.Log("Called");
         current = target as WFCGenerator;
         root = new VisualElement();
         if (m_InspectorXML is null) throw new Exception("XML file for the Inspector missing");
@@ -152,7 +151,7 @@ public class WFCGenEditor : Editor
 
     private void OnSceneGUI()
     {
-       if (configFile is null) return;
+        if (configFile is null) return;
         gizmoList[(int)indexGizmo].enableGizmo(current.transform);
         gizmoList[(int)indexGizmo].generateGizmo(lineColor, gridSize, gridExtent);
     }
@@ -160,12 +159,16 @@ public class WFCGenEditor : Editor
     private void CreateListView()
     {
         VisualElement MakeItem() => itemList.CloneTree();
-        
+
         void BindItem(VisualElement e, int i)
         {
             SerializedObject wfcTile = wfcTilesList[i];
             var textFieldInput = e.Q<TextField>("tileName");
             textFieldInput.BindProperty(wfcTile.FindProperty("tileName"));
+            var frequencyField = e.Q<Slider>("Frequency");
+            frequencyField.BindProperty(wfcTile.FindProperty("frequency"));
+            var previewImage = e.Q<VisualElement>("TexturePreview");
+            previewImage.style.backgroundImage = configFile.wfcTilesList[i].getPreview();
         }
 
         listViewComponent.makeItem = MakeItem;

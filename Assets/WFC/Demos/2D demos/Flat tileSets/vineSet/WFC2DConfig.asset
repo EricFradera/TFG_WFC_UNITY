@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e890ea296fd8fc84392022df9300b300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileName: WFC2D tile
+  tileName: WFC2D tiled
   tileId: e4fba89a574be4d478fa38a33dfd610c
   frequency: 1
   rotationModule: 0
@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34fa54262e976104a85adc4cba5eead0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 0
-  y: 0
+  x: 60
+  y: 74.8
   num: 0
   relationShips: []

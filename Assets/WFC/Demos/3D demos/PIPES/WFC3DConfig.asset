@@ -260,7 +260,6 @@ MonoBehaviour:
   - {fileID: 4633156482166576903}
   - {fileID: -1234491756814256534}
   useRotations: 1
-  tileSetIndex: 0
 --- !u!114 &448446038410008554
 MonoBehaviour:
   m_ObjectHideFlags: 0

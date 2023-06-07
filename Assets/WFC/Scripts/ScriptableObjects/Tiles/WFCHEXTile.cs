@@ -2,11 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using UnityEditor;
 using UnityEngine;
 
 public class WFCHEXTile : WFCTile
 {
-    [JsonIgnore] public Texture2D previewTexture2D;
     
     public WFCHEXTile()
     {
@@ -49,5 +49,11 @@ public class WFCHEXTile : WFCTile
     protected override WFCTile copyForRotation(int rot, int axis)
     {
         throw new Exception("This not currently supported");
+    }
+
+    public override Texture2D getPreview()
+    {
+        previewTexture2D = AssetPreview.GetAssetPreview(this.tileVisuals[0]);
+        return previewTexture2D;
     }
 }

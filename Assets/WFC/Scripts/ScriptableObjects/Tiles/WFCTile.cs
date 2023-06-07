@@ -34,6 +34,7 @@ public abstract class WFCTile : ScriptableObject
 
     //Asset data
     [JsonIgnore] public GameObject[] tileVisuals;
+    [JsonIgnore] public Texture2D previewTexture2D;
 
     //always have to be an inverse function for tile matching
     public abstract int GetInverse(int indexDirection);
@@ -109,4 +110,5 @@ public abstract class WFCTile : ScriptableObject
     public abstract List<WFCTile> getRotationTiles();
 
     protected abstract WFCTile copyForRotation(int rot, int axis);
+    public abstract Texture2D getPreview();
 }

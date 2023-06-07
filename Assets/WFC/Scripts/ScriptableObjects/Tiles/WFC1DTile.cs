@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "WFC components/WFC2DTile", order = 1, fileName = "WFC2dTile"), Serializable]
@@ -70,5 +71,11 @@ public class WFC1DTile : WFCTile
     protected override WFCTile copyForRotation(int rot, int axis)
     {
         throw new NotImplementedException();
+    }
+
+    public override Texture2D getPreview()
+    {
+        previewTexture2D = assetType == AssetType.useTexture ? tileTexture[0] : AssetPreview.GetAssetPreview(tileVisuals[0]);
+        return previewTexture2D;
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -9,7 +10,7 @@ namespace WFC
 {
     public class WFC3DTile : WFCTile
     {
-        [JsonIgnore] public Texture2D previewTexture2D;
+        
 
         [Serializable]
         public struct rotationValues
@@ -132,6 +133,12 @@ namespace WFC
             }
 
             return rotationArray;
+        }
+        
+        public override Texture2D getPreview()
+        {
+            previewTexture2D =AssetPreview.GetAssetPreview(this.tileVisuals[0]);
+            return previewTexture2D;
         }
         
     }

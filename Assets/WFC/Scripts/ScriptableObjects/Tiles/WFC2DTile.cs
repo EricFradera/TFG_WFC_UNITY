@@ -100,6 +100,12 @@ namespace WFC
             return tempTile;
         }
 
+        public override Texture2D getPreview()
+        {
+            previewTexture2D = assetType == AssetType.useTexture ? tileTexture[0] : AssetPreview.GetAssetPreview(tileVisuals[0]);
+            return previewTexture2D;
+        }
+
         private InputCodeData[] rotationHelper(int rotation, int axis)
         {
             var listLenght = adjacencyCodes.Length;
