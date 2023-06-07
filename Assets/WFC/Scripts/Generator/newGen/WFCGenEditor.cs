@@ -73,7 +73,6 @@ public class WFCGenEditor : Editor
         listViewComponent = root.Q<ListView>("wfcTilesList");
         var generateButton = root.Q<Button>("generateButton");
         var clearButton = root.Q<Button>("clearButton");
-        var vectorInput = root.Q<Vector2Field>("vecSize");
         var backtrackingToggle = root.Q<Toggle>("backtracking");
         var tileSetIndexInput = root.Q<IntegerField>("tileSetIndex");
 
@@ -82,9 +81,6 @@ public class WFCGenEditor : Editor
         sizeFloatField.BindProperty(serializedObject.FindProperty("m_gridSize"));
         extentFloatField.BindProperty(serializedObject.FindProperty("m_gridExtent"));
         lineColorField.BindProperty(serializedObject.FindProperty("lineColor"));
-        //wfcConfigFileField.BindProperty(serializedObject.FindProperty("WFCConfigFile"));
-        //listViewComponent.BindProperty(serializedObject.FindProperty("wfcTilesList"));
-        vectorInput.BindProperty(serializedObject.FindProperty("vecSize"));
         backtrackingToggle.BindProperty(serializedObject.FindProperty("backtracking"));
         tileSetIndexInput.BindProperty(serializedObject.FindProperty("tileSetIndex"));
 

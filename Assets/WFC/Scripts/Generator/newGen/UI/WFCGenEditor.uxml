@@ -1,7 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
     <ui:Label tabindex="-1" text="WFC generator" display-tooltip-when-elided="true" style="-unity-text-align: upper-center; font-size: 16px; margin-bottom: 10px;" />
     <ui:FloatField label="m_gridSize" value="1" binding-path="m_gridSize" name="m_gridSize" />
-    <ui:Vector2Field label="vecSize" binding-path="vecSize" name="vecSize" />
     <ui:FloatField label="Grid Extent" value="42.2" name="m_gridExtent" binding-path="m_gridExtent" />
     <ui:Toggle label="Backtracking" binding-path="backtracking" name="backtracking" />
     <ui:IntegerField label="TileSetIndex" value="0" binding-path="tileSetIndex" name="tileSetIndex" />
