@@ -47,9 +47,10 @@ public class WFCSpawner2D : WFCSpawnerAbstact
                     primitive = Object.Instantiate(wfc2DTile.tileVisuals[tileSetIndex],
                         new Vector3(xCoord, 0, zCoord),
                         wfc2DTile.tileVisuals[tileSetIndex].transform.rotation);
-                    primitive.transform.Rotate(new Vector3(0, (wfc2DTile.rotationModule) * -90, 0));
+                    primitive.transform.Rotate(new Vector3(0, (wfc2DTile.rotationModule) * 90, 0));
                     gameObjectArray[i, j] = primitive;
                     gameObjectArray[i, j].transform.localScale = new Vector3(m_gridSize, m_gridSize, m_gridSize);
+                    
                 }
                 else
                 {
@@ -70,8 +71,6 @@ public class WFCSpawner2D : WFCSpawnerAbstact
                     gameObjectArray[i, j] = primitive;
                     gameObjectArray[i, j].transform.localScale = new Vector3(m_gridSize, m_gridSize, 1);
                 }
-
-
                 gameObjectArray[i, j].transform.parent = this.transform;
             }
         }
