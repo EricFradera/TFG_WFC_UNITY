@@ -5,6 +5,7 @@ using DeBroglie.Topo;
 using UnityEngine;
 using WFC;
 using Object = UnityEngine.Object;
+using Random = System.Random;
 
 public class WFCSpawner3D : WFCSpawnerAbstact
 {
@@ -23,6 +24,7 @@ public class WFCSpawner3D : WFCSpawnerAbstact
         if (lineCount % 2 == 0) lineCount++;
         lineCount--;
         var halfLines = lineCount / 2;
+        Random rd = new Random();
 
         for (int k = 0; k < lineCount; k++)
         {
@@ -39,15 +41,21 @@ public class WFCSpawner3D : WFCSpawnerAbstact
                         throw new Exception("GameObject is not set");
                     }
 
-                    gameObjectArray[i, j] = Object.Instantiate(tempTile.tileVisuals[tileSetIndex],
-                        new Vector3(xCoord, yCoord, zCoord),
-                        transform.rotation);
+                    if (tempTile.randomizeVariations)
+                        gameObjectArray[i, j] = Object.Instantiate(
+                            tempTile.tileVisuals[rd.Next(0, tempTile.tileVisuals.Length)],
+                            new Vector3(xCoord, yCoord, zCoord),
+                            transform.rotation);
+                    else
+                        gameObjectArray[i, j] = Object.Instantiate(tempTile.tileVisuals[tileSetIndex],
+                            new Vector3(xCoord, yCoord, zCoord),
+                            transform.rotation);
 
                     switch (tempTile.rotationAxis)
                     {
                         case 1:
                             gameObjectArray[i, j].transform
-                                .Rotate(new Vector3(tempTile.rotationModule * -90, 0, 0)); 
+                                .Rotate(new Vector3(tempTile.rotationModule * -90, 0, 0));
                             break;
                         case 2:
                             gameObjectArray[i, j].transform.Rotate(new Vector3(0, tempTile.rotationModule * -90, 0));

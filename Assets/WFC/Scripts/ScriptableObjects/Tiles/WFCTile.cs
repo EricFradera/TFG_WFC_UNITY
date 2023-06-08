@@ -28,6 +28,9 @@ public abstract class WFCTile : ScriptableObject
     //I need a second structure here
     [JsonIgnore] public List<WFCTile>[] GeneratedAdjacencyPairs;
 
+    [Rename("Randomize between the values")]
+    public bool randomizeVariations = false;
+
 
     // Node data
     [HideInInspector] public nodeData nodeData;
