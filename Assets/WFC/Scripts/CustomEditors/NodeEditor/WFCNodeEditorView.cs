@@ -30,6 +30,7 @@ public class WFCNodeEditorView : GraphView
             AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/WFC/Scripts/CustomEditors/NodeEditor/WFCNodeEditor.uss");
         styleSheets.Add(styleSheet);
     }
+    
 
 
     public void PopulateView(WFCConfig config)

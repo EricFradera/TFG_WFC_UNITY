@@ -1382,7 +1382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: 17
   tileId: 67e43f80f8611fa4b9a6c5db2b52ea6b
-  frequency: 5
+  frequency: 100
   rotationModule: 0
   adjacencyCodes:
   - {fileID: -8535069696280793451}
