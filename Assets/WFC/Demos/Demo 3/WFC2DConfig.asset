@@ -185,8 +185,8 @@ MonoBehaviour:
   - {fileID: -1794583386867219633}
   nodeData: {fileID: 5851232395752973916}
   tileVisuals:
-  - {fileID: 919132149155446097, guid: 98ea6945e756b664499cc9c38d2d862d, type: 3}
-  previewTexture2D: {fileID: 2800000, guid: e64604da8fbc3f941a910af9d4d43d10, type: 3}
+  - {fileID: 6223751999675843303, guid: 367f715ec62922f4a99a0ef837ba2cee, type: 3}
+  previewTexture2D: {fileID: 0}
   tileTexture:
   - {fileID: 2800000, guid: e64604da8fbc3f941a910af9d4d43d10, type: 3}
   assetType: 1
@@ -264,8 +264,8 @@ MonoBehaviour:
   - {fileID: -1794583386867219633}
   nodeData: {fileID: 3644351501329460592}
   tileVisuals:
-  - {fileID: 919132149155446097, guid: 3d946217bcbfef34b8d06f441e60300e, type: 3}
-  previewTexture2D: {fileID: 2800000, guid: ee86d1ec9cd8cae4192cab2cdb058091, type: 3}
+  - {fileID: 2589262296047279082, guid: 945889ed1672fe9439cdaa7860f2a91d, type: 3}
+  previewTexture2D: {fileID: 0}
   tileTexture:
   - {fileID: 2800000, guid: ee86d1ec9cd8cae4192cab2cdb058091, type: 3}
   assetType: 1
@@ -296,7 +296,7 @@ MonoBehaviour:
   - {fileID: -5630675732093928009}
   nodeData: {fileID: -1565052107957115371}
   tileVisuals:
-  - {fileID: 919132149155446097, guid: 9e9add3523c032d449a5f3c94d110c97, type: 3}
+  - {fileID: 7936711949059537553, guid: ac8d30ec57a92454f828b9716fd19bb5, type: 3}
   previewTexture2D: {fileID: 0}
   tileTexture:
   - {fileID: 2800000, guid: bacb7f580955c6445bb03b99cf8d9595, type: 3}
@@ -345,6 +345,34 @@ MonoBehaviour:
   - indexOutput: 2
     inputTile: {fileID: -6596546809285349296}
     inputCodeData: {fileID: 0}
+--- !u!114 &-4546975642928116995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34fa54262e976104a85adc4cba5eead0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  x: 0.0000017791754
+  y: -294.4
+  num: 0
+  relationShips:
+  - indexOutput: 0
+    inputTile: {fileID: 0}
+    inputCodeData: {fileID: 4904040021243848372}
+  - indexOutput: 1
+    inputTile: {fileID: 0}
+    inputCodeData: {fileID: 4904040021243848372}
+  - indexOutput: 2
+    inputTile: {fileID: 0}
+    inputCodeData: {fileID: 4904040021243848372}
+  - indexOutput: 3
+    inputTile: {fileID: 0}
+    inputCodeData: {fileID: 4904040021243848372}
 --- !u!114 &-4513568097538935773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,6 +426,63 @@ MonoBehaviour:
   - indexOutput: 2
     inputTile: {fileID: -441515740331242396}
     inputCodeData: {fileID: 0}
+--- !u!114 &-4146692721916358802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34fa54262e976104a85adc4cba5eead0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  x: 1208.8
+  y: -659.2004
+  num: 0
+  relationShips:
+  - indexOutput: 0
+    inputTile: {fileID: 0}
+    inputCodeData: {fileID: 4624814798419536188}
+  - indexOutput: 1
+    inputTile: {fileID: 0}
+    inputCodeData: {fileID: 4624814798419536188}
+  - indexOutput: 2
+    inputTile: {fileID: 0}
+    inputCodeData: {fileID: 4624814798419536188}
+  - indexOutput: 3
+    inputTile: {fileID: 0}
+    inputCodeData: {fileID: 4624814798419536188}
+--- !u!114 &-3572454340166727186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e890ea296fd8fc84392022df9300b300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileName: WFC2D tile
+  tileId: 22e3e16c474f7654dbc70ff8a38091de
+  frequency: 10
+  rotationModule: 0
+  adjacencyCodes:
+  - {fileID: 4904040021243848372}
+  - {fileID: 4904040021243848372}
+  - {fileID: 4904040021243848372}
+  - {fileID: 4904040021243848372}
+  nodeData: {fileID: -4546975642928116995}
+  tileVisuals:
+  - {fileID: 0}
+  previewTexture2D: {fileID: 2800000, guid: 9e76ea0a10060384882dae824a54088b, type: 3}
+  tileTexture:
+  - {fileID: 2800000, guid: 9e76ea0a10060384882dae824a54088b, type: 3}
+  assetType: 0
+  rotationList: []
 --- !u!114 &-3493224211688596659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,7 +506,7 @@ MonoBehaviour:
   - {fileID: 4904040021243848372}
   nodeData: {fileID: 5592517571633006982}
   tileVisuals:
-  - {fileID: 919132149155446097, guid: a32012fea032b0140b4d2258230decad, type: 3}
+  - {fileID: 5928724234009164877, guid: 226e49432a971f74cb95bb019db0e264, type: 3}
   previewTexture2D: {fileID: 0}
   tileTexture:
   - {fileID: 2800000, guid: f06fc889001a56b48992a78967466237, type: 3}
@@ -450,7 +535,7 @@ MonoBehaviour:
   - {fileID: -5630675732093928009}
   nodeData: {fileID: 620601224275515923}
   tileVisuals:
-  - {fileID: 919132149155446097, guid: f4ae2cbcaab59684b8c61552f84cbfbd, type: 3}
+  - {fileID: 559355754237274961, guid: a3bcd98f398abea4f92716002d8330ad, type: 3}
   previewTexture2D: {fileID: 0}
   tileTexture:
   - {fileID: 2800000, guid: f51b62c94ce611942892cbd2216adecf, type: 3}
@@ -471,7 +556,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 1895.6001
   y: -325.4
-  num: 12
+  num: 16
   relationShips:
   - indexOutput: 0
     inputTile: {fileID: 2020388692810174611}
@@ -508,6 +593,18 @@ MonoBehaviour:
     inputCodeData: {fileID: 0}
   - indexOutput: 1
     inputTile: {fileID: -2092045964378622770}
+    inputCodeData: {fileID: 0}
+  - indexOutput: 0
+    inputTile: {fileID: 6974956111051354393}
+    inputCodeData: {fileID: 0}
+  - indexOutput: 1
+    inputTile: {fileID: 6974956111051354393}
+    inputCodeData: {fileID: 0}
+  - indexOutput: 2
+    inputTile: {fileID: 6974956111051354393}
+    inputCodeData: {fileID: 0}
+  - indexOutput: 3
+    inputTile: {fileID: 6974956111051354393}
     inputCodeData: {fileID: 0}
 --- !u!114 &-2938796759350811030
 MonoBehaviour:
@@ -554,8 +651,8 @@ MonoBehaviour:
   - {fileID: 9219621665078369862}
   nodeData: {fileID: 5618166121242431506}
   tileVisuals:
-  - {fileID: 919132149155446097, guid: 68bd54197ed2c4b47ba213fec04880a7, type: 3}
-  previewTexture2D: {fileID: 2800000, guid: 05ca1a41c27b871479b0a5680618f870, type: 3}
+  - {fileID: 4566448464232167436, guid: 153f4e37ace67e64cb40599ee25b8601, type: 3}
+  previewTexture2D: {fileID: 0}
   tileTexture:
   - {fileID: 2800000, guid: 05ca1a41c27b871479b0a5680618f870, type: 3}
   assetType: 1
@@ -617,8 +714,8 @@ MonoBehaviour:
   - {fileID: 4624814798419536188}
   nodeData: {fileID: -242261658854720330}
   tileVisuals:
-  - {fileID: 919132149155446097, guid: 945e96ceec422be41a3e967838d3a25d, type: 3}
-  previewTexture2D: {fileID: 2800000, guid: 9d458d58a3be54b46be9885cf801bbf4, type: 3}
+  - {fileID: 8287089811648326602, guid: 0e47651b1c412e2438fe73cd745c4ebc, type: 3}
+  previewTexture2D: {fileID: 0}
   tileTexture:
   - {fileID: 2800000, guid: 9d458d58a3be54b46be9885cf801bbf4, type: 3}
   assetType: 1
@@ -649,8 +746,8 @@ MonoBehaviour:
   - {fileID: 5468419765111593266}
   nodeData: {fileID: 1446890743910652053}
   tileVisuals:
-  - {fileID: 919132149155446097, guid: effc1b785c7906548b6ee9d8863230f6, type: 3}
-  previewTexture2D: {fileID: 2800000, guid: 329bb74220fa3d94d8d3afc4a3f7a60e, type: 3}
+  - {fileID: 5635405989350144825, guid: 8898bbb488cbcea469d929cadd2f9414, type: 3}
+  previewTexture2D: {fileID: 0}
   tileTexture:
   - {fileID: 2800000, guid: 329bb74220fa3d94d8d3afc4a3f7a60e, type: 3}
   assetType: 1
@@ -747,8 +844,8 @@ MonoBehaviour:
   - {fileID: -1794583386867219633}
   nodeData: {fileID: 8470901947755302850}
   tileVisuals:
-  - {fileID: 919132149155446097, guid: 41f93710a8f659e4cb50495240f246c1, type: 3}
-  previewTexture2D: {fileID: 2800000, guid: 3246c17ec0af5324fa2ea0efa3228af3, type: 3}
+  - {fileID: 817598551559654529, guid: 7af2ce75865105f4b87bdd29c79cc4bb, type: 3}
+  previewTexture2D: {fileID: 0}
   tileTexture:
   - {fileID: 2800000, guid: 3246c17ec0af5324fa2ea0efa3228af3, type: 3}
   assetType: 1
@@ -779,7 +876,7 @@ MonoBehaviour:
   - {fileID: 4904040021243848372}
   nodeData: {fileID: 5272201173218610164}
   tileVisuals:
-  - {fileID: 919132149155446097, guid: 2df6fe58ffceb5e4a8830af425600003, type: 3}
+  - {fileID: 9038363873971487418, guid: 15363f69577a81a41bf82d29ed8f80c1, type: 3}
   previewTexture2D: {fileID: 0}
   tileTexture:
   - {fileID: 2800000, guid: d4e612b06bfd1d74b93482ebf7009d54, type: 3}
@@ -800,8 +897,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34fa54262e976104a85adc4cba5eead0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 1209.0115
-  y: 283.20013
+  x: 1208.8003
+  y: 283.19998
   num: 0
   relationShips:
   - indexOutput: 0
@@ -839,8 +936,8 @@ MonoBehaviour:
   - {fileID: 1036999196609737755}
   nodeData: {fileID: -7559043229335077653}
   tileVisuals:
-  - {fileID: 919132149155446097, guid: e15c3a03785db9b4aa2471c768517e1e, type: 3}
-  previewTexture2D: {fileID: 2800000, guid: 403e1ffece215e246be005ef685388c2, type: 3}
+  - {fileID: 7201717215892623947, guid: 1bfc3b860a8188446bf7f12cbf187c58, type: 3}
+  previewTexture2D: {fileID: 0}
   tileTexture:
   - {fileID: 2800000, guid: 403e1ffece215e246be005ef685388c2, type: 3}
   assetType: 1
@@ -879,6 +976,8 @@ MonoBehaviour:
   - {fileID: -6596546809285349296}
   - {fileID: 5862869711968162381}
   - {fileID: -3493224211688596659}
+  - {fileID: -3572454340166727186}
+  - {fileID: 6974956111051354393}
   nodeHelpers:
   - {fileID: 4904040021243848372}
   - {fileID: -999047084272747307}
@@ -943,8 +1042,8 @@ MonoBehaviour:
   - {fileID: 1036999196609737755}
   nodeData: {fileID: 3280672548345614142}
   tileVisuals:
-  - {fileID: 919132149155446097, guid: effc1b785c7906548b6ee9d8863230f6, type: 3}
-  previewTexture2D: {fileID: 2800000, guid: f61d758d05c7a2f4b967e8053fd9566f, type: 3}
+  - {fileID: 6515878432956995466, guid: a627b7f5b3d52e04aae9a64274942ff3, type: 3}
+  previewTexture2D: {fileID: 0}
   tileTexture:
   - {fileID: 2800000, guid: f61d758d05c7a2f4b967e8053fd9566f, type: 3}
   assetType: 1
@@ -966,7 +1065,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 394.59995
   y: 35
-  num: 10
+  num: 14
   relationShips:
   - indexOutput: 0
     inputTile: {fileID: -441515740331242396}
@@ -997,6 +1096,18 @@ MonoBehaviour:
     inputCodeData: {fileID: 0}
   - indexOutput: 2
     inputTile: {fileID: 5862869711968162381}
+    inputCodeData: {fileID: 0}
+  - indexOutput: 0
+    inputTile: {fileID: -3572454340166727186}
+    inputCodeData: {fileID: 0}
+  - indexOutput: 1
+    inputTile: {fileID: -3572454340166727186}
+    inputCodeData: {fileID: 0}
+  - indexOutput: 2
+    inputTile: {fileID: -3572454340166727186}
+    inputCodeData: {fileID: 0}
+  - indexOutput: 3
+    inputTile: {fileID: -3572454340166727186}
     inputCodeData: {fileID: 0}
 --- !u!114 &1036999196609737755
 MonoBehaviour:
@@ -1040,8 +1151,8 @@ MonoBehaviour:
   - {fileID: 4624814798419536188}
   nodeData: {fileID: -4513568097538935773}
   tileVisuals:
-  - {fileID: 919132149155446097, guid: 232fe75c8624aae44a4ac9514677febd, type: 3}
-  previewTexture2D: {fileID: 2800000, guid: 9ee338a85cbd0d04ea624668aac45389, type: 3}
+  - {fileID: 7478730542400678426, guid: 76528d1719cb02840b09fc915d7af0ac, type: 3}
+  previewTexture2D: {fileID: 0}
   tileTexture:
   - {fileID: 2800000, guid: 9ee338a85cbd0d04ea624668aac45389, type: 3}
   assetType: 1
@@ -1174,11 +1285,11 @@ MonoBehaviour:
   - {fileID: 5468419765111593266}
   nodeData: {fileID: 8175625503997086002}
   tileVisuals:
-  - {fileID: 919132149155446097, guid: 3cb4a3096d271664eb2df0657c4979ed, type: 3}
-  previewTexture2D: {fileID: 2800000, guid: 0b4f3be1396cac14bb86f6bedfc0a0e3, type: 3}
+  - {fileID: 5327718655216384170, guid: 5ecc51a81a8b99344bbc9c6ada196b4a, type: 3}
+  previewTexture2D: {fileID: 0}
   tileTexture:
   - {fileID: 2800000, guid: 0b4f3be1396cac14bb86f6bedfc0a0e3, type: 3}
-  assetType: 0
+  assetType: 1
   rotationList:
   - degrees: 0
   - degrees: 1
@@ -1223,8 +1334,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34fa54262e976104a85adc4cba5eead0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 1144.8
-  y: 1416.7999
+  x: 1144.8002
+  y: 1416.8
   num: 0
   relationShips:
   - indexOutput: 0
@@ -1393,8 +1504,8 @@ MonoBehaviour:
   - {fileID: -5630675732093928009}
   nodeData: {fileID: 8122198490135911471}
   tileVisuals:
-  - {fileID: 919132149155446097, guid: af94328e75fb72d4d85f61656ae5cfb7, type: 3}
-  previewTexture2D: {fileID: 2800000, guid: 1653664984d02f64fbd313de55bda4fe, type: 3}
+  - {fileID: 8401672461323506455, guid: 13020060950327a4c83f94374cc63741, type: 3}
+  previewTexture2D: {fileID: 0}
   tileTexture:
   - {fileID: 2800000, guid: 1653664984d02f64fbd313de55bda4fe, type: 3}
   assetType: 1
@@ -1433,7 +1544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34fa54262e976104a85adc4cba5eead0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 0.000011978147
+  x: 0.0000009536743
   y: 283.19995
   num: 0
   relationShips:
@@ -1489,8 +1600,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34fa54262e976104a85adc4cba5eead0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 1510.8425
-  y: 1416.8
+  x: 1519.2
+  y: 1416.7997
   num: 0
   relationShips:
   - indexOutput: 0
@@ -1528,7 +1639,7 @@ MonoBehaviour:
   - {fileID: -999047084272747307}
   nodeData: {fileID: 2475748639829530841}
   tileVisuals:
-  - {fileID: 919132149155446097, guid: 10d4cdd41770dc446abbb433b64cb641, type: 3}
+  - {fileID: 6442360804001893638, guid: 5ba57da2d70ff3048ae81916afe1566b, type: 3}
   previewTexture2D: {fileID: 0}
   tileTexture:
   - {fileID: 2800000, guid: 0f06cc20ff82e6d43b04d292c1ca5e7b, type: 3}
@@ -1577,13 +1688,42 @@ MonoBehaviour:
   - {fileID: 4624814798419536188}
   nodeData: {fileID: 2008501454664053726}
   tileVisuals:
-  - {fileID: 919132149155446097, guid: d3a8840156307324091d53d7d80a162e, type: 3}
-  previewTexture2D: {fileID: 2800000, guid: 283ef79c8c19d6b45b3513802dcdb249, type: 3}
+  - {fileID: 4132339742237892680, guid: 3514a66ba8d15e045afa748caf3c1412, type: 3}
+  previewTexture2D: {fileID: 0}
   tileTexture:
   - {fileID: 2800000, guid: 283ef79c8c19d6b45b3513802dcdb249, type: 3}
   assetType: 1
   rotationList:
   - degrees: 0
+--- !u!114 &6974956111051354393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e890ea296fd8fc84392022df9300b300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileName: WFC2D tile
+  tileId: 75f8fe790380b434dbde105d114e9beb
+  frequency: 10
+  rotationModule: 0
+  adjacencyCodes:
+  - {fileID: 4624814798419536188}
+  - {fileID: 4624814798419536188}
+  - {fileID: 4624814798419536188}
+  - {fileID: 4624814798419536188}
+  nodeData: {fileID: -4146692721916358802}
+  tileVisuals:
+  - {fileID: 7271224199994123206, guid: 091b61319b953f342beaf020d2b40d50, type: 3}
+  previewTexture2D: {fileID: 0}
+  tileTexture:
+  - {fileID: 2800000, guid: 96304921e9201e543888ee75cab0d8c1, type: 3}
+  assetType: 1
+  rotationList: []
 --- !u!114 &8122198490135911471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1691,8 +1831,8 @@ MonoBehaviour:
   - {fileID: -9201746777203853536}
   nodeData: {fileID: -5660556630509816424}
   tileVisuals:
-  - {fileID: 919132149155446097, guid: 01cee25c369449e429b4049303e5d3f9, type: 3}
-  previewTexture2D: {fileID: 2800000, guid: 873bde867fea3b1458ffc85b7cf4d748, type: 3}
+  - {fileID: 428523062616113076, guid: 82429b78847ab444d91268ef4b4279c7, type: 3}
+  previewTexture2D: {fileID: 0}
   tileTexture:
   - {fileID: 2800000, guid: 873bde867fea3b1458ffc85b7cf4d748, type: 3}
   assetType: 1
