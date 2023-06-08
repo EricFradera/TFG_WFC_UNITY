@@ -468,7 +468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: WFC2D tile
   tileId: 22e3e16c474f7654dbc70ff8a38091de
-  frequency: 10
+  frequency: 25
   rotationModule: 0
   adjacencyCodes:
   - {fileID: 4904040021243848372}
@@ -478,9 +478,9 @@ MonoBehaviour:
   nodeData: {fileID: -4546975642928116995}
   tileVisuals:
   - {fileID: 0}
-  previewTexture2D: {fileID: 2800000, guid: 9e76ea0a10060384882dae824a54088b, type: 3}
+  previewTexture2D: {fileID: 2800000, guid: f6ea655a1c1a9ee4abb2ac3f33b1c0bc, type: 3}
   tileTexture:
-  - {fileID: 2800000, guid: 9e76ea0a10060384882dae824a54088b, type: 3}
+  - {fileID: 2800000, guid: f6ea655a1c1a9ee4abb2ac3f33b1c0bc, type: 3}
   assetType: 0
   rotationList: []
 --- !u!114 &-3493224211688596659
@@ -1709,7 +1709,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: WFC2D tile
   tileId: 75f8fe790380b434dbde105d114e9beb
-  frequency: 10
+  frequency: 25
   rotationModule: 0
   adjacencyCodes:
   - {fileID: 4624814798419536188}
