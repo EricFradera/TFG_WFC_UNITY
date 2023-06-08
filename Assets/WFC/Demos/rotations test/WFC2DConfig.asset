@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7244423340824254647
+--- !u!114 &-5624513052916705321
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,45 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34fa54262e976104a85adc4cba5eead0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 0
-  y: 0
-  num: 0
-  relationShips:
-  - indexOutput: 0
-    inputTile: {fileID: 0}
-    inputCodeData: {fileID: -2619900120300477783}
-  - indexOutput: 3
-    inputTile: {fileID: 0}
-    inputCodeData: {fileID: -2619900120300477783}
-  - indexOutput: 1
-    inputTile: {fileID: 0}
-    inputCodeData: {fileID: 7931203121617625042}
-  - indexOutput: 2
-    inputTile: {fileID: 0}
-    inputCodeData: {fileID: 7931203121617625042}
---- !u!114 &-4543894678830838021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34fa54262e976104a85adc4cba5eead0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  x: 290.59998
-  y: 0
+  x: 464.6
+  y: 154.4
   num: 2
   relationShips:
   - indexOutput: 0
-    inputTile: {fileID: 6422986027247559194}
+    inputTile: {fileID: 976414009423728053}
     inputCodeData: {fileID: 0}
   - indexOutput: 3
-    inputTile: {fileID: 6422986027247559194}
+    inputTile: {fileID: 976414009423728053}
     inputCodeData: {fileID: 0}
---- !u!114 &-2619900120300477783
+--- !u!114 &-553373437084050895
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -62,11 +34,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 435c0fdac9c8b8f4581b588fcbf0a10b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uid: 8f71dee904d27924aa1a2c6895c8c557
-  socketName: green
+  uid: cd3f705ab13e4bd42ad2159a28d5a9c8
+  socketName: g
   socketCodes:
   - g
-  nodeData: {fileID: -4543894678830838021}
+  - g
+  - g
+  nodeData: {fileID: -5624513052916705321}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,12 +56,12 @@ MonoBehaviour:
   configurationName: 
   configurationID: 0
   wfcTilesList:
-  - {fileID: 6422986027247559194}
+  - {fileID: 976414009423728053}
   nodeHelpers:
-  - {fileID: -2619900120300477783}
-  - {fileID: 7931203121617625042}
+  - {fileID: -553373437084050895}
+  - {fileID: 4140031280712873986}
   useRotations: 1
---- !u!114 &6422986027247559194
+--- !u!114 &976414009423728053
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,52 +74,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileName: WFC2D tile
-  tileId: a279eb37a05db8c479772bf12276624e
+  tileId: d579b6b8161368749a11c9884ee81b2c
   frequency: 1
   rotationModule: 0
   adjacencyCodes:
-  - {fileID: -2619900120300477783}
-  - {fileID: 7931203121617625042}
-  - {fileID: 7931203121617625042}
-  - {fileID: -2619900120300477783}
-  nodeData: {fileID: -7244423340824254647}
-  tileVisuals: {fileID: 8288289460523674836, guid: 972cd2499a0c5274d9eddcf5f389c009,
-    type: 3}
-  tileTexture: {fileID: 2800000, guid: d10752ecf6a6fdc4ab500ebdf831311b, type: 3}
-  assetType: 1
+  - {fileID: -553373437084050895}
+  - {fileID: 4140031280712873986}
+  - {fileID: 4140031280712873986}
+  - {fileID: -553373437084050895}
+  randomizeVariations: 0
+  nodeData: {fileID: 5308839981542743588}
+  tileVisuals:
+  - {fileID: 0}
+  previewTexture2D: {fileID: 0}
+  tileTexture:
+  - {fileID: 2800000, guid: d10752ecf6a6fdc4ab500ebdf831311b, type: 3}
+  assetType: 0
   rotationList:
   - degrees: 0
   - degrees: 1
   - degrees: 2
---- !u!114 &7088654150503777774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34fa54262e976104a85adc4cba5eead0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  x: 348.8
-  y: 268.8
-  num: 4
-  relationShips:
-  - indexOutput: 1
-    inputTile: {fileID: 6422986027247559194}
-    inputCodeData: {fileID: 0}
-  - indexOutput: 2
-    inputTile: {fileID: 6422986027247559194}
-    inputCodeData: {fileID: 0}
-  - indexOutput: 1
-    inputTile: {fileID: 6422986027247559194}
-    inputCodeData: {fileID: 0}
-  - indexOutput: 2
-    inputTile: {fileID: 6422986027247559194}
-    inputCodeData: {fileID: 0}
---- !u!114 &7931203121617625042
+--- !u!114 &4140031280712873986
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,8 +106,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 435c0fdac9c8b8f4581b588fcbf0a10b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uid: bb477080e0c0ccc4893b492ba9493def
-  socketName: path
+  uid: 37d42afcff483394294886622a92d6f7
+  socketName: p
   socketCodes:
+  - g
   - p
-  nodeData: {fileID: 7088654150503777774}
+  - g
+  nodeData: {fileID: 7227590575359856338}
+--- !u!114 &5308839981542743588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34fa54262e976104a85adc4cba5eead0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  x: 152
+  y: 155
+  num: 0
+  relationShips:
+  - indexOutput: 0
+    inputTile: {fileID: 0}
+    inputCodeData: {fileID: -553373437084050895}
+  - indexOutput: 3
+    inputTile: {fileID: 0}
+    inputCodeData: {fileID: -553373437084050895}
+  - indexOutput: 1
+    inputTile: {fileID: 0}
+    inputCodeData: {fileID: 4140031280712873986}
+  - indexOutput: 2
+    inputTile: {fileID: 0}
+    inputCodeData: {fileID: 4140031280712873986}
+--- !u!114 &7227590575359856338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34fa54262e976104a85adc4cba5eead0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  x: 477.20004
+  y: 266.328
+  num: 2
+  relationShips:
+  - indexOutput: 1
+    inputTile: {fileID: 976414009423728053}
+    inputCodeData: {fileID: 0}
+  - indexOutput: 2
+    inputTile: {fileID: 976414009423728053}
+    inputCodeData: {fileID: 0}

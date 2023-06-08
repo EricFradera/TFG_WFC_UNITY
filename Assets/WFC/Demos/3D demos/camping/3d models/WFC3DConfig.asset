@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9036793092822165448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1747b3fffdddd4d4c8c4fe1129790d7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileName: WFC3D tile
+  tileId: 1a8266ae3190515499a430fab9d23332
+  frequency: 1
+  rotationModule: 0
+  adjacencyCodes:
+  - {fileID: 6163925480523964410}
+  - {fileID: -3521156994644057151}
+  - {fileID: 6163925480523964410}
+  - {fileID: 6163925480523964410}
+  - {fileID: 6163925480523964410}
+  - {fileID: 6163925480523964410}
+  randomizeVariations: 0
+  nodeData: {fileID: -2094791072416764453}
+  tileVisuals:
+  - {fileID: 919132149155446097, guid: 5310185310224a445a19b4473e728dbb, type: 3}
+  previewTexture2D: {fileID: 0}
+  rotationList: []
+  rotationAxis: 0
 --- !u!114 &-8716244151701599814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14,15 +44,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: WFC3D tile
   tileId: 00ae5c61a3e7b084f92d9595a5894b43
-  frequency: 1
+  frequency: 50
   rotationModule: 0
   adjacencyCodes:
   - {fileID: 6163925480523964410}
   - {fileID: -3521156994644057151}
-  - {fileID: 8057228927144454378}
-  - {fileID: 8057228927144454378}
-  - {fileID: 8057228927144454378}
-  - {fileID: 8057228927144454378}
+  - {fileID: 6163925480523964410}
+  - {fileID: 6163925480523964410}
+  - {fileID: 6163925480523964410}
+  - {fileID: 6163925480523964410}
   randomizeVariations: 1
   nodeData: {fileID: -3494845524623016855}
   tileVisuals:
@@ -57,36 +87,6 @@ MonoBehaviour:
   socketCodes:
   - BASEFLOORSIDE
   nodeData: {fileID: -4800539619004819318}
---- !u!114 &-6033404804403121057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1747b3fffdddd4d4c8c4fe1129790d7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tileName: WFC3D tile
-  tileId: 671f1d8a5004e194c853d84b9ac62b30
-  frequency: 1
-  rotationModule: 0
-  adjacencyCodes:
-  - {fileID: 6163925480523964410}
-  - {fileID: -3521156994644057151}
-  - {fileID: 8057228927144454378}
-  - {fileID: 8057228927144454378}
-  - {fileID: 8057228927144454378}
-  - {fileID: 8057228927144454378}
-  randomizeVariations: 0
-  nodeData: {fileID: 3032380761748099426}
-  tileVisuals:
-  - {fileID: 919132149155446097, guid: 5310185310224a445a19b4473e728dbb, type: 3}
-  previewTexture2D: {fileID: 0}
-  rotationList: []
-  rotationAxis: 0
 --- !u!114 &-4800539619004819318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,8 +144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34fa54262e976104a85adc4cba5eead0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 0
-  y: 368
+  x: -57.20002
+  y: 368.0001
   num: 0
   relationShips:
   - indexOutput: 0
@@ -156,17 +156,17 @@ MonoBehaviour:
     inputCodeData: {fileID: -3521156994644057151}
   - indexOutput: 2
     inputTile: {fileID: 0}
-    inputCodeData: {fileID: 8057228927144454378}
+    inputCodeData: {fileID: 6163925480523964410}
   - indexOutput: 3
     inputTile: {fileID: 0}
-    inputCodeData: {fileID: 8057228927144454378}
+    inputCodeData: {fileID: 6163925480523964410}
   - indexOutput: 4
     inputTile: {fileID: 0}
-    inputCodeData: {fileID: 8057228927144454378}
+    inputCodeData: {fileID: 6163925480523964410}
   - indexOutput: 5
     inputTile: {fileID: 0}
-    inputCodeData: {fileID: 8057228927144454378}
---- !u!114 &-1487618293724301781
+    inputCodeData: {fileID: 6163925480523964410}
+--- !u!114 &-2094791072416764453
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -178,34 +178,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34fa54262e976104a85adc4cba5eead0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 585.00006
-  y: 631
-  num: 8
+  x: -56.799988
+  y: 684.80005
+  num: 0
   relationShips:
+  - indexOutput: 0
+    inputTile: {fileID: 0}
+    inputCodeData: {fileID: 6163925480523964410}
+  - indexOutput: 1
+    inputTile: {fileID: 0}
+    inputCodeData: {fileID: -3521156994644057151}
   - indexOutput: 2
-    inputTile: {fileID: -6033404804403121057}
-    inputCodeData: {fileID: 0}
+    inputTile: {fileID: 0}
+    inputCodeData: {fileID: 6163925480523964410}
   - indexOutput: 3
-    inputTile: {fileID: -6033404804403121057}
-    inputCodeData: {fileID: 0}
+    inputTile: {fileID: 0}
+    inputCodeData: {fileID: 6163925480523964410}
   - indexOutput: 4
-    inputTile: {fileID: -6033404804403121057}
-    inputCodeData: {fileID: 0}
+    inputTile: {fileID: 0}
+    inputCodeData: {fileID: 6163925480523964410}
   - indexOutput: 5
-    inputTile: {fileID: -6033404804403121057}
-    inputCodeData: {fileID: 0}
-  - indexOutput: 2
-    inputTile: {fileID: -8716244151701599814}
-    inputCodeData: {fileID: 0}
-  - indexOutput: 3
-    inputTile: {fileID: -8716244151701599814}
-    inputCodeData: {fileID: 0}
-  - indexOutput: 4
-    inputTile: {fileID: -8716244151701599814}
-    inputCodeData: {fileID: 0}
-  - indexOutput: 5
-    inputTile: {fileID: -8716244151701599814}
-    inputCodeData: {fileID: 0}
+    inputTile: {fileID: 0}
+    inputCodeData: {fileID: 6163925480523964410}
 --- !u!114 &-942072216726399883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +231,36 @@ MonoBehaviour:
   - indexOutput: 0
     inputTile: {fileID: 0}
     inputCodeData: {fileID: -3521156994644057151}
+--- !u!114 &-918004847135771798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1747b3fffdddd4d4c8c4fe1129790d7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileName: elevator
+  tileId: 23af68e7b248b434187ff55e97b84f3f
+  frequency: 10
+  rotationModule: 0
+  adjacencyCodes:
+  - {fileID: -3521156994644057151}
+  - {fileID: -3521156994644057151}
+  - {fileID: 6163925480523964410}
+  - {fileID: 6163925480523964410}
+  - {fileID: 6163925480523964410}
+  - {fileID: 6163925480523964410}
+  randomizeVariations: 0
+  nodeData: {fileID: 6762883892796379371}
+  tileVisuals:
+  - {fileID: 6090861259275608671, guid: ad88a796b01f43f4cb4d83d57d2ca4c1, type: 3}
+  previewTexture2D: {fileID: 0}
+  rotationList: []
+  rotationAxis: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,13 +278,13 @@ MonoBehaviour:
   wfcTilesList:
   - {fileID: 8849963930779464877}
   - {fileID: -8716244151701599814}
-  - {fileID: -6033404804403121057}
   - {fileID: 3926636166476917681}
+  - {fileID: -9036793092822165448}
+  - {fileID: -918004847135771798}
   nodeHelpers:
   - {fileID: 6163925480523964410}
   - {fileID: -8164525169522462591}
   - {fileID: -3521156994644057151}
-  - {fileID: 8057228927144454378}
   useRotations: 1
 --- !u!114 &2421958250798271930
 MonoBehaviour:
@@ -274,8 +298,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34fa54262e976104a85adc4cba5eead0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 0
-  y: 0
+  x: -16.99996
+  y: 0.000076293945
   num: 0
   relationShips:
   - indexOutput: 0
@@ -296,40 +320,6 @@ MonoBehaviour:
   - indexOutput: 5
     inputTile: {fileID: 0}
     inputCodeData: {fileID: 6163925480523964410}
---- !u!114 &3032380761748099426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34fa54262e976104a85adc4cba5eead0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  x: -0.000061035156
-  y: 721
-  num: 0
-  relationShips:
-  - indexOutput: 2
-    inputTile: {fileID: 0}
-    inputCodeData: {fileID: 8057228927144454378}
-  - indexOutput: 3
-    inputTile: {fileID: 0}
-    inputCodeData: {fileID: 8057228927144454378}
-  - indexOutput: 4
-    inputTile: {fileID: 0}
-    inputCodeData: {fileID: 8057228927144454378}
-  - indexOutput: 5
-    inputTile: {fileID: 0}
-    inputCodeData: {fileID: 8057228927144454378}
-  - indexOutput: 0
-    inputTile: {fileID: 0}
-    inputCodeData: {fileID: 6163925480523964410}
-  - indexOutput: 1
-    inputTile: {fileID: 0}
-    inputCodeData: {fileID: -3521156994644057151}
 --- !u!114 &3926636166476917681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,7 +334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: WFC3D tile
   tileId: 734d83d06a26a7d4f8de65ef83e915fb
-  frequency: 100
+  frequency: 50
   rotationModule: 0
   adjacencyCodes:
   - {fileID: -3521156994644057151}
@@ -374,7 +364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 216
   y: 19
-  num: 8
+  num: 22
   relationShips:
   - indexOutput: 0
     inputTile: {fileID: 8849963930779464877}
@@ -395,10 +385,52 @@ MonoBehaviour:
     inputTile: {fileID: 8849963930779464877}
     inputCodeData: {fileID: 0}
   - indexOutput: 0
-    inputTile: {fileID: -6033404804403121057}
+    inputTile: {fileID: 0}
     inputCodeData: {fileID: 0}
   - indexOutput: 0
     inputTile: {fileID: -8716244151701599814}
+    inputCodeData: {fileID: 0}
+  - indexOutput: 2
+    inputTile: {fileID: -8716244151701599814}
+    inputCodeData: {fileID: 0}
+  - indexOutput: 3
+    inputTile: {fileID: -8716244151701599814}
+    inputCodeData: {fileID: 0}
+  - indexOutput: 4
+    inputTile: {fileID: -8716244151701599814}
+    inputCodeData: {fileID: 0}
+  - indexOutput: 5
+    inputTile: {fileID: -8716244151701599814}
+    inputCodeData: {fileID: 0}
+  - indexOutput: 0
+    inputTile: {fileID: -9036793092822165448}
+    inputCodeData: {fileID: 0}
+  - indexOutput: 2
+    inputTile: {fileID: -9036793092822165448}
+    inputCodeData: {fileID: 0}
+  - indexOutput: 3
+    inputTile: {fileID: -9036793092822165448}
+    inputCodeData: {fileID: 0}
+  - indexOutput: 4
+    inputTile: {fileID: -9036793092822165448}
+    inputCodeData: {fileID: 0}
+  - indexOutput: 5
+    inputTile: {fileID: -9036793092822165448}
+    inputCodeData: {fileID: 0}
+  - indexOutput: 0
+    inputTile: {fileID: -918004847135771798}
+    inputCodeData: {fileID: 0}
+  - indexOutput: 2
+    inputTile: {fileID: -918004847135771798}
+    inputCodeData: {fileID: 0}
+  - indexOutput: 3
+    inputTile: {fileID: -918004847135771798}
+    inputCodeData: {fileID: 0}
+  - indexOutput: 4
+    inputTile: {fileID: -918004847135771798}
+    inputCodeData: {fileID: 0}
+  - indexOutput: 5
+    inputTile: {fileID: -918004847135771798}
     inputCodeData: {fileID: 0}
 --- !u!114 &6163925480523964410
 MonoBehaviour:
@@ -431,7 +463,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 752
   y: 427.99997
-  num: 3
+  num: 6
   relationShips:
   - indexOutput: 0
     inputTile: {fileID: 3926636166476917681}
@@ -440,9 +472,18 @@ MonoBehaviour:
     inputTile: {fileID: -8716244151701599814}
     inputCodeData: {fileID: 0}
   - indexOutput: 1
-    inputTile: {fileID: -6033404804403121057}
+    inputTile: {fileID: 0}
     inputCodeData: {fileID: 0}
---- !u!114 &8057228927144454378
+  - indexOutput: 1
+    inputTile: {fileID: -9036793092822165448}
+    inputCodeData: {fileID: 0}
+  - indexOutput: 1
+    inputTile: {fileID: -918004847135771798}
+    inputCodeData: {fileID: 0}
+  - indexOutput: 0
+    inputTile: {fileID: -918004847135771798}
+    inputCodeData: {fileID: 0}
+--- !u!114 &6762883892796379371
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -451,14 +492,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 435c0fdac9c8b8f4581b588fcbf0a10b, type: 3}
+  m_Script: {fileID: 11500000, guid: 34fa54262e976104a85adc4cba5eead0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uid: 705ff4694287f9543b55e87ab022e3af
-  socketName: TOPFLOORSIDES
-  socketCodes:
-  - TOPFLOORSIDES
-  nodeData: {fileID: -1487618293724301781}
+  x: -450.6648
+  y: 986.9901
+  num: 0
+  relationShips:
+  - indexOutput: 1
+    inputTile: {fileID: 0}
+    inputCodeData: {fileID: -3521156994644057151}
+  - indexOutput: 2
+    inputTile: {fileID: 0}
+    inputCodeData: {fileID: 6163925480523964410}
+  - indexOutput: 3
+    inputTile: {fileID: 0}
+    inputCodeData: {fileID: 6163925480523964410}
+  - indexOutput: 4
+    inputTile: {fileID: 0}
+    inputCodeData: {fileID: 6163925480523964410}
+  - indexOutput: 5
+    inputTile: {fileID: 0}
+    inputCodeData: {fileID: 6163925480523964410}
+  - indexOutput: 0
+    inputTile: {fileID: 0}
+    inputCodeData: {fileID: -3521156994644057151}
 --- !u!114 &8849963930779464877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,7 +531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: WFC3D tile
   tileId: 346f7c49dc6f7144e8fcfec51d711395
-  frequency: 1
+  frequency: 50
   rotationModule: 0
   adjacencyCodes:
   - {fileID: 6163925480523964410}
