@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileName: EMPTY
   tileId: ab0e105fca389974ab7a642d724ae18e
-  frequency: 85.9
+  frequency: 50
   rotationModule: 0
   adjacencyCodes:
   - {fileID: -1234491756814256534}
@@ -23,6 +23,7 @@ MonoBehaviour:
   - {fileID: -1234491756814256534}
   - {fileID: -1234491756814256534}
   - {fileID: -1234491756814256534}
+  randomizeVariations: 0
   nodeData: {fileID: -4974051529944108214}
   tileVisuals:
   - {fileID: 919132149155446097, guid: 164ccb46956c0514abab47ab3fbb9614, type: 3}
@@ -194,6 +195,7 @@ MonoBehaviour:
   - {fileID: 4633156482166576903}
   - {fileID: -1234491756814256534}
   - {fileID: -1234491756814256534}
+  randomizeVariations: 0
   nodeData: {fileID: 448446038410008554}
   tileVisuals:
   - {fileID: 2997870491621391982, guid: a33cd29830cc70245a61cdb0c693de98, type: 3}
@@ -434,6 +436,7 @@ MonoBehaviour:
   - {fileID: 4633156482166576903}
   - {fileID: -1234491756814256534}
   - {fileID: -1234491756814256534}
+  randomizeVariations: 0
   nodeData: {fileID: -2195791473162136681}
   tileVisuals:
   - {fileID: 2614098226978113575, guid: 2332aca6ba4f2a344882c25263d53f60, type: 3}
@@ -485,6 +488,7 @@ MonoBehaviour:
   - {fileID: 4633156482166576903}
   - {fileID: -1234491756814256534}
   - {fileID: -1234491756814256534}
+  randomizeVariations: 0
   nodeData: {fileID: 1024162202135367218}
   tileVisuals:
   - {fileID: 8343766203972227449, guid: 6979d7300d52db0489c53549795a042a, type: 3}
@@ -519,6 +523,7 @@ MonoBehaviour:
   - {fileID: -1234491756814256534}
   - {fileID: -1234491756814256534}
   - {fileID: -1234491756814256534}
+  randomizeVariations: 0
   nodeData: {fileID: 1439610641487761411}
   tileVisuals:
   - {fileID: 633111614854662446, guid: 87bafc1d0bdd89e4a85f3cd18ef287af, type: 3}
