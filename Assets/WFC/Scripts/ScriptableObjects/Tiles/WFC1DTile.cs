@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 using UnityEditor;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "WFC components/WFC2DTile", order = 1, fileName = "WFC2dTile"), Serializable]
 public class WFC1DTile : WFCTile
 {
     [JsonIgnore] public Texture2D[] tileTexture;
