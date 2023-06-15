@@ -685,7 +685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 805eb54aa0aeab74ba01c24c94a80203, type: 3}
   m_Name: circuit
   m_EditorClassIdentifier: 
-  configurationName: 
+  configurationName: circuit
   configurationID: 0
   wfcTilesList:
   - {fileID: 8689920540319652538}

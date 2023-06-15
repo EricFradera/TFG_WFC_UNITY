@@ -28,9 +28,7 @@ namespace WFCEditor
         enum GUIOPTIONS
         {
             TileToJson,
-            JsonToTile,
             ConfigToJson,
-            JsonToConfig
         }
 
         private String[][] menuText = new string[][]
@@ -38,23 +36,13 @@ namespace WFCEditor
             new String[]
             {
                 "Select Scriptable object of type Tile", "Select where the file will be saved", "Select path",
-                "Specify target location", "WFC2DTile to JSON"
-            },
-            new String[]
-            {
-                "Select JSON file to convert into a tile", "Select where the file will be saved", "Select path",
-                "Specify target location", "JSON to WFC2DTile"
+                "Specify target location", "WFCTile to JSON"
             },
             new String[]
             {
                 "Config object of type Tile", "Select where the file will be saved", "Select path",
                 "Specify target location", "WFCTile to JSON"
             },
-            new String[]
-            {
-                "Select JSON file to convert into a config", "Select where the file will be saved", "Select path",
-                "Specify target location", "JSON to Config"
-            }
         };
 
         void OnGUI()
@@ -82,17 +70,11 @@ namespace WFCEditor
             GUILayout.Label(menuText[(int)_enumVar][0], EditorStyles.label);
             switch (_enumVar)
             {
-                case GUIOPTIONS.JsonToTile:
-                    source = EditorGUILayout.ObjectField(source, typeof(TextAsset), true);
-                    break;
                 case GUIOPTIONS.TileToJson:
                     source = EditorGUILayout.ObjectField(source, typeof(WFCTile), true);
                     break;
                 case GUIOPTIONS.ConfigToJson:
                     source = EditorGUILayout.ObjectField(source, typeof(WFCConfig), true);
-                    break;
-                case GUIOPTIONS.JsonToConfig:
-                    source = EditorGUILayout.ObjectField(source, typeof(TextAsset), true);
                     break;
             }
 
@@ -112,17 +94,11 @@ namespace WFCEditor
                 {
                     switch (_enumVar)
                     {
-                        case GUIOPTIONS.JsonToTile:
-                            _generator.GenerateTileFromJson(((TextAsset)source).text, path);
-                            break;
                         case GUIOPTIONS.TileToJson:
                             _generator.GenerateFromObject(source, path, ((WFCTile)source).tileName);
                             break;
                         case GUIOPTIONS.ConfigToJson:
                             _generator.GenerateFromObject(source, path, ((WFCConfig)source).configurationName);
-                            break;
-                        case GUIOPTIONS.JsonToConfig:
-                            _generator.GenerateConfigFromJson(((TextAsset)source).text, path);
                             break;
                         default:
                             throw new ArgumentOutOfRangeException();

@@ -23,15 +23,22 @@ public class JsonGen
             path + "/Tile" + tile.tileId + ".json", adjacencyConstrains);
     }*/
 
+
     public void GenerateTileFromJson(TextAsset json, String path)
     {
         WFC2DTile tile = ScriptableObject.CreateInstance<WFC2DTile>();
         JsonUtility.FromJsonOverwrite(json.text, tile);
-        AssetDatabase.CreateAsset(tile,
-            path.Substring(path.LastIndexOf("Assets", StringComparison.Ordinal)) + "/Tile" + tile.tileId + ".asset");
+        if (tile.tileId == "")
+            AssetDatabase.CreateAsset(tile,
+                path.Substring(path.LastIndexOf("Assets", StringComparison.Ordinal)) + tile.name + ".asset");
+        else
+            AssetDatabase.CreateAsset(tile,
+                path.Substring(path.LastIndexOf("Assets", StringComparison.Ordinal)) + tile.tileId +
+                ".asset");
         AssetDatabase.SaveAssets();
     }
 
+// This feature no longer works because of the use of scriptable objects
     public void GenerateConfigFromJson(string json, string path
     )
     {
@@ -40,12 +47,18 @@ public class JsonGen
         {
             TypeNameHandling = Newtonsoft.Json.TypeNameHandling.Auto
         };*/
+
+
         WFC2DConfig config = ScriptableObject.CreateInstance<WFC2DConfig>();
         JObject obj = JObject.Parse(json);
         config.configurationName = (string)obj["configurationName"];
+
         JArray res = (JArray)obj["wfcTilesList"];
+
         foreach (var tile in res)
         {
+            JObject test = (JObject)tile;
+            config.wfcTilesList.Add(getTile(test));
         }
 
         AssetDatabase.CreateAsset(config, "Assets/test.asset");
@@ -53,11 +66,12 @@ public class JsonGen
         Debug.Log("succes");
     }
 
-    public void GenerateTileFromJson(string json, string path)
+    private WFC2DTile getTile(JObject jObject)
     {
-        Debug.Log("started");
-        
-        Debug.Log("succes");
+        WFC2DTile tempTile = ScriptableObject.CreateInstance<WFC2DTile>();
+        tempTile.tileId = (string)jObject["tileId"];
+        Debug.Log(tempTile.tileId);
+        return tempTile;
     }
 
 
