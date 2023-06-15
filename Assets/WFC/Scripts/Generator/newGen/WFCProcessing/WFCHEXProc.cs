@@ -18,7 +18,6 @@ public class WFCHEXProc : WFCAbstractProc
 
     public override ITopoArray<WFCTile> RunWFC(float m_gridExtent, float m_gridSize, bool useBacktracking)
     {
-        //This count is probably wrong
         var size = Mathf.RoundToInt((m_gridExtent * 2) / m_gridSize);
         if (size % 2 == 0) size++;
         size--;

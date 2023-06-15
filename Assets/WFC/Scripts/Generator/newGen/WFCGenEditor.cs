@@ -10,9 +10,6 @@ using UnityEngine.UIElements;
 using WFC;
 
 
-#if true
-
-
 [CustomEditor(typeof(WFCGenerator)), Serializable]
 public class WFCGenEditor : Editor
 {
@@ -99,6 +96,7 @@ public class WFCGenEditor : Editor
             if (wfcConfigFileField.value is not null)
             {
                 var newConfig = wfcConfigFileField.value;
+                gizmoList[(int)indexGizmo].destroyGizmo();
                 switch (newConfig)
                 {
                     case WFC1DConfig wfc1DConfig:
@@ -172,4 +170,3 @@ public class WFCGenEditor : Editor
         listViewComponent.itemsSource = wfcTilesList;
     }
 }
-#endif

@@ -9,14 +9,17 @@ public class Gizmo3d : IGizmos
 {
     private GameObject cube;
     private Material gridMat;
+    private GameObject parentGizmo;
 
     public void enableGizmo(Component component)
     {
-        
         cube ??= GameObject.CreatePrimitive(PrimitiveType.Cube);
         gridMat ??= new Material(Shader.Find("Shader Graphs/gridShader"));
+        parentGizmo ??= new GameObject("Gizmos");
         cube.transform.position = new Vector3(0, 0, 0);
-        //cube.transform.parent = component.transform;
+        parentGizmo.transform.position = new Vector3(0, 0, 0);
+        cube.transform.parent = parentGizmo.transform;
+        parentGizmo.transform.parent = component.transform;
         if (cube.TryGetComponent<Renderer>(out var renderer)) renderer.material = gridMat;
     }
 
@@ -34,6 +37,7 @@ public class Gizmo3d : IGizmos
 
     public void destroyGizmo()
     {
+        Object.DestroyImmediate(parentGizmo);
         Object.DestroyImmediate(cube);
         Object.DestroyImmediate(gridMat);
     }
